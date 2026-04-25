@@ -1151,18 +1151,19 @@ elif st.session_state.view != "bewerten":
             with cols[idx]:
                 # ── Portrait-Bild (oben) ──
                 initial = artist_name[0] if artist_name else "?"
+                _click_js = 'onclick="var el=this.closest(&#x27;[data-testid=stColumn]&#x27;);if(el){var btn=el.querySelector(&#x27;button&#x27;);if(btn)btn.click();}"'
                 if img_src:
                     onerror_attr = 'this.style.display=&quot;none&quot;;this.nextElementSibling.style.display=&quot;flex&quot;;'
                     st.markdown(
-                        f'<div style="width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:3px 3px 0 0;background:#EDEAE5;position:relative;">'
-                        f'<img src="{img_src}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="{onerror_attr}">'
+                        f'<div style="width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:3px 3px 0 0;background:#EDEAE5;position:relative;cursor:pointer;" {_click_js}>'
+                        f'<img src="{img_src}" style="width:100%;height:100%;object-fit:cover;pointer-events:none;" loading="lazy" onerror="{onerror_attr}">'
                         f'<div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;position:absolute;top:0;left:0;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;">{initial}</div>'
                         f'</div>',
                         unsafe_allow_html=True
                     )
                 else:
                     st.markdown(
-                        f'<div style="width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;border-radius:3px 3px 0 0;">{initial}</div>',
+                        f'<div style="width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;border-radius:3px 3px 0 0;cursor:pointer;" {_click_js}>{initial}</div>',
                         unsafe_allow_html=True
                     )
                 # ── Name as clickable button ──
