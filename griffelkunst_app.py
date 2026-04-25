@@ -1057,51 +1057,56 @@ if st.session_state.selected_artist and st.session_state.selected_artist in arti
     components.html("""
     <script>
         function doScroll() {
-            try {
-                // Alle möglichen scroll-Container auf 0 setzen
-                var pd = window.parent;
-                var doc = pd.document;
-                // Streamlit-spezifische Container
-                var selectors = [
-                    'section.main',
-                    '[data-testid="stAppViewContainer"]',
-                    '[data-testid="stMainBlockContainer"]',
-                    '[data-testid="stVerticalBlock"]',
-                    '.main',
-                    '.block-container'
-                ];
-                for (var i = 0; i < selectors.length; i++) {
-                    var el = doc.querySelector(selectors[i]);
-                    if (el) el.scrollTop = 0;
-                }
-                pd.scrollTo(0, 0);
-                doc.documentElement.scrollTop = 0;
-                doc.body.scrollTop = 0;
-                // Auch im eigenen Frame
-                window.scrollTo(0, 0);
-            } catch(e) {}
-        }
-        // Sofort und nochmal verzögert (falls DOM noch rendert)
-        doScroll();
-        setTimeout(doScroll, 100);
-        setTimeout(doScroll, 300);
-        setTimeout(doScroll, 600);
+            // Alle Ebenen durchgehen: eigenes Fenster, parent, top
+            var targets = [window];
+            try { targets.push(window.parent); } catch(e) {}
+            try { if (window.top !== window.parent) targets.push(window.top); } catch(e) {}
 
-        // Browser-History: Zurück-Button/Swipe funktioniert
-        var pd = window.parent;
-        if (!pd._trueffelHistorySet) {
-            pd.history.pushState({view: 'detail'}, '', '');
-            pd.addEventListener('popstate', function(e) {
-                var btns = pd.document.querySelectorAll('[data-testid="stBaseButton-secondary"]');
-                for (var i = 0; i < btns.length; i++) {
-                    if (btns[i].textContent.indexOf('Zurück') !== -1) {
-                        btns[i].click();
-                        break;
+            for (var t = 0; t < targets.length; t++) {
+                try {
+                    var w = targets[t];
+                    w.scrollTo({top: 0, left: 0, behavior: 'instant'});
+                    var d = w.document;
+                    if (d) {
+                        d.documentElement.scrollTop = 0;
+                        d.body.scrollTop = 0;
+                        // Streamlit-Container
+                        var sels = ['section.main', '[data-testid="stAppViewContainer"]',
+                                    '[data-testid="stMainBlockContainer"]', '.main', '.block-container'];
+                        for (var i = 0; i < sels.length; i++) {
+                            var el = d.querySelector(sels[i]);
+                            if (el) { el.scrollTop = 0; el.scrollTo && el.scrollTo(0,0); }
+                        }
                     }
-                }
-            });
-            pd._trueffelHistorySet = true;
+                } catch(e) {}
+            }
         }
+        // Mehrfach feuern: sofort + verzögert (DOM rendert asynchron)
+        doScroll();
+        setTimeout(doScroll, 50);
+        setTimeout(doScroll, 200);
+        setTimeout(doScroll, 500);
+        setTimeout(doScroll, 1000);
+
+        // Browser-History: Zurück-Button/Swipe am Handy
+        try {
+            var top = window.top || window.parent;
+            if (!top._trueffelHistorySet) {
+                top.history.pushState({view: 'detail'}, '', '');
+                top.addEventListener('popstate', function(e) {
+                    try {
+                        var btns = top.document.querySelectorAll('button');
+                        for (var i = 0; i < btns.length; i++) {
+                            if (btns[i].textContent.indexOf('Zurück') !== -1) {
+                                btns[i].click();
+                                break;
+                            }
+                        }
+                    } catch(e) {}
+                });
+                top._trueffelHistorySet = true;
+            }
+        } catch(e) {}
     </script>
     """, height=0)
     if st.button("← Zurück zur Galerie", key="btn_back", use_container_width=True):
@@ -1224,11 +1229,12 @@ elif st.session_state.view != "bewerten":
     st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(artist_groups)} Künstler·innen · {len(view_filtered)} Werke{filter_hint} — alphabetisch nach Nachname</div>', unsafe_allow_html=True)
 
     # Render grid — Streamlit columns with portrait tiles
-    COLS_PER_ROW = 5
+    # 4 Spalten: bricht auf Mobile sauber auf 2×2 um (kein leeres Feld)
+    COLS_PER_ROW = 4
     artist_list = list(artist_groups.items())
     for row_start in range(0, len(artist_list), COLS_PER_ROW):
         row_items = artist_list[row_start:row_start + COLS_PER_ROW]
-        # Nur so viele Spalten wie Einträge → keine leeren Spalten
+        # Nur so viele Spalten wie Einträge → keine leeren Spalten am Ende
         cols = st.columns(len(row_items))
         for idx, (artist_name, works) in enumerate(row_items):
             info = artists_data.get(artist_name, {})
