@@ -11,11 +11,178 @@ import streamlit.components.v1 as components
 import pandas as pd
 import json
 import subprocess
+import re
+import urllib.request
+import urllib.parse
+import ssl
 from pathlib import Path
 from collections import OrderedDict
 from PIL import Image
 import base64
 import io
+
+# ─── Web-Recherche für Künstler-Bewertung ───
+_ssl_ctx = ssl.create_default_context()
+
+BLUE_CHIP_GALLERIES_SEARCH = [
+    "Gagosian", "Hauser & Wirth", "Hauser&Wirth", "Pace Gallery", "Pace,",
+    "David Zwirner", "Zwirner", "Marian Goodman", "Sprüth Magers",
+    "Lisson", "Thaddaeus Ropac", "Ropac", "Gladstone", "White Cube",
+    "neugerriemschneider", "Esther Schipper", "Buchholz", "Matthew Marks",
+    "Paula Cooper", "Max Hetzler", "König Galerie", "Perrotin",
+    "Petzel", "Eigen+Art", "Tanya Bonakdar"
+]
+
+MID_TIER_GALLERIES = [
+    "Capitain", "Nagel Draxler", "Barbara Wien", "KOW", "Kraupa-Tuskany",
+    "Galerie Crone", "Sies + Höke", "Meyer Riegger", "Galerie Gisela Capitain",
+    "Nächst St. Stephan", "Johnen", "Contemporary Fine Arts", "CFA Berlin"
+]
+
+IMPORTANT_MUSEUMS = [
+    "MoMA", "Museum of Modern Art", "Tate", "Guggenheim", "Centre Pompidou",
+    "Pompidou", "Whitney", "Hamburger Bahnhof", "Kunsthalle", "Pinakothek",
+    "Stedelijk", "Moderna Museet", "Ludwig", "MACBA", "Reina Sofia",
+    "Serpentine", "Haus der Kunst", "Kunstverein", "Documenta", "documenta",
+    "Biennale", "Manifesta", "Skulptur Projekte"
+]
+
+TECHNIQUE_KEYWORDS = {
+    5: ["unikat", "unique", "original", "monotypie", "zeichnung auf"],
+    4: ["heliogravüre", "heliogravure", "photogravure", "holzschnitt", "woodcut",
+        "aquatinta", "mezzotint", "kaltnadelradierung"],
+    3: ["radierung", "etching", "lithografie", "lithographie", "lithograph",
+        "linolschnitt", "linocut"],
+    2: ["siebdruck", "screenprint", "serigraphie", "c-print", "pigmentdruck",
+        "inkjet", "giclée", "giclee"],
+    1: ["offset", "digitaldruck", "poster", "plakat"]
+}
+
+def _fetch_url_quick(url, timeout=12):
+    """URL abrufen, HTML als String."""
+    try:
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+        })
+        with urllib.request.urlopen(req, context=_ssl_ctx, timeout=timeout) as resp:
+            return resp.read().decode("utf-8", errors="replace")
+    except Exception:
+        return None
+
+def _search_ddg_quick(query, max_results=8):
+    """DuckDuckGo HTML-Suche."""
+    try:
+        encoded = urllib.parse.quote_plus(query)
+        url = f"https://html.duckduckgo.com/html/?q={encoded}"
+        html = _fetch_url_quick(url, timeout=15)
+        if not html:
+            return []
+        results = []
+        snippets = re.findall(r'class="result__snippet">(.*?)</a>', html, re.DOTALL)
+        for snippet in snippets[:max_results]:
+            clean = re.sub(r'<[^>]+>', '', snippet).strip()
+            if clean:
+                results.append(clean)
+        return results
+    except Exception:
+        return []
+
+def recherche_artist(name):
+    """Webrecherche zu einem Künstler, gibt RMTP-Schätzung + Fundstellen zurück."""
+    findings = {"R": [], "M": [], "T": [], "P": [], "raw": []}
+    r_score, m_score, t_score, p_score = 2, 2, 3, 3  # Defaults
+    is_blue_chip = False
+
+    # ── Suche 1: Galerien & Reputation ──
+    snippets_r = _search_ddg_quick(f'"{name}" Galerie gallery representation')
+    findings["raw"].extend(snippets_r)
+    for s in snippets_r:
+        s_lower = s.lower()
+        for gal in BLUE_CHIP_GALLERIES_SEARCH:
+            if gal.lower() in s_lower:
+                r_score = max(r_score, 5)
+                is_blue_chip = True
+                findings["R"].append(f"Blue-Chip-Galerie: {gal}")
+                break
+        for gal in MID_TIER_GALLERIES:
+            if gal.lower() in s_lower:
+                r_score = max(r_score, 3)
+                findings["R"].append(f"Galerie: {gal}")
+
+    # ── Suche 2: Ausstellungen & Museum ──
+    snippets_m = _search_ddg_quick(f'"{name}" Ausstellung exhibition museum solo')
+    findings["raw"].extend(snippets_m)
+    for s in snippets_m:
+        s_lower = s.lower()
+        for mus in IMPORTANT_MUSEUMS:
+            if mus.lower() in s_lower:
+                m_score = max(m_score, 4)
+                findings["M"].append(f"Museum/Event: {mus}")
+        if "solo" in s_lower or "einzelausstellung" in s_lower:
+            m_score = max(m_score, 3)
+            findings["M"].append("Solo-Ausstellung gefunden")
+        if "retrospektive" in s_lower or "retrospective" in s_lower:
+            m_score = max(m_score, 4)
+            findings["M"].append("Retrospektive gefunden")
+
+    # ── Suche 3: Technik ──
+    snippets_t = _search_ddg_quick(f'"{name}" Druckgrafik Technik edition print etching lithograph')
+    findings["raw"].extend(snippets_t)
+    for s in snippets_t:
+        s_lower = s.lower()
+        for score_val, keywords in TECHNIQUE_KEYWORDS.items():
+            for kw in keywords:
+                if kw in s_lower:
+                    t_score = max(t_score, score_val) if score_val > 3 else min(t_score, score_val) if score_val < 3 else t_score
+                    findings["T"].append(f"Technik: {kw} (→ T={score_val})")
+                    break
+
+    # ── Suche 4: Preise / Markt ──
+    snippets_p = _search_ddg_quick(f'"{name}" Auktion auction price Ergebnis Schätzpreis')
+    findings["raw"].extend(snippets_p)
+    price_found = False
+    for s in snippets_p:
+        s_lower = s.lower()
+        # Hohe Preise deuten auf etablierten Markt
+        for high_kw in ["€", "eur", "usd", "$", "gbp", "£", "sold for", "zuschlag", "hammer"]:
+            if high_kw in s_lower:
+                price_found = True
+                # Versuche Preishöhe grob zu erkennen
+                nums = re.findall(r'[\d.,]+(?:\s*(?:000|\.000))', s)
+                if nums:
+                    findings["P"].append(f"Auktionsergebnis gefunden")
+                break
+        if "undervalued" in s_lower or "unterbewertet" in s_lower or "emerging" in s_lower:
+            p_score = max(p_score, 4)
+            findings["P"].append("Potenzialsignal: emerging/unterbewertet")
+
+    if price_found:
+        p_score = max(p_score, 3)
+
+    # Blue-Chip-Korrektur: wenn R=5, ist P eher niedrig (schon teuer)
+    if r_score >= 5:
+        p_score = min(p_score, 2)
+
+    # Dedupliziere Findings
+    for key in ["R", "M", "T", "P"]:
+        findings[key] = list(dict.fromkeys(findings[key]))
+
+    total = r_score + m_score + t_score + p_score
+    # Liga
+    if r_score >= 4 and total >= 12:
+        liga = "Liga 1"
+    elif total >= 12 or r_score >= 4:
+        liga = "Liga 2"
+    elif total >= 8:
+        liga = "Liga 3"
+    else:
+        liga = "Liga 4"
+
+    return {
+        "R": r_score, "M": m_score, "T": t_score, "P": p_score,
+        "total": total, "liga": liga, "isBlueChip": is_blue_chip,
+        "findings": findings, "snippets_count": len(set(findings["raw"]))
+    }
 
 # ─── Page Config ───
 # Favicon als base64 eingebettet (funktioniert überall, auch Streamlit Cloud)
@@ -1212,6 +1379,55 @@ if view == "bewerten":
         else:
             st.markdown(f'<div style="font-size:0.85rem;color:#5A9E5A;margin-bottom:0.5rem;">✦ Neuer Künstler — Bewertung eingeben:</div>', unsafe_allow_html=True)
 
+        # ── Web-Recherche Button ──
+        _rech_col1, _rech_col2 = st.columns([3, 1])
+        with _rech_col2:
+            _do_recherche = st.button("🔍 Web-Recherche", key="btn_recherche", use_container_width=True,
+                                      help="Sucht im Web nach Galerien, Ausstellungen, Technik und Preisen")
+        if _do_recherche:
+            with st.spinner(f"Recherchiere {bewerten_name}…"):
+                _rech = recherche_artist(bewerten_name)
+                st.session_state["recherche_result"] = _rech
+                st.session_state["recherche_name"] = bewerten_name
+
+        # Recherche-Ergebnis anzeigen (bleibt bis Name sich ändert)
+        if st.session_state.get("recherche_name") == bewerten_name and "recherche_result" in st.session_state:
+            _rech = st.session_state["recherche_result"]
+            _liga_colors_r = {"Liga 1": "#C44B3F", "Liga 2": "#6B7DB3", "Liga 3": "#5A9E5A", "Liga 4": "#C4993D"}
+            _r_col = _liga_colors_r.get(_rech["liga"], "#999")
+            _bc_label = " · ● Blue Chip" if _rech["isBlueChip"] else ""
+
+            st.markdown(
+                f'<div style="background:#F0F7F2;padding:1rem 1.2rem;border-radius:4px;border-left:3px solid #5A9E5A;margin-bottom:1rem;">'
+                f'<div style="font-family:Cormorant Garamond,serif;font-size:1.1rem;font-weight:700;color:#1B3A2A;">🔍 Web-Recherche: {bewerten_name}{_bc_label}</div>'
+                f'<div style="margin:0.5rem 0;font-size:0.9rem;">'
+                f'<span style="color:#C44B3F;font-weight:700;">R {_rech["R"]}</span> · '
+                f'<span style="color:#6B7DB3;font-weight:700;">M {_rech["M"]}</span> · '
+                f'<span style="color:#5A9E5A;font-weight:700;">T {_rech["T"]}</span> · '
+                f'<span style="color:#C4993D;font-weight:700;">P {_rech["P"]}</span> · '
+                f'<span style="font-weight:700;">{_rech["total"]}/20</span> · '
+                f'<span style="color:{_r_col};font-weight:700;">{_rech["liga"]}</span></div>'
+                f'<div style="font-size:0.75rem;color:#888;margin-top:0.3rem;">{_rech["snippets_count"]} Webquellen ausgewertet</div>'
+                f'</div>',
+                unsafe_allow_html=True
+            )
+            # Fundstellen Details
+            _detail_parts = []
+            if _rech["findings"]["R"]:
+                _detail_parts.append("**R — Reputation:** " + " · ".join(_rech["findings"]["R"]))
+            if _rech["findings"]["M"]:
+                _detail_parts.append("**M — Momentum:** " + " · ".join(_rech["findings"]["M"]))
+            if _rech["findings"]["T"]:
+                _detail_parts.append("**T — Technik:** " + " · ".join(_rech["findings"]["T"]))
+            if _rech["findings"]["P"]:
+                _detail_parts.append("**P — Potenzial:** " + " · ".join(_rech["findings"]["P"]))
+            if _detail_parts:
+                with st.expander("📋 Fundstellen", expanded=False):
+                    for _dp in _detail_parts:
+                        st.markdown(f'<div style="font-size:0.82rem;margin:0.3rem 0;">{_dp}</div>', unsafe_allow_html=True)
+            elif not _rech["findings"]["R"] and not _rech["findings"]["M"]:
+                st.markdown('<div style="font-size:0.8rem;color:#888;font-style:italic;">Wenig im Web gefunden — Score-Vorschlag basiert auf Defaults. Bitte manuell anpassen.</div>', unsafe_allow_html=True)
+
         # Update-Vorschläge anzeigen
         if update_reasons:
             st.markdown(
@@ -1240,13 +1456,27 @@ if view == "bewerten":
 
         st.markdown("##### Score anpassen" if existing else "##### Score vergeben")
 
-        # RMTP Sliders — mit Update-Vorschlägen als Defaults
-        base_r = existing.get("rmtp", {}).get("R", 3) if existing else 3
-        base_m = existing.get("rmtp", {}).get("M", 3) if existing else 3
-        default_r = min(5, base_r + suggest_r_delta)
-        default_m = min(5, base_m + suggest_m_delta)
-        default_t = existing.get("rmtp", {}).get("T", 3) if existing else 3
-        default_p = existing.get("rmtp", {}).get("P", 3) if existing else 3
+        # RMTP Sliders — mit Update-Vorschlägen oder Recherche-Ergebnis als Defaults
+        _has_recherche = (st.session_state.get("recherche_name") == bewerten_name and "recherche_result" in st.session_state)
+        _rech_data = st.session_state.get("recherche_result", {}) if _has_recherche else {}
+
+        if existing:
+            base_r = existing.get("rmtp", {}).get("R", 3)
+            base_m = existing.get("rmtp", {}).get("M", 3)
+            default_r = min(5, base_r + suggest_r_delta)
+            default_m = min(5, base_m + suggest_m_delta)
+            default_t = existing.get("rmtp", {}).get("T", 3)
+            default_p = existing.get("rmtp", {}).get("P", 3)
+        elif _has_recherche:
+            default_r = _rech_data.get("R", 3)
+            default_m = _rech_data.get("M", 3)
+            default_t = _rech_data.get("T", 3)
+            default_p = _rech_data.get("P", 3)
+        else:
+            default_r = 3
+            default_m = 3
+            default_t = 3
+            default_p = 3
 
         score_cols = st.columns(4)
         with score_cols[0]:
@@ -1301,7 +1531,7 @@ if view == "bewerten":
         detail_cols = st.columns(2)
         with detail_cols[0]:
             gender = st.selectbox("Gender", ["f", "m", "d"], index=0 if not existing else (0 if existing.get("gender") == "f" else 1), key="sel_gender")
-            default_bc = suggest_bc or (existing.get("isBlueChip", False) if existing else False)
+            default_bc = suggest_bc or (existing.get("isBlueChip", False) if existing else False) or (_rech_data.get("isBlueChip", False) if _has_recherche else False)
             is_bc = st.checkbox("Blue Chip ●", value=default_bc, key="chk_bc")
         with detail_cols[1]:
             editions = st.text_input("Editionen", value=existing.get("editions", "") if existing else "", key="inp_editions")
