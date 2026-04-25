@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.DS_Store
+daten/monitoring_updates.json
+daten/monitoring_history.json
+daten/monitoring_log.txt
+*.command
+de.trueffelkunst.monitoring.plist
+skills/
