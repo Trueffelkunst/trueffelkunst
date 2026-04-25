@@ -987,19 +987,30 @@ artist_groups = group_by_artist(view_filtered)
 # ── Detail View: If an artist is selected, show detail page ──
 if st.session_state.selected_artist and st.session_state.selected_artist in artists_data:
     selected = st.session_state.selected_artist
-    # Auto-Scroll zum Anfang der Detailansicht
+    # Auto-Scroll + Browser-History für Zurück-Geste am Handy
     components.html("""
     <script>
-        // Mehrere Scroll-Methoden für maximale Kompatibilität
+        var pd = window.parent;
+        // Scroll nach oben
         try {
-            var main = window.parent.document.querySelector('section.main');
+            var main = pd.document.querySelector('section.main');
             if (main) main.scrollTop = 0;
-            var container = window.parent.document.querySelector('[data-testid="stAppViewContainer"]');
+            var container = pd.document.querySelector('[data-testid="stAppViewContainer"]');
             if (container) container.scrollTop = 0;
-            var block = window.parent.document.querySelector('[data-testid="block-container"]');
-            if (block) block.scrollIntoView({behavior: 'smooth'});
-            window.parent.scrollTo(0, 0);
+            pd.scrollTo(0, 0);
         } catch(e) {}
+        // Browser-History: Zurück-Button/Swipe funktioniert
+        if (!pd._trueffelHistorySet) {
+            pd.history.pushState({view: 'detail'}, '', '');
+            pd.addEventListener('popstate', function(e) {
+                // Wenn Zurück gedrückt wird: Klick auf Zurück-Button
+                var backBtn = pd.document.querySelector('[data-testid="stBaseButton-secondary"]');
+                if (backBtn && backBtn.textContent.indexOf('Zurück') !== -1) {
+                    backBtn.click();
+                }
+            });
+            pd._trueffelHistorySet = true;
+        }
     </script>
     """, height=0)
     if st.button("← Zurück zur Galerie", key="btn_back", use_container_width=True):
