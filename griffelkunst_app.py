@@ -69,8 +69,8 @@ def _fetch_url_quick(url, timeout=12):
     except Exception:
         return None
 
-def _search_ddg_quick(query, max_results=8):
-    """DuckDuckGo HTML-Suche."""
+def _search_ddg_quick(query, max_results=10):
+    """DuckDuckGo HTML-Suche — gibt Liste von dicts {title, snippet, url} zurück."""
     try:
         encoded = urllib.parse.quote_plus(query)
         url = f"https://html.duckduckgo.com/html/?q={encoded}"
@@ -78,84 +78,123 @@ def _search_ddg_quick(query, max_results=8):
         if not html:
             return []
         results = []
-        snippets = re.findall(r'class="result__snippet">(.*?)</a>', html, re.DOTALL)
-        for snippet in snippets[:max_results]:
-            clean = re.sub(r'<[^>]+>', '', snippet).strip()
-            if clean:
-                results.append(clean)
+        # Titel extrahieren
+        titles = re.findall(r'class="result__a"[^>]*>(.*?)</a>', html, re.DOTALL)
+        # Snippets: <a class="result__snippet" href="...">TEXT</a>  ODER  <td class="result__snippet">.....</td>
+        snippets = re.findall(r'class="result__snippet"[^>]*>(.*?)</(?:a|td|div)', html, re.DOTALL)
+        # URLs
+        urls = re.findall(r'class="result__url"[^>]*>([^<]+)<', html)
+        n = min(max_results, max(len(titles), len(snippets)))
+        for i in range(n):
+            title = re.sub(r'<[^>]+>', '', titles[i]).strip() if i < len(titles) else ""
+            snippet = re.sub(r'<[^>]+>', '', snippets[i]).strip() if i < len(snippets) else ""
+            res_url = urls[i].strip() if i < len(urls) else ""
+            combined = f"{title} — {snippet} — {res_url}"
+            if combined.strip(" —"):
+                results.append({"title": title, "snippet": snippet, "url": res_url, "text": combined})
         return results
     except Exception:
         return []
 
 def recherche_artist(name):
     """Webrecherche zu einem Künstler, gibt RMTP-Schätzung + Fundstellen zurück."""
+    import time
     findings = {"R": [], "M": [], "T": [], "P": [], "raw": []}
     r_score, m_score, t_score, p_score = 2, 2, 3, 3  # Defaults
     is_blue_chip = False
 
-    # ── Suche 1: Galerien & Reputation ──
-    snippets_r = _search_ddg_quick(f'"{name}" Galerie gallery representation')
-    findings["raw"].extend(snippets_r)
-    for s in snippets_r:
-        s_lower = s.lower()
-        for gal in BLUE_CHIP_GALLERIES_SEARCH:
-            if gal.lower() in s_lower:
-                r_score = max(r_score, 5)
-                is_blue_chip = True
-                findings["R"].append(f"Blue-Chip-Galerie: {gal}")
-                break
-        for gal in MID_TIER_GALLERIES:
-            if gal.lower() in s_lower:
-                r_score = max(r_score, 3)
-                findings["R"].append(f"Galerie: {gal}")
+    # ── Alle Suchergebnisse sammeln (3 breite Queries statt 7 enge) ──
+    queries = [
+        f'{name} artist gallery museum exhibition',
+        f'{name} auction print edition technique',
+        f'{name} artist biography',
+    ]
+    all_results = []
+    for q in queries:
+        results = _search_ddg_quick(q)
+        all_results.extend(results)
+        time.sleep(0.5)  # Rate-Limit vermeiden
 
-    # ── Suche 2: Ausstellungen & Museum ──
-    snippets_m = _search_ddg_quick(f'"{name}" Ausstellung exhibition museum solo')
-    findings["raw"].extend(snippets_m)
-    for s in snippets_m:
-        s_lower = s.lower()
-        for mus in IMPORTANT_MUSEUMS:
-            if mus.lower() in s_lower:
-                m_score = max(m_score, 4)
-                findings["M"].append(f"Museum/Event: {mus}")
-        if "solo" in s_lower or "einzelausstellung" in s_lower:
-            m_score = max(m_score, 3)
-            findings["M"].append("Solo-Ausstellung gefunden")
-        if "retrospektive" in s_lower or "retrospective" in s_lower:
+    findings["raw"] = all_results
+
+    # ── Alle Texte (title + snippet + url) analysieren ──
+    all_texts = []
+    for r in all_results:
+        if isinstance(r, dict):
+            all_texts.append(r.get("text", "").lower())
+        else:
+            all_texts.append(str(r).lower())
+
+    combined_text = " ".join(all_texts)
+
+    # ── R: Reputation ──
+    for gal in BLUE_CHIP_GALLERIES_SEARCH:
+        if gal.lower() in combined_text:
+            r_score = max(r_score, 5)
+            is_blue_chip = True
+            findings["R"].append(f"Blue-Chip-Galerie: {gal}")
+    for gal in MID_TIER_GALLERIES:
+        if gal.lower() in combined_text:
+            r_score = max(r_score, 3)
+            findings["R"].append(f"Galerie: {gal}")
+    # Wikipedia / Artnet / Artsy
+    if "wikipedia" in combined_text:
+        r_score = max(r_score, 3)
+        findings["R"].append("Wikipedia-Eintrag vorhanden")
+    if "artnet.com" in combined_text:
+        r_score = max(r_score, 3)
+        findings["R"].append("Artnet-Profil vorhanden")
+    if "artsy.net" in combined_text:
+        r_score = max(r_score, 3)
+        findings["R"].append("Artsy-Profil vorhanden")
+    # Preise / Auszeichnungen als Reputation-Indikator
+    for award_kw in ["turner prize", "golden lion", "leone d'oro", "hasselblad",
+                     "macarthur", "wolf prize", "praemium imperiale", "preis der nationalgalerie"]:
+        if award_kw in combined_text:
+            r_score = max(r_score, 5)
+            findings["R"].append(f"Bedeutender Preis: {award_kw}")
+
+    # ── M: Momentum (Ausstellungen, Museen) ──
+    for mus in IMPORTANT_MUSEUMS:
+        if mus.lower() in combined_text:
             m_score = max(m_score, 4)
-            findings["M"].append("Retrospektive gefunden")
+            findings["M"].append(f"Museum/Event: {mus}")
+    # Top-Museen in URLs erkennen
+    top_museum_urls = ["moma.org", "tate.org", "whitney.org", "guggenheim.org",
+                       "centrepompidou", "nationalgallery", "metmuseum", "stedelijk",
+                       "kunsthalle", "haus-der-kunst", "hamburger-bahnhof"]
+    for mus_url in top_museum_urls:
+        if mus_url in combined_text:
+            m_score = max(m_score, 5)
+            findings["M"].append(f"Top-Museum: {mus_url}")
+    if "solo" in combined_text or "einzelausstellung" in combined_text or "solo show" in combined_text:
+        m_score = max(m_score, 3)
+        findings["M"].append("Solo-Ausstellung gefunden")
+    if "retrospektive" in combined_text or "retrospective" in combined_text:
+        m_score = max(m_score, 5)
+        findings["M"].append("Retrospektive gefunden")
+    if "survey" in combined_text and ("exhibition" in combined_text or "show" in combined_text):
+        m_score = max(m_score, 4)
+        findings["M"].append("Survey-Ausstellung gefunden")
 
-    # ── Suche 3: Technik ──
-    snippets_t = _search_ddg_quick(f'"{name}" Druckgrafik Technik edition print etching lithograph')
-    findings["raw"].extend(snippets_t)
-    for s in snippets_t:
-        s_lower = s.lower()
-        for score_val, keywords in TECHNIQUE_KEYWORDS.items():
-            for kw in keywords:
-                if kw in s_lower:
-                    t_score = max(t_score, score_val) if score_val > 3 else min(t_score, score_val) if score_val < 3 else t_score
-                    findings["T"].append(f"Technik: {kw} (→ T={score_val})")
-                    break
+    # ── T: Technik ──
+    for score_val, keywords in TECHNIQUE_KEYWORDS.items():
+        for kw in keywords:
+            if kw in combined_text:
+                t_score = max(t_score, score_val) if score_val > 3 else min(t_score, score_val) if score_val < 3 else t_score
+                findings["T"].append(f"Technik: {kw} (→ T={score_val})")
 
-    # ── Suche 4: Preise / Markt ──
-    snippets_p = _search_ddg_quick(f'"{name}" Auktion auction price Ergebnis Schätzpreis')
-    findings["raw"].extend(snippets_p)
+    # ── P: Potenzial / Markt ──
     price_found = False
-    for s in snippets_p:
-        s_lower = s.lower()
-        # Hohe Preise deuten auf etablierten Markt
-        for high_kw in ["€", "eur", "usd", "$", "gbp", "£", "sold for", "zuschlag", "hammer"]:
-            if high_kw in s_lower:
-                price_found = True
-                # Versuche Preishöhe grob zu erkennen
-                nums = re.findall(r'[\d.,]+(?:\s*(?:000|\.000))', s)
-                if nums:
-                    findings["P"].append(f"Auktionsergebnis gefunden")
-                break
-        if "undervalued" in s_lower or "unterbewertet" in s_lower or "emerging" in s_lower:
-            p_score = max(p_score, 4)
-            findings["P"].append("Potenzialsignal: emerging/unterbewertet")
-
+    for high_kw in ["€", "eur", "usd", "$", "gbp", "£", "sold for", "zuschlag", "hammer",
+                    "artnet", "christies", "christie's", "sotheby", "phillips", "bonhams",
+                    "mutualart", "auction"]:
+        if high_kw in combined_text:
+            price_found = True
+            findings["P"].append(f"Markt-Signal: {high_kw}")
+    if "undervalued" in combined_text or "unterbewertet" in combined_text or "emerging" in combined_text:
+        p_score = max(p_score, 4)
+        findings["P"].append("Potenzialsignal: emerging/unterbewertet")
     if price_found:
         p_score = max(p_score, 3)
 
@@ -181,7 +220,7 @@ def recherche_artist(name):
     return {
         "R": r_score, "M": m_score, "T": t_score, "P": p_score,
         "total": total, "liga": liga, "isBlueChip": is_blue_chip,
-        "findings": findings, "snippets_count": len(set(findings["raw"]))
+        "findings": findings, "snippets_count": len(findings["raw"])
     }
 
 # ─── Page Config ───
