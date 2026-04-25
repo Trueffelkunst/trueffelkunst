@@ -816,6 +816,13 @@ artist_groups = group_by_artist(view_filtered)
 # ── Detail View: If an artist is selected, show detail page ──
 if st.session_state.selected_artist and st.session_state.selected_artist in artists_data:
     selected = st.session_state.selected_artist
+    # Auto-Scroll zum Anfang der Detailansicht
+    components.html("""
+    <div id="artist-detail-anchor"></div>
+    <script>
+        window.parent.document.querySelector('[data-testid="stAppViewContainer"]').scrollTo({top: 0, behavior: 'smooth'});
+    </script>
+    """, height=0)
     if st.button("← Zurück zur Galerie", key="btn_back"):
         st.session_state.selected_artist = None
         st.rerun()
