@@ -748,85 +748,89 @@ def set_view(v):
     st.session_state.selected_artist = None
     st.session_state.selected_technique = None
 
-# Zeile 1: Hauptzahlen (5 Spalten)
-row1 = st.columns(5)
-with row1[0]:
-    if st.button(f"**{unique_artists}**\n\nKÜNSTLER", use_container_width=True, key="btn_kuenstler"):
-        set_view("künstler")
-with row1[1]:
-    if st.button(f"**{len(collection)}**\n\nWERKE", use_container_width=True, key="btn_werke"):
-        set_view("werke")
-with row1[2]:
-    if st.button(f"**{technique_count}**\n\nTECHNIK", use_container_width=True, key="btn_techniken"):
-        set_view("techniken")
-with row1[3]:
-    if st.button(f"**{blue_chip_count}**\n\nBLUE CHIP", use_container_width=True, key="btn_bluechip"):
-        set_view("bluechip")
-with row1[4]:
-    if st.button(f"**{meisterschueler_count}**\n\nMEISTERSCHÜLER", use_container_width=True, key="btn_meister"):
-        set_view("meisterschueler")
-# Zeile 2: Ligen + Bewerten (4 Spalten)
-row2 = st.columns(4)
-with row2[0]:
-    if st.button(f"**{stats['liga1']}**\n\nLIGA 1", use_container_width=True, key="btn_liga1"):
-        set_view("liga1")
-with row2[1]:
-    if st.button(f"**{stats['liga2']}**\n\nLIGA 2", use_container_width=True, key="btn_liga2"):
-        set_view("liga2")
-with row2[2]:
-    if st.button(f"**{stats['liga3']}**\n\nLIGA 3", use_container_width=True, key="btn_liga3"):
-        set_view("liga3")
-with row2[3]:
-    if st.button("**+**\n\nBEWERTEN", use_container_width=True, key="btn_bewerten"):
-        set_view("bewerten")
+# ── Navigation ausblenden wenn Künstler-Detail oder Technik-Detail offen ──
+_show_nav = (st.session_state.selected_artist is None and st.session_state.get("selected_technique") is None)
 
-st.markdown('<div style="border-bottom: 1px solid #E0DDD8; margin-bottom: 0.8rem;"></div>', unsafe_allow_html=True)
+if _show_nav:
+    # Zeile 1: Hauptzahlen (5 Spalten)
+    row1 = st.columns(5)
+    with row1[0]:
+        if st.button(f"**{unique_artists}**\n\nKÜNSTLER", use_container_width=True, key="btn_kuenstler"):
+            set_view("künstler")
+    with row1[1]:
+        if st.button(f"**{len(collection)}**\n\nWERKE", use_container_width=True, key="btn_werke"):
+            set_view("werke")
+    with row1[2]:
+        if st.button(f"**{technique_count}**\n\nTECHNIK", use_container_width=True, key="btn_techniken"):
+            set_view("techniken")
+    with row1[3]:
+        if st.button(f"**{blue_chip_count}**\n\nBLUE CHIP", use_container_width=True, key="btn_bluechip"):
+            set_view("bluechip")
+    with row1[4]:
+        if st.button(f"**{meisterschueler_count}**\n\nMEISTERSCHÜLER", use_container_width=True, key="btn_meister"):
+            set_view("meisterschueler")
+    # Zeile 2: Ligen + Bewerten (4 Spalten)
+    row2 = st.columns(4)
+    with row2[0]:
+        if st.button(f"**{stats['liga1']}**\n\nLIGA 1", use_container_width=True, key="btn_liga1"):
+            set_view("liga1")
+    with row2[1]:
+        if st.button(f"**{stats['liga2']}**\n\nLIGA 2", use_container_width=True, key="btn_liga2"):
+            set_view("liga2")
+    with row2[2]:
+        if st.button(f"**{stats['liga3']}**\n\nLIGA 3", use_container_width=True, key="btn_liga3"):
+            set_view("liga3")
+    with row2[3]:
+        if st.button("**+**\n\nBEWERTEN", use_container_width=True, key="btn_bewerten"):
+            set_view("bewerten")
 
-# ─── Filter — nur Suchfeld (nicht im Bewerten-Tab) ───
-if st.session_state.view != "bewerten":
-    search = st.text_input("🔍 Suche", placeholder="Künstler, Werk, Edition…", label_visibility="collapsed")
+    st.markdown('<div style="border-bottom: 1px solid #E0DDD8; margin-bottom: 0.8rem;"></div>', unsafe_allow_html=True)
+
+    # Suchfeld (nicht im Bewerten-Tab)
+    if st.session_state.view != "bewerten":
+        search = st.text_input("🔍 Suche", placeholder="Künstler, Werk, Edition…", label_visibility="collapsed")
+    else:
+        search = ""
+
+    # Score-Legende (nicht im Bewerten-Tab)
+    if st.session_state.view != "bewerten":
+        st.markdown(
+            '<div style="text-align:center;margin:-0.3rem 0 0.6rem;font-family:Cormorant Garamond,Georgia,serif;'
+            'color:#998E7D;letter-spacing:0.02em;">'
+            '<div style="display:flex;gap:1.2rem;justify-content:center;align-items:center;font-size:0.7rem;">'
+            '<span><span style="font-weight:700;color:#C44B3F;">R</span> Reputation</span>'
+            '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Momentum</span>'
+            '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Technik</span>'
+            '<span><span style="font-weight:700;color:#C4993D;">P</span> Potenzial</span>'
+            '<span style="opacity:0.6;">— max. 20 Punkte</span>'
+            '</div>'
+            '<div style="display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;'
+            'font-size:0.6rem;margin-top:0.25rem;opacity:0.75;line-height:1.4;">'
+            '<span><span style="font-weight:700;color:#C44B3F;">R</span> Galerien · Museen · Kunstgeschichte</span>'
+            '<span style="opacity:0.3;">|</span>'
+            '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Letzte 3 J.: Solo-Shows · Biennalen · Preise</span>'
+            '<span style="opacity:0.3;">|</span>'
+            '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert: Unikat (5) → Offset (1)</span>'
+            '<span style="opacity:0.3;">|</span>'
+            '<span><span style="font-weight:700;color:#C4993D;">P</span> Wertsteigerungschance</span>'
+            '</div>'
+            '<div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;'
+            'font-size:0.6rem;margin-top:0.35rem;opacity:0.7;line-height:1.4;">'
+            '<span style="font-weight:600;">Liga:</span>'
+            '<span><span style="color:#C44B3F;font-weight:700;">1</span> R≥4 + Score≥12</span>'
+            '<span style="opacity:0.3;">|</span>'
+            '<span><span style="color:#6B7DB3;font-weight:700;">2</span> Score≥12 oder R≥4</span>'
+            '<span style="opacity:0.3;">|</span>'
+            '<span><span style="color:#5A9E5A;font-weight:700;">3</span> Score≥8</span>'
+            '<span style="opacity:0.3;">|</span>'
+            '<span><span style="color:#C4993D;font-weight:700;">4</span> Rest</span>'
+            '</div>'
+            '</div>',
+            unsafe_allow_html=True
+        )
 else:
+    # Detail-Ansicht: Navigation ausgeblendet, nur search-Variable initialisieren
     search = ""
-
-# ─── Score-Legende (nicht im Bewerten-Tab) ───
-if st.session_state.view != "bewerten":
-  st.markdown(
-    '<div style="text-align:center;margin:-0.3rem 0 0.6rem;font-family:Cormorant Garamond,Georgia,serif;'
-    'color:#998E7D;letter-spacing:0.02em;">'
-    # Zeile 1: Überschrift mit Buchstaben
-    '<div style="display:flex;gap:1.2rem;justify-content:center;align-items:center;font-size:0.7rem;">'
-    '<span><span style="font-weight:700;color:#C44B3F;">R</span> Reputation</span>'
-    '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Momentum</span>'
-    '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Technik</span>'
-    '<span><span style="font-weight:700;color:#C4993D;">P</span> Potenzial</span>'
-    '<span style="opacity:0.6;">— max. 20 Punkte</span>'
-    '</div>'
-    # Zeile 2: Erklärung was reinzählt
-    '<div style="display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;'
-    'font-size:0.6rem;margin-top:0.25rem;opacity:0.75;line-height:1.4;">'
-    '<span><span style="font-weight:700;color:#C44B3F;">R</span> Galerien · Museen · Kunstgeschichte</span>'
-    '<span style="opacity:0.3;">|</span>'
-    '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Letzte 3 J.: Solo-Shows · Biennalen · Preise</span>'
-    '<span style="opacity:0.3;">|</span>'
-    '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert: Unikat (5) → Offset (1)</span>'
-    '<span style="opacity:0.3;">|</span>'
-    '<span><span style="font-weight:700;color:#C4993D;">P</span> Wertsteigerungschance</span>'
-    '</div>'
-    # Zeile 3: Liga-Berechnung
-    '<div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;'
-    'font-size:0.6rem;margin-top:0.35rem;opacity:0.7;line-height:1.4;">'
-    '<span style="font-weight:600;">Liga:</span>'
-    '<span><span style="color:#C44B3F;font-weight:700;">1</span> R≥4 + Score≥12</span>'
-    '<span style="opacity:0.3;">|</span>'
-    '<span><span style="color:#6B7DB3;font-weight:700;">2</span> Score≥12 oder R≥4</span>'
-    '<span style="opacity:0.3;">|</span>'
-    '<span><span style="color:#5A9E5A;font-weight:700;">3</span> Score≥8</span>'
-    '<span style="opacity:0.3;">|</span>'
-    '<span><span style="color:#C4993D;font-weight:700;">4</span> Rest</span>'
-    '</div>'
-    '</div>',
-    unsafe_allow_html=True
-)
 
 # Technik-Filter läuft über die Stats-Buttons, kein separates Dropdown nötig
 selected_techniques = []
