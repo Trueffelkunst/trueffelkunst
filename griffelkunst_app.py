@@ -304,6 +304,18 @@ st.markdown("""
         font-size: 3rem;
         font-family: 'Cormorant Garamond', Georgia, serif;
     }
+    /* ── Mobile: Portrait-Tiles responsive ── */
+    @media (max-width: 768px) {
+        [data-testid="stHorizontalBlock"] {
+            flex-wrap: wrap !important;
+            gap: 0.5rem !important;
+        }
+        [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {
+            flex: 0 0 calc(50% - 0.25rem) !important;
+            min-width: calc(50% - 0.25rem) !important;
+            max-width: calc(50% - 0.25rem) !important;
+        }
+    }
     .artist-tile-info {
         padding: 0.7rem 0.8rem;
     }
@@ -940,15 +952,15 @@ elif st.session_state.view != "bewerten":
                 if img_src:
                     onerror_attr = 'this.style.display=&quot;none&quot;;this.nextElementSibling.style.display=&quot;flex&quot;;'
                     st.markdown(
-                        f'<div style="width:100%;height:180px;overflow:hidden;border-radius:3px 3px 0 0;background:#EDEAE5;position:relative;">'
-                        f'<img src="{img_src}" style="width:100%;height:180px;object-fit:cover;" loading="lazy" onerror="{onerror_attr}">'
-                        f'<div style="display:none;width:100%;height:180px;align-items:center;justify-content:center;position:absolute;top:0;left:0;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;">{initial}</div>'
+                        f'<div style="width:100%;aspect-ratio:1/1;overflow:hidden;border-radius:3px 3px 0 0;background:#EDEAE5;position:relative;">'
+                        f'<img src="{img_src}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="{onerror_attr}">'
+                        f'<div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;position:absolute;top:0;left:0;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;">{initial}</div>'
                         f'</div>',
                         unsafe_allow_html=True
                     )
                 else:
                     st.markdown(
-                        f'<div style="width:100%;height:180px;display:flex;align-items:center;justify-content:center;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;border-radius:3px 3px 0 0;">{initial}</div>',
+                        f'<div style="width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;border-radius:3px 3px 0 0;">{initial}</div>',
                         unsafe_allow_html=True
                     )
                 # ── Name as clickable button ──
