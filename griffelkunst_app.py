@@ -475,12 +475,16 @@ st.markdown("""
     @media (max-width: 768px) {
         [data-testid="stHorizontalBlock"] {
             flex-wrap: wrap !important;
-            gap: 0.5rem !important;
+            gap: 0.3rem !important;
         }
         [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] {
-            flex: 0 0 calc(50% - 0.25rem) !important;
-            min-width: calc(50% - 0.25rem) !important;
-            max-width: calc(50% - 0.25rem) !important;
+            flex: 0 0 calc(50% - 0.15rem) !important;
+            min-width: calc(50% - 0.15rem) !important;
+            max-width: calc(50% - 0.15rem) !important;
+        }
+        /* Leere Spalten am Zeilenende verstecken */
+        [data-testid="stHorizontalBlock"] > [data-testid="stColumn"]:empty {
+            display: none !important;
         }
     }
     .artist-tile-info {
@@ -985,15 +989,28 @@ if st.session_state.selected_artist and st.session_state.selected_artist in arti
     selected = st.session_state.selected_artist
     # Auto-Scroll zum Anfang der Detailansicht
     components.html("""
-    <div id="artist-detail-anchor"></div>
     <script>
-        window.parent.document.querySelector('[data-testid="stAppViewContainer"]').scrollTo({top: 0, behavior: 'smooth'});
+        // Mehrere Scroll-Methoden für maximale Kompatibilität
+        try {
+            var main = window.parent.document.querySelector('section.main');
+            if (main) main.scrollTop = 0;
+            var container = window.parent.document.querySelector('[data-testid="stAppViewContainer"]');
+            if (container) container.scrollTop = 0;
+            var block = window.parent.document.querySelector('[data-testid="block-container"]');
+            if (block) block.scrollIntoView({behavior: 'smooth'});
+            window.parent.scrollTo(0, 0);
+        } catch(e) {}
     </script>
     """, height=0)
-    if st.button("← Zurück zur Galerie", key="btn_back"):
+    if st.button("← Zurück zur Galerie", key="btn_back", use_container_width=True):
         st.session_state.selected_artist = None
         st.rerun()
     show_artist_detail(selected)
+    # Zweiter Zurück-Button am Ende (wichtig für Mobile)
+    st.markdown("<div style='height:0.5rem;'></div>", unsafe_allow_html=True)
+    if st.button("← Zurück zur Galerie", key="btn_back_bottom", use_container_width=True):
+        st.session_state.selected_artist = None
+        st.rerun()
 
 elif view == "werke":
     # ── Werke-Ansicht: alle Werke mit Abbildung als Karten ──
@@ -1126,7 +1143,7 @@ elif st.session_state.view != "bewerten":
                 if img_src:
                     onerror_attr = 'this.style.display=&quot;none&quot;;this.nextElementSibling.style.display=&quot;flex&quot;;'
                     st.markdown(
-                        f'<div style="width:100%;aspect-ratio:1/1;overflow:hidden;border-radius:3px 3px 0 0;background:#EDEAE5;position:relative;">'
+                        f'<div style="width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:3px 3px 0 0;background:#EDEAE5;position:relative;">'
                         f'<img src="{img_src}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="{onerror_attr}">'
                         f'<div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;position:absolute;top:0;left:0;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;">{initial}</div>'
                         f'</div>',
@@ -1134,7 +1151,7 @@ elif st.session_state.view != "bewerten":
                     )
                 else:
                     st.markdown(
-                        f'<div style="width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;border-radius:3px 3px 0 0;">{initial}</div>',
+                        f'<div style="width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;border-radius:3px 3px 0 0;">{initial}</div>',
                         unsafe_allow_html=True
                     )
                 # ── Name as clickable button ──
