@@ -199,6 +199,30 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# ─── Passwortschutz (nur in der Cloud aktiv) ───
+import os
+_app_pw = os.environ.get("TRUEFFEL_PW", "")
+if _app_pw:
+    if "app_unlocked" not in st.session_state:
+        st.session_state.app_unlocked = False
+    if not st.session_state.app_unlocked:
+        st.markdown("""
+        <div style="display:flex;align-items:center;justify-content:center;min-height:60vh;">
+        <div style="text-align:center;max-width:320px;">
+        <div style="font-family:Cormorant Garamond,Georgia,serif;font-size:2.5rem;color:#1B3A2A;margin-bottom:0.3rem;">🐗</div>
+        <div style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.6rem;color:#1B3A2A;margin-bottom:1.5rem;">Trüffelkunst</div>
+        </div></div>
+        """, unsafe_allow_html=True)
+        _col1, _col2, _col3 = st.columns([1, 2, 1])
+        with _col2:
+            _pw = st.text_input("Passwort", type="password", key="app_pw_input", label_visibility="collapsed", placeholder="Passwort eingeben…")
+            if st.button("Öffnen", key="btn_app_unlock", use_container_width=True):
+                if _pw == _app_pw:
+                    st.session_state.app_unlocked = True
+                    st.rerun()
+                else:
+                    st.error("Falsches Passwort")
+        st.stop()
 
 # ─── Load Data ───
 def load_data():
@@ -1189,25 +1213,8 @@ elif st.session_state.view != "bewerten":
                 )
 
 
-# ─── Bewerten-Tab (Passwortschutz für Cloud-Version) ───
+# ─── Bewerten-Tab ───
 if view == "bewerten":
-    # Cloud-Passwortschutz: Bewerten nur für Admins
-    import os
-    _admin_pw = os.environ.get("TRUEFFEL_ADMIN_PW", "")
-    if _admin_pw:  # Nur in der Cloud aktiv (lokal: kein Passwort nötig)
-        if "admin_unlocked" not in st.session_state:
-            st.session_state.admin_unlocked = False
-        if not st.session_state.admin_unlocked:
-            st.markdown('<div style="font-family: Cormorant Garamond, Georgia, serif; font-size: 1.4rem; color: #1B3A2A; margin-bottom: 0.5rem;">Bewerten — geschützter Bereich</div>', unsafe_allow_html=True)
-            _pw_input = st.text_input("Passwort", type="password", key="admin_pw")
-            if st.button("Entsperren", key="btn_unlock"):
-                if _pw_input == _admin_pw:
-                    st.session_state.admin_unlocked = True
-                    st.rerun()
-                else:
-                    st.error("Falsches Passwort")
-            st.stop()
-
     st.markdown('<div style="font-family: Cormorant Garamond, Georgia, serif; font-size: 1.4rem; color: #1B3A2A; margin-bottom: 0.5rem;">Künstler·in bewerten</div>', unsafe_allow_html=True)
     st.markdown('<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem;">Nachschlagen oder neuen Künstler nach dem RMTP-System bewerten und speichern.</div>', unsafe_allow_html=True)
 
