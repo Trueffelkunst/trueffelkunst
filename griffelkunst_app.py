@@ -1056,23 +1056,48 @@ if st.session_state.selected_artist and st.session_state.selected_artist in arti
     # Auto-Scroll + Browser-History für Zurück-Geste am Handy
     components.html("""
     <script>
-        var pd = window.parent;
-        // Scroll nach oben
-        try {
-            var main = pd.document.querySelector('section.main');
-            if (main) main.scrollTop = 0;
-            var container = pd.document.querySelector('[data-testid="stAppViewContainer"]');
-            if (container) container.scrollTop = 0;
-            pd.scrollTo(0, 0);
-        } catch(e) {}
+        function doScroll() {
+            try {
+                // Alle möglichen scroll-Container auf 0 setzen
+                var pd = window.parent;
+                var doc = pd.document;
+                // Streamlit-spezifische Container
+                var selectors = [
+                    'section.main',
+                    '[data-testid="stAppViewContainer"]',
+                    '[data-testid="stMainBlockContainer"]',
+                    '[data-testid="stVerticalBlock"]',
+                    '.main',
+                    '.block-container'
+                ];
+                for (var i = 0; i < selectors.length; i++) {
+                    var el = doc.querySelector(selectors[i]);
+                    if (el) el.scrollTop = 0;
+                }
+                pd.scrollTo(0, 0);
+                doc.documentElement.scrollTop = 0;
+                doc.body.scrollTop = 0;
+                // Auch im eigenen Frame
+                window.scrollTo(0, 0);
+            } catch(e) {}
+        }
+        // Sofort und nochmal verzögert (falls DOM noch rendert)
+        doScroll();
+        setTimeout(doScroll, 100);
+        setTimeout(doScroll, 300);
+        setTimeout(doScroll, 600);
+
         // Browser-History: Zurück-Button/Swipe funktioniert
+        var pd = window.parent;
         if (!pd._trueffelHistorySet) {
             pd.history.pushState({view: 'detail'}, '', '');
             pd.addEventListener('popstate', function(e) {
-                // Wenn Zurück gedrückt wird: Klick auf Zurück-Button
-                var backBtn = pd.document.querySelector('[data-testid="stBaseButton-secondary"]');
-                if (backBtn && backBtn.textContent.indexOf('Zurück') !== -1) {
-                    backBtn.click();
+                var btns = pd.document.querySelectorAll('[data-testid="stBaseButton-secondary"]');
+                for (var i = 0; i < btns.length; i++) {
+                    if (btns[i].textContent.indexOf('Zurück') !== -1) {
+                        btns[i].click();
+                        break;
+                    }
                 }
             });
             pd._trueffelHistorySet = true;
@@ -1203,7 +1228,8 @@ elif st.session_state.view != "bewerten":
     artist_list = list(artist_groups.items())
     for row_start in range(0, len(artist_list), COLS_PER_ROW):
         row_items = artist_list[row_start:row_start + COLS_PER_ROW]
-        cols = st.columns(COLS_PER_ROW)
+        # Nur so viele Spalten wie Einträge → keine leeren Spalten
+        cols = st.columns(len(row_items))
         for idx, (artist_name, works) in enumerate(row_items):
             info = artists_data.get(artist_name, {})
             liga = info.get("liga", "")
