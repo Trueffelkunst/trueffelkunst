@@ -937,11 +937,11 @@ def artist_label(artist_name):
 
 
 # ─── Render work cards in columns ───
-def render_work_cards(works):
+def render_work_cards(works, card_key_prefix="card"):
     card_cols = st.columns(2)
     for j, w in enumerate(works):
         liga_class = get_liga_class(w["liga"])
-        bc_dot = '<span class="blue-chip-dot"></span>' if w["isBlueChip"] else ""
+        bc_dot = "● " if w["isBlueChip"] else ""
         liga_badge = ""
         if w["liga"]:
             liga_badge = f'<span class="liga-badge liga-badge-{liga_class}">{w["liga"]}</span>'
@@ -953,7 +953,10 @@ def render_work_cards(works):
             color = "#C44B3F" if total >= 15 else "#6B7DB3" if total >= 12 else "#999"
             rmtp_badge = f'<span style="float:right;font-size:0.75rem;font-weight:700;color:{color};">{total}/20</span>'
         with card_cols[j % 2]:
-            st.markdown(f'<div class="work-card liga-border-{liga_class}"><div class="card-artist">{bc_dot}{w["artist"]}{liga_badge}{rmtp_badge}</div><div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="work-card liga-border-{liga_class}"><div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+            if st.button(f"{bc_dot}{w['artist']}", key=f"{card_key_prefix}_{j}", use_container_width=True):
+                st.session_state.selected_artist = w["artist"]
+                st.rerun()
 
 
 # ─── Main Content — View-dependent ───
@@ -1029,7 +1032,7 @@ elif view == "werke":
     card_cols = st.columns(3)
     for j, w in enumerate(view_filtered):
         liga_class = get_liga_class(w["liga"])
-        bc_dot = '<span class="blue-chip-dot"></span>' if w["isBlueChip"] else ""
+        bc_dot = "● " if w["isBlueChip"] else ""
         liga_badge = ""
         if w["liga"]:
             liga_badge = f'<span class="liga-badge liga-badge-{liga_class}">{w["liga"]}</span>'
@@ -1039,7 +1042,10 @@ elif view == "werke":
         if img_url:
             img_html = f'<div style="margin:0.4rem 0;"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=\'none\'"></div>'
         with card_cols[j % 3]:
-            st.markdown(f'<div class="work-card liga-border-{liga_class}">{img_html}<div class="card-artist">{bc_dot}{w["artist"]}{liga_badge}</div><div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div class="work-card liga-border-{liga_class}">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+            if st.button(f"{bc_dot}{w['artist']}", key=f"werke_artist_{j}", use_container_width=True):
+                st.session_state.selected_artist = w["artist"]
+                st.rerun()
 elif view == "techniken":
     # ── Techniken-Ansicht: Kacheln → Klick → Werke ──
     from collections import defaultdict
@@ -1075,7 +1081,7 @@ elif view == "techniken":
         card_cols = st.columns(3)
         for j, w in enumerate(tech_works):
             liga_class = get_liga_class(w["liga"])
-            bc_dot = '<span class="blue-chip-dot"></span>' if w["isBlueChip"] else ""
+            bc_dot = "● " if w["isBlueChip"] else ""
             liga_badge = ""
             if w["liga"]:
                 liga_badge = f'<span class="liga-badge liga-badge-{liga_class}">{w["liga"]}</span>'
@@ -1084,7 +1090,10 @@ elif view == "techniken":
             if img_url:
                 img_html = f'<div style="margin:0.4rem 0;"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=\'none\'"></div>'
             with card_cols[j % 3]:
-                st.markdown(f'<div class="work-card liga-border-{liga_class}">{img_html}<div class="card-artist">{bc_dot}{w["artist"]}{liga_badge}</div><div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="work-card liga-border-{liga_class}">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+                if st.button(f"{bc_dot}{w['artist']}", key=f"tech_artist_{j}", use_container_width=True):
+                    st.session_state.selected_artist = w["artist"]
+                    st.rerun()
     else:
         # ── Übersicht: Technik-Kacheln ──
         st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(present_techniques)} Techniken · {len(view_filtered)} Werke</div>', unsafe_allow_html=True)
