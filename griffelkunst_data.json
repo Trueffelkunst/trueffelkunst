@@ -80,8 +80,10 @@
       "liga": "",
       "source": "receipt",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/365_A3_the_old_boys_club.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/365_A3_the_old_boys_club.jpg"
+      ]
     },
     {
       "id": 6,
@@ -2178,8 +2180,10 @@
       "liga": "",
       "source": "inventory",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/SHNEIDER-320-A5.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/SHNEIDER-320-A5.jpg"
+      ]
     },
     {
       "id": 133,
@@ -2291,8 +2295,10 @@
       "liga": "Liga 3",
       "source": "inventory",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Stefan_Marx_Vase_E_508.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Stefan_Marx_Vase_E_508.jpg"
+      ]
     },
     {
       "id": 140,
@@ -4488,7 +4494,7 @@
       "liga": "Liga 3",
       "editions": "2 Einzelblätter",
       "sheetCount": 2,
-      "significance": "Galerie EIGEN+ART | Neue Leipziger Schule | Düstere Figuration",
+      "significance": "Galerie EIGEN+ART | Neue Leipziger Schule | Düstere Figuration | jetzt Galerie Kleindienst Leipzig (nicht mehr Eigen+Art)",
       "potential": "Neue Leipziger Schule mit Eigen+Art. 2 Blätter sichern Position.",
       "isBlueChip": true,
       "gender": "m",
@@ -4830,10 +4836,10 @@
       "gender": "m",
       "rmtp": {
         "R": 2,
-        "M": 2,
+        "M": 3,
         "T": 3,
-        "P": 2,
-        "total": 9
+        "P": 3,
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/344_A1_Druehl.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/portrait-druehl.jpg"
@@ -4881,16 +4887,16 @@
       "liga": "",
       "editions": "249 C4",
       "sheetCount": 1,
-      "significance": "† 2008 | Beuys-Umfeld | Documenta 8 | Konzeptuelle Malerei/Skulptur",
+      "significance": "† 2008 | Beuys-Umfeld | Documenta 8 | Konzeptuelle Malerei/Skulptur | Retrospektive Kunsthalle Münster 2024; Nachlass Stiftung Kunstfonds",
       "potential": "Beuys-Umfeld + Documenta = kunsthistorisch verankert.",
       "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 3,
-        "M": 1,
+        "M": 2,
         "T": 3,
         "P": 2,
-        "total": 9
+        "total": 10
       },
       "portrait_url": "app/static/portraits/ludger_gerdes.jpg"
     },
@@ -5088,16 +5094,16 @@
       "liga": "Liga 3",
       "editions": "276 A3 (Holzschnitt)",
       "sheetCount": 1,
-      "significance": "† 2010 | documenta IX | Albertina Wien | Monochrome Holzschnitte | Museumssammlungen",
+      "significance": "† 2010 | documenta IX | Albertina Wien | Monochrome Holzschnitte | Museumssammlungen | Kunstmuseum Villa Zanders 2024/25; Monografie DCV",
       "potential": "documenta IX + Albertina = starke Referenzen. Endliches Werk, reduzierte Holzschnitte.",
       "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 3,
-        "M": 2,
+        "M": 3,
         "T": 4,
         "P": 2,
-        "total": 11
+        "total": 12
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/276A3-94NOEL.jpg",
       "portrait_url": "https://martinnoel.de/wp-content/uploads/2016/11/Kuenstler-Martin.jpg"
@@ -5314,10 +5320,10 @@
       "gender": "m",
       "rmtp": {
         "R": 3,
-        "M": 2,
+        "M": 3,
         "T": 3,
         "P": 2,
-        "total": 10
+        "total": 11
       },
       "portrait_url": "https://www.sadk.de/fileadmin/user_upload/Mitglieder/Morgner_Michael-Foto_Herbst_Dittersdorf.jpg"
     },
@@ -5332,10 +5338,10 @@
       "gender": "m",
       "rmtp": {
         "R": 3,
-        "M": 2,
+        "M": 3,
         "T": 3,
-        "P": 2,
-        "total": 10
+        "P": 3,
+        "total": 12
       },
       "portrait_url": "https://kunsttempel.net/wp-content/uploads/2018/12/ranft_web1.jpg"
     },
@@ -5344,16 +5350,16 @@
       "liga": "",
       "editions": "356 C5",
       "sheetCount": 1,
-      "significance": "Figurative Malerei, Hamburger Schule",
+      "significance": "Figurative Malerei, Hamburger Schule | LEVY Galerie; How Art Museum Shanghai 2023, Shenzhen 2024",
       "potential": "",
       "isBlueChip": false,
       "gender": "m",
       "rmtp": {
-        "R": 2,
-        "M": 1,
+        "R": 3,
+        "M": 3,
         "T": 2,
-        "P": 1,
-        "total": 6
+        "P": 2,
+        "total": 10
       },
       "portrait_url": "https://www.galerievandeloo-projekte.de/sites/default/files/pics/friedrich_einhoff/biographie/friedrich-einhoff.jpg"
     },
@@ -5512,16 +5518,16 @@
       "liga": "",
       "editions": "273 C1+C2+C3+C6",
       "sheetCount": 4,
-      "significance": "Farbfeldmalerei — 4 Blätter",
+      "significance": "Farbfeldmalerei — 4 Blätter | Retrospektive Villa Zanders 2023/24 (90. Geburtstag)",
       "potential": "",
       "isBlueChip": false,
       "gender": "m",
       "rmtp": {
-        "R": 2,
-        "M": 1,
+        "R": 3,
+        "M": 2,
         "T": 3,
         "P": 1,
-        "total": 7
+        "total": 9
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/273C1-94ROSE.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/roseimages_1.jpg"
@@ -5567,16 +5573,16 @@
       "liga": "",
       "editions": "379 A Serie (komplett)",
       "sheetCount": 6,
-      "significance": "Schwedischer Fotograf, S/W",
+      "significance": "Schwedischer Fotograf, S/W | Monografie „The Palace“ (MACK 2024), Hasselblad-Grant",
       "potential": "",
       "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 2,
-        "M": 2,
+        "M": 3,
         "T": 2,
         "P": 3,
-        "total": 9
+        "total": 10
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/379_A1_Marten_Lange.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/marten-lange-portrait220.jpg"
@@ -5902,16 +5908,16 @@
       "liga": "",
       "editions": "347 C5 (VIELLEICHT)",
       "sheetCount": 1,
-      "significance": "Siebdruck — take off",
+      "significance": "Siebdruck — take off | Museum Liaunig 2025 (Werküberblick)",
       "potential": "",
       "isBlueChip": false,
       "gender": "m",
       "rmtp": {
-        "R": 2,
-        "M": 2,
+        "R": 3,
+        "M": 3,
         "T": 3,
         "P": 2,
-        "total": 9
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Estermann_347_C_5.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Estermann.jpg"
@@ -6223,7 +6229,7 @@
       "liga": "Liga 3",
       "editions": "bestellt (Restblatt 384 C1)",
       "sheetCount": 0,
-      "significance": "König Galerie | MoMA | Konzeptuelle Fotografie",
+      "significance": "König Galerie | MoMA | Konzeptuelle Fotografie | jetzt Esther Schipper (Berlin); Hamburger Bahnhof 2026",
       "potential": "Top-Galerie + MoMA-Sammlung. Solide institutionelle Verankerung.",
       "isBlueChip": true,
       "gender": "f",
@@ -6316,16 +6322,16 @@
       "liga": "",
       "editions": "371 C1–C6 komplett + C6 in 2 Varianten!",
       "sheetCount": 7,
-      "significance": "Whitney Museum, MCA Chicago | Sprache-als-Kunst Pionierin",
+      "significance": "Whitney Museum, MCA Chicago | Sprache-als-Kunst Pionierin | FLAG Art Foundation NY 2025; White Columns Annual 2025",
       "potential": "Komplette Serie + Variante = Sammlerstück. Konzeptkunst mit Humor. Unterbewertet.",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
         "R": 3,
-        "M": 2,
+        "M": 3,
         "T": 3,
         "P": 2,
-        "total": 10
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/371_C1_Kay_Rosen.jpg",
       "portrait_url": "https://static-assets.artlogic.net/f_auto%2Cfl_lossy%2Cq_auto/ws-inglebygallery/usr/images/artists/group_images_override/items/c8/c8c68beec3374f3bb5cf868d9274359a/kay-rosen_photo-by-larry-lapidus.jpg"
@@ -6354,16 +6360,16 @@
       "liga": "",
       "editions": "374 B2+B5",
       "sheetCount": 2,
-      "significance": "Simultane Mehrfachperspektiven-Fotografie | Einzigartiges Konzept",
+      "significance": "Simultane Mehrfachperspektiven-Fotografie | Einzigartiges Konzept | Museumssurveys 2024: CAC Cincinnati, Sprengel Hannover, Kunstmuseum Luzern",
       "potential": "Kein anderer Künstler macht das so. Originalität = langfristiger Wert.",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
         "R": 3,
-        "M": 3,
+        "M": 4,
         "T": 2,
         "P": 3,
-        "total": 11
+        "total": 12
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/374_B2_Barbara_Probst.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_probst.jpg"
@@ -6411,16 +6417,16 @@
       "liga": "",
       "editions": "392 C1,C3,C4,C5",
       "sheetCount": 4,
-      "significance": "Aquatinten mit Blindätzung | Serie \"mit Liebe. Hamburg\"",
+      "significance": "Aquatinten mit Blindätzung | Serie \"mit Liebe. Hamburg\" | COSAR Düsseldorf, Loock Berlin, Buysse Knokke",
       "potential": "4 Blätter = starke Repräsentation. Junge Position mit Potenzial.",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 1,
-        "M": 2,
+        "R": 2,
+        "M": 3,
         "T": 3,
         "P": 3,
-        "total": 9
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/392_C1_Irina_Ojovan.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait-(Photo-Credits-Adrienne-Meister_1.jpg"
@@ -6430,16 +6436,16 @@
       "liga": "",
       "editions": "E 584 + E 585",
       "sheetCount": 2,
-      "significance": "Geometrische Präzisionszeichnungen | Mixed Media",
+      "significance": "Geometrische Präzisionszeichnungen | Mixed Media | Galerie Rüdiger Schöttle München; Petra Rinck; Weserburg 2024",
       "potential": "Systematische Kunst, die an Op Art anknüpft. 2 Editionen.",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 1,
-        "M": 2,
+        "R": 2,
+        "M": 3,
         "T": 3,
         "P": 3,
-        "total": 9
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_584_Toulu_Hassani.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_Hassani_1.jpg"
@@ -6449,16 +6455,16 @@
       "liga": "",
       "editions": "351 C1–C4 (inkl. C2 neu) + 385 C1",
       "sheetCount": 5,
-      "significance": "Farblithographien | Landschaftsmalerei | 5 Blätter aus 2 Wahlen",
+      "significance": "Farblithographien | Landschaftsmalerei | 5 Blätter aus 2 Wahlen | Sammlungen MdbK Leipzig, Kunsthalle Hamburg, SKD Dresden",
       "potential": "Beständig gesammelt. Farbstarke Landschaften mit eigenem Stil.",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 1,
+        "R": 2,
         "M": 2,
         "T": 3,
-        "P": 2,
-        "total": 8
+        "P": 3,
+        "total": 10
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kießling_351_C_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/kiessling_portrat.jpg"
@@ -6786,16 +6792,16 @@
       "liga": "",
       "editions": "334 B (Löwenzahn)",
       "sheetCount": 1,
-      "significance": "Graphic Novel/Kunst-Grenzgängerin — Kultfigur",
+      "significance": "Graphic Novel/Kunst-Grenzgängerin — Kultfigur | Max-und-Moritz-Preis 2024 („Genossin Kuckuck“)",
       "potential": "",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
         "R": 3,
-        "M": 3,
+        "M": 4,
         "T": 3,
         "P": 2,
-        "total": 11
+        "total": 12
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Feuchtenberger_334_B1.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Feuchtenberger.jpg"
@@ -6862,16 +6868,16 @@
       "liga": "",
       "editions": "E 583",
       "sheetCount": 1,
-      "significance": "Fotografie-Edition",
+      "significance": "Fotografie-Edition | OSTKREUZ; Professorin HAW Hamburg",
       "potential": "",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 1,
+        "R": 2,
         "M": 2,
         "T": 2,
         "P": 2,
-        "total": 7
+        "total": 8
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_583_Linn_Schro%CC%88der.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Schroeder_1.jpg"
@@ -6881,16 +6887,16 @@
       "liga": "",
       "editions": "E 579",
       "sheetCount": 1,
-      "significance": "Edition",
+      "significance": "Edition | Monografie „Interior Garden“ (Hatje Cantz 2024); Villa-Romana-Stipendium",
       "potential": "",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 1,
-        "M": 1,
+        "R": 2,
+        "M": 3,
         "T": 3,
-        "P": 2,
-        "total": 7
+        "P": 3,
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_579_Johanna_Tiedtke.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_tiedtke_1.jpg"
@@ -6900,16 +6906,16 @@
       "liga": "",
       "editions": "381 A1",
       "sheetCount": 1,
-      "significance": "Japanische Künstlerin",
+      "significance": "Japanische Künstlerin | Whitestone Gallery (Taipei/HK/Beijing 2023–25)",
       "potential": "",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 1,
-        "M": 1,
+        "R": 2,
+        "M": 3,
         "T": 3,
-        "P": 2,
-        "total": 7
+        "P": 3,
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/381_A1_Nobuko_Watabiki.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/nobuko_Portrait_Ralf_Plessmann_web_1.jpg"
@@ -6956,16 +6962,16 @@
       "liga": "",
       "editions": "364 A1",
       "sheetCount": 1,
-      "significance": "",
+      "significance": "Kunsthalle Nürnberg 2024; Marianne-Defet-Stipendium 2023",
       "potential": "",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 1,
-        "M": 1,
+        "R": 2,
+        "M": 3,
         "T": 3,
-        "P": 2,
-        "total": 7
+        "P": 3,
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/364-A1-Monika-Michalko.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_michalko.jpg"
@@ -6993,16 +6999,16 @@
       "liga": "",
       "editions": "352 A2",
       "sheetCount": 1,
-      "significance": "Farblithographien",
+      "significance": "Farblithographien | Sammlungen Kupferstichkabinett Berlin/Dresden; Fritz-Winter-Preis 2020",
       "potential": "",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 1,
-        "M": 1,
+        "R": 2,
+        "M": 2,
         "T": 3,
         "P": 2,
-        "total": 7
+        "total": 9
       },
       "portrait_url": "https://www.griffelkunst.de/i/nora-schattauer-portrait_web.jpg"
     },

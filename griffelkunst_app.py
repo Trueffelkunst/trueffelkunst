@@ -25,30 +25,47 @@ import io
 _ssl_ctx = ssl.create_default_context()
 
 BLUE_CHIP_GALLERIES_SEARCH = [
-    "Gagosian", "Hauser & Wirth", "Hauser&Wirth", "Pace Gallery", "Pace,",
-    "David Zwirner", "Zwirner", "Marian Goodman", "Sprüth Magers",
-    "Lisson", "Thaddaeus Ropac", "Ropac", "Gladstone", "White Cube",
-    "neugerriemschneider", "Esther Schipper", "Buchholz", "Matthew Marks",
-    "Paula Cooper", "Max Hetzler", "König Galerie", "Perrotin",
-    "Petzel", "Eigen+Art", "Tanya Bonakdar"
+    "Gagosian", "Hauser & Wirth", "Hauser&Wirth", "Pace Gallery", "David Zwirner", "Zwirner",
+    "Marian Goodman", "Sprüth Magers", "Sprüth", "Lisson", "Thaddaeus Ropac", "Ropac",
+    "Gladstone", "White Cube", "neugerriemschneider", "Esther Schipper", "Buchholz",
+    "Matthew Marks", "Paula Cooper", "Max Hetzler", "König Galerie", "Perrotin", "Petzel",
+    "Eigen+Art", "Tanya Bonakdar", "Sadie Coles", "Konrad Fischer", "Karsten Greve",
+    "Templon", "Almine Rech", "Peter Kilchmann", "carlier gebauer", "Capitain Petzel", "MASSIMODECARLO",
 ]
 
 MID_TIER_GALLERIES = [
-    "Capitain", "Nagel Draxler", "Barbara Wien", "KOW", "Kraupa-Tuskany",
-    "Galerie Crone", "Sies + Höke", "Meyer Riegger", "Galerie Gisela Capitain",
-    "Nächst St. Stephan", "Johnen", "Contemporary Fine Arts", "CFA Berlin"
+    "Capitain", "Nagel Draxler", "Barbara Wien", "KOW", "Kraupa-Tuskany", "Galerie Crone",
+    "Sies + Höke", "Meyer Riegger", "Galerie Gisela Capitain", "Nächst St. Stephan", "Johnen",
+    "Contemporary Fine Arts", "CFA Berlin", "Kleindienst", "LEVY", "Whitestone", "COSAR",
+    "Loock", "Klemm's", "Anton Kern", "Produzentengalerie", "Jo van de Loo", "Rüdiger Schöttle",
+    "Petra Rinck", "Bartha", "Michèle Didier", "Robert Morat", "Galerie b2", "Kicken",
 ]
 
 IMPORTANT_MUSEUMS = [
-    "MoMA", "Museum of Modern Art", "Tate", "Guggenheim", "Centre Pompidou",
-    "Pompidou", "Whitney", "Hamburger Bahnhof", "Kunsthalle", "Pinakothek",
-    "Stedelijk", "Moderna Museet", "Ludwig", "MACBA", "Reina Sofia",
-    "Serpentine", "Haus der Kunst", "Kunstverein", "Documenta", "documenta",
-    "Biennale", "Manifesta", "Skulptur Projekte"
+    "MoMA", "Museum of Modern Art", "Tate", "Guggenheim", "Centre Pompidou", "Pompidou",
+    "Whitney", "Hamburger Bahnhof", "Kunsthalle", "Pinakothek", "Stedelijk", "Moderna Museet",
+    "Ludwig", "MACBA", "Reina Sofia", "Serpentine", "Haus der Kunst", "Kunstverein", "Städel",
+    "Sprengel Museum", "Kupferstichkabinett", "Albertina", "Metropolitan", "Art Institute",
+    "LACMA", "SMK", "Louisiana", "Kunstmuseum", "Neue Nationalgalerie", "Nationalgalerie",
+    "Deichtorhallen", "MdbK", "Museum Ludwig", "V&A", "Victoria and Albert", "Städel Museum",
+]
+
+AWARDS_SEARCH = [
+    "turner prize", "golden lion", "goldener löwe", "silberner löwe", "silver lion",
+    "leone d'oro", "hasselblad", "macarthur", "wolf prize", "praemium imperiale",
+    "preis der nationalgalerie", "käthe kollwitz", "wolfgang hahn", "max mara",
+    "meret oppenheim", "prix marcel duchamp", "lichtwark", "villa romana",
+    "villa massimo", "aachener kunstpreis", "max-und-moritz", "kandinsky prize",
+]
+
+BIENNALES_SEARCH = [
+    "venice biennale", "venedig", "biennale di venezia", "documenta", "manifesta",
+    "skulptur projekte", "whitney biennial", "berlin biennale", "são paulo",
+    "sydney biennale", "istanbul biennial", "gwangju",
 ]
 
 TECHNIQUE_KEYWORDS = {
-    5: ["unikat", "unique", "original", "monotypie", "zeichnung auf"],
+    5: ["unikat", "monotypie", "handabzug", "monotype"],
     4: ["heliogravüre", "heliogravure", "photogravure", "holzschnitt", "woodcut",
         "aquatinta", "mezzotint", "kaltnadelradierung"],
     3: ["radierung", "etching", "lithografie", "lithographie", "lithograph",
@@ -96,118 +113,129 @@ def _search_ddg_quick(query, max_results=10):
     except Exception:
         return []
 
+def _fetch_wikipedia(name):
+    """Wikipedia-Artikel (DE bevorzugt, dann EN) → (plaintext, url)."""
+    for lang in ("de", "en"):
+        slug = urllib.parse.quote(name.replace(" ", "_"))
+        api = f"https://{lang}.wikipedia.org/api/rest_v1/page/summary/{slug}"
+        raw = _fetch_url_quick(api, timeout=10)
+        if not raw:
+            continue
+        try:
+            data = json.loads(raw)
+        except Exception:
+            continue
+        if data.get("type") == "standard" and data.get("extract"):
+            text = data.get("extract", "")
+            url = data.get("content_urls", {}).get("desktop", {}).get("page",
+                    f"https://{lang}.wikipedia.org/wiki/{slug}")
+            full = _fetch_url_quick(f"https://{lang}.wikipedia.org/wiki/{slug}", timeout=12)
+            if full:
+                text = text + " " + re.sub(r'<[^>]+>', ' ', full)
+            return text, url
+    return "", ""
+
 def recherche_artist(name):
-    """Webrecherche zu einem Künstler, gibt RMTP-Schätzung + Fundstellen zurück."""
+    """Webrecherche (Wikipedia + DuckDuckGo) → RMTP-Schätzung + Fundstellen."""
     import time
     findings = {"R": [], "M": [], "T": [], "P": [], "raw": []}
-    r_score, m_score, t_score, p_score = 2, 2, 3, 3  # Defaults
+    r_score, m_score, t_score, p_score = 2, 2, 3, 2
     is_blue_chip = False
 
-    # ── Alle Suchergebnisse sammeln (3 breite Queries statt 7 enge) ──
+    # ── Wikipedia (verlässliche Primärquelle) ──
+    wiki_text, wiki_url = _fetch_wikipedia(name)
+    if wiki_url:
+        r_score = max(r_score, 3)
+        findings["R"].append("Wikipedia-Artikel vorhanden")
+
+    # ── DuckDuckGo (ergänzend) ──
     queries = [
-        f'{name} artist gallery museum exhibition',
-        f'{name} auction print edition technique',
-        f'{name} artist biography',
+        f'{name} artist gallery represented by',
+        f'{name} exhibition 2024 2025 museum biennale',
+        f'{name} auction price print edition',
     ]
     all_results = []
     for q in queries:
-        results = _search_ddg_quick(q)
-        all_results.extend(results)
-        time.sleep(0.5)  # Rate-Limit vermeiden
-
+        all_results.extend(_search_ddg_quick(q))
+        time.sleep(0.4)
     findings["raw"] = all_results
+    ddg_text = " ".join((r.get("text", "") if isinstance(r, dict) else str(r)) for r in all_results)
 
-    # ── Alle Texte (title + snippet + url) analysieren ──
-    all_texts = []
-    for r in all_results:
-        if isinstance(r, dict):
-            all_texts.append(r.get("text", "").lower())
-        else:
-            all_texts.append(str(r).lower())
-
-    combined_text = " ".join(all_texts)
+    combined_text = (wiki_text + " " + ddg_text).lower()
 
     # ── R: Reputation ──
-    for gal in BLUE_CHIP_GALLERIES_SEARCH:
-        if gal.lower() in combined_text:
-            r_score = max(r_score, 5)
-            is_blue_chip = True
-            findings["R"].append(f"Blue-Chip-Galerie: {gal}")
+    bc_hits = [g for g in BLUE_CHIP_GALLERIES_SEARCH if g.lower() in combined_text]
+    if bc_hits:
+        r_score = max(r_score, 5 if len(bc_hits) >= 2 else 4)
+        is_blue_chip = True
+        for g in bc_hits[:4]:
+            findings["R"].append(f"Blue-Chip-Galerie: {g}")
     for gal in MID_TIER_GALLERIES:
         if gal.lower() in combined_text:
             r_score = max(r_score, 3)
             findings["R"].append(f"Galerie: {gal}")
-    # Wikipedia / Artnet / Artsy
-    if "wikipedia" in combined_text:
-        r_score = max(r_score, 3)
-        findings["R"].append("Wikipedia-Eintrag vorhanden")
-    if "artnet.com" in combined_text:
-        r_score = max(r_score, 3)
-        findings["R"].append("Artnet-Profil vorhanden")
-    if "artsy.net" in combined_text:
-        r_score = max(r_score, 3)
-        findings["R"].append("Artsy-Profil vorhanden")
-    # Preise / Auszeichnungen als Reputation-Indikator
-    for award_kw in ["turner prize", "golden lion", "leone d'oro", "hasselblad",
-                     "macarthur", "wolf prize", "praemium imperiale", "preis der nationalgalerie"]:
-        if award_kw in combined_text:
+    mus_hits = [m for m in IMPORTANT_MUSEUMS if m.lower() in combined_text]
+    if mus_hits:
+        r_score = max(r_score, 4 if len(mus_hits) >= 2 else 3)
+        for m in mus_hits[:5]:
+            findings["R"].append(f"Sammlung/Institution: {m}")
+    for aw in AWARDS_SEARCH:
+        if aw in combined_text:
             r_score = max(r_score, 5)
-            findings["R"].append(f"Bedeutender Preis: {award_kw}")
+            findings["R"].append(f"Bedeutender Preis: {aw}")
 
-    # ── M: Momentum (Ausstellungen, Museen) ──
-    for mus in IMPORTANT_MUSEUMS:
-        if mus.lower() in combined_text:
-            m_score = max(m_score, 4)
-            findings["M"].append(f"Museum/Event: {mus}")
-    # Top-Museen in URLs erkennen
-    top_museum_urls = ["moma.org", "tate.org", "whitney.org", "guggenheim.org",
-                       "centrepompidou", "nationalgallery", "metmuseum", "stedelijk",
-                       "kunsthalle", "haus-der-kunst", "hamburger-bahnhof"]
-    for mus_url in top_museum_urls:
-        if mus_url in combined_text:
-            m_score = max(m_score, 5)
-            findings["M"].append(f"Top-Museum: {mus_url}")
-    if "solo" in combined_text or "einzelausstellung" in combined_text or "solo show" in combined_text:
-        m_score = max(m_score, 3)
-        findings["M"].append("Solo-Ausstellung gefunden")
+    # ── M: Momentum (letzte ~3 Jahre) ──
+    recent = any(y in combined_text for y in ["2023", "2024", "2025", "2026"])
+    show_kw = any(k in combined_text for k in ["exhibition", "ausstellung", "solo",
+                  "einzelausstellung", "retrospekt", "survey"])
+    if recent and show_kw:
+        m_score = max(m_score, 4)
+        findings["M"].append("Aktuelle Ausstellungstätigkeit (2023–2026)")
+    for bi in BIENNALES_SEARCH:
+        if bi in combined_text:
+            m_score = max(m_score, 5 if recent else 4)
+            findings["M"].append(f"Biennale/Großausstellung: {bi}")
     if "retrospektive" in combined_text or "retrospective" in combined_text:
         m_score = max(m_score, 5)
-        findings["M"].append("Retrospektive gefunden")
-    if "survey" in combined_text and ("exhibition" in combined_text or "show" in combined_text):
-        m_score = max(m_score, 4)
-        findings["M"].append("Survey-Ausstellung gefunden")
+        findings["M"].append("Retrospektive")
 
     # ── T: Technik ──
     for score_val, keywords in TECHNIQUE_KEYWORDS.items():
         for kw in keywords:
             if kw in combined_text:
-                t_score = max(t_score, score_val) if score_val > 3 else min(t_score, score_val) if score_val < 3 else t_score
+                if score_val > 3:
+                    t_score = max(t_score, score_val)
+                elif score_val < 3:
+                    t_score = min(t_score, score_val)
                 findings["T"].append(f"Technik: {kw} (→ T={score_val})")
 
-    # ── P: Potenzial / Markt ──
-    price_found = False
-    for high_kw in ["€", "eur", "usd", "$", "gbp", "£", "sold for", "zuschlag", "hammer",
-                    "artnet", "christies", "christie's", "sotheby", "phillips", "bonhams",
-                    "mutualart", "auction"]:
-        if high_kw in combined_text:
-            price_found = True
-            findings["P"].append(f"Markt-Signal: {high_kw}")
-    if "undervalued" in combined_text or "unterbewertet" in combined_text or "emerging" in combined_text:
-        p_score = max(p_score, 4)
-        findings["P"].append("Potenzialsignal: emerging/unterbewertet")
-    if price_found:
-        p_score = max(p_score, 3)
-
-    # Blue-Chip-Korrektur: wenn R=5, ist P eher niedrig (schon teuer)
+    # ── P: Wertsteigerungschance ──
+    deceased = ("†" in wiki_text) or any(k in combined_text for k in ["died", "gestorben", "verstorben"])
+    birth = None
+    for pat in [r'geboren[^0-9]{0,14}((?:19|20)\d{2})', r'born[^0-9]{0,14}((?:19|20)\d{2})',
+                r'\*\s*((?:19|20)\d{2})', r'\(b\.\s*((?:19|20)\d{2})', r'\(\s*((?:19|20)\d{2})\s*[-–]']:
+        mm = re.search(pat, combined_text)
+        if mm:
+            birth = int(mm.group(1)); break
+    if birth:
+        if birth >= 1985:
+            p_score = max(p_score, 4); findings["P"].append(f"Junge Position (*{birth}) → Aufwärtspotenzial")
+        elif birth >= 1975:
+            p_score = max(p_score, 3); findings["P"].append(f"Mittlere Karriere (*{birth})")
+    if any(k in combined_text for k in ["sold for", "zuschlag", "hammer price", "auction record",
+           "artnet", "sotheby", "christie", "phillips"]):
+        p_score = max(p_score, 3); findings["P"].append("Aktiver Auktionsmarkt")
+    if any(k in combined_text for k in ["emerging", "rising star", "unterbewertet", "undervalued", "one to watch"]):
+        p_score = max(p_score, 4); findings["P"].append("Signal: emerging/rising")
+    if deceased and r_score >= 4:
+        p_score = min(p_score, 2)
     if r_score >= 5:
         p_score = min(p_score, 2)
 
-    # Dedupliziere Findings
     for key in ["R", "M", "T", "P"]:
         findings[key] = list(dict.fromkeys(findings[key]))
 
     total = r_score + m_score + t_score + p_score
-    # Liga
     if r_score >= 4 and total >= 12:
         liga = "Liga 1"
     elif total >= 12 or r_score >= 4:
