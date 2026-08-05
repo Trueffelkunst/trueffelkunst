@@ -3320,6 +3320,310 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/353_A5_Mark_Dion_1.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/353_A6_Mark_Dion_1.jpg"
       ]
+    },
+    {
+      "id": 209,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Walter Dahn",
+      "work": "Photographie",
+      "edition": "311 B1",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/311_B1_Walter_Dahn.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/311_B1_Walter_Dahn.jpg"
+      ]
+    },
+    {
+      "id": 210,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Walter Dahn",
+      "work": "Photographie",
+      "edition": "311 B3",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/311_B3_Walter_Dahn.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/311_B3_Walter_Dahn.jpg"
+      ]
+    },
+    {
+      "id": 211,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Christian Schad",
+      "work": "Schadographie",
+      "edition": "297 A6",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/297_A6_Christian_Schad.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/297_A6_Christian_Schad.jpg"
+      ]
+    },
+    {
+      "id": 212,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Matt Mullican",
+      "work": "Aquatinta mit chine collé",
+      "edition": "335 C7",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/335_C7_Matt_Mullican.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/335_C7_Matt_Mullican.jpg"
+      ]
+    },
+    {
+      "id": 213,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Paloma Varga Weisz",
+      "work": "Lithographie",
+      "edition": "331 A1",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/331_A1_Paloma_Varga_Weisz.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/331_A1_Paloma_Varga_Weisz.jpg"
+      ]
+    },
+    {
+      "id": 214,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Paloma Varga Weisz",
+      "work": "Lithographie",
+      "edition": "331 A2",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/331_A2_Paloma_Varga_Weisz.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/331_A2_Paloma_Varga_Weisz.jpg"
+      ]
+    },
+    {
+      "id": 215,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Elger Esser",
+      "work": "Farboffsetdruck",
+      "edition": "334 C5",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/334_C5_Elger_Esser.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/334_C5_Elger_Esser.jpg"
+      ]
+    },
+    {
+      "id": 216,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Isa Melsheimer",
+      "work": "Lithographie",
+      "edition": "382 B1",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/382_B1_Isa_Melsheimer.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/382_B1_Isa_Melsheimer.jpg"
+      ]
+    },
+    {
+      "id": 217,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Pia Fries",
+      "work": "Siebdruck",
+      "edition": "353 B1",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/353_B1_Pia_Fries.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/353_B1_Pia_Fries.jpg"
+      ]
+    },
+    {
+      "id": 218,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Kerstin Brätsch",
+      "work": "Schrättel Rorschach II — Digitaler Offsetdruck",
+      "edition": "396 B2",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/396_B2_Kerstin_Brätsch.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/396_B2_Kerstin_Brätsch.jpg"
+      ]
+    },
+    {
+      "id": 219,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Kerstin Brätsch",
+      "work": "Schrättel Rorschach VI — Digitaler Offsetdruck",
+      "edition": "396 B6",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/396_B6_Kerstin_Brätsch.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/396_B6_Kerstin_Brätsch.jpg"
+      ]
+    },
+    {
+      "id": 220,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Thomas Scheibitz",
+      "work": "Photogravüre",
+      "edition": "P47",
+      "price": "60 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/P47_Thomas_Scheibitz.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/P47_Thomas_Scheibitz.jpg"
+      ]
+    },
+    {
+      "id": 221,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Nedko Solakov",
+      "work": "Radierung",
+      "edition": "366 C5",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/366_C5_Nedko_Solakov.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/366_C5_Nedko_Solakov.jpg"
+      ]
+    },
+    {
+      "id": 222,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Martin Boyce",
+      "work": "Heliogravür",
+      "edition": "323 C5",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/323_C5_Martin_Boyce.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/323_C5_Martin_Boyce.jpg"
+      ]
+    },
+    {
+      "id": 223,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "László Moholy-Nagy",
+      "work": "Photographie",
+      "edition": "317 A5",
+      "price": "60 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/317_A5_László_Moholy-Nagy.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/317_A5_László_Moholy-Nagy.jpg"
+      ]
+    },
+    {
+      "id": 224,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Annette Kelm",
+      "work": "Photographie im Inkjet-Print",
+      "edition": "384 C1",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/384_C1_Annette_Kelm.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/384_C1_Annette_Kelm.jpg"
+      ]
+    },
+    {
+      "id": 225,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Ciara Phillips",
+      "work": "Holz- und Reliefdruck",
+      "edition": "381 C2",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/381_C2_Ciara_Phillips.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/381_C2_Ciara_Phillips.jpg"
+      ]
+    },
+    {
+      "id": 226,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Esther Fleckner",
+      "work": "Bad Nature (Silver Moose) — Holzdruck",
+      "edition": "398 B4",
+      "price": "50 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/398_B4_Esther_Fleckner.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/398_B4_Esther_Fleckner.jpg"
+      ]
+    },
+    {
+      "id": 227,
+      "year": "2026",
+      "date": "Mai 2026",
+      "artist": "Esther Fleckner",
+      "work": "Bad Nature (Soft Pink Deer) — Holzdruck",
+      "edition": "398 B2",
+      "price": "50 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/398_B2_Esther_Fleckner.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/398_B2_Esther_Fleckner.jpg"
+      ]
     }
   ],
   "artists": {
@@ -6521,6 +6825,57 @@
         "total": 7
       },
       "portrait_url": "https://www.gemeinwesenarbeit-chemnitz.de/wp-content/uploads/2021/10/Seite-13-DRS-Foto-Malech-scaled.jpg"
+    },
+    "Walter Dahn": {
+      "tier": 2,
+      "liga": "",
+      "editions": "311 B1 · 311 B3",
+      "sheetCount": 2,
+      "significance": "Mülheimer Freiheit / Junge Wilde | Galerie Sprüth Magers | Museum Ludwig, Städel Museum | vorläufige Einschätzung – bitte im Bewerten-Tab verfeinern",
+      "potential": "Etablierter Vertreter der „Jungen Wilden“; hier Fotoarbeiten. Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab (Web-Recherche) verfeinern.",
+      "isBlueChip": false,
+      "gender": "m",
+      "rmtp": {
+        "R": 4,
+        "M": 2,
+        "T": 2,
+        "P": 2,
+        "total": 10
+      }
+    },
+    "Paloma Varga Weisz": {
+      "tier": 2,
+      "liga": "",
+      "editions": "331 A1 · 331 A2",
+      "sheetCount": 2,
+      "significance": "documenta 12 (2007) | Sadie Coles HQ, Konrad Fischer Galerie | Skulptur & Zeichnung | vorläufige Einschätzung – bitte im Bewerten-Tab verfeinern",
+      "potential": "International vertreten (London/Düsseldorf), documenta-Teilnahme. Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab verfeinern.",
+      "isBlueChip": false,
+      "gender": "f",
+      "rmtp": {
+        "R": 4,
+        "M": 3,
+        "T": 2,
+        "P": 3,
+        "total": 12
+      }
+    },
+    "Esther Fleckner": {
+      "tier": 3,
+      "liga": "",
+      "editions": "398 B4 · 398 B2",
+      "sheetCount": 2,
+      "significance": "Holzschnitt | queer-feministische Positionen | Ausstellungen u. a. in Kopenhagen | vorläufige Einschätzung – bitte im Bewerten-Tab verfeinern",
+      "potential": "Aufstrebende Position mit hohem Druckwert (Holzschnitt). Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab verfeinern.",
+      "isBlueChip": false,
+      "gender": "f",
+      "rmtp": {
+        "R": 2,
+        "M": 2,
+        "T": 4,
+        "P": 2,
+        "total": 10
+      }
     }
   },
   "stats": {
