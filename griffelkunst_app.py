@@ -785,7 +785,7 @@ if _show_nav:
         if st.button(f"**{blue_chip_count}**\n\nBLUE CHIP", use_container_width=True, key="btn_bluechip"):
             set_view("bluechip")
     with row1[4]:
-        if st.button(f"**{meisterschueler_count}**\n\nMEISTERSCHÜLER", use_container_width=True, key="btn_meister"):
+        if st.button(f"**{meisterschueler_count}**\n\nMEISTER­SCHÜLER", use_container_width=True, key="btn_meister"):
             set_view("meisterschueler")
     # Zeile 2: Ligen + Bewerten (4 Spalten)
     row2 = st.columns(4)
@@ -834,7 +834,7 @@ if _show_nav:
             '<span style="opacity:0.3;">|</span>'
             '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert: Unikat (5) → Offset (1)</span>'
             '<span style="opacity:0.3;">|</span>'
-            '<span><span style="font-weight:700;color:#C4993D;">P</span> Wertsteigerungschance</span>'
+            '<span><span style="font-weight:700;color:#C4993D;">P</span> Wertsteigerungschance: Karrierestand · Marktdynamik · Editionsseltenheit</span>'
             '</div>'
             '<div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;'
             'font-size:0.6rem;margin-top:0.35rem;opacity:0.7;line-height:1.4;">'
@@ -1313,18 +1313,26 @@ elif st.session_state.view != "bewerten":
             score_html = f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:0.8rem;color:#1B3A2A;">{total}/20</span>' if total > 0 else ""
             works_label = "Werk" if len(works) == 1 else "Werke"
 
-            # Portrait für Tile (nur echte Portraits, keine Editions)
+            # Portrait für Tile; Fallback: erstes Werkbild des Künstlers
             img_src = info.get("portrait_url", "")
+            _workimg = ""
+            for _w in works:
+                if _w.get("image_url"):
+                    _workimg = _w["image_url"]; break
+            if not img_src:
+                img_src = _workimg
+            _fb = _workimg if (_workimg and _workimg != img_src) else ""
 
             with cols[idx]:
                 # ── Portrait-Bild (oben) ──
                 initial = artist_name[0] if artist_name else "?"
                 _click_js = 'onclick="var el=this.closest(&#x27;[data-testid=stColumn]&#x27;);if(el){var btn=el.querySelector(&#x27;button&#x27;);if(btn)btn.click();}"'
                 if img_src:
-                    onerror_attr = 'this.style.display=&quot;none&quot;;this.nextElementSibling.style.display=&quot;flex&quot;;'
+                    onerror_attr = 'if(this.dataset.fb&&this.src!=this.dataset.fb){this.src=this.dataset.fb;}else{this.style.display=&quot;none&quot;;this.nextElementSibling.style.display=&quot;flex&quot;;}'
+                    _fb_attr = f' data-fb=&quot;{_fb}&quot;' if _fb else ''
                     st.markdown(
                         f'<div style="width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:3px 3px 0 0;background:#EDEAE5;position:relative;cursor:pointer;" {_click_js}>'
-                        f'<img src="{img_src}" style="width:100%;height:100%;object-fit:cover;object-position:center top;pointer-events:none;" loading="lazy" onerror="{onerror_attr}">'
+                        f'<img src="{img_src}"{_fb_attr} style="width:100%;height:100%;object-fit:contain;pointer-events:none;" loading="lazy" onerror="{onerror_attr}">'
                         f'<div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;position:absolute;top:0;left:0;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;">{initial}</div>'
                         f'</div>',
                         unsafe_allow_html=True
