@@ -338,7 +338,37 @@ EXTERNAL_WORKS = [
 ]
 
 
-# ─── Liga dynamisch aus R+M+T+P berechnen (Reputation-gewichtet) ───
+def technique_value(work_text):
+    """Druckwert (T, 1–5) eines einzelnen Blattes aus seiner Technik. Unikat(5) → Offset(1)."""
+    t = (work_text or "").lower()
+    best = None
+    for val, kws in TECHNIQUE_KEYWORDS.items():
+        for kw in kws:
+            if kw in t:
+                best = val if best is None else (max(best, val) if val > 3 else min(best, val) if val < 3 else best)
+    return best if best is not None else 3  # unbekannt → mittel
+
+def artist_total(info):
+    """Künstler-Score = R + M + P (technikunabhängig, max. 15)."""
+    r = info.get("rmtp", {})
+    return r.get("R", 0) + r.get("M", 0) + r.get("P", 0)
+
+def blatt_value(info, work_text):
+    """Blatt-Wert = Künstler-Score (R+M+P) + Druckwert (T) dieses Blattes (max. 20)."""
+    return artist_total(info) + technique_value(work_text)
+
+def liga_from_rmp(r, art):
+    if r >= 4 and art >= 10:
+        return "Liga 1"
+    elif art >= 9 or r >= 4:
+        return "Liga 2"
+    elif art >= 5:
+        return "Liga 3"
+    elif art > 0:
+        return "Liga 4"
+    return ""
+
+# ─── Liga dynamisch aus R+M+P berechnen (technikunabhängig) ───
 # Liga in artists_data aktualisieren
 for name, info in artists_data.items():
     rmtp = info.get("rmtp", {})
@@ -665,36 +695,6 @@ def compute_liga(artist_name):
     _lg = liga_from_rmp(r, art)
     if _lg:
         return _lg
-    return ""
-
-def technique_value(work_text):
-    """Druckwert (T, 1–5) eines einzelnen Blattes aus seiner Technik. Unikat(5) → Offset(1)."""
-    t = (work_text or "").lower()
-    best = None
-    for val, kws in TECHNIQUE_KEYWORDS.items():
-        for kw in kws:
-            if kw in t:
-                best = val if best is None else (max(best, val) if val > 3 else min(best, val) if val < 3 else best)
-    return best if best is not None else 3  # unbekannt → mittel
-
-def artist_total(info):
-    """Künstler-Score = R + M + P (technikunabhängig, max. 15)."""
-    r = info.get("rmtp", {})
-    return r.get("R", 0) + r.get("M", 0) + r.get("P", 0)
-
-def blatt_value(info, work_text):
-    """Blatt-Wert = Künstler-Score (R+M+P) + Druckwert (T) dieses Blattes (max. 20)."""
-    return artist_total(info) + technique_value(work_text)
-
-def liga_from_rmp(r, art):
-    if r >= 4 and art >= 10:
-        return "Liga 1"
-    elif art >= 9 or r >= 4:
-        return "Liga 2"
-    elif art >= 5:
-        return "Liga 3"
-    elif art > 0:
-        return "Liga 4"
     return ""
 
 def get_liga_class(liga):
