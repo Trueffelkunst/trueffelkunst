@@ -1266,11 +1266,22 @@ elif view == "extern":
         if w.get("price"): foot.append(w["price"])
         foot_line = " · ".join(foot)
         year_str = (" (" + w["year"] + ")") if w.get("year") else ""
+        _info = artists_data.get(w["artist"], {})
+        _liga = _info.get("liga", "")
+        _total = _info.get("rmtp", {}).get("total", 0)
+        if _liga or _total:
+            _lc = get_liga_class(_liga)
+            _lb = f'<span class="liga-badge liga-badge-{_lc}">{_liga}</span>' if _liga else ""
+            _sc = f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:0.8rem;color:#1B3A2A;margin-left:6px;">{_total}/20</span>' if _total else ""
+            score_html = f'<div style="margin:6px 0 2px;">{_lb}{_sc}</div>'
+        else:
+            score_html = '<div style="font-size:0.65rem;color:#bbb;margin:6px 0 2px;font-style:italic;">noch nicht bewertet</div>'
         with ext_cols[j % 3]:
             st.markdown(
                 f'<div class="work-card">{img_html}'
                 f'<div class="card-work" style="font-style:italic;">„{w["work"]}“{year_str}</div>'
                 f'<div style="font-weight:600;color:#1B3A2A;margin:2px 0;">{w["artist"]}</div>'
+                f'{score_html}'
                 f'<div style="font-size:0.7rem;color:#888;margin-top:2px;">{meta_line}</div>'
                 f'<div style="font-size:0.68rem;color:#aaa;margin-top:4px;">{foot_line}</div>'
                 f'</div>',
@@ -1313,7 +1324,7 @@ elif st.session_state.view != "bewerten":
                     onerror_attr = 'this.style.display=&quot;none&quot;;this.nextElementSibling.style.display=&quot;flex&quot;;'
                     st.markdown(
                         f'<div style="width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:3px 3px 0 0;background:#EDEAE5;position:relative;cursor:pointer;" {_click_js}>'
-                        f'<img src="{img_src}" style="width:100%;height:100%;object-fit:cover;pointer-events:none;" loading="lazy" onerror="{onerror_attr}">'
+                        f'<img src="{img_src}" style="width:100%;height:100%;object-fit:cover;object-position:center top;pointer-events:none;" loading="lazy" onerror="{onerror_attr}">'
                         f'<div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;position:absolute;top:0;left:0;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;">{initial}</div>'
                         f'</div>',
                         unsafe_allow_html=True

@@ -732,8 +732,10 @@
       "liga": "",
       "source": "receipt",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/P_83_Roman_Moriceau.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/P_83_Roman_Moriceau.jpg"
+      ]
     },
     {
       "id": 44,
@@ -763,8 +765,10 @@
       "liga": "",
       "source": "receipt",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/P_84_Roman_Moriceau.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/P_84_Roman_Moriceau.jpg"
+      ]
     },
     {
       "id": 46,
@@ -1476,8 +1480,10 @@
       "liga": "Liga 3",
       "source": "inventory",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/284A3-96KLUGE.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/284A3-96KLUGE.jpg"
+      ]
     },
     {
       "id": 90,
@@ -3444,9 +3450,9 @@
       "liga": "",
       "source": "receipt",
       "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/382_B1_Isa_Melsheimer.jpg",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/382_B1_Isa_Melsheimer.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/382_B1_Isa_Melsheimer.jpg"
+        "https://www.griffelkunst.de/galleryimages/_xlarge/382_B1_Isa_Melsheimer.jpg"
       ]
     },
     {
@@ -3597,7 +3603,7 @@
       "id": 226,
       "year": "2026",
       "date": "Mai 2026",
-      "artist": "Esther Fleckner",
+      "artist": "Ester Fleckner",
       "work": "Bad Nature (Silver Moose) — Holzdruck",
       "edition": "398 B4",
       "price": "50 €",
@@ -3613,7 +3619,7 @@
       "id": 227,
       "year": "2026",
       "date": "Mai 2026",
-      "artist": "Esther Fleckner",
+      "artist": "Ester Fleckner",
       "work": "Bad Nature (Soft Pink Deer) — Holzdruck",
       "edition": "398 B2",
       "price": "50 €",
@@ -3623,6 +3629,198 @@
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/398_B2_Esther_Fleckner.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/398_B2_Esther_Fleckner.jpg"
+      ]
+    },
+    {
+      "id": 228,
+      "year": "2026",
+      "date": "Jul. 2026",
+      "artist": "Michel Majerus",
+      "work": "Siebdruck",
+      "edition": "308 A2",
+      "price": "80 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": true,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Majerus-308-A2.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Majerus-308-A2.jpg"
+      ]
+    },
+    {
+      "id": 229,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Karimah Ashadu",
+      "work": "Icons (Machine Boys) I (Hochdruck)",
+      "edition": "401 A1",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/401_A1.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/401_A1.jpg"
+      ]
+    },
+    {
+      "id": 230,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Karimah Ashadu",
+      "work": "Icons (Machine Boys) II (Hochdruck)",
+      "edition": "401 A2",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/401_A2.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/401_A2.jpg"
+      ]
+    },
+    {
+      "id": 231,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Karimah Ashadu",
+      "work": "Icons (Machine Boys) III (Hochdruck)",
+      "edition": "401 A3",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/401_A3.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/401_A3.jpg"
+      ]
+    },
+    {
+      "id": 232,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Karimah Ashadu",
+      "work": "Icons (Machine Boys) IV (Hochdruck)",
+      "edition": "401 A4",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/401_A4.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/401_A4.jpg"
+      ]
+    },
+    {
+      "id": 233,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Karimah Ashadu",
+      "work": "Icons (Machine Boys) V (Hochdruck)",
+      "edition": "401 A5",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/401_A5.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/401_A5.jpg"
+      ]
+    },
+    {
+      "id": 234,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Karimah Ashadu",
+      "work": "Icons (Machine Boys) VI (Hochdruck)",
+      "edition": "401 A6",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/401_A6.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/401_A6.jpg"
+      ]
+    },
+    {
+      "id": 235,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Tamina Amadyar",
+      "work": "ophelia (Lithographie)",
+      "edition": "402 C4",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/402_C4.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/402_C4.jpg"
+      ]
+    },
+    {
+      "id": 236,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Tamina Amadyar",
+      "work": "pillow talk (Lithographie)",
+      "edition": "402 C5",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/402_C5.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/402_C5.jpg"
+      ]
+    },
+    {
+      "id": 237,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Tamina Amadyar",
+      "work": "(summer) blues (Lithographie)",
+      "edition": "402 C6",
+      "price": "45 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/402_C6.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/402_C6.jpg"
+      ]
+    },
+    {
+      "id": 238,
+      "year": "2026",
+      "date": "Herbst 2026",
+      "artist": "Asana Fujikawa",
+      "work": "Lesen (Radierung)",
+      "edition": "E 629",
+      "price": "150 €",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E629.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/E629.jpg"
+      ]
+    },
+    {
+      "id": 239,
+      "year": "2026",
+      "date": "Jan. 2026",
+      "artist": "Ambra Durante",
+      "work": "Bluepoolfoolfeelings (Linoldruck)",
+      "edition": "399 A2",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/399A2.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/399A2.jpg"
       ]
     }
   ],
@@ -3856,7 +4054,7 @@
       "liga": "Liga 2",
       "editions": "394 C3–5 + Mappe",
       "sheetCount": 4,
-      "significance": "Paula Cooper | Documenta 11+13 (2×) | MoMA-Retrospektive — The Atlas Group",
+      "significance": "Paula Cooper | Documenta 11+13 (2×) | MoMA-Retrospektive — The Atlas Group | Venedig-Biennale 2026; Trellis Milestone Award 2025",
       "potential": "2× Documenta + MoMA-Retro + Mappe = starke Position. Politisch hochrelevant.",
       "isBlueChip": true,
       "gender": "m",
@@ -3864,8 +4062,8 @@
         "R": 5,
         "M": 5,
         "T": 1,
-        "P": 3,
-        "total": 14
+        "P": 4,
+        "total": 15
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/394_C3_Walid_Raad.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Raad_portraet_1.jpg"
@@ -4027,16 +4225,16 @@
       "liga": "Liga 2",
       "editions": "Salt Lake (Fotografie)",
       "sheetCount": 1,
-      "significance": "Pace + Sprüth Magers | Hasselblad Prize 2000 | Venedig, Documenta | MoMA, Tate, Stedelijk",
+      "significance": "Marian Goodman (Galeriewechsel) | Venedig, Documenta | MoMA, Tate, Stedelijk | Retrospektiven 2025/26 (Photographers’ Gallery London, Ukrainian Museum NY) | Hasselblad Prize 2000",
       "potential": "Hasselblad Prize = Foto-Nobelpreis. Ukrainische Fotografie wird neu bewertet.",
       "isBlueChip": true,
       "gender": "m",
       "rmtp": {
-        "R": 4,
+        "R": 5,
         "M": 5,
         "T": 2,
         "P": 3,
-        "total": 14
+        "total": 15
       },
       "portrait_url": "https://thephotographersgallery.org.uk/sites/default/files/styles/original/public/images/Portrait%202-Boris%20Mikhailov%2C%202015%2C%20photo%20by%20Vita%20Mikhailov.jpg.webp"
     },
@@ -4157,16 +4355,16 @@
       "liga": "Liga 2",
       "editions": "387 B3 (bestellt: B1–B5 Serie!)",
       "sheetCount": 1,
-      "significance": "Gladstone Gallery | Documenta 13 | Dt. Pop-Art-Pionier | MoMA, Pompidou, Nationalgalerie",
+      "significance": "Gladstone Gallery | Documenta 13 | Dt. Pop-Art-Pionier | MoMA, Pompidou, Nationalgalerie | Retrospektive „Be Happy!“ Schirn Kunsthalle Frankfurt 2026",
       "potential": "Gladstone = Top-Galerie. Serie B1–B5 bestellt = starke Position im Aufbau.",
       "isBlueChip": true,
       "gender": "m",
       "rmtp": {
-        "R": 4,
+        "R": 5,
         "M": 5,
         "T": 1,
         "P": 4,
-        "total": 14
+        "total": 15
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/387_B3_Thomas_Bayrle.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_Bayrle_Foto_Wolfgang-Guenzel_1.jpg"
@@ -4327,16 +4525,16 @@
       "liga": "Liga 3",
       "editions": "E 598",
       "sheetCount": 1,
-      "significance": "Max Hetzler | Thyssen-Bornemisza — abstrakte Malerei, 'Kaputtismus'",
+      "significance": "Max Hetzler + Skarstedt (Solo NY 2025) | Thyssen-Bornemisza | abstrakte Malerei, „Kaputtismus“",
       "potential": "Hetzler = starke Galerie. Eigenständige abstrakte Position.",
       "isBlueChip": true,
       "gender": "m",
       "rmtp": {
         "R": 4,
-        "M": 4,
+        "M": 5,
         "T": 3,
         "P": 3,
-        "total": 14
+        "total": 15
       },
       "portrait_url": "https://www.maxhetzler.com/application/files/thumbnails/detail_lg_2x/8117/6607/6680/AB24_45188_photo__def_image_sRGB.jpg"
     },
@@ -6364,7 +6562,7 @@
       "liga": "",
       "editions": "395 B1",
       "sheetCount": 1,
-      "significance": "Fluxus-Künstlerin | Verbindung zu George Maciunas",
+      "significance": "† 2025 | Fluxus-Künstlerin | Verbindung zu George Maciunas",
       "potential": "Fluxus wird neu bewertet. Historische Bedeutung steigt.",
       "isBlueChip": false,
       "gender": "f",
@@ -6495,16 +6693,16 @@
       "liga": "",
       "editions": "bestellt (Restblatt 398 B2+B4)",
       "sheetCount": 0,
-      "significance": "Bad Nature Serie — 2 Blätter bestellt",
+      "significance": "Galerie Barbara Wien (Berlin) | Kupferstichkabinett Berlin, SMK Kopenhagen | queer-feministische Positionen | Holzschnitt",
       "potential": "",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 2,
+        "R": 3,
         "M": 2,
-        "T": 3,
+        "T": 4,
         "P": 3,
-        "total": 10
+        "total": 12
       },
       "portrait_url": "https://esterfleckner.net/wp-content/uploads/2019/03/IMG_0318-kopi-2-874x1024.jpg"
     },
@@ -6831,16 +7029,16 @@
       "liga": "",
       "editions": "311 B1 · 311 B3",
       "sheetCount": 2,
-      "significance": "Mülheimer Freiheit / Junge Wilde | Galerie Sprüth Magers | Museum Ludwig, Städel Museum | vorläufige Einschätzung – bitte im Bewerten-Tab verfeinern",
-      "potential": "Etablierter Vertreter der „Jungen Wilden“; hier Fotoarbeiten. Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab (Web-Recherche) verfeinern.",
+      "significance": "† 2024 | Sprüth Magers (Estate) | Museum Ludwig, Kunstmuseum Basel, MMK Frankfurt | Junge Wilde / Mülheimer Freiheit | posthume Survey 2024/25",
+      "potential": "Etablierter Vertreter der „Jungen Wilden“; hier Fotoarbeiten. Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab (Web-Recherche) verfeinern",
       "isBlueChip": false,
       "gender": "m",
       "rmtp": {
-        "R": 4,
-        "M": 2,
+        "R": 5,
+        "M": 3,
         "T": 2,
-        "P": 2,
-        "total": 10
+        "P": 3,
+        "total": 13
       }
     },
     "Paloma Varga Weisz": {
@@ -6848,33 +7046,68 @@
       "liga": "",
       "editions": "331 A1 · 331 A2",
       "sheetCount": 2,
-      "significance": "documenta 12 (2007) | Sadie Coles HQ, Konrad Fischer Galerie | Skulptur & Zeichnung | vorläufige Einschätzung – bitte im Bewerten-Tab verfeinern",
-      "potential": "International vertreten (London/Düsseldorf), documenta-Teilnahme. Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab verfeinern.",
+      "significance": "Sadie Coles HQ, Konrad Fischer, MASSIMODECARLO, Pedro Cera | documenta 12 (2007) | Solo „Multiface“ Kestner Gesellschaft 2024/25 | Skulptur & Zeichnung",
+      "potential": "International vertreten (London/Düsseldorf), documenta-Teilnahme. Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab verfeinern",
       "isBlueChip": false,
       "gender": "f",
       "rmtp": {
-        "R": 4,
-        "M": 3,
+        "R": 5,
+        "M": 4,
         "T": 2,
         "P": 3,
-        "total": 12
+        "total": 14
       }
     },
-    "Esther Fleckner": {
+    "Hans Pfrommer": {
       "tier": 3,
       "liga": "",
-      "editions": "398 B4 · 398 B2",
-      "sheetCount": 2,
-      "significance": "Holzschnitt | queer-feministische Positionen | Ausstellungen u. a. in Kopenhagen | vorläufige Einschätzung – bitte im Bewerten-Tab verfeinern",
-      "potential": "Aufstrebende Position mit hohem Druckwert (Holzschnitt). Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab verfeinern.",
+      "editions": "„Mein schönstes Ferienerlebnis“ (15/30)",
+      "sheetCount": 1,
+      "significance": "Emmanuel Walderdorff Galerie (Köln/Molsberg) | Staatsgalerie Stuttgart – Graph. Slg., ZF Kunststiftung | Cité Internationale des Arts Paris (Stipendium) | Farblinolschnitt | Externe Sammlung (nicht Griffelkunst)",
+      "potential": "Etablierte regionale Position mit feinsinnigem Humor; hoher Druckwert (Linolschnitt). Externe Sammlung (Galerie Walderdorff), nicht Griffelkunst",
       "isBlueChip": false,
-      "gender": "f",
+      "gender": "m",
       "rmtp": {
         "R": 2,
         "M": 2,
         "T": 4,
         "P": 2,
         "total": 10
+      }
+    },
+    "Asana Fujikawa": {
+      "tier": 3,
+      "liga": "",
+      "editions": "E 629 „Lesen“ (auch E 628; 393 C-Reihe 2024)",
+      "sheetCount": 1,
+      "significance": "Galerie Friese (Berlin) | HFBK Hamburg | Solo Schloss Clemenswerth 2024, Art Düsseldorf 2025 | Radierung (Weichgrund/Aquatinta)",
+      "potential": "Etablierte Erzählerin der Druckgrafik (Hamburg); hoher Druckwert (Radierung)",
+      "isBlueChip": false,
+      "gender": "f",
+      "rmtp": {
+        "R": 2,
+        "M": 3,
+        "T": 4,
+        "P": 3,
+        "total": 12
+      },
+      "portrait_url": "https://www.griffelkunst.de/i/_medium/Fotograf.Andy-Michaelis_1__.jpg"
+    },
+    "Ambra Durante": {
+      "tier": 3,
+      "liga": "",
+      "editions": "399 A-Reihe (sechs Linoldrucke), A2 „Bluepoolfoolfeelings“",
+      "sheetCount": 1,
+      "significance": "Galerie Friese (Berlin) | Griffelkunst-Editionen | Solo „On death and Dreaming“ Galerie Friese 2025; Graphic Novel „Black Box Blues“ (2020), Thalia Theater Hamburg 2022",
+      "potential": "Sehr junge, aufstrebende Position mit starker Sichtbarkeit (Literatur/Theater)",
+      "isBlueChip": false,
+      "gender": "f",
+      "rmtp": {
+        "R": 2,
+        "M": 3,
+        "T": 4,
+        "P": 3,
+        "total": 12
       }
     }
   },
