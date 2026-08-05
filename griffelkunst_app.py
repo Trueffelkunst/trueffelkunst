@@ -66,12 +66,13 @@ BIENNALES_SEARCH = [
 
 TECHNIQUE_KEYWORDS = {
     5: ["unikat", "monotypie", "handabzug", "monotype"],
-    4: ["heliogravüre", "heliogravure", "photogravure", "holzschnitt", "woodcut",
-        "aquatinta", "mezzotint", "kaltnadelradierung"],
+    4: ["heliogravüre", "heliogravür", "heliogravure", "photogravüre", "photogravure",
+        "holzschnitt", "woodcut", "aquatinta", "mezzotint", "kaltnadelradierung", "kaltnadel"],
     3: ["radierung", "etching", "lithografie", "lithographie", "lithograph",
         "linolschnitt", "linocut"],
     2: ["siebdruck", "screenprint", "serigraphie", "c-print", "pigmentdruck",
-        "inkjet", "giclée", "giclee"],
+        "inkjet", "giclée", "giclee", "fotografie", "photographie", "photograph",
+        "s/w-foto", "algraphie", "handoffset", "handabzug"],
     1: ["offset", "digitaldruck", "poster", "plakat"]
 }
 
@@ -235,19 +236,32 @@ def recherche_artist(name):
     for key in ["R", "M", "T", "P"]:
         findings[key] = list(dict.fromkeys(findings[key]))
 
-    total = r_score + m_score + t_score + p_score
-    if r_score >= 4 and total >= 12:
-        liga = "Liga 1"
-    elif total >= 12 or r_score >= 4:
-        liga = "Liga 2"
-    elif total >= 8:
-        liga = "Liga 3"
-    else:
-        liga = "Liga 4"
+    total = r_score + m_score + p_score  # Künstler-Score = R+M+P (max. 15)
+    liga = liga_from_rmp(r_score, total) or "Liga 4"
+
+    # ── Gesamteinschätzung (Prosa) ──
+    def _top(key, n=3):
+        return [ (x.split(": ", 1)[-1] if ": " in x else x) for x in findings[key][:n] ]
+    _r_lbl = {5:"herausragende",4:"hohe",3:"solide",2:"im Aufbau befindliche",1:"geringe"}.get(r_score,"")
+    _m_lbl = {5:"sehr starkes",4:"starkes",3:"moderates",2:"verhaltenes",1:"geringes"}.get(m_score,"")
+    _p_lbl = {5:"sehr hohes",4:"hohes",3:"moderates",2:"begrenztes",1:"geringes"}.get(p_score,"")
+    _seg = []
+    _rev = ", ".join(_top("R"))
+    _seg.append(f"{_r_lbl} Reputation" + (f" (u. a. {_rev})" if _rev else ""))
+    _mev = ", ".join(_top("M", 2))
+    _seg.append(f"{_m_lbl} Momentum" + (f" ({_mev})" if _mev else ""))
+    _pev = ", ".join(_top("P", 1))
+    _seg.append(f"{_p_lbl} Aufwärtspotenzial" + (f" ({_pev})" if _pev else ""))
+    _tev = ", ".join(_top("T", 1))
+    _tnote = f" Druckwert des Blattes: T{t_score}" + (f" ({_tev})" if _tev else "") + " — fließt nicht in die Künstler-Liga ein."
+    summary = "; ".join(s for s in _seg if s) + f". Künstler-Score {total}/15 → {liga}." + _tnote
+    if not (findings["R"] or findings["M"]):
+        summary = "Wenig belastbare Web-Belege gefunden — der Vorschlag beruht auf Grundwerten. Bitte manuell prüfen und anpassen."
 
     return {
         "R": r_score, "M": m_score, "T": t_score, "P": p_score,
         "total": total, "liga": liga, "isBlueChip": is_blue_chip,
+        "summary": summary,
         "findings": findings, "snippets_count": len(findings["raw"])
     }
 
@@ -330,17 +344,8 @@ for name, info in artists_data.items():
     rmtp = info.get("rmtp", {})
     if rmtp:
         r = rmtp.get("R", 0)
-        total = rmtp.get("total", 0)
-        if r >= 4 and total >= 12:
-            info["liga"] = "Liga 1"
-        elif total >= 12 or r >= 4:
-            info["liga"] = "Liga 2"
-        elif total >= 8:
-            info["liga"] = "Liga 3"
-        elif total > 0:
-            info["liga"] = "Liga 4"
-        else:
-            info["liga"] = ""
+        art = rmtp.get("R", 0) + rmtp.get("M", 0) + rmtp.get("P", 0)
+        info["liga"] = liga_from_rmp(r, art)
     else:
         info["liga"] = ""
 
@@ -656,14 +661,39 @@ def compute_liga(artist_name):
     if not rmtp:
         return ""
     r = rmtp.get("R", 0)
-    total = rmtp.get("total", 0)
-    if r >= 4 and total >= 12:
+    art = rmtp.get("R", 0) + rmtp.get("M", 0) + rmtp.get("P", 0)
+    _lg = liga_from_rmp(r, art)
+    if _lg:
+        return _lg
+    return ""
+
+def technique_value(work_text):
+    """Druckwert (T, 1–5) eines einzelnen Blattes aus seiner Technik. Unikat(5) → Offset(1)."""
+    t = (work_text or "").lower()
+    best = None
+    for val, kws in TECHNIQUE_KEYWORDS.items():
+        for kw in kws:
+            if kw in t:
+                best = val if best is None else (max(best, val) if val > 3 else min(best, val) if val < 3 else best)
+    return best if best is not None else 3  # unbekannt → mittel
+
+def artist_total(info):
+    """Künstler-Score = R + M + P (technikunabhängig, max. 15)."""
+    r = info.get("rmtp", {})
+    return r.get("R", 0) + r.get("M", 0) + r.get("P", 0)
+
+def blatt_value(info, work_text):
+    """Blatt-Wert = Künstler-Score (R+M+P) + Druckwert (T) dieses Blattes (max. 20)."""
+    return artist_total(info) + technique_value(work_text)
+
+def liga_from_rmp(r, art):
+    if r >= 4 and art >= 10:
         return "Liga 1"
-    elif total >= 12 or r >= 4:
+    elif art >= 9 or r >= 4:
         return "Liga 2"
-    elif total >= 8:
+    elif art >= 5:
         return "Liga 3"
-    elif total > 0:
+    elif art > 0:
         return "Liga 4"
     return ""
 
@@ -850,9 +880,9 @@ if _show_nav:
             '<div style="display:flex;gap:1.2rem;justify-content:center;align-items:center;font-size:0.7rem;">'
             '<span><span style="font-weight:700;color:#C44B3F;">R</span> Reputation</span>'
             '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Momentum</span>'
-            '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Technik</span>'
+            '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert (Blatt)</span>'
             '<span><span style="font-weight:700;color:#C4993D;">P</span> Potenzial</span>'
-            '<span style="opacity:0.6;">— max. 20 Punkte</span>'
+            '<span style="opacity:0.6;">— Künstler-Liga: R+M+P (max. 15) · Blatt-Wert: +Druckwert T (max. 20)</span>'
             '</div>'
             '<div style="display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;'
             'font-size:0.6rem;margin-top:0.25rem;opacity:0.75;line-height:1.4;">'
@@ -860,18 +890,18 @@ if _show_nav:
             '<span style="opacity:0.3;">|</span>'
             '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Letzte 3 J.: Solo-Shows · Biennalen · Preise</span>'
             '<span style="opacity:0.3;">|</span>'
-            '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert: Unikat (5) → Offset (1)</span>'
+            '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert pro Blatt: Unikat (5) → Offset (1) — zählt nur zum Blatt-Wert</span>'
             '<span style="opacity:0.3;">|</span>'
             '<span><span style="font-weight:700;color:#C4993D;">P</span> Wertsteigerungschance: Karrierestand · Marktdynamik · Editionsseltenheit</span>'
             '</div>'
             '<div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;'
             'font-size:0.6rem;margin-top:0.35rem;opacity:0.7;line-height:1.4;">'
             '<span style="font-weight:600;">Liga:</span>'
-            '<span><span style="color:#C44B3F;font-weight:700;">1</span> R≥4 + Score≥12</span>'
+            '<span><span style="color:#C44B3F;font-weight:700;">1</span> R≥4 &amp; R+M+P≥10</span>'
             '<span style="opacity:0.3;">|</span>'
-            '<span><span style="color:#6B7DB3;font-weight:700;">2</span> Score≥12 oder R≥4</span>'
+            '<span><span style="color:#6B7DB3;font-weight:700;">2</span> R+M+P≥9 oder R≥4</span>'
             '<span style="opacity:0.3;">|</span>'
-            '<span><span style="color:#5A9E5A;font-weight:700;">3</span> Score≥8</span>'
+            '<span><span style="color:#5A9E5A;font-weight:700;">3</span> R+M+P≥5</span>'
             '<span style="opacity:0.3;">|</span>'
             '<span><span style="color:#C4993D;font-weight:700;">4</span> Rest</span>'
             '</div>'
@@ -970,13 +1000,12 @@ def show_artist_detail(artist_name):
     parts.append(f'<div class="artist-tier">{detail_line}</div>')
     rmtp = info.get("rmtp", {})
     if rmtp:
-        total = rmtp.get("total", 0)
-        r, m, t, p = rmtp.get("R",0), rmtp.get("M",0), rmtp.get("T",0), rmtp.get("P",0)
+        r, m, p = rmtp.get("R",0), rmtp.get("M",0), rmtp.get("P",0)
+        total = r + m + p
         parts.append(f'''<div class="rmtp-bar">
-            <span class="rmtp-score-total">{total}/20</span>
+            <span class="rmtp-score-total">{total}/15</span>
             <span class="rmtp-pill rmtp-pill-r"><span class="rmtp-label">R</span> {r}</span>
             <span class="rmtp-pill rmtp-pill-m"><span class="rmtp-label">M</span> {m}</span>
-            <span class="rmtp-pill rmtp-pill-t"><span class="rmtp-label">T</span> {t}</span>
             <span class="rmtp-pill rmtp-pill-p"><span class="rmtp-label">P</span> {p}</span>
         </div>''')
     if info.get("editions"):
@@ -1025,7 +1054,8 @@ def show_artist_detail(artist_name):
                 onerror = "this.style.display='none'"
                 img_parts.append(f'<img src="{iu}" style="max-width: 260px; max-height: 200px; border: 1px solid #E8E5E0; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" loading="lazy" onerror="{onerror}">')
             img_html = f'<div style="margin: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 8px;">{"".join(img_parts)}</div>'
-        parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span></div></div></div>')
+        _dw = technique_value(w["work"]); _bval = artist_total(info) + _dw
+        parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span><div style="font-size:0.6rem;color:#B98;">Druckwert {_dw}/5 · Blatt {_bval}/20</div></div></div></div>')
     parts.append('</div>')
     html = "\n".join(parts)
     st.markdown(html, unsafe_allow_html=True)
@@ -1048,7 +1078,7 @@ def artist_label(artist_name):
     bc = "● " if info.get("isBlueChip") else ""
     rmtp = info.get("rmtp", {})
     total = rmtp.get("total", 0)
-    score_str = f" ({total}/20)" if total > 0 else ""
+    score_str = f" ({total}/15)" if total > 0 else ""
     liga_str = f" · {liga}" if liga else ""
     return f"{bc}{artist_name}{liga_str}{score_str}"
 
@@ -1068,7 +1098,7 @@ def render_work_cards(works, card_key_prefix="card"):
         if rmtp:
             total = rmtp.get("total", 0)
             color = "#C44B3F" if total >= 15 else "#6B7DB3" if total >= 12 else "#999"
-            rmtp_badge = f'<span style="float:right;font-size:0.75rem;font-weight:700;color:{color};">{total}/20</span>'
+            rmtp_badge = f'<span style="float:right;font-size:0.75rem;font-weight:700;color:{color};">{total}/15</span>'
         with card_cols[j % 2]:
             st.markdown(f'<div class="work-card liga-border-{liga_class}"><div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
             if st.button(f"{bc_dot}{w['artist']}", key=f"{card_key_prefix}_{j}", use_container_width=True):
@@ -1189,7 +1219,10 @@ elif view == "werke":
         if img_url:
             img_html = f'<div style="margin:0.4rem 0;"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=\'none\'"></div>'
         with card_cols[j % 3]:
-            st.markdown(f'<div class="work-card liga-border-{liga_class}">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+            _binfo = artists_data.get(w["artist"], {}); _dw = technique_value(w["work"])
+            _bval = _binfo.get("rmtp",{}).get("total",0) + _dw
+            _blatt_html = f'<div style="font-size:0.6rem;color:#B98;margin-top:3px;">Druckwert {_dw}/5 · Blatt {_bval}/20</div>' if _binfo.get("rmtp") else ""
+            st.markdown(f'<div class="work-card liga-border-{liga_class}">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div>{_blatt_html}</div>', unsafe_allow_html=True)
             if st.button(f"{bc_dot}{w['artist']}", key=f"werke_artist_{j}", use_container_width=True):
                 st.session_state.selected_artist = w["artist"]
                 st.rerun()
@@ -1297,11 +1330,13 @@ elif view == "extern":
         _info = artists_data.get(w["artist"], {})
         _liga = _info.get("liga", "")
         _total = _info.get("rmtp", {}).get("total", 0)
+        _dw = technique_value(w.get("technique","") or w.get("work",""))
+        _bval = _total + _dw
         if _liga or _total:
             _lc = get_liga_class(_liga)
             _lb = f'<span class="liga-badge liga-badge-{_lc}">{_liga}</span>' if _liga else ""
-            _sc = f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:0.8rem;color:#1B3A2A;margin-left:6px;">{_total}/20</span>' if _total else ""
-            score_html = f'<div style="margin:6px 0 2px;">{_lb}{_sc}</div>'
+            _sc = f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:0.8rem;color:#1B3A2A;margin-left:6px;">Blatt {_bval}/20</span>' if _total else ""
+            score_html = f'<div style="margin:6px 0 2px;">{_lb}{_sc}<div style="font-size:0.6rem;color:#B98;margin-top:1px;">Künstler {_total}/15 · Druckwert {_dw}/5</div></div>'
         else:
             score_html = '<div style="font-size:0.65rem;color:#bbb;margin:6px 0 2px;font-style:italic;">noch nicht bewertet</div>'
         with ext_cols[j % 3]:
@@ -1338,7 +1373,7 @@ elif st.session_state.view != "bewerten":
             liga_badge_html = ""
             if liga:
                 liga_badge_html = f'<span class="liga-badge liga-badge-{liga_class}" style="margin-left:0;">{liga}</span>'
-            score_html = f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:0.8rem;color:#1B3A2A;">{total}/20</span>' if total > 0 else ""
+            score_html = f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:0.8rem;color:#1B3A2A;">{total}/15</span>' if total > 0 else ""
             works_label = "Werk" if len(works) == 1 else "Werke"
 
             # Portrait für Tile; Fallback: erstes Werkbild des Künstlers
@@ -1502,7 +1537,7 @@ if view == "bewerten":
                     _total = _rmtp.get("total", 0)
                     _liga = _found.get("liga", "?")
                     _bc = " ●" if _found.get("isBlueChip") else ""
-                    _in_sammlung.append(f"{_bn} — {_liga} · {_total}/20{_bc}")
+                    _in_sammlung.append(f"{_bn} — {_liga} · {_total}/15{_bc}")
                 else:
                     _nicht_in_sammlung.append(_bn)
 
@@ -1585,7 +1620,7 @@ if view == "bewerten":
                 f'<span style="color:#6B7DB3;font-weight:700;">M {rmtp.get("M",0)}</span> · '
                 f'<span style="color:#5A9E5A;font-weight:700;">T {rmtp.get("T",0)}</span> · '
                 f'<span style="color:#C4993D;font-weight:700;">P {rmtp.get("P",0)}</span> · '
-                f'<span style="font-weight:700;">{total}/20</span></div>'
+                f'<span style="font-weight:700;">{total}/15</span></div>'
                 f'<div style="font-size:0.85rem;color:#666;">{liga} · {liga_label}</div>'
                 f'<div style="font-size:0.82rem;color:#888;margin-top:0.4rem;font-style:italic;">{existing.get("potential","")}</div>'
                 f'</div>',
@@ -1621,12 +1656,18 @@ if view == "bewerten":
                 f'<span style="color:#6B7DB3;font-weight:700;">M {_rech["M"]}</span> · '
                 f'<span style="color:#5A9E5A;font-weight:700;">T {_rech["T"]}</span> · '
                 f'<span style="color:#C4993D;font-weight:700;">P {_rech["P"]}</span> · '
-                f'<span style="font-weight:700;">{_rech["total"]}/20</span> · '
+                f'<span style="font-weight:700;">{_rech["total"]}/15</span> · '
                 f'<span style="color:{_r_col};font-weight:700;">{_rech["liga"]}</span></div>'
                 f'<div style="font-size:0.75rem;color:#888;margin-top:0.3rem;">{_rech["snippets_count"]} Webquellen ausgewertet</div>'
                 f'</div>',
                 unsafe_allow_html=True
             )
+            if _rech.get("summary"):
+                st.markdown(
+                    f'<div style="font-size:0.9rem;color:#333;background:#FBFAF7;border-left:3px solid #C4993D;padding:0.7rem 1rem;border-radius:4px;margin:-0.5rem 0 1rem;">'
+                    f'<span style="font-weight:700;color:#1B3A2A;">Gesamteinschätzung:</span> {_rech["summary"]}</div>',
+                    unsafe_allow_html=True
+                )
             # Fundstellen Details
             _detail_parts = []
             if _rech["findings"]["R"]:
@@ -1638,7 +1679,7 @@ if view == "bewerten":
             if _rech["findings"]["P"]:
                 _detail_parts.append("**P — Potenzial:** " + " · ".join(_rech["findings"]["P"]))
             if _detail_parts:
-                with st.expander("📋 Fundstellen", expanded=False):
+                with st.expander("📋 Fundstellen — wie der Score zustande kommt", expanded=True):
                     for _dp in _detail_parts:
                         st.markdown(f'<div style="font-size:0.82rem;margin:0.3rem 0;">{_dp}</div>', unsafe_allow_html=True)
             elif not _rech["findings"]["R"] and not _rech["findings"]["M"]:
@@ -1702,31 +1743,24 @@ if view == "bewerten":
             m_val = st.slider("M — Momentum", 1, 5, default_m, key="slider_m",
                             help="5=mehrere Top-Solos aktuell, 4=2-3 Solos, 3=aktiv, 2=wenig, 1=kaum")
         with score_cols[2]:
-            t_val = st.slider("T — Technik", 1, 5, default_t, key="slider_t",
+            t_val = st.slider("T — Druckwert (pro Blatt)", 1, 5, default_t, key="slider_t",
                             help="5=Unikat, 4=Heliogravüre, 3=Radierung/Litho, 2=Siebdruck, 1=Offset")
         with score_cols[3]:
             p_val = st.slider("P — Potenzial", 1, 5, default_p, key="slider_p",
                             help="5=extrem unterbewertet, 4=deutlich, 3=solide, 2=stabil, 1=kein Markt")
 
-        total_score = r_val + m_val + t_val + p_val
-
-        # Liga berechnen
-        if r_val >= 4 and total_score >= 12:
-            calc_liga = "Liga 1"
-        elif total_score >= 12 or r_val >= 4:
-            calc_liga = "Liga 2"
-        elif total_score >= 8:
-            calc_liga = "Liga 3"
-        else:
-            calc_liga = "Liga 4"
+        total_score = r_val + m_val + p_val  # Künstler-Score = R+M+P (max. 15)
+        _blatt_hint = total_score + t_val       # Beispiel-Blattwert (mit Druckwert)
+        calc_liga = liga_from_rmp(r_val, total_score) or "Liga 4"
 
         liga_colors = {"Liga 1": "#C44B3F", "Liga 2": "#6B7DB3", "Liga 3": "#5A9E5A", "Liga 4": "#C4993D"}
         liga_col = liga_colors.get(calc_liga, "#999")
 
         # Veränderung zum bisherigen Score anzeigen
         score_change = ""
-        if existing and existing.get("rmtp", {}).get("total"):
-            old_total = existing["rmtp"]["total"]
+        if existing and existing.get("rmtp"):
+            _er = existing["rmtp"]
+            old_total = _er.get("R",0)+_er.get("M",0)+_er.get("P",0)
             old_liga = existing.get("liga", "")
             if total_score != old_total or calc_liga != old_liga:
                 diff = total_score - old_total
@@ -1736,7 +1770,7 @@ if view == "bewerten":
 
         st.markdown(
             f'<div style="text-align:center;padding:0.6rem;margin:0.5rem 0;background:#FAF8F5;border-radius:4px;">'
-            f'<span style="font-family:Cormorant Garamond,serif;font-size:1.3rem;font-weight:700;">{total_score}/20</span>'
+            f'<span style="font-family:Cormorant Garamond,serif;font-size:1.3rem;font-weight:700;">{total_score}/15</span>'
             f' · <span style="color:{liga_col};font-weight:700;">{calc_liga}</span>'
             f' · {get_liga_label(calc_liga)}'
             f'{score_change}</div>',
