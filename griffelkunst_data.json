@@ -34,19 +34,18 @@
     },
     {
       "id": 3,
-      "year": "2015",
-      "date": "Jul. 2015",
+      "year": "2005",
+      "date": "2005",
       "artist": "Stephan Balkenhol",
-      "work": "Multiple: Mann (gegossen)",
-      "edition": "E 505",
+      "work": "Junger Mann (Multiple, Antimon-Hartbleiguss)",
+      "edition": "E 420",
       "price": "150 €",
       "liga": "Liga 1",
       "source": "receipt",
       "isBlueChip": true,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E_505_Stephan_Balkenhol_1.jpg",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/Balkenhol-E420_1.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/E_505_Stephan_Balkenhol_1.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/Balkenhol-Werkverzeichnis_2.jpg"
+        "https://www.griffelkunst.de/galleryimages/_xlarge/Balkenhol-E420_1.jpg"
       ]
     },
     {
@@ -896,8 +895,10 @@
       "liga": "Liga 1",
       "source": "receipt",
       "isBlueChip": true,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://monicabonvicini.net/wp-content/uploads/2020/07/375-C5-Monica-Bonvicini_cut.jpg",
+      "image_urls": [
+        "https://monicabonvicini.net/wp-content/uploads/2020/07/375-C5-Monica-Bonvicini_cut.jpg"
+      ]
     },
     {
       "id": 54,
@@ -1303,18 +1304,18 @@
     },
     {
       "id": 78,
-      "year": "2026",
-      "date": "Jan. 2026",
+      "year": "2008",
+      "date": "2008",
       "artist": "Stephan Balkenhol",
-      "work": "Multiple: Frau (gegossen)",
-      "edition": "E 626",
+      "work": "Frau (Multiple, Antimon-Hartbleiguss)",
+      "edition": "E 438",
       "price": "150 €",
       "liga": "Liga 1",
       "source": "receipt",
       "isBlueChip": true,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E626.jpg",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/Balkenhol_E432_1.JPG",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/E626.jpg"
+        "https://www.griffelkunst.de/galleryimages/_xlarge/Balkenhol_E432_1.JPG"
       ]
     },
     {
@@ -1406,8 +1407,10 @@
       "liga": "Liga 3",
       "source": "inventory",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4d/05-Zille-6-Auskleiden.jpg",
+      "image_urls": [
+        "https://upload.wikimedia.org/wikipedia/commons/4/4d/05-Zille-6-Auskleiden.jpg"
+      ]
     },
     {
       "id": 85,
@@ -3825,6 +3828,38 @@
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/399A2.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/399A2.jpg"
+      ]
+    },
+    {
+      "id": 240,
+      "year": "2015",
+      "date": "2015",
+      "artist": "Stephan Balkenhol",
+      "work": "Junger Mann (Lithographie)",
+      "edition": "E 505",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": true,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E_505_Stephan_Balkenhol_1.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/E_505_Stephan_Balkenhol_1.jpg"
+      ]
+    },
+    {
+      "id": 241,
+      "year": "2025",
+      "date": "2025",
+      "artist": "Stephan Balkenhol",
+      "work": "Schwimmer (Holzdruck)",
+      "edition": "E 626",
+      "price": "",
+      "liga": "",
+      "source": "receipt",
+      "isBlueChip": true,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E626.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_xlarge/E626.jpg"
       ]
     }
   ],

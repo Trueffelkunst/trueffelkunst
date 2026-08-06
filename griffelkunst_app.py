@@ -730,20 +730,42 @@ def extract_technique(work_desc):
     work_lower = work_desc.lower()
     if "mezzotinto" in work_lower: return "Mezzotinto"
     if "schadograph" in work_lower: return "Schadographie"
-    if "heliograv" in work_lower: return "Heliogravüre"
+    if any(t in work_lower for t in ["heliograv", "photograv", "fotograv"]): return "Heliogravüre"
     if "cyanotyp" in work_lower: return "Cyanotypie"
     if "monotyp" in work_lower: return "Monotypie"
     if "aquatinta" in work_lower: return "Aquatinta"
-    if any(t in work_lower for t in ["lithograph", "litho", "farblitho"]): return "Lithographie"
+    if any(t in work_lower for t in ["lithograph", "litho", "farblitho", "algraphie", "algrafie"]): return "Lithographie"
     if any(t in work_lower for t in ["siebdruck", "serigraph"]): return "Siebdruck"
-    if any(t in work_lower for t in ["radierung", "kaltnadel"]): return "Radierung"
-    if any(t in work_lower for t in ["foto", "inkjet", "c-print", "ph a.d.n", "fotogram"]): return "Fotografie"
+    if any(t in work_lower for t in ["radierung", "kaltnadel", "strichätz", "strichaetz", "weichgrund", "ätzung", "aetzung"]): return "Radierung"
+    if any(t in work_lower for t in ["fotografie", "photographie", "photograph", "foto", "photo", "inkjet", "c-print", "ph a.d.n", "fotogram", "s/w"]): return "Fotografie"
     if "holzschnitt" in work_lower: return "Holzschnitt"
-    if any(t in work_lower for t in ["holz", "linol"]): return "Holz-/Linoldruck"
+    if any(t in work_lower for t in ["holzdruck", "holz-", "linol"]): return "Holz-/Linoldruck"
+    if any(t in work_lower for t in ["hochdruck", "reliefdruck", "reliefdr", "relief"]): return "Hochdruck"
+    if "prägedr" in work_lower or "praegedr" in work_lower: return "Prägedruck"
     if "multiple" in work_lower: return "Multiple"
-    if any(t in work_lower for t in ["offset", "digitaler"]): return "Offsetdruck"
-    if "edition" in work_lower: return "Edition"
+    if any(t in work_lower for t in ["offset", "digitaler", "digital"]): return "Offsetdruck"
     return "Sonstige"
+
+def blatt_typ(edition, work=""):
+    """Griffelkunst-Blatt-Typ aus dem Editionscode: Wahlblatt (A/B/C), Projektblatt (P), Einzelblatt (E), Mappe, Sonderedition."""
+    ed = (edition or "").strip()
+    if "mappe" in (work or "").lower() or "mappe" in ed.lower():
+        return "Mappe"
+    if re.match(r'^P\s*\d', ed):
+        return "Projektblatt"
+    if re.match(r'^E[\s\d]', ed):
+        return "Einzelblatt"
+    if re.match(r'^\d', ed):
+        return "Wahlblatt"
+    return "Sonderedition"
+
+BLATTTYP_INFO = {
+    "Wahlblatt": "Aus der vierteljährlichen Wahl (Reihen A/B/C). Kern des Griffelkunst-Programms — gewählt wird nach Anfangsbuchstabe des Nachnamens: A-He aus Reihe A, Hi-Q aus B, R-Z aus C.",
+    "Projektblatt": "Aus der Projekt-Reihe (Code P…). Kann ohne Tauschgebühr aus beiden Wahlen gewählt werden.",
+    "Einzelblatt": "Separate Sonderedition (Code E…) mit eigenem Preis — nur zusätzlich zu den Reihen A/B/C erwerbbar, nicht anstelle eines Wahlblattes.",
+    "Mappe": "Zusammengehörige Serie in einer Sammelmappe.",
+    "Sonderedition": "Sonstige Editionen/Sonderformate außerhalb des regulären Wahl-Schemas.",
+}
 
 # Alle einzigartigen Techniken in der Sammlung
 ALL_TECHNIQUES_IN_COLLECTION = set(extract_technique(w["work"]) for w in collection if extract_technique(w["work"]) != "Sonstige")
@@ -765,6 +787,8 @@ TECHNIQUE_INFO = {
     "Cyanotypie": "Historisches Edeldruckverfahren: Eisensalze auf Papier werden durch UV-Licht belichtet. Ergebnis: charakteristisches Preußischblau. Wurde im 19. Jh. für botanische Dokumentation erfunden (Anna Atkins). Jeder Abzug ist ein Unikat.",
     "Monotypie": "Druckgrafik-Unikat: Der Künstler malt direkt auf eine glatte Platte und druckt das Motiv in einem einzigen Durchgang auf Papier ab. Jedes Blatt ist ein Unikat — die Technik liegt zwischen Malerei und Druckgrafik.",
     "Digitaldruck": "Moderne Drucktechnik: Das digitale Bild wird direkt auf Papier übertragen, ohne physische Druckform. Bei Griffelkunst meist als hochwertige Pigmentdrucke auf Büttenpapier realisiert.",
+    "Hochdruck": "Hochdruckverfahren (Oberbegriff): Die druckenden Teile liegen erhöht, die Farbe wird von der erhabenen Fläche aufs Papier übertragen. Dazu zählen Holz- und Linolschnitt, aber auch freie Verfahren wie bei Karimah Ashadu (Icons/Machine Boys).",
+    "Prägedruck": "Blindprägung/Prägedruck: Ein Motiv wird ohne oder mit wenig Farbe reliefartig ins Papier gepresst — der Reiz liegt im Licht-Schatten-Spiel der Prägung.",
     "Sonstige": "Verschiedene Techniken, die nicht den gängigen Druckverfahren zugeordnet sind — darunter Mischtechniken, Multiples, Objekte und experimentelle Verfahren.",
     "Holz-/Linoldruck": "Hochdruckverfahren: Beim Holzdruck wird ein Holzblock als Druckstock verwendet — verwandt mit dem Holzschnitt, aber oft freier in der Bearbeitung (Sägen, Brechen, Materialdruck). Beim Linoldruck wird Linoleum geschnitten. Beide Techniken erzeugen kräftige, flächige Drucke mit starker materialer Präsenz.",
     "Edition": "Griffelkunst-Editionen sind vom Künstler signierte und nummerierte Druckgrafiken in limitierter Auflage. Die Technik variiert — häufig Siebdruck, Lithographie oder Digitaldruck. Editionen werden als Einzelblätter ausgegeben, oft in experimentelleren Formaten als die Serienblätter.",
@@ -832,14 +856,17 @@ if "selected_artist" not in st.session_state:
     st.session_state.selected_artist = None
 if "selected_technique" not in st.session_state:
     st.session_state.selected_technique = None
+if "selected_blatttyp" not in st.session_state:
+    st.session_state.selected_blatttyp = None
 
 def set_view(v):
     st.session_state.view = v
     st.session_state.selected_artist = None
     st.session_state.selected_technique = None
+    st.session_state.selected_blatttyp = None
 
 # ── Navigation ausblenden wenn Künstler-Detail oder Technik-Detail offen ──
-_show_nav = (st.session_state.selected_artist is None and st.session_state.get("selected_technique") is None)
+_show_nav = (st.session_state.selected_artist is None and st.session_state.get("selected_technique") is None and st.session_state.get("selected_blatttyp") is None)
 
 if _show_nav:
     # Zeile 1: Hauptzahlen (5 Spalten)
@@ -874,9 +901,14 @@ if _show_nav:
         if st.button("**+**\n\nBEWERTEN", use_container_width=True, key="btn_bewerten"):
             set_view("bewerten")
 
-    # Externe Sammlung (nicht Griffelkunst)
-    if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
-        set_view("extern")
+    # Blatt-Typ + Externe Sammlung
+    _navrow = st.columns(2)
+    with _navrow[0]:
+        if st.button(f"**{len(set(blatt_typ(w['edition'], w['work']) for w in collection))}**\n\nBLATT-TYP", use_container_width=True, key="btn_blatttyp"):
+            set_view("blatttyp")
+    with _navrow[1]:
+        if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
+            set_view("extern")
 
     st.markdown('<div style="border-bottom: 1px solid #E0DDD8; margin-bottom: 0.8rem;"></div>', unsafe_allow_html=True)
 
@@ -1158,7 +1190,7 @@ def show_artist_detail(artist_name):
             img_parts = []
             for iu in img_urls:
                 onerror = "this.style.display='none'"
-                img_parts.append(f'<img src="{iu}" style="max-width: 260px; max-height: 200px; border: 1px solid #E8E5E0; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);" loading="lazy" onerror="{onerror}">')
+                img_parts.append(f'<a href="{iu}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{iu}" style="max-width: 260px; max-height: 200px; border: 1px solid #E8E5E0; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);cursor:zoom-in;" loading="lazy" onerror="{onerror}"></a>')
             img_html = f'<div style="margin: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 8px;">{"".join(img_parts)}</div>'
         _dw = technique_value(w["work"]); _bval = artist_total(info) + _dw
         parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span><div style="font-size:0.6rem;color:#B98;">Druckwert {_dw}/5 · Blatt {_bval}/20</div></div></div></div>')
@@ -1348,7 +1380,7 @@ elif view == "werke":
         img_url = w.get("image_url", "")
         img_html = ""
         if img_url:
-            img_html = f'<div style="margin:0.4rem 0;"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=\'none\'"></div>'
+            img_html = f'<div style="margin:0.4rem 0;"><a href="{img_url}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;cursor:zoom-in;" loading="lazy" onerror="this.style.display=\'none\'"></a></div>'
         with card_cols[j % 3]:
             _binfo = artists_data.get(w["artist"], {}); _dw = technique_value(w["work"])
             _bval = _binfo.get("rmtp",{}).get("total",0) + _dw
@@ -1399,7 +1431,7 @@ elif view == "techniken":
             img_url = w.get("image_url", "")
             img_html = ""
             if img_url:
-                img_html = f'<div style="margin:0.4rem 0;"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=\'none\'"></div>'
+                img_html = f'<div style="margin:0.4rem 0;"><a href="{img_url}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;cursor:zoom-in;" loading="lazy" onerror="this.style.display=\'none\'"></a></div>'
             with card_cols[j % 3]:
                 st.markdown(f'<div class="work-card liga-border-{liga_class}">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
                 if st.button(f"{bc_dot}{w['artist']}", key=f"tech_artist_{j}", use_container_width=True):
@@ -1447,7 +1479,7 @@ elif view == "extern":
     for j, w in enumerate(EXTERNAL_WORKS):
         img_html = ""
         if w.get("image_url"):
-            img_html = f'<div style="margin:0.4rem 0;"><img src="{w["image_url"]}" style="width:100%;max-height:240px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy"></div>'
+            img_html = f'<div style="margin:0.4rem 0;"><a href="{w["image_url"]}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{w["image_url"]}" style="width:100%;max-height:240px;object-fit:contain;border-radius:2px;background:#F8F7F4;cursor:zoom-in;" loading="lazy"></a></div>'
         meta = []
         if w.get("technique"): meta.append(w["technique"])
         if w.get("edition"): meta.append("Auflage " + w["edition"])
@@ -1481,15 +1513,58 @@ elif view == "extern":
                 f'</div>',
                 unsafe_allow_html=True
             )
+elif view == "blatttyp":
+    from collections import defaultdict
+    _bt_groups = defaultdict(list)
+    for w in view_filtered:
+        _bt_groups[blatt_typ(w["edition"], w["work"])].append(w)
+    _bt_order = ["Wahlblatt", "Projektblatt", "Einzelblatt", "Mappe", "Sonderedition"]
+    _selbt = st.session_state.get("selected_blatttyp")
+    if _selbt and _selbt in _bt_groups:
+        _bt_works = _bt_groups[_selbt]
+        if st.button("← Zurück zu Blatt-Typen", key="btn_back_bt"):
+            st.session_state.selected_blatttyp = None; st.rerun()
+        st.markdown(f'<div style="font-family: Cormorant Garamond, Georgia, serif; font-size: 1.4rem; color: #1B3A2A; margin-bottom: 0.3rem;">{_selbt}</div>', unsafe_allow_html=True)
+        _d = BLATTTYP_INFO.get(_selbt, "")
+        if _d:
+            st.markdown(f'<div style="font-size: 0.82rem; color: #6B6255; line-height: 1.6; margin-bottom: 0.8rem; padding: 0.7rem 1rem; background: #F5F3EE; border-left: 3px solid #B8964E; border-radius: 0 3px 3px 0;">{_d}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem;">{len(_bt_works)} Werke</div>', unsafe_allow_html=True)
+        _bc = st.columns(3)
+        for j, w in enumerate(_bt_works):
+            lc = get_liga_class(w["liga"]); dot = "● " if w["isBlueChip"] else ""
+            iu = w.get("image_url", "")
+            ih = f'<div style="margin:0.4rem 0;"><img src="{iu}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=\'none\'"></div>' if iu else ""
+            with _bc[j % 3]:
+                st.markdown(f'<div class="work-card liga-border-{lc}">{ih}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size:0.65rem;color:#aaa;margin-left:6px;">{extract_technique(w["work"])}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+                if st.button(f"{dot}{w['artist']}", key=f"bt_artist_{j}", use_container_width=True):
+                    st.session_state.selected_artist = w["artist"]; st.rerun()
+    else:
+        st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 0.6rem; letter-spacing: 0.03em;">Blatt-Typen · {len(view_filtered)} Werke</div>', unsafe_allow_html=True)
+        st.markdown('<div style="font-size:0.75rem;color:#6B6255;background:#F5F3EE;border-left:3px solid #B8964E;padding:0.6rem 0.9rem;border-radius:0 3px 3px 0;margin-bottom:1rem;line-height:1.5;">Alle Blätter sind <b>originale Druckgraphik</b>, vom Künstler handsigniert (Griffelkunst-Blätter sind signiert, aber <b>nicht</b> nummeriert). Unterschieden wird nach Herkunft im Griffelkunst-Programm:</div>', unsafe_allow_html=True)
+        _present = [(t, _bt_groups[t]) for t in _bt_order if t in _bt_groups]
+        _cols = st.columns(len(_present) if _present else 1)
+        for idx, (t, ws) in enumerate(_present):
+            with _cols[idx]:
+                _s = ""
+                for tw in ws:
+                    if tw.get("image_url"): _s = tw["image_url"]; break
+                if _s:
+                    st.markdown(f'<div style="width:100%;height:120px;overflow:hidden;border-radius:3px 3px 0 0;background:#F5F3EE;border:1px solid #E8E5E0;border-bottom:none;"><img src="{_s}" style="width:100%;height:120px;object-fit:contain;padding:4px;" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>', unsafe_allow_html=True)
+                if st.button(f"{t} ({len(ws)})", key=f"bt_{t}", use_container_width=True):
+                    st.session_state.selected_blatttyp = t; st.rerun()
 elif st.session_state.view != "bewerten":
     # ── Künstler·innen-Galerie: Portrait-Tiles im Grid ──
     filter_hint = f" — {view_label}" if view_label else ""
-    st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(artist_groups)} Künstler·innen · {len(view_filtered)} Werke{filter_hint} — alphabetisch nach Nachname</div>', unsafe_allow_html=True)
+    _ranked = view in ("liga1", "liga2", "liga3", "bluechip", "meisterschueler")
+    _sort_hint = "nach Score · beste zuerst" if _ranked else "alphabetisch nach Nachname"
+    st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(artist_groups)} Künstler·innen · {len(view_filtered)} Werke{filter_hint} — {_sort_hint}</div>', unsafe_allow_html=True)
 
     # Render grid — Streamlit columns with portrait tiles
     # 4 Spalten: bricht auf Mobile sauber auf 2×2 um (kein leeres Feld)
     COLS_PER_ROW = 4
     artist_list = list(artist_groups.items())
+    if _ranked:
+        artist_list.sort(key=lambda kv: artist_total(artists_data.get(kv[0], {})), reverse=True)
     for row_start in range(0, len(artist_list), COLS_PER_ROW):
         row_items = artist_list[row_start:row_start + COLS_PER_ROW]
         # Nur so viele Spalten wie Einträge → keine leeren Spalten am Ende
