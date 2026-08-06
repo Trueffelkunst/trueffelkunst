@@ -910,6 +910,19 @@ if _show_nav:
         if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
             set_view("extern")
 
+    # ── Aktive Kachel hellgrün hervorheben ──
+    _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
+                 "bluechip": "btn_bluechip", "meisterschueler": "btn_meister", "liga1": "btn_liga1",
+                 "liga2": "btn_liga2", "liga3": "btn_liga3", "bewerten": "btn_bewerten",
+                 "blatttyp": "btn_blatttyp", "extern": "btn_extern"}
+    _active_key = _view_key.get(st.session_state.view)
+    if _active_key:
+        st.markdown(
+            f"<style>.st-key-{_active_key} button {{ background:#E3F1E0 !important; "
+            f"border:1px solid #8FB98A !important; color:#1B3A2A !important; box-shadow:none !important; }} "
+            f".st-key-{_active_key} button p {{ color:#1B3A2A !important; font-weight:700 !important; }}</style>",
+            unsafe_allow_html=True
+        )
     st.markdown('<div style="border-bottom: 1px solid #E0DDD8; margin-bottom: 0.8rem;"></div>', unsafe_allow_html=True)
 
     # Suchfeld (nicht im Bewerten-Tab)
