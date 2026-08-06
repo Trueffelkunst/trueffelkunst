@@ -4734,18 +4734,20 @@
    "liga": "Liga 1",
    "editions": "Salt Lake (Fotografie)",
    "sheetCount": 1,
-   "significance": "Marian Goodman (Galeriewechsel) | Venedig, Documenta | MoMA, Tate, Stedelijk | Retrospektiven 2025/26 (Photographers’ Gallery London, Ukrainian Museum NY) | Hasselblad Prize 2000",
-   "potential": "Hasselblad Prize = Foto-Nobelpreis. Ukrainische Fotografie wird neu bewertet.",
+   "significance": "Griffelkunst-Name: Boris Mikhailov | MoMA | Tate Modern | Pinakothek der Moderne | Galerie Barbara Weiss",
+   "potential": "Hasselblad-Preis, documenta, große Retrospektiven; Edition 'Salt Lake' (2000).",
    "isBlueChip": true,
    "gender": "m",
    "rmtp": {
     "R": 5,
-    "M": 5,
-    "T": 2,
-    "P": 3,
+    "M": 4,
+    "T": 3,
+    "P": 4,
     "total": 13
    },
-   "portrait_url": "https://thephotographersgallery.org.uk/sites/default/files/styles/original/public/images/Portrait%202-Boris%20Mikhailov%2C%202015%2C%20photo%20by%20Vita%20Mikhailov.jpg.webp"
+   "portrait_url": "https://thephotographersgallery.org.uk/sites/default/files/styles/original/public/images/Portrait%202-Boris%20Mikhailov%2C%202015%2C%20photo%20by%20Vita%20Mikhailov.jpg.webp",
+   "birth": 1938,
+   "sekundaermarkt": "stark"
   },
   "Jonathan Monk": {
    "tier": 2,
@@ -5125,23 +5127,24 @@
   },
   "Markus Vater": {
    "tier": 3,
-   "liga": "Liga 3",
+   "liga": "Liga 1",
    "editions": "362 A2,A3,A4,A5",
    "sheetCount": 4,
-   "significance": "Lithographien | Erzählerische, humorvolle Bildwelt",
-   "potential": "4 Blätter = gute Repräsentation. Eigenwilliger narrativer Stil.",
+   "significance": "Sies + Höke, Düsseldorf | Sprengel Museum Hannover | Kunstpalast Düsseldorf | Kunsthalle Mannheim",
+   "potential": "Etablierter Mid-Career-Künstler, Prof. HBK Essen, starke Galerie + Museumsschauen 2022–25.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 2,
-    "M": 2,
+    "R": 4,
+    "M": 4,
     "T": 3,
-    "P": 2,
-    "total": 6
+    "P": 3,
+    "total": 11
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/362_A2_Markus_Vater_1.jpg",
    "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_MVater_1.jpg",
-   "birth": 1965
+   "birth": 1970,
+   "sekundaermarkt": "gering"
   },
   "Jonathan Meese": {
    "tier": 3,
@@ -5714,77 +5717,87 @@
   },
   "Kai Schiemenz": {
    "tier": 3,
-   "liga": "Liga 3",
+   "liga": "Liga 1",
    "editions": "350 A3 (Holzdruck)",
    "sheetCount": 1,
-   "significance": "Galerie EIGEN+ART | Meisterschüler Lothar Baumgarten | Raum-Skulptur",
-   "potential": "Eigen+Art + Baumgarten-Meisterschüler. Rauminstallationen mit Skulptur.",
-   "isBlueChip": false,
+   "significance": "Galerie EIGEN + ART, Leipzig/Berlin | GRASSI Museum Leipzig | Georg Kolbe Museum | MARTa Herford",
+   "potential": "Institutionell breit verankerter Bildhauer (Glasguss), feste EIGEN+ART-Vertretung, Solo 2024 — Anerkennung eilt dem Markt voraus.",
+   "isBlueChip": true,
    "gender": "m",
    "rmtp": {
-    "R": 2,
-    "M": 2,
-    "T": 1,
-    "P": 2,
-    "total": 6
+    "R": 4,
+    "M": 4,
+    "T": 3,
+    "P": 4,
+    "total": 12
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/350_A3_Schiemenz_1.jpg",
    "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait-Schiemenz_1.jpg",
-   "birth": 1966
+   "birth": 1966,
+   "sekundaermarkt": "gering"
   },
   "Richard Haizmann": {
    "tier": 3,
-   "liga": "Liga 3",
+   "liga": "Liga 2",
    "editions": "262 C3 (Holzdruck, Nachlass)",
    "sheetCount": 1,
-   "significance": "† 1963 | 'Entartete Kunst' (NS-verfemt) | Eigenes Museum Niebüll | Nachlass-Holzdruck",
-   "potential": "'Entartete Kunst' = historisch bedeutsam. Eigenes Museum. Endliches Werk, extreme Seltenheit.",
+   "significance": "Richard-Haizmann-Museum Niebüll | Staatliche Museen zu Berlin",
+   "potential": "Expressionist (Umkreis Nolde/Kirchner), NS-'entartet'; posthum durch eigenes Museum verankert, aktiver Markt.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 2,
-    "M": 2,
+    "R": 3,
+    "M": 3,
     "T": 3,
-    "P": 2,
-    "total": 6
+    "P": 3,
+    "total": 9
    },
-   "portrait_url": "https://www.haizmann-museum.de/wp-content/uploads/2019/12/haizmann-216x300.jpg"
+   "portrait_url": "https://www.haizmann-museum.de/wp-content/uploads/2019/12/haizmann-216x300.jpg",
+   "birth": 1895,
+   "death": 1963,
+   "sekundaermarkt": "mittel"
   },
   "Heinrich Stegemann": {
    "tier": 3,
-   "liga": "Liga 3",
+   "liga": "Liga 2",
    "editions": "281 B6 (Holzdruck, Nachlass)",
    "sheetCount": 1,
-   "significance": "† 1945 | 'Entartete Kunst' (NS-verfemt) | Extreme Seltenheit | Nachlass-Holzdruck",
-   "potential": "'Entartete Kunst' + † 1945 = historisch bedeutsam. Extrem seltenes Werk.",
+   "significance": "Hamburger Kunsthalle | Museum für Kunst und Gewerbe Hamburg | Altonaer Museum",
+   "potential": "Hamburger Expressionist, 'Entartete Kunst'; stark museal verankert, Auktionsmarkt bis ~37.500 €.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 2,
-    "M": 1,
-    "T": 4,
+    "R": 4,
+    "M": 2,
+    "T": 3,
     "P": 2,
-    "total": 5
+    "total": 8
    },
-   "portrait_url": "app/static/portraits/heinrich_stegemann.jpg"
+   "portrait_url": "app/static/portraits/heinrich_stegemann.jpg",
+   "birth": 1888,
+   "death": 1945,
+   "sekundaermarkt": "mittel"
   },
   "Willem Grimm": {
    "tier": 3,
    "liga": "Liga 3",
    "editions": "298 B (Rummelpottlaufen) + 2 Karnevalsbilder",
    "sheetCount": 3,
-   "significance": "† 1986 | Hamburger Sezession | MKG Hamburg (Nachlass) | Farbholzdrucke",
-   "potential": "3 Blätter! Hamburger Sezession + MKG-Nachlass. Expressionistischer Farbholzdruck.",
+   "significance": "Hamburger Kunsthalle | Museum für Kunst und Gewerbe Hamburg | Städel Museum",
+   "potential": "Hamburgische Sezession, 'Verschollene Generation'; stark museal, aktiver Auktionsmarkt (Rekord ~39.000 €).",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 2,
-    "M": 1,
+    "R": 3,
+    "M": 2,
     "T": 3,
     "P": 2,
-    "total": 5
+    "total": 7
    },
-   "portrait_url": "https://www.mkg-hamburg.de/sites/default/files/styles/teaser/public/externals/e/4/e4463e7ac9fa0f96ec05b3f55b1f21be.jpg.webp?itok=Wpa1p7P3"
+   "portrait_url": "https://www.mkg-hamburg.de/sites/default/files/styles/teaser/public/externals/e/4/e4463e7ac9fa0f96ec05b3f55b1f21be.jpg.webp?itok=Wpa1p7P3",
+   "birth": 1904,
+   "death": 1986,
+   "sekundaermarkt": "mittel"
   },
   "Thorsten Brinkmann": {
    "tier": 3,
@@ -5961,28 +5974,8 @@
    "liga": "Liga 3",
    "editions": "2 Blätter",
    "sheetCount": 2,
-   "significance": "Berliner Maler, Sohn von Cornelia Schleime",
-   "potential": "",
-   "isBlueChip": false,
-   "gender": "m",
-   "rmtp": {
-    "R": 2,
-    "M": 2,
-    "T": 3,
-    "P": 3,
-    "total": 7
-   },
-   "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Moritz_Schleime_E_480.JPG",
-   "portrait_url": "https://www.griffelkunst.de/i/Portrait-Schleime.jpg",
-   "birth": 1978
-  },
-  "Marcus Weber": {
-   "tier": 4,
-   "liga": "Liga 3",
-   "editions": "384 (1 Blatt) + weiteres",
-   "sheetCount": 2,
-   "significance": "Figurative Pop-Malerei",
-   "potential": "",
+   "significance": "Jarmuschek + Partner, Berlin | Galerie Thomas Fuchs, Stuttgart",
+   "potential": "Mid-Career Berliner Maler (Sohn v. Cornelia Schleime); v. a. Privatsammlungen, keine Museums-Ankäufe belegt.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
@@ -5992,9 +5985,31 @@
     "P": 2,
     "total": 6
    },
+   "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Moritz_Schleime_E_480.JPG",
+   "portrait_url": "https://www.griffelkunst.de/i/Portrait-Schleime.jpg",
+   "birth": 1978,
+   "sekundaermarkt": "gering"
+  },
+  "Marcus Weber": {
+   "tier": 4,
+   "liga": "Liga 3",
+   "editions": "384 (1 Blatt) + weiteres",
+   "sheetCount": 2,
+   "significance": "Laura Mars Gallery, Berlin | Thomas Erben Gallery, New York",
+   "potential": "Düsseldorf-Akademie-Maler (Wimmelbilder), laufende Schauen 2024–26; kaum Auktionsmarkt.",
+   "isBlueChip": false,
+   "gender": "m",
+   "rmtp": {
+    "R": 3,
+    "M": 3,
+    "T": 3,
+    "P": 2,
+    "total": 8
+   },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/384_B1_Marcus_Weber.jpg",
    "portrait_url": "https://www.griffelkunst.de/i/_medium/Foto-von-Heidi-Specker-Kopie_1.jpg",
-   "birth": 1965
+   "birth": 1965,
+   "sekundaermarkt": "gering"
   },
   "Cyrill Lachauer": {
    "tier": 4,
@@ -6018,40 +6033,44 @@
   },
   "Henrik Eiben": {
    "tier": 4,
-   "liga": "Liga 3",
+   "liga": "Liga 1",
    "editions": "379 C2",
    "sheetCount": 1,
-   "significance": "Abstrakte Skulptur/Malerei",
-   "potential": "",
+   "significance": "Sfeir-Semler | Christian Lethert | Anke Schmidt",
+   "potential": "Abstrakter Künstler bei Sfeir-Semler; Edition 'Ventura' (2020).",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 2,
+    "R": 4,
     "M": 3,
+    "T": 3,
+    "P": 3,
+    "total": 10
+   },
+   "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/379_B1_Henrik_Eiben.jpg",
+   "portrait_url": "https://www.griffelkunst.de/i/Portrait-copyright__Holger_Niehaus_web.jpg",
+   "birth": 1975,
+   "sekundaermarkt": "gering"
+  },
+  "Florian Hailer": {
+   "tier": 4,
+   "liga": "Liga 3",
+   "editions": "346 (6 Blätter)",
+   "sheetCount": 6,
+   "significance": "Griffelkunst-Name: Florian Haller | Galerie Ebbers",
+   "potential": "Maler (Zeniuk-Meisterschüler, München); Griffelkunst als 'Florian Haller'.",
+   "isBlueChip": false,
+   "gender": "m",
+   "rmtp": {
+    "R": 3,
+    "M": 2,
     "T": 3,
     "P": 3,
     "total": 8
    },
-   "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/379_B1_Henrik_Eiben.jpg",
-   "portrait_url": "https://www.griffelkunst.de/i/Portrait-copyright__Holger_Niehaus_web.jpg"
-  },
-  "Florian Hailer": {
-   "tier": 4,
-   "liga": "Liga 4",
-   "editions": "346 (6 Blätter)",
-   "sheetCount": 6,
-   "significance": "Siebdruck-Serie",
-   "potential": "",
-   "isBlueChip": false,
-   "gender": "m",
-   "rmtp": {
-    "R": 1,
-    "M": 1,
-    "T": 3,
-    "P": 2,
-    "total": 4
-   },
-   "portrait_url": "https://www.griffelkunst.de/i/Portrait-Haller.jpg"
+   "portrait_url": "https://www.griffelkunst.de/i/Portrait-Haller.jpg",
+   "birth": 1976,
+   "sekundaermarkt": "gering"
   },
   "Stephan Stüttgen": {
    "tier": 4,
@@ -6097,36 +6116,40 @@
    "liga": "Liga 3",
    "editions": "270 C2+C3+C4+C6",
    "sheetCount": 4,
-   "significance": "4 Blätter, abstrakt",
-   "potential": "",
+   "significance": "Lullin + Ferrari, Zürich | Galerie Karin Günther, Hamburg | Hamburger Kunsthalle | Kunsthalle zu Kiel",
+   "potential": "Konzeptueller Maler mit solider Museumspräsenz; nischig, dünner Markt.",
+   "isBlueChip": false,
+   "gender": "m",
+   "rmtp": {
+    "R": 3,
+    "M": 2,
+    "T": 3,
+    "P": 2,
+    "total": 7
+   },
+   "portrait_url": "",
+   "birth": 1951,
+   "sekundaermarkt": "gering"
+  },
+  "Jonas Hafner": {
+   "tier": 4,
+   "liga": "Liga 4",
+   "editions": "255 C6 + 288 A4",
+   "sheetCount": 2,
+   "significance": "Beuys-Schüler / Dieter-Roth-Umfeld | HFBK-Professor",
+   "potential": "Beuys-/Roth-Schüler und HFBK-Professor; keine aktive Galerie, kaum institutionelle Tiefe.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
     "R": 2,
-    "M": 2,
+    "M": 1,
     "T": 3,
-    "P": 2,
-    "total": 6
+    "P": 1,
+    "total": 4
    },
-   "portrait_url": ""
-  },
-  "Jonas Hafner": {
-   "tier": 4,
-   "liga": "Liga 3",
-   "editions": "255 C6 + 288 A4",
-   "sheetCount": 2,
-   "significance": "Radierung + Farbholzdruck",
-   "potential": "",
-   "isBlueChip": false,
-   "gender": "m",
-   "rmtp": {
-    "R": 1,
-    "M": 2,
-    "T": 3,
-    "P": 3,
-    "total": 6
-   },
-   "portrait_url": ""
+   "portrait_url": "",
+   "birth": 1940,
+   "sekundaermarkt": "gering"
   },
   "Mårten Lange": {
    "tier": 4,
@@ -6190,18 +6213,21 @@
    "liga": "Liga 3",
    "editions": "258 A3 (Hunde, Lithographie)",
    "sheetCount": 1,
-   "significance": "† 2021 | DDR-Kunst, Clara-Mosch-Gruppe",
-   "potential": "",
+   "significance": "Galerie Biedermann, München | Galerie Fred Jahn, München",
+   "potential": "Renommierte Münchner Galerien, Bayer. Akademie d. Schönen Künste; Museums-Ankäufe kaum belegt.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 2,
-    "M": 1,
+    "R": 3,
+    "M": 2,
     "T": 3,
     "P": 2,
-    "total": 5
+    "total": 7
    },
-   "portrait_url": ""
+   "portrait_url": "",
+   "birth": 1945,
+   "death": 2021,
+   "sekundaermarkt": "gering"
   },
   "Klaus Beck": {
    "tier": 4,
@@ -6285,20 +6311,21 @@
    "liga": "Liga 3",
    "editions": "E 558",
    "sheetCount": 1,
-   "significance": "Edition",
-   "potential": "",
+   "significance": "Van der Grinten Galerie, Köln | Hamburger Kunsthalle",
+   "potential": "In Hamburg lebender Portugiese, Werk in der Hamburger Kunsthalle; primärmarktbasiert.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 2,
+    "R": 3,
     "M": 2,
     "T": 3,
     "P": 2,
-    "total": 6
+    "total": 7
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_558_Fernando_de_Brito.jpg",
    "portrait_url": "https://www.griffelkunst.de/i/debrito_web.jpg",
-   "birth": 1956
+   "birth": 1956,
+   "sekundaermarkt": "gering"
   },
   "Roman Moriceau": {
    "tier": 4,
@@ -6325,19 +6352,21 @@
    "liga": "Liga 3",
    "editions": "F106 + 186-5",
    "sheetCount": 1,
-   "significance": "Druckgrafik",
-   "potential": "",
+   "significance": "Mathias Güntner, Hamburg | Florian Sundheimer, München | Neues Museum Nürnberg | Mercedes-Benz Art Collection",
+   "potential": "Konkrete-Kunst-Maler (Fruhtrunk-Schüler), Museumssammlungen, moderater Auktionsmarkt.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 2,
+    "R": 3,
     "M": 2,
     "T": 3,
     "P": 2,
-    "total": 6
+    "total": 7
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_577_Alfons_Lachhauer.jpg",
-   "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_lachauer_1_1.jpg"
+   "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_lachauer_1_1.jpg",
+   "birth": 1944,
+   "sekundaermarkt": "mittel"
   },
   "Pius Fox": {
    "tier": 4,
@@ -6437,21 +6466,24 @@
   },
   "Herbert Grunwaldt": {
    "tier": 4,
-   "liga": "Liga 3",
+   "liga": "Liga 4",
    "editions": "285 B5 + E 323 (VIELLEICHT)",
    "sheetCount": 2,
-   "significance": "† 2014 | Hamburger Radierer",
-   "potential": "",
+   "significance": "Galerie Pamme-Vogelsang",
+   "potential": "Regionaler Hamburger Aquarellist/Radierer; keine Museumssammlungen, sehr niedrige Preise.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
     "R": 2,
     "M": 1,
     "T": 3,
-    "P": 2,
-    "total": 5
+    "P": 1,
+    "total": 4
    },
-   "portrait_url": ""
+   "portrait_url": "",
+   "birth": 1928,
+   "death": 2014,
+   "sekundaermarkt": "gering"
   },
   "Lorenz Estermann": {
    "tier": 4,
@@ -6478,20 +6510,21 @@
    "liga": "Liga 3",
    "editions": "349 A6 (VIELLEICHT)",
    "sheetCount": 1,
-   "significance": "Wie war Las Vegas (Inkjet)",
-   "potential": "",
+   "significance": "Robert Morat Galerie, Hamburg/Berlin",
+   "potential": "Fotograf/Künstlerbuch (Meisterschüler Peter Piller), internat. Book-Fair-Circuit 2024–26; kein Auktionsmarkt.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 1,
-    "M": 2,
-    "T": 1,
-    "P": 4,
+    "R": 2,
+    "M": 3,
+    "T": 3,
+    "P": 2,
     "total": 7
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Volker_Renner_349_A6.jpg",
    "portrait_url": "https://www.griffelkunst.de/i/renner_web.jpg",
-   "birth": 1977
+   "birth": 1977,
+   "sekundaermarkt": "kein"
   },
   "Rosemarie Trockel": {
    "tier": 1,
@@ -6835,56 +6868,64 @@
    "liga": "Liga 1",
    "editions": "362 C3 (bestellt)",
    "sheetCount": 0,
-   "significance": "† 1985 | MoMA + Met + Getty + Pompidou (4 Top-Sammlungen!) | Neues Sehen-Pionierin | aktuell 2024–26: posthum: Retrospektive Museum Folkwang 2025/26",
-   "potential": "4 Top-Museen = institutionell höchst gesichert. Endliches Werk. Foto-Kanon der Moderne.",
-   "isBlueChip": false,
+   "significance": "Museum Folkwang | Centre Pompidou | Jeu de Paume | Museum Ludwig",
+   "potential": "Bedeutende Fotografin des Neuen Sehens, Nachlass Museum Folkwang.",
+   "isBlueChip": true,
    "gender": "f",
    "rmtp": {
-    "R": 4,
-    "M": 4,
-    "T": 2,
-    "P": 2,
-    "total": 10
+    "R": 5,
+    "M": 3,
+    "T": 3,
+    "P": 3,
+    "total": 11
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/362_C1_Germaine_Krull.jpg",
-   "portrait_url": "https://www.griffelkunst.de/i/portrait_krull.jpg"
+   "portrait_url": "https://www.griffelkunst.de/i/portrait_krull.jpg",
+   "birth": 1897,
+   "death": 1985,
+   "sekundaermarkt": "stark"
   },
   "Anna Oppermann": {
    "tier": 2,
    "liga": "Liga 1",
    "editions": "239 A5 (bestellt)",
    "sheetCount": 0,
-   "significance": "† 1993 | documenta 8 + documenta 11 (2×!) | Venedig Biennale | MoMA PS1 | Hamburger Kunsthalle | aktuell 2024–26: posthum: Retrospektive Bundeskunsthalle Bonn 2023/24",
-   "potential": "2× documenta + Venedig + MoMA PS1. Endliches Werk. Ensembles = Schlüsselwerk der dt. Konzeptkunst.",
+   "significance": "Barbara Thumm | documenta 6+8 | Biennale Venedig | ZKM",
+   "potential": "Bedeutende Ensemble-Künstlerin, posthume Wiederentdeckung.",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
     "R": 4,
-    "M": 4,
-    "T": 1,
+    "M": 3,
+    "T": 3,
     "P": 3,
-    "total": 11
+    "total": 10
    },
-   "portrait_url": "https://annaoppermann.com/images/anna-oppermann.jpg"
+   "portrait_url": "https://annaoppermann.com/images/anna-oppermann.jpg",
+   "birth": 1940,
+   "death": 1993,
+   "sekundaermarkt": "gering"
   },
   "Shirana Shahbazi": {
    "tier": 2,
    "liga": "Liga 1",
    "editions": "390 B1+B4+B6 (bestellt)",
    "sheetCount": 0,
-   "significance": "MoMA + Tate + Pompidou + Guggenheim (4 Top-Sammlungen!) | Venedig 2005 | Schweizer Iranerin",
-   "potential": "4 Top-Museen + Venedig. Bestellt = wird geliefert.",
+   "significance": "Peter Kilchmann | Fotomuseum Winterthur | Kunsthaus Zürich",
+   "potential": "International etablierte Fotografin; Edition 'Album' (2023).",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
     "R": 4,
-    "M": 4,
+    "M": 3,
     "T": 3,
     "P": 3,
-    "total": 11
+    "total": 10
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/390_B1_Shirana_Shahbazi.jpg",
-   "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_Shirana_Shahbazi_Foto_Anne-Morgenstern_1.jpg"
+   "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_Shirana_Shahbazi_Foto_Anne-Morgenstern_1.jpg",
+   "birth": 1974,
+   "sekundaermarkt": "mittel"
   },
   "Kay Rosen": {
    "tier": 3,
@@ -7028,23 +7069,24 @@
   },
   "Yvette Kießling": {
    "tier": 3,
-   "liga": "Liga 3",
+   "liga": "Liga 2",
    "editions": "351 C1–C4 (inkl. C2 neu) + 385 C1",
    "sheetCount": 5,
-   "significance": "Farblithographien | Landschaftsmalerei | 5 Blätter aus 2 Wahlen | Sammlungen MdbK Leipzig, Kunsthalle Hamburg, SKD Dresden",
-   "potential": "Beständig gesammelt. Farbstarke Landschaften mit eigenem Stil.",
+   "significance": "Galerie Leuenroth, Frankfurt | Museum der bildenden Künste Leipzig | Sammlung Deutsche Bank",
+   "potential": "Leipziger Schule (Meisterschülerin A. Rink); Sammlungen MdbK/Deutsche Bank, Stadtmalerin 2025.",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
-    "R": 2,
-    "M": 2,
+    "R": 3,
+    "M": 3,
     "T": 3,
     "P": 3,
-    "total": 7
+    "total": 9
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kießling_351_C_1.jpg",
    "portrait_url": "https://www.griffelkunst.de/i/kiessling_portrat.jpg",
-   "birth": 1978
+   "birth": 1978,
+   "sekundaermarkt": "gering"
   },
   "Misaki Kawai": {
    "tier": 3,
@@ -7068,23 +7110,24 @@
   },
   "Tatjana Doll": {
    "tier": 3,
-   "liga": "Liga 3",
+   "liga": "Liga 1",
    "editions": "E 571",
    "sheetCount": 1,
-   "significance": "Großformatige Malerei | Verkehrsschilder, Logos",
-   "potential": "Figurativ-abstrakte Grenzgängerin. Solide Galerievertretung.",
+   "significance": "Galerie Gebr. Lehmann, Dresden/Berlin | LWL-Museum Münster | Berlinische Galerie",
+   "potential": "Professorin Kunstakademie Karlsruhe, Fred-Thieler-Preis 2021, Museums-Ankäufe; aktive Schauen 2024–26.",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
-    "R": 2,
-    "M": 2,
+    "R": 4,
+    "M": 4,
     "T": 3,
-    "P": 2,
-    "total": 6
+    "P": 4,
+    "total": 12
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_571_Tatjana_Doll.jpg",
    "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait-Doll_1.jpg",
-   "birth": 1970
+   "birth": 1970,
+   "sekundaermarkt": "gering"
   },
   "Ciara Phillips": {
    "tier": 3,
@@ -7246,38 +7289,42 @@
    "liga": "Liga 2",
    "editions": "367 C4 (bestellt)",
    "sheetCount": 0,
-   "significance": "Tate Modern + Menil Collection Houston | Abstrakte Skulptur/Installation",
-   "potential": "Tate Modern + Menil = institutionell stark. Mezzotinto — seltenste Tiefdrucktechnik.",
+   "significance": "Berlin (Skulptur/Installation)",
+   "potential": "Berliner Skulptur/Installation; Mezzotinto-Edition 2017.",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
-    "R": 2,
+    "R": 3,
     "M": 3,
-    "T": 5,
-    "P": 4,
+    "T": 3,
+    "P": 3,
     "total": 9
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/367_C1_Natalia_Stachon.jpg",
-   "portrait_url": "https://www.griffelkunst.de/i/portrait_Natalia_Stachon_Foto_Vanessa-Maas.jpg"
+   "portrait_url": "https://www.griffelkunst.de/i/portrait_Natalia_Stachon_Foto_Vanessa-Maas.jpg",
+   "birth": 1976,
+   "sekundaermarkt": "gering"
   },
   "Anna Haifisch": {
    "tier": 3,
    "liga": "Liga 2",
    "editions": "404 (bestellt)",
    "sheetCount": 0,
-   "significance": "MoMA-Auftragsarbeit | Gutenberg-Preis | The Artist / Residenz-Comic | Internationale Graphic Novel | aktuell 2024–26: Gutenberg-Preis 2025; Museumsschau DNB/Buchkunst Leipzig 2025/26",
-   "potential": "MoMA-Auftragsarbeit + Gutenberg-Preis. Comic als Kunstform, internationale Anerkennung.",
+   "significance": "Kunsthalle Bremen (Ausstellung)",
+   "potential": "Gefeierte Comic-/Siebdruck-Künstlerin, starkes Momentum.",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
-    "R": 2,
-    "M": 5,
+    "R": 3,
+    "M": 4,
     "T": 3,
-    "P": 5,
-    "total": 12
+    "P": 4,
+    "total": 11
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/392_B1_Anna_Haifisch.jpg",
-   "portrait_url": "https://www.griffelkunst.de/i/_medium/Anna_Haifisch_04_Matthew-James-Wilson_1.jpg"
+   "portrait_url": "https://www.griffelkunst.de/i/_medium/Anna_Haifisch_04_Matthew-James-Wilson_1.jpg",
+   "birth": 1986,
+   "sekundaermarkt": "gering"
   },
   "Ester Fleckner": {
    "tier": 4,
@@ -7320,11 +7367,32 @@
   },
   "Kristina Schuldt": {
    "tier": 4,
-   "liga": "Liga 2",
+   "liga": "Liga 1",
    "editions": "bestellt — Frühjahrswahl 2026, B 402",
    "sheetCount": 0,
-   "significance": "Eigen+Art | Schülerin Neo Rauch — \"Stoned\" (Litho/Siebdruck)",
-   "potential": "",
+   "significance": "Galerie EIGEN + ART | Museum der bildenden Künste Leipzig | Meisterschülerin von Neo Rauch",
+   "potential": "Neo-Rauch-Schülerin, EIGEN+ART, starkes Momentum; Edition 'Zustände' (2026).",
+   "isBlueChip": true,
+   "gender": "f",
+   "rmtp": {
+    "R": 4,
+    "M": 4,
+    "T": 3,
+    "P": 4,
+    "total": 12
+   },
+   "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/402_B1.jpg",
+   "portrait_url": "https://www.griffelkunst.de/i/_medium/_Schuldt-portrait-PeterHartwig.jpg",
+   "birth": 1982,
+   "sekundaermarkt": "mittel"
+  },
+  "Silke Leverkühne": {
+   "tier": 4,
+   "liga": "Liga 2",
+   "editions": "277 B2+B5",
+   "sheetCount": 2,
+   "significance": "Galerie Martina Kaiser, Köln | Sammlung Deutsche Bank | Leopold-Hoesch-Museum Düren (Solo) | Von der Heydt-Museum",
+   "potential": "Etablierte Malerin, Prof. Uni Köln; Sammlungen Deutsche Bank/Bayer, Solo 2025.",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
@@ -7334,26 +7402,9 @@
     "P": 3,
     "total": 9
    },
-   "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/402_B1.jpg",
-   "portrait_url": "https://www.griffelkunst.de/i/_medium/_Schuldt-portrait-PeterHartwig.jpg"
-  },
-  "Silke Leverkühne": {
-   "tier": 4,
-   "liga": "Liga 3",
-   "editions": "277 B2+B5",
-   "sheetCount": 2,
-   "significance": "Farbenfrohe Malerei, Hamburger Kunstverein — 2 Farblithographien",
-   "potential": "",
-   "isBlueChip": false,
-   "gender": "f",
-   "rmtp": {
-    "R": 2,
-    "M": 2,
-    "T": 3,
-    "P": 2,
-    "total": 6
-   },
-   "portrait_url": "https://www.bundesakademie.de/fileadmin/_processed_/e/4/csm_Silke_Leverkuehne_Foto_Kathie_Wewer_ee57162471.jpg"
+   "portrait_url": "https://www.bundesakademie.de/fileadmin/_processed_/e/4/csm_Silke_Leverkuehne_Foto_Kathie_Wewer_ee57162471.jpg",
+   "birth": 1953,
+   "sekundaermarkt": "gering"
   },
   "Anja Tchepets": {
    "tier": 4,
@@ -7440,40 +7491,42 @@
    "liga": "Liga 3",
    "editions": "397 A2",
    "sheetCount": 1,
-   "significance": "Ganz frisch (2025), Siebdruck",
-   "potential": "",
-   "isBlueChip": false,
-   "gender": "f",
-   "rmtp": {
-    "R": 1,
-    "M": 2,
-    "T": 3,
-    "P": 4,
-    "total": 7
-   },
-   "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/397_A2_2.jpg",
-   "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Hannah_web.jpg",
-   "birth": 1983
-  },
-  "Linn Schröder": {
-   "tier": 4,
-   "liga": "Liga 3",
-   "editions": "E 583",
-   "sheetCount": 1,
-   "significance": "Fotografie-Edition | OSTKREUZ; Professorin HAW Hamburg",
-   "potential": "",
+   "significance": "Hamburger Kunsthalle (via Griffelkunst)",
+   "potential": "Junge HFBK-Absolventin (Siebdruck/Textil), Stipendium Hess. Kulturstiftung; noch keine feste Galerie.",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
     "R": 2,
     "M": 2,
-    "T": 2,
+    "T": 3,
+    "P": 2,
+    "total": 6
+   },
+   "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/397_A2_2.jpg",
+   "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Hannah_web.jpg",
+   "birth": 1983,
+   "sekundaermarkt": "kein"
+  },
+  "Linn Schröder": {
+   "tier": 4,
+   "liga": "Liga 2",
+   "editions": "E 583",
+   "sheetCount": 1,
+   "significance": "Robert Morat Galerie, Berlin/Hamburg | Ostkreuz | Deichtorhallen Hamburg | Museum Folkwang",
+   "potential": "Etablierte Fotografin, Professorin HAW, Ostkreuz-Mitglied; editionsbasiert, kein Auktionsmarkt.",
+   "isBlueChip": false,
+   "gender": "f",
+   "rmtp": {
+    "R": 3,
+    "M": 3,
+    "T": 3,
     "P": 3,
-    "total": 7
+    "total": 9
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_583_Linn_Schro%CC%88der.jpg",
    "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Schroeder_1.jpg",
-   "birth": 1977
+   "birth": 1977,
+   "sekundaermarkt": "kein"
   },
   "Johanna Tiedtke": {
    "tier": 4,
@@ -7598,36 +7651,40 @@
    "liga": "Liga 3",
    "editions": "352 A2",
    "sheetCount": 1,
-   "significance": "Farblithographien | Sammlungen Kupferstichkabinett Berlin/Dresden; Fritz-Winter-Preis 2020",
-   "potential": "",
+   "significance": "Galerie Pfab",
+   "potential": "Experimentelle Zeichnung/Papierarbeiten; Lithographien direkt auf Stein (2013).",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
-    "R": 2,
-    "M": 3,
-    "T": 3,
-    "P": 3,
-    "total": 8
-   },
-   "portrait_url": "https://www.griffelkunst.de/i/nora-schattauer-portrait_web.jpg"
-  },
-  "Dagmar Ranft-Schinke": {
-   "tier": 4,
-   "liga": "Liga 3",
-   "editions": "266 C1+C2+C3 (VIELLEICHT)",
-   "sheetCount": 3,
-   "significance": "DDR-Kunst, Clara-Mosch | Kaltnadelradierung — zu Hause suchen",
-   "potential": "",
-   "isBlueChip": false,
-   "gender": "f",
-   "rmtp": {
-    "R": 2,
+    "R": 3,
     "M": 2,
     "T": 3,
     "P": 2,
-    "total": 6
+    "total": 7
    },
-   "portrait_url": "https://www.gemeinwesenarbeit-chemnitz.de/wp-content/uploads/2021/10/Seite-13-DRS-Foto-Malech-scaled.jpg"
+   "portrait_url": "https://www.griffelkunst.de/i/nora-schattauer-portrait_web.jpg",
+   "birth": 1952,
+   "sekundaermarkt": "gering"
+  },
+  "Dagmar Ranft-Schinke": {
+   "tier": 4,
+   "liga": "Liga 2",
+   "editions": "266 C1+C2+C3 (VIELLEICHT)",
+   "sheetCount": 3,
+   "significance": "Galerie Weise, Chemnitz | Kunstsammlungen Chemnitz | Neue Sächsische Galerie",
+   "potential": "Einziges weibliches Mitglied der Künstlergruppe Clara Mosch; kunsthistorisch bedeutend, dünner Markt.",
+   "isBlueChip": false,
+   "gender": "f",
+   "rmtp": {
+    "R": 3,
+    "M": 3,
+    "T": 3,
+    "P": 3,
+    "total": 9
+   },
+   "portrait_url": "https://www.gemeinwesenarbeit-chemnitz.de/wp-content/uploads/2021/10/Seite-13-DRS-Foto-Malech-scaled.jpg",
+   "birth": 1944,
+   "sekundaermarkt": "gering"
   },
   "Walter Dahn": {
    "tier": 2,
