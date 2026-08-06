@@ -878,13 +878,56 @@ meisterschueler_count = len(meisterschueler_artists)
 technique_count = len(set(extract_technique(w["work"]) for w in collection if extract_technique(w["work"]) != "Sonstige"))
 
 # ─── Druckwerkstätten ───
+_WERKSTATT_ALIAS = {
+    "foto company altona": "Foto Company Altona, Hamburg",
+    "foto company altona hamburg": "Foto Company Altona, Hamburg",
+    "fotocompany altona": "Foto Company Altona, Hamburg",
+    "piglab hamburg": "PigLab, Hamburg", "pig lab hamburg": "PigLab, Hamburg",
+    "piglab": "PigLab, Hamburg", "pig lab": "PigLab, Hamburg",
+    "kunst und radierwerkstatt w jesse berlin": "Kunst- und Radierwerkstatt Jesse, Berlin",
+    "kunst und radierwerkstatt willi jesse berlin": "Kunst- und Radierwerkstatt Jesse, Berlin",
+    "stephan rosentreter leipzig": "Stephan Rosentreter, Leipzig",
+    "stefan rosentreter leipzig": "Stephan Rosentreter, Leipzig",
+    "stephan rosentreter lithographisches atelier leipzig": "Stephan Rosentreter, Leipzig",
+    "thomas franke stein werk leipzig": "Thomas Franke – stein_werk, Leipzig",
+    "stein werk thomas franke leipzig": "Thomas Franke – stein_werk, Leipzig",
+    "martin samuel berlin": "1×2 Siebdruck (Martin Samuel), Berlin",
+    "1×2 siebdruck martin samuel berlin": "1×2 Siebdruck (Martin Samuel), Berlin",
+    "1x2 siebdruck martin samuel berlin": "1×2 Siebdruck (Martin Samuel), Berlin",
+    "martin samuel 1x2 siebdruck berlin": "1×2 Siebdruck (Martin Samuel), Berlin",
+    "siebdruckwerkstatt ahrens munchen": "Siebdruckwerkstatt Ahrens",
+    "siebdruckwerkstatt ahrens ottobrunn": "Siebdruckwerkstatt Ahrens",
+    "fritz margull berlin": "Fritz Margull, Berlin", "fritze margull berlin": "Fritz Margull, Berlin",
+    "handdruck loeding sturm hamburg": "Handdruck Loeding & Sturm, Hamburg",
+    "ellen sturm loeding hamburg": "Handdruck Loeding & Sturm, Hamburg",
+    "ellen sturm loeding carlos leon hamburg": "Handdruck Loeding & Sturm, Hamburg",
+    "peter loeding und ellen sturm hamburg": "Handdruck Loeding & Sturm, Hamburg",
+}
 def canon_drucker(d):
-    """Werkstatt-Name vereinheitlichen (Klammern/Block-Notizen entfernen)."""
+    """Werkstatt-Name vereinheitlichen + bekannte Schreibvarianten zusammenführen."""
     if not d: return ""
-    d = re.sub(r"\([^)]*\)", "", d)          # (P82-P84) etc. raus
-    d = d.split(";")[0]                        # nur erster Block
-    d = d.replace("-", " ").replace("_", " ")  # Tabor-Presse == Tabor Presse
-    return re.sub(r"\s+", " ", d).strip(" ,;")
+    d = re.sub(r"\([^)]*\)", "", d)
+    d = d.split(";")[0]
+    d = d.replace("-", " ").replace("_", " ")
+    d = re.sub(r"\s+", " ", d).strip(" ,;")
+    _k = re.sub(r"[.,&]", " ", d.lower()); _k = re.sub(r"\s+", " ", _k).strip()
+    return _WERKSTATT_ALIAS.get(_k, d)
+
+# ─── Kurzprofile bekannter Werkstätten (verifizierte Charakterisierung) ───
+WERKSTATT_NOTE = {
+    "Tabor Presse, Berlin": "Renommierte Berliner Lithografie-Werkstatt; realisiert originale Steindrucke für zahlreiche zeitgenössische Künstlerinnen und Künstler.",
+    "Steindruckerei Wolfensberger, Zürich": "Traditionsreiche Schweizer Steindruckerei, spezialisiert auf künstlerische Lithografie.",
+    "Handdruck Loeding & Sturm, Hamburg": "Hamburger Handdruck-Werkstatt (Ellen Sturm-Loeding / Peter Loeding), eng mit der Griffelkunst verbunden — Holzdruck, Lithografie, Radierung.",
+    "Atelier für Druckgrafik, Wedel": "Druckwerkstatt bei Hamburg mit Schwerpunkt Hoch- und Tiefdruck (Holz-/Hochdruck, Radierung).",
+    "Kunst- und Radierwerkstatt Jesse, Berlin": "Berliner Tiefdruck-Werkstatt, spezialisiert auf Radierung, Aquatinta und Heliogravüre.",
+    "Felix Bauer, Köln": "Kölner Lithograf; Steindruck-Editionen für viele Griffelkunst-Künstler.",
+    "Recom Art, Berlin": "Berliner Spezialbetrieb für hochwertige Fine-Art-Fotoabzüge (u. a. Barytpapier).",
+    "Saal Presse, Bergsdorf": "Druckwerkstatt mit Schwerpunkt Holz- und Steindruck.",
+    "Merkur Druck, Norderstedt": "Druckerei bei Hamburg; häufig für Offset-Editionen und Mappen.",
+    "1×2 Siebdruck (Martin Samuel), Berlin": "Berliner Siebdruck-Atelier für künstlerische Editionen.",
+    "Gundolf Roy, Zülpich": "Siebdruck-Werkstatt in Zülpich.",
+    "Atelier Margotow, Wahlershausen": "Fotolabor für Barytabzüge; druckt Nachlass-Fotoeditionen (u. a. Moholy-Nagy, Chargesheimer).",
+}
 
 _werkstatt_groups = {}
 for w in collection:
@@ -916,47 +959,64 @@ def set_view(v):
 _show_nav = (st.session_state.selected_artist is None and st.session_state.get("selected_technique") is None and st.session_state.get("selected_blatttyp") is None and st.session_state.get("selected_werkstatt") is None)
 
 if _show_nav:
-    # Zeile 1: Hauptzahlen (5 Spalten)
-    row1 = st.columns(5)
-    with row1[0]:
+    # ── Kachel-Styling: Gruppen-Labels + leichtere Sekundär-/Liga-Kacheln ──
+    st.markdown("""<style>
+    .nav-group-label{font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:#B0A692;margin:0.6rem 0 0.15rem 3px;font-weight:600;}
+    .st-key-btn_techniken button,.st-key-btn_bluechip button,.st-key-btn_meister button,
+    .st-key-btn_blatttyp button,.st-key-btn_druckwerkstatt button,.st-key-btn_extern button,
+    .st-key-btn_liga1 button,.st-key-btn_liga2 button,.st-key-btn_liga3 button{
+      background:#FAF8F4 !important;border:1px solid #ECE7DE !important;}
+    .st-key-btn_techniken button p,.st-key-btn_bluechip button p,.st-key-btn_meister button p,
+    .st-key-btn_blatttyp button p,.st-key-btn_druckwerkstatt button p,.st-key-btn_extern button p,
+    .st-key-btn_liga1 button p,.st-key-btn_liga2 button p,.st-key-btn_liga3 button p{
+      font-size:0.8rem !important;color:#6B6255 !important;}
+    </style>""", unsafe_allow_html=True)
+
+    # ── Ebene 1: Haupt-Ansichten ──
+    _rowA = st.columns(3)
+    with _rowA[0]:
         if st.button(f"**{unique_artists}**\n\nKÜNSTLER", use_container_width=True, key="btn_kuenstler"):
             set_view("künstler")
-    with row1[1]:
+    with _rowA[1]:
         if st.button(f"**{len(collection)}**\n\nWERKE", use_container_width=True, key="btn_werke"):
             set_view("werke")
-    with row1[2]:
-        if st.button(f"**{technique_count}**\n\nTECHNIK", use_container_width=True, key="btn_techniken"):
-            set_view("techniken")
-    with row1[3]:
-        if st.button(f"**{blue_chip_count}**\n\nBLUE CHIP", use_container_width=True, key="btn_bluechip"):
-            set_view("bluechip")
-    with row1[4]:
-        if st.button(f"**{meisterschueler_count}**\n\nMEISTER­SCHÜLER", use_container_width=True, key="btn_meister"):
-            set_view("meisterschueler")
-    # Zeile 2: Ligen + Bewerten (4 Spalten)
-    row2 = st.columns(4)
-    with row2[0]:
-        if st.button(f"**{stats['liga1']}**\n\nLIGA 1", use_container_width=True, key="btn_liga1"):
-            set_view("liga1")
-    with row2[1]:
-        if st.button(f"**{stats['liga2']}**\n\nLIGA 2", use_container_width=True, key="btn_liga2"):
-            set_view("liga2")
-    with row2[2]:
-        if st.button(f"**{stats['liga3']}**\n\nLIGA 3", use_container_width=True, key="btn_liga3"):
-            set_view("liga3")
-    with row2[3]:
+    with _rowA[2]:
         if st.button("**+**\n\nBEWERTEN", use_container_width=True, key="btn_bewerten"):
             set_view("bewerten")
 
-    # Blatt-Typ + Druckwerkstätten + Externe Sammlung
-    _navrow = st.columns(3)
-    with _navrow[0]:
+    # ── Liga (gebündelt) ──
+    st.markdown('<div class="nav-group-label">Liga · nach Rang</div>', unsafe_allow_html=True)
+    _rowL = st.columns(3)
+    with _rowL[0]:
+        if st.button(f"**{stats['liga1']}**\n\nLIGA 1", use_container_width=True, key="btn_liga1"):
+            set_view("liga1")
+    with _rowL[1]:
+        if st.button(f"**{stats['liga2']}**\n\nLIGA 2", use_container_width=True, key="btn_liga2"):
+            set_view("liga2")
+    with _rowL[2]:
+        if st.button(f"**{stats['liga3']}**\n\nLIGA 3", use_container_width=True, key="btn_liga3"):
+            set_view("liga3")
+
+    # ── Ebene 2: Sichten & Filter ──
+    st.markdown('<div class="nav-group-label">Sichten &amp; Filter</div>', unsafe_allow_html=True)
+    _rowB = st.columns(3)
+    with _rowB[0]:
+        if st.button(f"**{technique_count}**\n\nTECHNIK", use_container_width=True, key="btn_techniken"):
+            set_view("techniken")
+    with _rowB[1]:
+        if st.button(f"**{blue_chip_count}**\n\nBLUE CHIP", use_container_width=True, key="btn_bluechip"):
+            set_view("bluechip")
+    with _rowB[2]:
+        if st.button(f"**{meisterschueler_count}**\n\nMEISTER\u00adSCHÜLER", use_container_width=True, key="btn_meister"):
+            set_view("meisterschueler")
+    _rowC = st.columns(3)
+    with _rowC[0]:
         if st.button(f"**{len(set(blatt_typ(w['edition'], w['work']) for w in collection))}**\n\nBLATT-TYP", use_container_width=True, key="btn_blatttyp"):
             set_view("blatttyp")
-    with _navrow[1]:
-        if st.button(f"**{druckwerkstatt_count}**\n\nDRUCK­WERKSTÄTTEN", use_container_width=True, key="btn_druckwerkstatt"):
+    with _rowC[1]:
+        if st.button(f"**{druckwerkstatt_count}**\n\nDRUCK\u00adWERKSTÄTTEN", use_container_width=True, key="btn_druckwerkstatt"):
             set_view("druckwerkstaetten")
-    with _navrow[2]:
+    with _rowC[2]:
         if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
             set_view("extern")
 
@@ -1608,7 +1668,13 @@ elif view == "druckwerkstaetten":
         if st.button("← Zurück zu den Werkstätten", key="btn_back_ws"):
             st.session_state.selected_werkstatt = None; st.rerun()
         st.markdown(f'<div style="font-family: Cormorant Garamond, Georgia, serif; font-size: 1.4rem; color: #1B3A2A; margin-bottom: 0.3rem;">{_sel}</div>', unsafe_allow_html=True)
-        st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem;">{len(_ws_works)} Blätter der Sammlung aus dieser Werkstatt</div>', unsafe_allow_html=True)
+        _ptech = Counter(((w.get("technik") or "").split("(")[0].strip()) for w in _ws_works if w.get("technik"))
+        _pt = ", ".join(t for t, _ in _ptech.most_common(2) if t)
+        _pa = sorted(set(w["artist"] for w in _ws_works))
+        _pnote = WERKSTATT_NOTE.get(_sel, "")
+        _pfact = (f"Schwerpunkt {_pt}. " if _pt else "") + f"In der Sammlung mit {len(_ws_works)} {'Blatt' if len(_ws_works)==1 else 'Blättern'} von {', '.join(_pa)}."
+        _profile = ((_pnote + " ") if _pnote else "") + _pfact
+        st.markdown(f'<div style="font-size:0.82rem;color:#6B6255;line-height:1.6;margin-bottom:1rem;padding:0.7rem 1rem;background:#F5F3EE;border-left:3px solid #B8964E;border-radius:0 3px 3px 0;">{_profile}</div>', unsafe_allow_html=True)
         _wc = st.columns(3)
         for j, w in enumerate(_ws_works):
             lc = get_liga_class(w["liga"]); dot = "● " if w["isBlueChip"] else ""
