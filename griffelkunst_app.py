@@ -315,9 +315,12 @@ if _app_pw:
         st.markdown("""
         <style>
         [data-testid="stAppViewContainer"], .stApp {
-            background-image: linear-gradient(rgba(18,26,22,0.55), rgba(18,26,22,0.80)),
+            background-color: #121814;
+            background-image: linear-gradient(rgba(18,26,22,0.14), rgba(18,26,22,0.38)),
                               url('https://www.griffelkunst.de/galleryimages/_xlarge/263C1-91ROTH.jpg');
-            background-size: cover; background-position: center; background-repeat: no-repeat;
+            background-size: cover, contain;
+            background-position: center, center;
+            background-repeat: no-repeat, no-repeat;
         }
         [data-testid="stHeader"] { background: transparent; }
         </style>
