@@ -224,7 +224,10 @@ def recherche_artist(name):
                     t_score = min(t_score, score_val)
                 findings["T"].append(f"Technik: {kw} (→ T={score_val})")
 
-    # ── P: Wertsteigerungschance ──
+    # ── P: Wertsteigerungschance (Upside) ──
+    # Profi-Logik (ArtRank PASSRS / MoMAA): Potenzial = Karrierestand
+    # + institutionelle Anerkennung, die dem Marktpreis vorauseilt
+    # + Top-Galerie-Förderung + Marktsignale. Alter ist nur EIN Faktor.
     deceased = ("†" in wiki_text) or any(k in combined_text for k in ["died", "gestorben", "verstorben"])
     birth = None
     for pat in [r'geboren[^0-9]{0,14}((?:19|20)\d{2})', r'born[^0-9]{0,14}((?:19|20)\d{2})',
@@ -232,19 +235,31 @@ def recherche_artist(name):
         mm = re.search(pat, combined_text)
         if mm:
             birth = int(mm.group(1)); break
-    if birth:
-        if birth >= 1985:
-            p_score = max(p_score, 4); findings["P"].append(f"Junge Position (*{birth}) → Aufwärtspotenzial")
-        elif birth >= 1975:
-            p_score = max(p_score, 3); findings["P"].append(f"Mittlere Karriere (*{birth})")
-    if any(k in combined_text for k in ["sold for", "zuschlag", "hammer price", "auction record",
-           "artnet", "sotheby", "christie", "phillips"]):
-        p_score = max(p_score, 3); findings["P"].append("Aktiver Auktionsmarkt")
+    p_score = 2  # Basis
+    # Karrierestand (ein Faktor, nicht dominierend)
+    if birth and birth >= 1985:
+        p_score += 2; findings["P"].append(f"Junge Position (*{birth}) → Karriere-Upside")
+    elif birth and birth >= 1975:
+        p_score += 1; findings["P"].append(f"Mittlere Karriere (*{birth})")
+    # Kernidee ArtRank: institutionelle Anerkennung eilt dem Markt voraus
+    if m_score >= r_score + 1:
+        p_score += 1; findings["P"].append("Momentum > Reputation → Anerkennung eilt dem Markt voraus")
+    # Top-Galerie fördert (noch) jüngere Position
+    if is_blue_chip and birth and birth >= 1975:
+        p_score += 1; findings["P"].append("Top-Galerie-Förderung einer jüngeren Position")
+    # Marktsignale
     if any(k in combined_text for k in ["emerging", "rising star", "unterbewertet", "undervalued", "one to watch"]):
         p_score = max(p_score, 4); findings["P"].append("Signal: emerging/rising")
-    if deceased and r_score >= 4:
-        p_score = min(p_score, 2)
-    if r_score >= 5:
+    if any(k in combined_text for k in ["sold for", "zuschlag", "hammer price", "auction record",
+           "artnet", "sotheby", "christie", "phillips"]):
+        p_score = max(p_score, 3); findings["P"].append("Aktiver Auktionsmarkt (Nachfrage/Liquidität)")
+    p_score = min(5, p_score)
+    # Deckel: begrenztes prozentuales Upside an der etablierten Spitze
+    # (nicht bei jungen Positionen — die können trotz R5 noch steigen)
+    _young = bool(birth and birth >= 1975)
+    if r_score >= 5 and (deceased or not _young):
+        p_score = min(p_score, 2); findings["P"].append("Etablierte Spitze → begrenztes weiteres Upside")
+    elif deceased and r_score >= 4 and m_score <= 2:
         p_score = min(p_score, 2)
 
     for key in ["R", "M", "T", "P"]:
@@ -363,9 +378,20 @@ def technique_value(work_text):
     return best if best is not None else 3  # unbekannt → mittel
 
 def artist_total(info):
-    """Künstler-Score = R + M + P (technikunabhängig, max. 15)."""
+    """Künstler-Score = R + M + P (technikunabhängig, max. 15) — Basis für die Liga."""
     r = info.get("rmtp", {})
     return r.get("R", 0) + r.get("M", 0) + r.get("P", 0)
+
+def rang_score(info):
+    """Rang-Score = R×2 + M + P (reputationsgeführt, max. 20). Nur für die 'beste zuerst'-Reihenfolge."""
+    r = info.get("rmtp", {})
+    return r.get("R", 0) * 2 + r.get("M", 0) + r.get("P", 0)
+
+def rang_sortkey(info):
+    """Sortierschlüssel 'beste zuerst': Rang-Score, dann R, dann Blue-Chip, dann M+P."""
+    r = info.get("rmtp", {})
+    return (rang_score(info), r.get("R", 0), 1 if info.get("isBlueChip") else 0,
+            r.get("M", 0) + r.get("P", 0))
 
 def blatt_value(info, work_text):
     """Blatt-Wert = Künstler-Score (R+M+P) + Druckwert (T) dieses Blattes (max. 20)."""
@@ -733,17 +759,18 @@ def extract_technique(work_desc):
     if any(t in work_lower for t in ["heliograv", "photograv", "fotograv"]): return "Heliogravüre"
     if "cyanotyp" in work_lower: return "Cyanotypie"
     if "monotyp" in work_lower: return "Monotypie"
-    if "aquatinta" in work_lower: return "Aquatinta"
+    if "aquatint" in work_lower: return "Aquatinta"
     if any(t in work_lower for t in ["lithograph", "litho", "farblitho", "algraphie", "algrafie"]): return "Lithographie"
     if any(t in work_lower for t in ["siebdruck", "serigraph"]): return "Siebdruck"
     if any(t in work_lower for t in ["radierung", "kaltnadel", "strichätz", "strichaetz", "weichgrund", "ätzung", "aetzung"]): return "Radierung"
-    if any(t in work_lower for t in ["fotografie", "photographie", "photograph", "foto", "photo", "inkjet", "c-print", "ph a.d.n", "fotogram", "s/w"]): return "Fotografie"
+    if any(t in work_lower for t in ["fotografie", "photographie", "photograph", "foto", "photo", "inkjet", "c-print", "ph a.d.n", "fotogram", "s/w", "polaroid"]): return "Fotografie"
     if "holzschnitt" in work_lower: return "Holzschnitt"
     if any(t in work_lower for t in ["holzdruck", "holz-", "linol"]): return "Holz-/Linoldruck"
     if any(t in work_lower for t in ["hochdruck", "reliefdruck", "reliefdr", "relief"]): return "Hochdruck"
     if "prägedr" in work_lower or "praegedr" in work_lower: return "Prägedruck"
     if "multiple" in work_lower: return "Multiple"
     if any(t in work_lower for t in ["offset", "digitaler", "digital"]): return "Offsetdruck"
+    if any(t in work_lower for t in ["bleistiftzeichnung", "kohlezeichnung", "tuschzeichnung", "federzeichnung"]): return "Zeichnung"
     return "Sonstige"
 
 def blatt_typ(edition, work=""):
@@ -935,33 +962,33 @@ if _show_nav:
     if st.session_state.view not in ("bewerten", "extern"):
         st.markdown(
             '<div style="text-align:center;margin:-0.3rem 0 0.6rem;font-family:Cormorant Garamond,Georgia,serif;'
-            'color:#998E7D;letter-spacing:0.02em;">'
-            '<div style="display:flex;gap:1.2rem;justify-content:center;align-items:center;font-size:0.7rem;">'
+            'color:#3F382E;letter-spacing:0.02em;">'
+            '<div style="display:flex;gap:1.2rem;justify-content:center;align-items:center;font-size:0.86rem;font-weight:600;">'
             '<span><span style="font-weight:700;color:#C44B3F;">R</span> Reputation</span>'
             '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Momentum</span>'
             '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert (Blatt)</span>'
             '<span><span style="font-weight:700;color:#C4993D;">P</span> Potenzial</span>'
-            '<span style="opacity:0.6;">— Künstler-Liga: R+M+P (max. 15) · Blatt-Wert: +Druckwert T (max. 20)</span>'
+            '<span style="opacity:0.85;">— Künstler-Liga: R+M+P (max. 15) · Blatt-Wert: +Druckwert T (max. 20)</span>'
             '</div>'
             '<div style="display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;'
-            'font-size:0.6rem;margin-top:0.25rem;opacity:0.75;line-height:1.4;">'
+            'font-size:0.74rem;margin-top:0.3rem;color:#5C5346;line-height:1.5;">'
             '<span><span style="font-weight:700;color:#C44B3F;">R</span> Galerien · Museen · Kunstgeschichte</span>'
-            '<span style="opacity:0.3;">|</span>'
+            '<span style="opacity:0.45;">|</span>'
             '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Aktualität: Museums-Solo · Biennale · Preis · Galeriewechsel · Auktionstrend (jüngste Jahre stärker; auch posthum)</span>'
-            '<span style="opacity:0.3;">|</span>'
+            '<span style="opacity:0.45;">|</span>'
             '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert pro Blatt: Unikat (5) → Offset (1) — zählt nur zum Blatt-Wert</span>'
-            '<span style="opacity:0.3;">|</span>'
+            '<span style="opacity:0.45;">|</span>'
             '<span><span style="font-weight:700;color:#C4993D;">P</span> Wertsteigerungschance: Karrierestand · Marktdynamik · Editionsseltenheit</span>'
             '</div>'
             '<div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;'
-            'font-size:0.6rem;margin-top:0.35rem;opacity:0.7;line-height:1.4;">'
+            'font-size:0.74rem;margin-top:0.4rem;color:#5C5346;line-height:1.5;">'
             '<span style="font-weight:600;">Liga:</span>'
             '<span><span style="color:#C44B3F;font-weight:700;">1</span> R≥4 &amp; R+M+P≥10</span>'
-            '<span style="opacity:0.3;">|</span>'
+            '<span style="opacity:0.45;">|</span>'
             '<span><span style="color:#6B7DB3;font-weight:700;">2</span> R+M+P≥9 oder R≥4</span>'
-            '<span style="opacity:0.3;">|</span>'
+            '<span style="opacity:0.45;">|</span>'
             '<span><span style="color:#5A9E5A;font-weight:700;">3</span> R+M+P≥5</span>'
-            '<span style="opacity:0.3;">|</span>'
+            '<span style="opacity:0.45;">|</span>'
             '<span><span style="color:#C4993D;font-weight:700;">4</span> Rest</span>'
             '</div>'
             '</div>',
@@ -1061,9 +1088,9 @@ def _extract_teachers(info):
     teachers = set()
     if "beuys-schüler" in low or "beuys-klasse" in low or "beuys-umfeld" in low:
         teachers.add("Joseph Beuys")
-    for m in re.finditer(r"Meistersch[üu]ler(?:in)?\s+(?:von\s+|bei\s+)?([A-ZÄÖÜ][\wäöüß.]+(?:\s+[A-ZÄÖÜ][\wäöüß.]+){1,2})", text):
+    for m in re.finditer(r"Meistersch[üu]ler(?:in)?\s+(?:von\s+|bei\s+|unter\s+)?([A-ZÄÖÜ][\wäöüß.\-]+(?:\s+[A-ZÄÖÜ][\wäöüß.\-]+){1,2})", text):
         teachers.add(m.group(1).strip(" .,|"))
-    for m in re.finditer(r"Sch[üu]ler(?:in)?\s+von\s+([A-ZÄÖÜ][\wäöüß.]+(?:\s+[A-ZÄÖÜ][\wäöüß.]+){0,2})", text):
+    for m in re.finditer(r"Sch[üu]ler(?:in)?\s+(?:von|bei|unter)\s+([A-ZÄÖÜ][\wäöüß.\-]+(?:\s+[A-ZÄÖÜ][\wäöüß.\-]+){0,2})", text):
         teachers.add(m.group(1).strip(" .,|"))
     return teachers
 
@@ -1569,7 +1596,7 @@ elif st.session_state.view != "bewerten":
     # ── Künstler·innen-Galerie: Portrait-Tiles im Grid ──
     filter_hint = f" — {view_label}" if view_label else ""
     _ranked = view in ("liga1", "liga2", "liga3", "bluechip", "meisterschueler")
-    _sort_hint = "nach Score · beste zuerst" if _ranked else "alphabetisch nach Nachname"
+    _sort_hint = "nach Rang · Reputation ×2 · beste zuerst" if _ranked else "alphabetisch nach Nachname"
     st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(artist_groups)} Künstler·innen · {len(view_filtered)} Werke{filter_hint} — {_sort_hint}</div>', unsafe_allow_html=True)
 
     # Render grid — Streamlit columns with portrait tiles
@@ -1577,7 +1604,7 @@ elif st.session_state.view != "bewerten":
     COLS_PER_ROW = 4
     artist_list = list(artist_groups.items())
     if _ranked:
-        artist_list.sort(key=lambda kv: artist_total(artists_data.get(kv[0], {})), reverse=True)
+        artist_list.sort(key=lambda kv: rang_sortkey(artists_data.get(kv[0], {})), reverse=True)
     for row_start in range(0, len(artist_list), COLS_PER_ROW):
         row_items = artist_list[row_start:row_start + COLS_PER_ROW]
         # Nur so viele Spalten wie Einträge → keine leeren Spalten am Ende
@@ -1628,6 +1655,17 @@ elif st.session_state.view != "bewerten":
                 if st.button(f"{bc_dot}{artist_name}", key=f"tile_{artist_name}", use_container_width=True):
                     st.session_state.selected_artist = artist_name
                     st.rerun()
+                # ── Meisterschüler·in von … (nur in der Meisterschüler-Ansicht) ──
+                if view == "meisterschueler":
+                    _tset = _art_teachers.get(artist_name, set())
+                    if _tset:
+                        _tlabel = " · ".join(sorted(_tset))
+                        st.markdown(
+                            f'<div style="font-size:0.66rem;color:#6B7DB3;font-style:italic;'
+                            f'margin:-0.15rem 0 0.35rem;padding:0 2px;line-height:1.3;">'
+                            f'Meisterschüler·in von {_tlabel}</div>',
+                            unsafe_allow_html=True
+                        )
                 # ── Meta line: Liga + Score | Werke ──
                 st.markdown(
                     f'<div style="display:flex;justify-content:space-between;align-items:center;margin:-0.3rem 0 1rem;padding:0 2px;">'
@@ -1859,6 +1897,8 @@ if view == "bewerten":
                 _rech = recherche_artist(bewerten_name)
                 st.session_state["recherche_result"] = _rech
                 st.session_state["recherche_name"] = bewerten_name
+                for _wk in ("inp_sig", "inp_pot", "slider_r", "slider_m", "slider_t", "slider_p", "chk_bc"):
+                    st.session_state.pop(_wk, None)
 
         # Recherche-Ergebnis anzeigen (bleibt bis Name sich ändert)
         if st.session_state.get("recherche_name") == bewerten_name and "recherche_result" in st.session_state:
@@ -2006,9 +2046,26 @@ if view == "bewerten":
             editions = st.text_input("Editionen", value=existing.get("editions", "") if existing else "", key="inp_editions")
             sheet_count = st.number_input("Blätter", min_value=0, value=existing.get("sheetCount", 1) if existing else 1, key="inp_sheets")
 
-        significance = st.text_input("Galerien / Kontext", value=existing.get("significance", "") if existing else "",
+        # Vorbelegung „Galerien / Kontext" + „Einschätzung"
+        if existing:
+            _def_sig = existing.get("significance", "")
+            _def_pot = existing.get("potential", "")
+        elif _has_recherche:
+            _f = _rech_data.get("findings", {})
+            _vals = []
+            for _k in ("R", "M"):
+                for _x in _f.get(_k, []):
+                    _v = _x.split(": ", 1)[-1] if ": " in _x else _x
+                    if _v and _v.lower() != "wikipedia-artikel vorhanden" and _v not in _vals:
+                        _vals.append(_v)
+            _def_sig = " | ".join(_vals)
+            _def_pot = _rech_data.get("summary", "")
+        else:
+            _def_sig = ""
+            _def_pot = ""
+        significance = st.text_input("Galerien / Kontext", value=_def_sig,
                                     placeholder="Gagosian | MoMA | Documenta", key="inp_sig")
-        potential = st.text_area("Einschätzung", value=existing.get("potential", "") if existing else "",
+        potential = st.text_area("Einschätzung", value=_def_pot,
                                placeholder="Freitext-Bewertung…", height=80, key="inp_pot")
 
         # Save button
