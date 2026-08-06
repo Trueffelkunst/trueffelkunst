@@ -782,6 +782,25 @@ def extract_technique(work_desc):
     if any(t in work_lower for t in ["bleistiftzeichnung", "kohlezeichnung", "tuschzeichnung", "federzeichnung"]): return "Zeichnung"
     return "Sonstige"
 
+_KNOWN_TECH_LABELS = {"Mezzotinto","Schadographie","Heliogravüre","Cyanotypie","Monotypie","Aquatinta",
+                      "Lithographie","Siebdruck","Radierung","Fotografie","Holzschnitt","Holz-/Linoldruck",
+                      "Linolschnitt","Hochdruck","Prägedruck","Multiple","Offsetdruck","Zeichnung","Digitaldruck"}
+
+def work_technique(w):
+    """Technik primär aus dem Werktitel; nur wenn dort nichts erkennbar ist,
+    Rückfall auf das gespeicherte technik-Feld. Kann bestehende Zuordnungen nie verschlechtern."""
+    t = extract_technique(w.get("work", "") or "")
+    if t != "Sonstige":
+        return t
+    stored = (w.get("technik") or "").strip()
+    if stored:
+        if stored in _KNOWN_TECH_LABELS:
+            return stored
+        t2 = extract_technique(stored)
+        if t2 != "Sonstige":
+            return t2
+    return "Sonstige"
+
 def blatt_typ(edition, work=""):
     """Griffelkunst-Blatt-Typ aus dem Editionscode: Wahlblatt (A/B/C), Projektblatt (P), Einzelblatt (E), Mappe, Sonderedition."""
     ed = (edition or "").strip()
@@ -804,7 +823,7 @@ BLATTTYP_INFO = {
 }
 
 # Alle einzigartigen Techniken in der Sammlung
-ALL_TECHNIQUES_IN_COLLECTION = set(extract_technique(w["work"]) for w in collection if extract_technique(w["work"]) != "Sonstige")
+ALL_TECHNIQUES_IN_COLLECTION = set(work_technique(w) for w in collection if work_technique(w) != "Sonstige")
 RARE_TECHNIQUES = {"Mezzotinto", "Schadographie", "Heliogravüre", "Cyanotypie", "Monotypie", "Aquatinta", "Holzschnitt"}
 
 # ─── Drucktechniken-Beschreibungen ───
@@ -884,7 +903,7 @@ meisterschueler_artists = set(w["artist"] for w in collection if is_meisterschue
 meisterschueler_count = len(meisterschueler_artists)
 
 # Techniken zählen
-technique_count = len(set(extract_technique(w["work"]) for w in collection if extract_technique(w["work"]) != "Sonstige"))
+technique_count = len(set(work_technique(w) for w in collection if work_technique(w) != "Sonstige"))
 
 # ─── Druckwerkstätten ───
 _WERKSTATT_ALIAS = {
@@ -1125,7 +1144,7 @@ def matches_filter(work):
         if work_liga not in selected_ligas:
             return False
     if selected_techniques:
-        if extract_technique(work["work"]) not in selected_techniques:
+        if work_technique(work) not in selected_techniques:
             return False
     if selected_sources:
         if get_source_label(work["source"]) not in selected_sources:
@@ -1329,7 +1348,7 @@ def show_artist_detail(artist_name):
     parts.append(f'<div class="artist-section-title">Werke in der Sammlung ({len(artist_works)})</div>')
     for w in artist_works:
         source_class = "source-maybe" if w["source"] == "maybe" else ""
-        technique = extract_technique(w["work"])
+        technique = work_technique(w)
         # Support multiple images per work (image_urls array)
         img_urls = w.get("image_urls", [])
         if not img_urls and w.get("image_url"):
@@ -1534,7 +1553,7 @@ elif view == "werke":
         liga_badge = ""
         if w["liga"]:
             liga_badge = f'<span class="liga-badge liga-badge-{liga_class}">{w["liga"]}</span>'
-        technique = extract_technique(w["work"])
+        technique = work_technique(w)
         img_url = w.get("image_url", "")
         img_html = ""
         if img_url:
@@ -1552,7 +1571,7 @@ elif view == "techniken":
     from collections import defaultdict
     tech_groups = defaultdict(list)
     for w in view_filtered:
-        tech = extract_technique(w["work"])
+        tech = work_technique(w)
         tech_groups[tech].append(w)
 
     present_techniques = set(tech_groups.keys())
@@ -1731,7 +1750,7 @@ elif view == "blatttyp":
             iu = w.get("image_url", "")
             ih = f'<div style="margin:0.4rem 0;"><img src="{iu}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=\'none\'"></div>' if iu else ""
             with _bc[j % 3]:
-                st.markdown(f'<div class="work-card liga-border-{lc}">{ih}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size:0.65rem;color:#aaa;margin-left:6px;">{extract_technique(w["work"])}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="work-card liga-border-{lc}">{ih}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size:0.65rem;color:#aaa;margin-left:6px;">{work_technique(w)}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
                 if st.button(f"{dot}{w['artist']}", key=f"bt_artist_{j}", use_container_width=True):
                     st.session_state.selected_artist = w["artist"]; st.rerun()
     else:

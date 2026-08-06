@@ -72,7 +72,9 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C3_Cyrill_Lachauer.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C4_Cyrill_Lachauer.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C5_Cyrill_Lachauer.jpg"
-      ]
+      ],
+      "technik": "Heliogravüre",
+      "technik_quelle": "griffelkunst.de Lachauer 361 Heliogravueren"
     },
     {
       "id": 5,
@@ -112,7 +114,9 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/366_B4_Ulla_von_Brandenburg.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/366_B5_Ulla_von_Brandenburg.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/366_B6_Ulla_von_Brandenburg.jpg"
-      ]
+      ],
+      "technik": "Holzdruck",
+      "technik_quelle": "griffelkunst.de v. Brandenburg 366 Holzdruck"
     },
     {
       "id": 7,
@@ -1192,7 +1196,9 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/394_C5_Walid_Raad.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/394_C6_Walid_Raad.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/Mappe_Raad.jpg"
-      ]
+      ],
+      "technik": "Offsetdruck",
+      "technik_quelle": "griffelkunst.de Raad 394 Digitaler Offset-Druck"
     },
     {
       "id": 63,
@@ -1267,7 +1273,9 @@
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/E_610_Jenny_Brosinski_1.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/E_611_Jenny_Brosinski_1.jpg"
-      ]
+      ],
+      "technik": "Lithographie",
+      "technik_quelle": "griffelkunst.de Brosinski E610/611 Lithographie"
     },
     {
       "id": 67,
@@ -1873,7 +1881,9 @@
       "image_url": "https://samuelsiebdruck.de/wp-content/uploads/2020/10/Martin-Samuel-Siebdruck-3.jpg",
       "image_urls": [],
       "image_unverified": true,
-      "image_note": "Motiv 'Nearctic' — Code evtl. 353 A4, prüfen"
+      "image_note": "Motiv 'Nearctic' — Code evtl. 353 A4, prüfen",
+      "technik": "Siebdruck",
+      "technik_quelle": "griffelkunst.de Dion Nearctic Siebdruck / dort als 353 A4"
     },
     {
       "id": 100,
@@ -2452,7 +2462,9 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/E_585_Toulu_Hassani.jpg"
       ],
       "blattgroesse": "59,5 × 46,5 cm / 44,0 × 33,5 cm",
-      "drucker": "Atelier für Druckgrafik, Wedel"
+      "drucker": "Atelier für Druckgrafik, Wedel",
+      "technik": "Radierung",
+      "technik_quelle": "griffelkunst.de Hassani E584/585 Radierung"
     },
     {
       "id": 132,
@@ -2468,7 +2480,9 @@
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/SHNEIDER-320-A5.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/SHNEIDER-320-A5.jpg"
-      ]
+      ],
+      "technik": "Lithographie",
+      "technik_quelle": "griffelkunst.de Shneider 320 Farblithographien"
     },
     {
       "id": 133,
@@ -7665,7 +7679,7 @@
         "P": 2,
         "total": 6
       },
-      "portrait_url": "",
+      "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Shneider.jpg",
       "birth": 1961
     },
     "Nora Schattauer": {
