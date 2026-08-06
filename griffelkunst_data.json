@@ -95,7 +95,7 @@
       "price": "137 €",
       "liga": "Liga 2",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/366_B1_Ulla_von_Brandenburg.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/366_B1_Ulla_von_Brandenburg.jpg",
@@ -273,7 +273,7 @@
       "price": "— (Tausch)",
       "liga": "Liga 2",
       "source": "receipt",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/376_B3_Jonathan_Monk.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/376_B3_Jonathan_Monk.jpg"
@@ -289,7 +289,7 @@
       "price": "190 €",
       "liga": "Liga 3",
       "source": "receipt",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "",
       "image_urls": []
     },
@@ -682,7 +682,7 @@
       "price": "104 €",
       "liga": "Liga 3",
       "source": "receipt",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/382_A1_Gerwald_Rockenschaub.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/382_A1_Gerwald_Rockenschaub.jpg",
@@ -879,7 +879,7 @@
       "price": "90 €",
       "liga": "Liga 3",
       "source": "receipt",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/E417-Tal-R.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/E417-Tal-R.jpg"
@@ -959,7 +959,7 @@
       "price": "28 €",
       "liga": "Liga 1",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/293C6-99WALTER.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/293C6-99WALTER.jpg"
@@ -1096,7 +1096,7 @@
       "price": "120 €",
       "liga": "Liga 3",
       "source": "receipt",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/E418-Tal-R.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/E418-Tal-R.jpg"
@@ -1199,7 +1199,7 @@
       "price": "380 €",
       "liga": "Liga 3",
       "source": "receipt",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E615_1.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/E615_1.jpg"
@@ -1295,7 +1295,7 @@
       "price": "120 €",
       "liga": "Liga 2",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E624.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/E624.jpg"
@@ -1343,7 +1343,7 @@
       "price": "45 €",
       "liga": "Liga 1",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "",
       "image_urls": []
     },
@@ -1357,7 +1357,7 @@
       "price": "—",
       "liga": "Liga 2",
       "source": "inventory",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/363-A6-Blossfeldt.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/363-A6-Blossfeldt.jpg"
@@ -1389,7 +1389,7 @@
       "price": "—",
       "liga": "Liga 1",
       "source": "inventory",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Moholy-317-A6.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Moholy-317-A6.jpg"
@@ -1461,7 +1461,7 @@
       "id": 88,
       "year": "?",
       "date": "Bestand",
-      "artist": "Knab (?)",
+      "artist": "Jan Knap",
       "work": "1 Blatt B3",
       "edition": "244 B3",
       "price": "—",
@@ -1543,7 +1543,7 @@
       "price": "—",
       "liga": "Liga 3",
       "source": "inventory",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/TalR-311-A2.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/TalR-311-A2.jpg"
@@ -1731,7 +1731,7 @@
       "price": "—",
       "liga": "Liga 3",
       "source": "inventory",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "",
       "image_urls": []
     },
@@ -1909,7 +1909,7 @@
       "price": "—",
       "liga": "Liga 3",
       "source": "inventory",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/386_A5_Misaki_Kawai.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/386_A5_Misaki_Kawai.jpg"
@@ -1974,7 +1974,7 @@
       "price": "—",
       "liga": "Liga 3",
       "source": "inventory",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/391_A1_Philip_Gr%C3%B6zinger.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/391_A1_Philip_Gr%C3%B6zinger.jpg",
@@ -2227,7 +2227,7 @@
       "price": "—",
       "liga": "Liga 1",
       "source": "inventory",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Matt_Mullican_335_C_4.JPG",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Matt_Mullican_335_C_4.JPG"
@@ -3343,7 +3343,7 @@
       "price": "45 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/Walter-Dahn-311-B1_1.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/Walter-Dahn-311-B1_1.jpg"
@@ -3359,7 +3359,7 @@
       "price": "45 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/Walter-Dahn-311-B3_1.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/Walter-Dahn-311-B3_1.jpg"
@@ -3376,10 +3376,8 @@
       "liga": "",
       "source": "receipt",
       "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/297_A6_Christian_Schad.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/297_A6_Christian_Schad.jpg"
-      ]
+      "image_url": "",
+      "image_urls": []
     },
     {
       "id": 212,
@@ -3391,7 +3389,7 @@
       "price": "45 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Matt_Mullican_335_C_7.JPG",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Matt_Mullican_335_C_7.JPG"
@@ -3407,7 +3405,7 @@
       "price": "45 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Weisz_331_A1.JPG",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Weisz_331_A1.JPG"
@@ -3423,7 +3421,7 @@
       "price": "45 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Weisz_331_A2.JPG",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Weisz_331_A2.JPG"
@@ -3487,7 +3485,7 @@
       "price": "45 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/396_B2_Kerstin_Bra%CC%88tsch_1.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/396_B2_Kerstin_Bra%CC%88tsch_1.jpg"
@@ -3503,7 +3501,7 @@
       "price": "45 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/396_B6_Kerstin_Bra%CC%88tsch_1.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/396_B6_Kerstin_Bra%CC%88tsch_1.jpg"
@@ -3519,7 +3517,7 @@
       "price": "60 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Thomas_Scheibitz_P47.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Thomas_Scheibitz_P47.jpg"
@@ -3551,7 +3549,7 @@
       "price": "45 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Boyce-323-C-5.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Boyce-323-C-5.jpg"
@@ -3567,7 +3565,7 @@
       "price": "60 €",
       "liga": "",
       "source": "receipt",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Moholy-317-A5.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Moholy-317-A5.jpg"
@@ -3894,7 +3892,7 @@
       "sheetCount": 3,
       "significance": "† 2023 | Goldener Löwe Venedig 2017 (höchster Kunstpreis!) | Zahlreiche institutionelle Solos | aktuell 2024–26: posthum: Übersicht Bundeskunsthalle Bonn 2024",
       "potential": "GOLDENER LÖWE + endliches Werk. Nachlass wird aufgearbeitet = Wertsteigerung.",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "gender": "m",
       "rmtp": {
         "R": 5,
@@ -3969,7 +3967,7 @@
       "sheetCount": 1,
       "significance": "Sprüth Magers | Documenta 7+9+10 (3×!) | MoMA, Whitney — konzeptuelle Kosmologie",
       "potential": "3× Documenta ist extrem selten. Sprüth Magers sichert Marktzugang.",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "gender": "m",
       "rmtp": {
         "R": 4,
@@ -3988,7 +3986,7 @@
       "sheetCount": 2,
       "significance": "† 1946 | Bauhaus-Meister | MoMA, Guggenheim, Tate, Pompidou | Fotogramm-Erfinder",
       "potential": "Bauhaus-Kanon. Posthume Abzüge bei Griffelkunst = Sammlerstück. Kunstgeschichte pur.",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "gender": "m",
       "rmtp": {
         "R": 5,
@@ -4007,7 +4005,7 @@
       "sheetCount": 1,
       "significance": "† 1944 | MoMA, Tate, Nationalgalerie überall | 'Der Schrei' — einer der einflussreichsten Künstler der Moderne | aktuell 2024–26: Museumsschauen Mailand/Rom 2024/25, Dresden/Hamburg 2026",
       "potential": "Originalplatte von 1906! Munch bei Griffelkunst = absolutes Highlight der Sammlung.",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "gender": "m",
       "rmtp": {
         "R": 5,
@@ -4251,7 +4249,7 @@
       "sheetCount": 1,
       "significance": "Lisson Gallery | Venedig, Documenta, Whitney Biennial, Berlin Biennale | ICA, Palais de Tokyo | aktuell 2024–26: Institutionssolo Belvedere 21 Wien 2025",
       "potential": "Lisson Gallery + Biennale-Präsenz. Konzeptkunst mit Humor.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 3,
@@ -4344,7 +4342,7 @@
       "sheetCount": 1,
       "significance": "† 1932 | Neues Sehen / Neue Sachlichkeit | MoMA, Tate, Pompidou, Nationalgalerie | aktuell 2024–26: posthum: Retrospektive SK Stiftung Köln 2024/25; Fondazione Prada 2025",
       "potential": "Bauhaus-Umfeld. Pflanzen-Fotografie = Ikonen der Moderne. Posthumer Abzug.",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "gender": "m",
       "rmtp": {
         "R": 5,
@@ -4420,7 +4418,7 @@
       "sheetCount": 3,
       "significance": "Contemporary Fine Arts + König Galerie | Museumssammlungen | Expressiver Outsider | aktuell 2024–26: Museumssolos 2026 (Millesgården, Gammel Holtegaard); Anton Kern 2026",
       "potential": "3 Werke, 2 Galerien. Expressiver Eigenbrötler mit wachsender Museumsverankerung.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 3,
@@ -4439,7 +4437,7 @@
       "sheetCount": 4,
       "significance": "Galerie EIGEN+ART | Leipziger Schule | Surreale figurative Malerei",
       "potential": "4 Blätter + die Eule! Eigen+Art = solide Galerievertretung.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 2,
@@ -4496,7 +4494,7 @@
       "sheetCount": 2,
       "significance": "Galerie EIGEN+ART | Neue Leipziger Schule | Düstere Figuration | jetzt Galerie Kleindienst Leipzig (nicht mehr Eigen+Art) | aktuell 2024–26: Solo Kunsthal KAdE 2026; Hotspot Leipzig 2025",
       "potential": "Neue Leipziger Schule mit Eigen+Art. 2 Blätter sichern Position.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 3,
@@ -4570,7 +4568,7 @@
       "sheetCount": 3,
       "significance": "Thaddaeus Ropac | Documenta IX | Biennale São Paulo | Digital-geometrische Kunst",
       "potential": "Ropac + Documenta. 3 Blätter. Geometrische Digitalkunst = aktuell.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 3,
@@ -4832,7 +4830,7 @@
       "sheetCount": 2,
       "significance": "König Galerie | Abstrakte Landschaftsmalerei | Remixing Painting | aktuell 2024–26: Solo KÖNIG Galerie 2025",
       "potential": "König Galerie = starke Vertretung. 2 Editionen.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 2,
@@ -4926,7 +4924,7 @@
       "sheetCount": 1,
       "significance": "Documenta IX | MoMA | DDR-Avantgarde | Eigen+Art",
       "potential": "Documenta + MoMA = institutionell stark. DDR-Avantgarde wird neu bewertet.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "m",
       "rmtp": {
         "R": 3,
@@ -5387,7 +5385,7 @@
       "liga": "",
       "editions": "295 (mehrere)",
       "sheetCount": 3,
-      "significance": "Feingliedrige Radierungen",
+      "significance": "† 2012 | Feingliedrige Radierungen",
       "potential": "",
       "isBlueChip": false,
       "gender": "m",
@@ -5629,7 +5627,7 @@
       "liga": "",
       "editions": "258 A3 (Hunde, Lithographie)",
       "sheetCount": 1,
-      "significance": "DDR-Kunst, Clara-Mosch-Gruppe",
+      "significance": "† 2021 | DDR-Kunst, Clara-Mosch-Gruppe",
       "potential": "",
       "isBlueChip": false,
       "gender": "m",
@@ -5830,24 +5828,6 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Waldow_448.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Waldow.jpg"
     },
-    "Knab (?)": {
-      "tier": 4,
-      "liga": "",
-      "editions": "244 B3",
-      "sheetCount": 1,
-      "significance": "Unbekannter Künstler",
-      "potential": "",
-      "isBlueChip": false,
-      "gender": "m",
-      "rmtp": {
-        "R": 1,
-        "M": 1,
-        "T": 2,
-        "P": 1,
-        "total": 3
-      },
-      "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Knap.jpg"
-    },
     "Gerrit Frohne-Brinkmann": {
       "tier": 4,
       "liga": "",
@@ -5890,7 +5870,7 @@
       "liga": "",
       "editions": "285 B5 + E 323 (VIELLEICHT)",
       "sheetCount": 2,
-      "significance": "Hamburger Radierer",
+      "significance": "† 2014 | Hamburger Radierer",
       "potential": "",
       "isBlueChip": false,
       "gender": "m",
@@ -6098,7 +6078,7 @@
       "sheetCount": 1,
       "significance": "Marian Goodman | Belg. Pavillon Venedig 2022 | MoMA",
       "potential": "Marian Goodman = Top-Galerie. Belgischer Pavillon bringt Sichtbarkeit.",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "gender": "f",
       "rmtp": {
         "R": 4,
@@ -6117,7 +6097,7 @@
       "sheetCount": 6,
       "significance": "Pilar Corrias + Art:Concept | Venedig, Palais de Tokyo | Theatrale Figurationen",
       "potential": "Komplette Serie! Steigendes institutionelles Interesse. Theatral-performative Kunst im Trend.",
-      "isBlueChip": false,
+      "isBlueChip": true,
       "gender": "f",
       "rmtp": {
         "R": 5,
@@ -6174,7 +6154,7 @@
       "sheetCount": 0,
       "significance": "Esther Schipper | Meisterschülerin Georg Baselitz | Brutalismus + Natur",
       "potential": "Meisterschülerin-Bonus. Architektur-Kunst ist gefragt. Aufwärtstrend.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "f",
       "rmtp": {
         "R": 3,
@@ -6231,7 +6211,7 @@
       "sheetCount": 0,
       "significance": "König Galerie | MoMA | Konzeptuelle Fotografie | jetzt Esther Schipper (Berlin); Hamburger Bahnhof 2026 | aktuell 2024–26: Solo MOCAK Krakau 2026, Esther Schipper 2024",
       "potential": "Top-Galerie + MoMA-Sammlung. Solide institutionelle Verankerung.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "f",
       "rmtp": {
         "R": 3,
@@ -6476,7 +6456,7 @@
       "sheetCount": 1,
       "significance": "\"Heta-uma\" (schlecht, aber gut) | Kopenhagen/Japan | Humor + Farbe | aktuell 2024–26: Museumssolo Stavanger Art Museum 2024/25",
       "potential": "Populärkultureller Appeal. Spaßfaktor = Sammlerwert bei jüngerer Generation.",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "f",
       "rmtp": {
         "R": 2,
@@ -6738,7 +6718,7 @@
       "sheetCount": 0,
       "significance": "Eigen+Art | Schülerin Neo Rauch — \"Stoned\" (Litho/Siebdruck)",
       "potential": "",
-      "isBlueChip": true,
+      "isBlueChip": false,
       "gender": "f",
       "rmtp": {
         "R": 3,
@@ -7036,8 +7016,8 @@
       "editions": "311 B1 · 311 B3",
       "sheetCount": 2,
       "significance": "† 2024 | Sprüth Magers (Estate) | Museum Ludwig, Kunstmuseum Basel, MMK Frankfurt | Junge Wilde / Mülheimer Freiheit | posthume Survey 2024/25 | aktuell 2024–26: posthum: Estate Sprüth Magers; Survey Haus Mödrath 2025",
-      "potential": "Etablierter Vertreter der „Jungen Wilden“; hier Fotoarbeiten. Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab (Web-Recherche) verfeinern",
-      "isBlueChip": false,
+      "potential": "Etablierter Vertreter der „Jungen Wilden“; hier Fotoarbeiten.",
+      "isBlueChip": true,
       "gender": "m",
       "rmtp": {
         "R": 5,
@@ -7054,8 +7034,8 @@
       "editions": "331 A1 · 331 A2",
       "sheetCount": 2,
       "significance": "Sadie Coles HQ, Konrad Fischer, MASSIMODECARLO, Pedro Cera | documenta 12 (2007) | Solo „Multiface“ Kestner Gesellschaft 2024/25 | Skulptur & Zeichnung",
-      "potential": "International vertreten (London/Düsseldorf), documenta-Teilnahme. Score ist eine vorläufige Schätzung und lässt sich über den Bewerten-Tab verfeinern",
-      "isBlueChip": false,
+      "potential": "International vertreten (London/Düsseldorf), documenta-Teilnahme.",
+      "isBlueChip": true,
       "gender": "f",
       "rmtp": {
         "R": 5,
