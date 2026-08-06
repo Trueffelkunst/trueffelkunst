@@ -910,6 +910,7 @@ def set_view(v):
     st.session_state.selected_artist = None
     st.session_state.selected_technique = None
     st.session_state.selected_blatttyp = None
+    st.session_state["_scroll_to_content"] = True
 
 # ── Navigation ausblenden wenn Künstler-Detail oder Technik-Detail offen ──
 _show_nav = (st.session_state.selected_artist is None and st.session_state.get("selected_technique") is None and st.session_state.get("selected_blatttyp") is None and st.session_state.get("selected_werkstatt") is None)
@@ -984,42 +985,59 @@ if _show_nav:
     # Score-Legende (nicht im Bewerten-Tab)
     if st.session_state.view not in ("bewerten", "extern"):
         st.markdown(
-            '<div style="text-align:center;margin:-0.3rem 0 0.6rem;font-family:Cormorant Garamond,Georgia,serif;'
-            'color:#3F382E;letter-spacing:0.02em;">'
-            '<div style="display:flex;gap:1.2rem;justify-content:center;align-items:center;font-size:0.86rem;font-weight:600;">'
-            '<span><span style="font-weight:700;color:#C44B3F;">R</span> Reputation</span>'
-            '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Momentum</span>'
-            '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert (Blatt)</span>'
-            '<span><span style="font-weight:700;color:#C4993D;">P</span> Potenzial</span>'
-            '<span style="opacity:0.85;">— Künstler-Liga: R+M+P (max. 15) · Blatt-Wert: +Druckwert T (max. 20)</span>'
-            '</div>'
-            '<div style="display:flex;gap:0.4rem;justify-content:center;flex-wrap:wrap;'
-            'font-size:0.74rem;margin-top:0.3rem;color:#5C5346;line-height:1.5;">'
-            '<span><span style="font-weight:700;color:#C44B3F;">R</span> Galerien · Museen · Kunstgeschichte</span>'
-            '<span style="opacity:0.45;">|</span>'
-            '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Aktualität: Museums-Solo · Biennale · Preis · Galeriewechsel · Auktionstrend (jüngste Jahre stärker; auch posthum)</span>'
-            '<span style="opacity:0.45;">|</span>'
-            '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert pro Blatt: Unikat (5) → Offset (1) — zählt nur zum Blatt-Wert</span>'
-            '<span style="opacity:0.45;">|</span>'
-            '<span><span style="font-weight:700;color:#C4993D;">P</span> Wertsteigerungschance: Karrierestand · Marktdynamik · Editionsseltenheit</span>'
-            '</div>'
-            '<div style="display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap;'
-            'font-size:0.74rem;margin-top:0.4rem;color:#5C5346;line-height:1.5;">'
-            '<span style="font-weight:600;">Liga:</span>'
-            '<span><span style="color:#C44B3F;font-weight:700;">1</span> R≥4 &amp; R+M+P≥10</span>'
-            '<span style="opacity:0.45;">|</span>'
-            '<span><span style="color:#6B7DB3;font-weight:700;">2</span> R+M+P≥9 oder R≥4</span>'
-            '<span style="opacity:0.45;">|</span>'
-            '<span><span style="color:#5A9E5A;font-weight:700;">3</span> R+M+P≥5</span>'
-            '<span style="opacity:0.45;">|</span>'
-            '<span><span style="color:#C4993D;font-weight:700;">4</span> Rest</span>'
-            '</div>'
-            '</div>',
+            '<div style="text-align:center;margin:-0.3rem 0 0.35rem;font-family:Cormorant Garamond,Georgia,serif;color:#3F382E;letter-spacing:0.02em;">'
+            '<div style="display:flex;gap:1.1rem;justify-content:center;align-items:center;flex-wrap:wrap;font-size:0.86rem;font-weight:600;">'
+            '<span><span style="color:#C44B3F;">R</span> Reputation</span>'
+            '<span><span style="color:#6B7DB3;">M</span> Momentum</span>'
+            '<span><span style="color:#5A9E5A;">T</span> Druckwert</span>'
+            '<span><span style="color:#C4993D;">P</span> Potenzial</span>'
+            '<span style="font-weight:400;color:#8A8277;">Künstler-Liga = R+M+P (max 15) · Blatt-Wert = +T (max 20)</span>'
+            '</div></div>',
             unsafe_allow_html=True
         )
+        with st.expander("Was bedeuten R · M · T · P — und die Liga-Stufen?", expanded=False):
+            st.markdown(
+                '<div style="font-size:0.8rem;color:#4F473B;line-height:1.7;">'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C44B3F;">R</span><b>Reputation</b> — Galerien · Museen · Kunstgeschichte</div>'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#6B7DB3;">M</span><b>Momentum</b> — Aktualität: Museums-Solo · Biennale · Preis · Galeriewechsel · Auktionstrend (jüngste Jahre stärker; auch posthum)</div>'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#5A9E5A;">T</span><b>Druckwert</b> — pro Blatt: Unikat (5) → Offset (1); zählt nur zum Blatt-Wert</div>'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C4993D;">P</span><b>Potenzial</b> — Wertsteigerungschance: Karrierestand · Marktdynamik · Editionsseltenheit</div>'
+                '<div style="margin-top:0.55rem;padding-top:0.45rem;border-top:1px solid #E8E4DC;">'
+                '<b>Liga</b> (nach R+M+P): '
+                '<span style="color:#C44B3F;font-weight:700;">1</span> R≥4 &amp; ≥10 &nbsp;·&nbsp; '
+                '<span style="color:#6B7DB3;font-weight:700;">2</span> ≥9 oder R≥4 &nbsp;·&nbsp; '
+                '<span style="color:#5A9E5A;font-weight:700;">3</span> ≥5 &nbsp;·&nbsp; '
+                '<span style="color:#C4993D;font-weight:700;">4</span> Rest</div>'
+                '</div>',
+                unsafe_allow_html=True
+            )
 else:
     # Detail-Ansicht: Navigation ausgeblendet, nur search-Variable initialisieren
     search = ""
+
+# ── Anker + einmaliger Auto-Scroll zum Inhalt nach Kachel-Klick ──
+if _show_nav:
+    st.markdown('<div class="gk-content-top" style="scroll-margin-top:6px;height:0;"></div>', unsafe_allow_html=True)
+    if st.session_state.pop("_scroll_to_content", False):
+        components.html("""
+        <script>
+        (function(){
+          function go(){
+            try{
+              var docs=[];
+              try{docs.push(window.parent.document);}catch(e){}
+              try{if(window.top && window.top!==window.parent){docs.push(window.top.document);}}catch(e){}
+              for(var i=0;i<docs.length;i++){
+                var el=docs[i].querySelector('.gk-content-top');
+                if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); return true; }
+              }
+            }catch(e){}
+            return false;
+          }
+          var n=0; var t=setInterval(function(){ if(go()||++n>25){ clearInterval(t); } }, 90);
+        })();
+        </script>
+        """, height=0)
 
 # Technik-Filter läuft über die Stats-Buttons, kein separates Dropdown nötig
 selected_techniques = []
@@ -1455,10 +1473,10 @@ elif view == "werke":
             _binfo = artists_data.get(w["artist"], {}); _dw = technique_value(w["work"])
             _bval = _binfo.get("rmtp",{}).get("total",0) + _dw
             _blatt_html = f'<div style="font-size:0.6rem;color:#B98;margin-top:3px;">Druckwert {_dw}/5 · Blatt {_bval}/20</div>' if _binfo.get("rmtp") else ""
-            st.markdown(f'<div class="work-card liga-border-{liga_class}">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div>{_blatt_html}</div>', unsafe_allow_html=True)
             if st.button(f"{bc_dot}{w['artist']}", key=f"werke_artist_{j}", use_container_width=True):
                 st.session_state.selected_artist = w["artist"]
                 st.rerun()
+            st.markdown(f'<div class="work-card liga-border-{liga_class}" style="margin-top:-0.3rem;">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div>{_blatt_html}</div>', unsafe_allow_html=True)
 elif view == "techniken":
     # ── Techniken-Ansicht: Kacheln → Klick → Werke ──
     from collections import defaultdict
