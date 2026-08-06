@@ -5937,19 +5937,19 @@
   },
   "Pidder Auberger": {
    "tier": 4,
-   "liga": "Liga 4",
+   "liga": "Liga 3",
    "editions": "295 (mehrere)",
    "sheetCount": 3,
-   "significance": "† 2012 | Feingliedrige Radierungen",
-   "potential": "",
+   "significance": "Parrotta Contemporary Art, Stuttgart/Bonn | Museum Folkwang Essen (Einzelausstellung 2011) | SFMOMA | Staatsgalerie Stuttgart | Museum Weserburg Bremen",
+   "potential": "Bei Gerhard Richter und Peter Brüning ausgebildet; solide Museumspräsenz (Folkwang-Einzelausstellung 2011, SFMOMA), Nachlassarchiv Stiftung Kunstfonds — verstorben 2012, ohne Marktdynamik.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 1,
-    "M": 1,
+    "R": 3,
+    "M": 2,
     "T": 3,
     "P": 2,
-    "total": 4
+    "total": 7
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/Auberger%2CPidder_313_C1_1.jpg",
    "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Auberger_1.jpg",
@@ -6058,18 +6058,19 @@
    "liga": "Liga 4",
    "editions": "261 A2+A3",
    "sheetCount": 2,
-   "significance": "Beuys-Schüler | Soziale Plastik — 2 Blätter",
-   "potential": "",
+   "significance": "Beuys-Schüler (1968–1973) | Teilnahme '7000 Eichen' / FIU",
+   "potential": "Kunsthistorisch v. a. über das Beuys-Umfeld verankert (Bruder von Johannes Stüttgen); kaum eigene Galerie-/Museumspräsenz.",
    "isBlueChip": false,
    "gender": "m",
    "rmtp": {
-    "R": 1,
+    "R": 2,
     "M": 1,
-    "T": 2,
-    "P": 2,
+    "T": 3,
+    "P": 1,
     "total": 4
    },
-   "portrait_url": ""
+   "portrait_url": "",
+   "birth": 1947
   },
   "Rolf Rose": {
    "tier": 4,
@@ -7356,19 +7357,19 @@
   },
   "Anja Tchepets": {
    "tier": 4,
-   "liga": "Liga 4",
+   "liga": "Liga 3",
    "editions": "341 C2+C3+C6 (Hochdruck)",
    "sheetCount": 3,
-   "significance": "\"Omis und Homies\" — 3 Blätter, junge Position",
-   "potential": "",
+   "significance": "Galerie Tobien, Husum | Kunsthaus Hamburg (Gruppe 'Druckreif' 2010)",
+   "potential": "Regional tätige Druckgrafikerin (Leporellos/Farbholzschnitt), Griffelkunst-Graphikpreis; kleinere Ausstellungen 2022–25 — keine Blue-Chip-/Museumsanbindung.",
    "isBlueChip": false,
    "gender": "f",
    "rmtp": {
-    "R": 1,
-    "M": 1,
+    "R": 2,
+    "M": 2,
     "T": 3,
     "P": 2,
-    "total": 4
+    "total": 6
    },
    "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Tchepets341_C2.JPG",
    "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Tchepets.jpg",
