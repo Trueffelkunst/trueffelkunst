@@ -313,9 +313,18 @@ if _app_pw:
         st.session_state.app_unlocked = False
     if not st.session_state.app_unlocked:
         st.markdown("""
-        <div style="display:flex;align-items:center;justify-content:center;min-height:60vh;">
-        <div style="text-align:center;max-width:320px;">
-        <div style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.6rem;color:#1B3A2A;margin-bottom:1.5rem;">Trüffelkunst</div>
+        <style>
+        [data-testid="stAppViewContainer"], .stApp {
+            background-image: linear-gradient(rgba(18,26,22,0.55), rgba(18,26,22,0.80)),
+                              url('https://www.griffelkunst.de/galleryimages/_xlarge/263C1-91ROTH.jpg');
+            background-size: cover; background-position: center; background-repeat: no-repeat;
+        }
+        [data-testid="stHeader"] { background: transparent; }
+        </style>
+        <div style="display:flex;align-items:center;justify-content:center;min-height:56vh;">
+        <div style="text-align:center;max-width:360px;">
+        <div style="font-family:Cormorant Garamond,Georgia,serif;font-size:2.7rem;color:#F2ECDD;letter-spacing:0.02em;text-shadow:0 2px 10px rgba(0,0,0,0.55);">Trüffelkunst</div>
+        <div style="font-family:Georgia,serif;font-size:0.8rem;letter-spacing:0.22em;color:#DCC78F;margin-top:0.25rem;margin-bottom:1.4rem;text-shadow:0 1px 5px rgba(0,0,0,0.55);">SAMMLUNG BODMAN</div>
         </div></div>
         """, unsafe_allow_html=True)
         _col1, _col2, _col3 = st.columns([1, 2, 1])
@@ -1677,9 +1686,9 @@ elif view == "druckwerkstaetten":
             iu = w.get("image_url", "")
             ih = f'<div style="margin:0.4rem 0;"><img src="{iu}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div>' if iu else ""
             with _wc[j % 3]:
-                st.markdown(f'<div class="work-card liga-border-{lc}">{ih}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
                 if st.button(f"{dot}{w['artist']}", key=f"ws_artist_{j}", use_container_width=True):
                     st.session_state.selected_artist = w["artist"]; st.rerun()
+                st.markdown(f'<div class="work-card liga-border-{lc}" style="margin-top:-0.3rem;">{ih}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
     else:
         _ws_sorted = sorted(_werkstatt_groups.items(), key=lambda kv: (-len(kv[1]), kv[0]))
         _n_bl = sum(len(v) for v in _werkstatt_groups.values())
