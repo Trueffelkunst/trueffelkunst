@@ -16,7 +16,7 @@ import urllib.request
 import urllib.parse
 import ssl
 from pathlib import Path
-from collections import OrderedDict
+from collections import OrderedDict, Counter
 from PIL import Image
 import base64
 import io
@@ -948,6 +948,8 @@ if "selected_blatttyp" not in st.session_state:
 if "selected_werkstatt" not in st.session_state:
     st.session_state.selected_werkstatt = None
 
+SCORE_VIEWS = {"künstler", "werke", "liga1", "liga2", "liga3", "bluechip", "meisterschueler"}
+
 def set_view(v):
     st.session_state.view = v
     st.session_state.selected_artist = None
@@ -973,16 +975,13 @@ if _show_nav:
     </style>""", unsafe_allow_html=True)
 
     # ── Ebene 1: Haupt-Ansichten ──
-    _rowA = st.columns(3)
+    _rowA = st.columns(2)
     with _rowA[0]:
         if st.button(f"**{unique_artists}**\n\nKÜNSTLER", use_container_width=True, key="btn_kuenstler"):
             set_view("künstler")
     with _rowA[1]:
         if st.button(f"**{len(collection)}**\n\nWERKE", use_container_width=True, key="btn_werke"):
             set_view("werke")
-    with _rowA[2]:
-        if st.button("**+**\n\nBEWERTEN", use_container_width=True, key="btn_bewerten"):
-            set_view("bewerten")
 
     # ── Liga (gebündelt) ──
     st.markdown('<div class="nav-group-label">Liga · nach Rang</div>', unsafe_allow_html=True)
@@ -1023,7 +1022,7 @@ if _show_nav:
     # ── Aktive Kachel hellgrün hervorheben ──
     _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
                  "bluechip": "btn_bluechip", "meisterschueler": "btn_meister", "liga1": "btn_liga1",
-                 "liga2": "btn_liga2", "liga3": "btn_liga3", "bewerten": "btn_bewerten",
+                 "liga2": "btn_liga2", "liga3": "btn_liga3",
                  "blatttyp": "btn_blatttyp", "extern": "btn_extern",
                  "druckwerkstaetten": "btn_druckwerkstatt"}
     _active_key = _view_key.get(st.session_state.view)
@@ -1036,14 +1035,14 @@ if _show_nav:
         )
     st.markdown('<div style="border-bottom: 1px solid #E0DDD8; margin-bottom: 0.8rem;"></div>', unsafe_allow_html=True)
 
-    # Suchfeld (nicht im Bewerten-Tab)
-    if st.session_state.view not in ("bewerten", "extern"):
+    # Suchfeld nur in den Bewertungs-/Listen-Ansichten
+    if st.session_state.view in SCORE_VIEWS:
         search = st.text_input("🔍 Suche", placeholder="Künstler, Werk, Edition…", label_visibility="collapsed")
     else:
         search = ""
 
-    # Score-Legende (nicht im Bewerten-Tab)
-    if st.session_state.view not in ("bewerten", "extern"):
+    # Score-Legende nur in den Bewertungs-/Listen-Ansichten
+    if st.session_state.view in SCORE_VIEWS:
         st.markdown(
             '<div style="text-align:center;margin:-0.3rem 0 0.35rem;font-family:Cormorant Garamond,Georgia,serif;color:#3F382E;letter-spacing:0.02em;">'
             '<div style="display:flex;gap:1.1rem;justify-content:center;align-items:center;flex-wrap:wrap;font-size:0.86rem;font-weight:600;">'
@@ -1089,12 +1088,12 @@ if _show_nav:
               try{if(window.top && window.top!==window.parent){docs.push(window.top.document);}}catch(e){}
               for(var i=0;i<docs.length;i++){
                 var el=docs[i].querySelector('.gk-content-top');
-                if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); return true; }
+                if(el){ el.scrollIntoView({block:'start'}); return true; }
               }
             }catch(e){}
             return false;
           }
-          var n=0; var t=setInterval(function(){ if(go()||++n>25){ clearInterval(t); } }, 90);
+          var n=0; var t=setInterval(function(){ if(++n>6){ clearInterval(t); } else { go(); } }, 90);
         })();
         </script>
         """, height=0)
@@ -1337,6 +1336,8 @@ def show_artist_detail(artist_name):
         _meta_bits = []
         if w.get("blattgroesse"): _meta_bits.append(f'&#128208; {w["blattgroesse"]}')
         if w.get("drucker"): _meta_bits.append(f'&#128424; {w["drucker"]}')
+        if w.get("image_unverified"):
+            _meta_bits.append(f'<span style="color:#C4632B;font-weight:600;">&#9888; Sekundärmarkt{(" · " + w["image_note"]) if w.get("image_note") else ""} — bitte prüfen</span>')
         _meta_html = f'<div style="font-size:0.66rem;color:#8A8277;margin-top:3px;">{" &middot; ".join(_meta_bits)}</div>' if _meta_bits else ''
         parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span>{_meta_html}</div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span><div style="font-size:0.6rem;color:#B98;">Druckwert {_dw}/5 · Blatt {_bval}/20</div></div></div></div>')
     parts.append('</div>')
@@ -1738,7 +1739,7 @@ elif view == "blatttyp":
                     st.markdown(f'<div style="width:100%;height:120px;overflow:hidden;border-radius:3px 3px 0 0;background:#F5F3EE;border:1px solid #E8E5E0;border-bottom:none;"><img src="{_s}" style="width:100%;height:120px;object-fit:contain;padding:4px;" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>', unsafe_allow_html=True)
                 if st.button(f"{t} ({len(ws)})", key=f"bt_{t}", use_container_width=True):
                     st.session_state.selected_blatttyp = t; st.rerun()
-elif st.session_state.view != "bewerten":
+else:
     # ── Künstler·innen-Galerie: Portrait-Tiles im Grid ──
     filter_hint = f" — {view_label}" if view_label else ""
     _ranked = view in ("liga1", "liga2", "liga3", "bluechip", "meisterschueler")
@@ -1820,426 +1821,6 @@ elif st.session_state.view != "bewerten":
                     f'</div>',
                     unsafe_allow_html=True
                 )
-
-
-# ─── Bewerten-Tab ───
-if view == "bewerten":
-    st.markdown('<div style="font-family: Cormorant Garamond, Georgia, serif; font-size: 1.4rem; color: #1B3A2A; margin-bottom: 0.5rem;">Künstler·in bewerten</div>', unsafe_allow_html=True)
-    st.markdown('<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem;">Nachschlagen oder neuen Künstler nach dem RMTP-System bewerten und speichern.</div>', unsafe_allow_html=True)
-
-    # Monitoring-Updates laden
-    _mon_updates = {}
-    _mon_file = Path(__file__).parent / "daten" / "monitoring_updates.json"
-    if _mon_file.exists():
-        with open(_mon_file, "r", encoding="utf-8") as f:
-            _mon_data = json.load(f)
-        _mon_updates = _mon_data.get("updates", {})
-
-    # Monitoring manuell starten
-    _mon_col1, _mon_col2 = st.columns([3, 1])
-    with _mon_col2:
-        if st.button("🔍 Monitoring starten", key="btn_run_monitoring", use_container_width=True):
-            _mon_script = Path(__file__).parent / "monitoring.py"
-            if _mon_script.exists():
-                with st.spinner("Monitoring läuft… (ca. 2–3 Min.)"):
-                    _result = subprocess.run(
-                        ["python3", str(_mon_script)],
-                        capture_output=True, text=True, timeout=600,
-                        cwd=str(Path(__file__).parent)
-                    )
-                if _result.returncode == 0:
-                    # Ergebnis lesen und Feedback geben
-                    _mon_file_check = Path(__file__).parent / "daten" / "monitoring_updates.json"
-                    _found_updates = 0
-                    _checked_count = 0
-                    if _mon_file_check.exists():
-                        with open(_mon_file_check, "r", encoding="utf-8") as _mf:
-                            _mon_result = json.load(_mf)
-                        _found_updates = _mon_result.get("artists_with_updates", 0)
-                        _checked_count = _mon_result.get("artists_checked", 0)
-                    if _found_updates > 0:
-                        st.success(f"✅ Monitoring abgeschlossen — {_found_updates} Künstler mit Updates! (von {_checked_count} geprüft)")
-                    else:
-                        st.info(f"✅ Monitoring abgeschlossen — keine neuen Updates gefunden. Alle {_checked_count} Künstler geprüft, alles beim Alten.")
-                    st.cache_data.clear()
-                    st.rerun()
-                else:
-                    st.error(f"Fehler: {_result.stderr[:200]}")
-            else:
-                st.error("monitoring.py nicht gefunden")
-    with _mon_col1:
-        if _mon_file.exists():
-            _mon_date = _mon_data.get("date", "unbekannt")
-            _mon_count = _mon_data.get("artists_with_updates", 0)
-            st.markdown(f'<div style="font-size:0.75rem;color:#8A8A8A;padding-top:0.5rem;">Letzter Check: {_mon_date} · {_mon_count} Updates</div>', unsafe_allow_html=True)
-        else:
-            st.markdown('<div style="font-size:0.75rem;color:#8A8A8A;padding-top:0.5rem;">Noch kein Monitoring durchgeführt</div>', unsafe_allow_html=True)
-
-    # Wenn Updates existieren, Künstler mit Updates oben als Quick-Buttons anzeigen
-    if _mon_updates:
-        st.markdown('<div style="font-size:0.8rem;color:#C44B3F;margin-bottom:0.4rem;">🔔 Künstler mit neuen Updates:</div>', unsafe_allow_html=True)
-        _upd_cols = st.columns(min(len(_mon_updates), 5))
-        for _i, _upd_name in enumerate(list(_mon_updates.keys())[:5]):
-            with _upd_cols[_i % 5]:
-                if st.button(f"📌 {_upd_name}", key=f"btn_upd_{_i}", use_container_width=True):
-                    st.session_state["bewerten_prefill"] = _upd_name
-                    st.rerun()
-        st.markdown("---")
-
-    # ─── Batch-Modus: Restblattliste hochladen oder einfügen ───
-    with st.expander("📋 Restblattliste prüfen (Batch)", expanded=False):
-        st.markdown('<div style="font-size:0.8rem;color:#8A8A8A;margin-bottom:0.5rem;">Lade eine Liste hoch oder kopiere Künstlernamen rein — ein Name pro Zeile.</div>', unsafe_allow_html=True)
-        _batch_tab1, _batch_tab2 = st.tabs(["📄 Datei hochladen", "✏️ Namen einfügen"])
-        _batch_names = []
-        with _batch_tab1:
-            _uploaded = st.file_uploader("CSV oder Textdatei", type=["csv", "txt", "tsv"], key="batch_upload")
-            if _uploaded:
-                _raw = _uploaded.read().decode("utf-8", errors="replace")
-                # Flexibles Parsen: CSV, Tab-getrennt oder ein Name pro Zeile
-                import csv, io
-                _reader = csv.reader(io.StringIO(_raw))
-                for _row in _reader:
-                    for _cell in _row:
-                        _clean = _cell.strip()
-                        # Nur Strings die wie Namen aussehen (mind. 2 Buchstaben, keine reinen Zahlen)
-                        if _clean and len(_clean) >= 2 and not _clean.replace(" ", "").isdigit():
-                            _batch_names.append(_clean)
-        with _batch_tab2:
-            _text_input = st.text_area("Künstlernamen (ein Name pro Zeile)", height=150, key="batch_text",
-                                       placeholder="z.B.:\nChristopher Wool\nNeo Rauch\nRosemarie Trockel")
-            if _text_input:
-                for _line in _text_input.strip().split("\n"):
-                    _clean = _line.strip()
-                    if _clean and len(_clean) >= 2:
-                        _batch_names.append(_clean)
-
-        if _batch_names:
-            # Deduplizieren, Reihenfolge beibehalten
-            _seen = set()
-            _unique_names = []
-            for _n in _batch_names:
-                if _n.lower() not in _seen:
-                    _seen.add(_n.lower())
-                    _unique_names.append(_n)
-            _batch_names = _unique_names
-
-            st.markdown(f'<div style="font-size:0.8rem;color:#1B3A2A;font-weight:600;margin:0.5rem 0;">{len(_batch_names)} Künstler·innen erkannt</div>', unsafe_allow_html=True)
-
-            # Abgleich mit bestehenden Daten
-            _in_sammlung = []
-            _nicht_in_sammlung = []
-            for _bn in _batch_names:
-                _found = artists_data.get(_bn)
-                if not _found:
-                    _matches = [n for n in artists_data if _bn.lower() in n.lower()]
-                    if len(_matches) == 1:
-                        _found = artists_data[_matches[0]]
-                        _bn = _matches[0]
-                if _found:
-                    _rmtp = _found.get("rmtp", {})
-                    _total = _rmtp.get("total", 0)
-                    _liga = _found.get("liga", "?")
-                    _bc = " ●" if _found.get("isBlueChip") else ""
-                    _in_sammlung.append(f"{_bn} — {_liga} · {_total}/15{_bc}")
-                else:
-                    _nicht_in_sammlung.append(_bn)
-
-            if _in_sammlung:
-                st.markdown(f'<div style="font-size:0.75rem;color:#5A9E5A;margin:0.3rem 0;">✓ {len(_in_sammlung)} bereits in der Sammlung:</div>', unsafe_allow_html=True)
-                for _s in _in_sammlung:
-                    st.markdown(f'<div style="font-size:0.75rem;color:#666;padding-left:0.8rem;">{_s}</div>', unsafe_allow_html=True)
-
-            if _nicht_in_sammlung:
-                st.markdown(f'<div style="font-size:0.75rem;color:#C44B3F;margin:0.5rem 0;">⬡ {len(_nicht_in_sammlung)} unbekannt — einzeln bewerten:</div>', unsafe_allow_html=True)
-                _new_cols = st.columns(min(len(_nicht_in_sammlung), 4))
-                for _ni, _nn in enumerate(_nicht_in_sammlung[:20]):
-                    with _new_cols[_ni % 4]:
-                        if st.button(f"→ {_nn}", key=f"btn_batch_{_ni}", use_container_width=True):
-                            st.session_state["bewerten_prefill"] = _nn
-                            st.rerun()
-
-            if not _nicht_in_sammlung and _in_sammlung:
-                st.success("Alle Künstler·innen sind bereits in der Sammlung bewertet!")
-
-    st.markdown("---")
-
-    # Name eingeben oder aus Update-Button übernehmen
-    _prefill = st.session_state.pop("bewerten_prefill", "")
-    bewerten_name = st.text_input("Künstler·in", value=_prefill, placeholder="Name eingeben…", key="bewerten_name")
-
-    if bewerten_name:
-        # Check if artist exists
-        existing = artists_data.get(bewerten_name)
-        if not existing:
-            matches = [n for n in artists_data if bewerten_name.lower() in n.lower()]
-            if len(matches) == 1:
-                existing = artists_data[matches[0]]
-                bewerten_name = matches[0]
-            elif len(matches) > 1:
-                st.info(f"Mehrere Treffer: {', '.join(matches)}")
-
-        # Monitoring-Updates für diesen Künstler laden + Score-Vorschlag berechnen
-        artist_updates = _mon_updates.get(bewerten_name, [])
-        suggest_r_delta = 0
-        suggest_m_delta = 0
-        suggest_bc = False
-        update_reasons = []
-
-        BLUE_CHIP_GALS = ["Gagosian", "Hauser & Wirth", "Hauser&Wirth", "Pace", "Zwirner",
-                         "Sprüth Magers", "Ropac", "Thaddaeus Ropac"]
-        for upd in artist_updates:
-            if upd["type"] == "galerie_wechsel":
-                for gal in BLUE_CHIP_GALS:
-                    if gal.lower() in upd["detail"].lower():
-                        suggest_r_delta = max(suggest_r_delta, 1)
-                        suggest_bc = True
-                        update_reasons.append(f"🏛 **Galeriewechsel**: {upd['detail']} → R erhöhen, Blue Chip setzen")
-                        break
-                else:
-                    update_reasons.append(f"🏛 {upd['detail']}")
-            elif upd["type"] == "wichtiges_event":
-                if any(kw in upd["detail"].lower() for kw in ["biennale", "documenta", "venedig", "venice"]):
-                    suggest_m_delta = max(suggest_m_delta, 1)
-                    update_reasons.append(f"⭐ **Event**: {upd['detail']} → M erhöhen")
-                elif "retrospektive" in upd["detail"].lower():
-                    suggest_m_delta = max(suggest_m_delta, 1)
-                    update_reasons.append(f"⭐ **Retrospektive**: {upd['detail']} → M erhöhen")
-                else:
-                    update_reasons.append(f"⭐ {upd['detail']}")
-            elif upd["type"] == "neue_edition":
-                update_reasons.append(f"🎨 {upd['detail']}")
-
-        if existing:
-            rmtp = existing.get("rmtp", {})
-            liga = existing.get("liga", "")
-            liga_label = get_liga_label(liga)
-            bc = "● Blue Chip" if existing.get("isBlueChip") else ""
-            total = rmtp.get("total", 0)
-            st.markdown(
-                f'<div style="background:#FAF8F5;padding:1rem 1.2rem;border-radius:4px;border-left:3px solid #B8964E;margin-bottom:1rem;">'
-                f'<div style="font-family:Cormorant Garamond,serif;font-size:1.2rem;font-weight:700;color:#1B3A2A;">{bewerten_name} {bc}</div>'
-                f'<div style="margin:0.5rem 0;font-size:0.9rem;">'
-                f'<span style="color:#C44B3F;font-weight:700;">R {rmtp.get("R",0)}</span> · '
-                f'<span style="color:#6B7DB3;font-weight:700;">M {rmtp.get("M",0)}</span> · '
-                f'<span style="color:#5A9E5A;font-weight:700;">T {rmtp.get("T",0)}</span> · '
-                f'<span style="color:#C4993D;font-weight:700;">P {rmtp.get("P",0)}</span> · '
-                f'<span style="font-weight:700;">{total}/15</span></div>'
-                f'<div style="font-size:0.85rem;color:#666;">{liga} · {liga_label}</div>'
-                f'<div style="font-size:0.82rem;color:#888;margin-top:0.4rem;font-style:italic;">{existing.get("potential","")}</div>'
-                f'</div>',
-                unsafe_allow_html=True
-            )
-
-        else:
-            st.markdown(f'<div style="font-size:0.85rem;color:#5A9E5A;margin-bottom:0.5rem;">✦ Neuer Künstler — Bewertung eingeben:</div>', unsafe_allow_html=True)
-
-        # ── Web-Recherche Button ──
-        _rech_col1, _rech_col2 = st.columns([3, 1])
-        with _rech_col2:
-            _do_recherche = st.button("🔍 Web-Recherche", key="btn_recherche", use_container_width=True,
-                                      help="Sucht im Web nach Galerien, Ausstellungen, Technik und Preisen")
-        if _do_recherche:
-            with st.spinner(f"Recherchiere {bewerten_name}…"):
-                _rech = recherche_artist(bewerten_name)
-                st.session_state["recherche_result"] = _rech
-                st.session_state["recherche_name"] = bewerten_name
-                for _wk in ("inp_sig", "inp_pot", "slider_r", "slider_m", "slider_t", "slider_p", "chk_bc"):
-                    st.session_state.pop(_wk, None)
-
-        # Recherche-Ergebnis anzeigen (bleibt bis Name sich ändert)
-        if st.session_state.get("recherche_name") == bewerten_name and "recherche_result" in st.session_state:
-            _rech = st.session_state["recherche_result"]
-            _liga_colors_r = {"Liga 1": "#C44B3F", "Liga 2": "#6B7DB3", "Liga 3": "#5A9E5A", "Liga 4": "#C4993D"}
-            _r_col = _liga_colors_r.get(_rech["liga"], "#999")
-            _bc_label = " · ● Blue Chip" if _rech["isBlueChip"] else ""
-
-            st.markdown(
-                f'<div style="background:#F0F7F2;padding:1rem 1.2rem;border-radius:4px;border-left:3px solid #5A9E5A;margin-bottom:1rem;">'
-                f'<div style="font-family:Cormorant Garamond,serif;font-size:1.1rem;font-weight:700;color:#1B3A2A;">🔍 Web-Recherche: {bewerten_name}{_bc_label}</div>'
-                f'<div style="margin:0.5rem 0;font-size:0.9rem;">'
-                f'<span style="color:#C44B3F;font-weight:700;">R {_rech["R"]}</span> · '
-                f'<span style="color:#6B7DB3;font-weight:700;">M {_rech["M"]}</span> · '
-                f'<span style="color:#5A9E5A;font-weight:700;">T {_rech["T"]}</span> · '
-                f'<span style="color:#C4993D;font-weight:700;">P {_rech["P"]}</span> · '
-                f'<span style="font-weight:700;">{_rech["total"]}/15</span> · '
-                f'<span style="color:{_r_col};font-weight:700;">{_rech["liga"]}</span></div>'
-                f'<div style="font-size:0.75rem;color:#888;margin-top:0.3rem;">{_rech["snippets_count"]} Webquellen ausgewertet</div>'
-                f'</div>',
-                unsafe_allow_html=True
-            )
-            if _rech.get("summary"):
-                st.markdown(
-                    f'<div style="font-size:0.9rem;color:#333;background:#FBFAF7;border-left:3px solid #C4993D;padding:0.7rem 1rem;border-radius:4px;margin:-0.5rem 0 1rem;">'
-                    f'<span style="font-weight:700;color:#1B3A2A;">Gesamteinschätzung:</span> {_rech["summary"]}</div>',
-                    unsafe_allow_html=True
-                )
-            # Fundstellen Details
-            _detail_parts = []
-            if _rech["findings"]["R"]:
-                _detail_parts.append("**R — Reputation:** " + " · ".join(_rech["findings"]["R"]))
-            if _rech["findings"]["M"]:
-                _detail_parts.append("**M — Momentum:** " + " · ".join(_rech["findings"]["M"]))
-            if _rech["findings"]["T"]:
-                _detail_parts.append("**T — Technik:** " + " · ".join(_rech["findings"]["T"]))
-            if _rech["findings"]["P"]:
-                _detail_parts.append("**P — Potenzial:** " + " · ".join(_rech["findings"]["P"]))
-            if _detail_parts:
-                with st.expander("📋 Fundstellen — wie der Score zustande kommt", expanded=True):
-                    for _dp in _detail_parts:
-                        st.markdown(f'<div style="font-size:0.82rem;margin:0.3rem 0;">{_dp}</div>', unsafe_allow_html=True)
-            elif not _rech["findings"]["R"] and not _rech["findings"]["M"]:
-                st.markdown('<div style="font-size:0.8rem;color:#888;font-style:italic;">Wenig im Web gefunden — Score-Vorschlag basiert auf Defaults. Bitte manuell anpassen.</div>', unsafe_allow_html=True)
-
-        # Update-Vorschläge anzeigen
-        if update_reasons:
-            st.markdown(
-                '<div style="background:#FFF8E7;padding:0.8rem 1rem;border-radius:4px;border-left:3px solid #C4993D;margin-bottom:1rem;">'
-                '<div style="font-size:0.8rem;font-weight:700;color:#C4993D;margin-bottom:0.3rem;">📋 Vorschläge aus Monitoring-Updates:</div>'
-                + "".join(f'<div style="font-size:0.82rem;color:#555;margin:0.2rem 0;">{r}</div>' for r in update_reasons)
-                + '</div>',
-                unsafe_allow_html=True
-            )
-            if suggest_r_delta or suggest_m_delta or suggest_bc:
-                changes = []
-                if suggest_r_delta:
-                    old_r = existing.get("rmtp", {}).get("R", 3) if existing else 3
-                    changes.append(f"R: {old_r} → **{min(5, old_r + suggest_r_delta)}**")
-                if suggest_m_delta:
-                    old_m = existing.get("rmtp", {}).get("M", 3) if existing else 3
-                    changes.append(f"M: {old_m} → **{min(5, old_m + suggest_m_delta)}**")
-                if suggest_bc and not (existing and existing.get("isBlueChip")):
-                    changes.append("Blue Chip: **● setzen**")
-                st.markdown(
-                    f'<div style="font-size:0.85rem;color:#1B3A2A;font-weight:600;margin-bottom:0.5rem;">'
-                    f'Empfohlene Änderungen: {" · ".join(changes)}'
-                    f'</div>',
-                    unsafe_allow_html=True
-                )
-
-        st.markdown("##### Score anpassen" if existing else "##### Score vergeben")
-
-        # RMTP Sliders — mit Update-Vorschlägen oder Recherche-Ergebnis als Defaults
-        _has_recherche = (st.session_state.get("recherche_name") == bewerten_name and "recherche_result" in st.session_state)
-        _rech_data = st.session_state.get("recherche_result", {}) if _has_recherche else {}
-
-        if existing:
-            base_r = existing.get("rmtp", {}).get("R", 3)
-            base_m = existing.get("rmtp", {}).get("M", 3)
-            default_r = min(5, base_r + suggest_r_delta)
-            default_m = min(5, base_m + suggest_m_delta)
-            default_t = existing.get("rmtp", {}).get("T", 3)
-            default_p = existing.get("rmtp", {}).get("P", 3)
-        elif _has_recherche:
-            default_r = _rech_data.get("R", 3)
-            default_m = _rech_data.get("M", 3)
-            default_t = _rech_data.get("T", 3)
-            default_p = _rech_data.get("P", 3)
-        else:
-            default_r = 3
-            default_m = 3
-            default_t = 3
-            default_p = 3
-
-        score_cols = st.columns(4)
-        with score_cols[0]:
-            r_val = st.slider("R — Reputation", 1, 5, default_r, key="slider_r",
-                            help="5=Gagosian/MoMA, 4=Sprüth Magers/Tate, 3=gute Galerie, 2=Aufbau, 1=kaum")
-        with score_cols[1]:
-            m_val = st.slider("M — Momentum", 1, 5, default_m, key="slider_m",
-                            help="5=mehrere Top-Solos aktuell, 4=2-3 Solos, 3=aktiv, 2=wenig, 1=kaum")
-        with score_cols[2]:
-            t_val = st.slider("T — Druckwert (pro Blatt)", 1, 5, default_t, key="slider_t",
-                            help="5=Unikat, 4=Heliogravüre, 3=Radierung/Litho, 2=Siebdruck, 1=Offset")
-        with score_cols[3]:
-            p_val = st.slider("P — Potenzial", 1, 5, default_p, key="slider_p",
-                            help="5=extrem unterbewertet, 4=deutlich, 3=solide, 2=stabil, 1=kein Markt")
-
-        total_score = r_val + m_val + p_val  # Künstler-Score = R+M+P (max. 15)
-        _blatt_hint = total_score + t_val       # Beispiel-Blattwert (mit Druckwert)
-        calc_liga = liga_from_rmp(r_val, total_score) or "Liga 4"
-
-        liga_colors = {"Liga 1": "#C44B3F", "Liga 2": "#6B7DB3", "Liga 3": "#5A9E5A", "Liga 4": "#C4993D"}
-        liga_col = liga_colors.get(calc_liga, "#999")
-
-        # Veränderung zum bisherigen Score anzeigen
-        score_change = ""
-        if existing and existing.get("rmtp"):
-            _er = existing["rmtp"]
-            old_total = _er.get("R",0)+_er.get("M",0)+_er.get("P",0)
-            old_liga = existing.get("liga", "")
-            if total_score != old_total or calc_liga != old_liga:
-                diff = total_score - old_total
-                diff_str = f"+{diff}" if diff > 0 else str(diff)
-                liga_change = f" · {old_liga} → {calc_liga}" if calc_liga != old_liga else ""
-                score_change = f'<div style="font-size:0.75rem;color:#C44B3F;margin-top:0.2rem;">Änderung: {diff_str} Punkte{liga_change}</div>'
-
-        st.markdown(
-            f'<div style="text-align:center;padding:0.6rem;margin:0.5rem 0;background:#FAF8F5;border-radius:4px;">'
-            f'<span style="font-family:Cormorant Garamond,serif;font-size:1.3rem;font-weight:700;">{total_score}/15</span>'
-            f' · <span style="color:{liga_col};font-weight:700;">{calc_liga}</span>'
-            f' · {get_liga_label(calc_liga)}'
-            f'{score_change}</div>',
-            unsafe_allow_html=True
-        )
-
-        # Additional fields
-        detail_cols = st.columns(2)
-        with detail_cols[0]:
-            gender = st.selectbox("Gender", ["f", "m", "d"], index=0 if not existing else (0 if existing.get("gender") == "f" else 1), key="sel_gender")
-            default_bc = suggest_bc or (existing.get("isBlueChip", False) if existing else False) or (_rech_data.get("isBlueChip", False) if _has_recherche else False)
-            is_bc = st.checkbox("Blue Chip ●", value=default_bc, key="chk_bc")
-        with detail_cols[1]:
-            editions = st.text_input("Editionen", value=existing.get("editions", "") if existing else "", key="inp_editions")
-            sheet_count = st.number_input("Blätter", min_value=0, value=existing.get("sheetCount", 1) if existing else 1, key="inp_sheets")
-
-        # Vorbelegung „Galerien / Kontext" + „Einschätzung"
-        if existing:
-            _def_sig = existing.get("significance", "")
-            _def_pot = existing.get("potential", "")
-        elif _has_recherche:
-            _f = _rech_data.get("findings", {})
-            _vals = []
-            for _k in ("R", "M"):
-                for _x in _f.get(_k, []):
-                    _v = _x.split(": ", 1)[-1] if ": " in _x else _x
-                    if _v and _v.lower() != "wikipedia-artikel vorhanden" and _v not in _vals:
-                        _vals.append(_v)
-            _def_sig = " | ".join(_vals)
-            _def_pot = _rech_data.get("summary", "")
-        else:
-            _def_sig = ""
-            _def_pot = ""
-        significance = st.text_input("Galerien / Kontext", value=_def_sig,
-                                    placeholder="Gagosian | MoMA | Documenta", key="inp_sig")
-        potential = st.text_area("Einschätzung", value=_def_pot,
-                               placeholder="Freitext-Bewertung…", height=80, key="inp_pot")
-
-        # Save button
-        if st.button("💾 Speichern", type="primary", key="btn_save_artist"):
-            if not bewerten_name.strip():
-                st.error("Bitte Name eingeben")
-            else:
-                new_entry = {
-                    "tier": int(calc_liga.split()[-1]),
-                    "liga": calc_liga,
-                    "editions": editions,
-                    "sheetCount": sheet_count,
-                    "significance": significance,
-                    "potential": potential,
-                    "isBlueChip": is_bc,
-                    "gender": gender,
-                    "rmtp": {"R": r_val, "M": m_val, "T": t_val, "P": p_val, "total": total_score},
-                    "portrait_url": existing.get("portrait_url", "") if existing else ""
-                }
-                # Save to JSON
-                data_path = Path(__file__).parent / "griffelkunst_data.json"
-                with open(data_path, "r", encoding="utf-8") as f:
-                    save_data = json.load(f)
-                save_data["artists"][bewerten_name.strip()] = new_entry
-                with open(data_path, "w", encoding="utf-8") as f:
-                    json.dump(save_data, f, ensure_ascii=False, indent=2)
-                st.success(f"✓ {bewerten_name} gespeichert — {calc_liga} · {total_score}/20")
-                st.cache_data.clear()
 
 
 # ─── Footer ───
