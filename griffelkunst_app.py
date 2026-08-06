@@ -185,20 +185,34 @@ def recherche_artist(name):
             r_score = max(r_score, 5)
             findings["R"].append(f"Bedeutender Preis: {aw}")
 
-    # ── M: Momentum (letzte ~3 Jahre) ──
-    recent = any(y in combined_text for y in ["2023", "2024", "2025", "2026"])
-    show_kw = any(k in combined_text for k in ["exhibition", "ausstellung", "solo",
-                  "einzelausstellung", "retrospekt", "survey"])
-    if recent and show_kw:
-        m_score = max(m_score, 4)
-        findings["M"].append("Aktuelle Ausstellungstätigkeit (2023–2026)")
-    for bi in BIENNALES_SEARCH:
-        if bi in combined_text:
-            m_score = max(m_score, 5 if recent else 4)
-            findings["M"].append(f"Biennale/Großausstellung: {bi}")
-    if "retrospektive" in combined_text or "retrospective" in combined_text:
-        m_score = max(m_score, 5)
-        findings["M"].append("Retrospektive")
+    # ── M: Momentum (Aktualität; jüngste Jahre stärker gewichtet) ──
+    very_recent = any(y in combined_text for y in ["2025", "2026"])
+    recent = very_recent or any(y in combined_text for y in ["2023", "2024"])
+    _mpts = 0
+    if recent and any(k in combined_text for k in ["solo", "einzelausstellung", "solo show", "solo exhibition"]):
+        _mpts += 1; findings["M"].append("Einzelausstellung (aktuell)")
+    if recent and any(k in combined_text for k in ["museum", "kunsthalle", "kunstverein"])        and any(k in combined_text for k in ["solo", "einzelausstellung", "retrospekt", "survey"]):
+        _mpts += 1; findings["M"].append("Museums-/Institutionsausstellung")
+    _bi = [b for b in BIENNALES_SEARCH if b in combined_text]
+    if _bi:
+        _mpts += 2 if recent else 1
+        findings["M"].append("Biennale/Großausstellung: " + ", ".join(_bi[:2]))
+    if "retrospektive" in combined_text or "retrospective" in combined_text or ("survey" in combined_text and recent):
+        _mpts += 2; findings["M"].append("Retrospektive/Survey")
+    if recent and any(a in combined_text for a in AWARDS_SEARCH):
+        _mpts += 1; findings["M"].append("Aktueller Preis/Auszeichnung")
+    if recent and any(k in combined_text for k in ["now represented", "represented by", "joins ", "wechselt zu", "neu bei der galerie", "signed by"]):
+        _mpts += 1; findings["M"].append("Neue Galerievertretung")
+    if recent and any(k in combined_text for k in ["auction record", "auktionsrekord", "record price", "sold for", "rekordpreis"]):
+        _mpts += 1; findings["M"].append("Auktions-/Markttrend")
+    if recent and any(k in combined_text for k in ["art basel", "frieze", "art cologne", "armory", "fiac", "art düsseldorf", "abc art"]):
+        _mpts += 1; findings["M"].append("Messepräsenz (aktuell)")
+    if very_recent and _mpts:
+        _mpts += 1  # Bonus für sehr aktuelle Aktivität (2025/2026)
+    if _mpts:
+        m_score = max(m_score, min(5, 2 + _mpts))
+    elif recent and any(k in combined_text for k in ["exhibition", "ausstellung"]):
+        m_score = max(m_score, 3)
 
     # ── T: Technik ──
     for score_val, keywords in TECHNIQUE_KEYWORDS.items():
@@ -888,7 +902,7 @@ if _show_nav:
             'font-size:0.6rem;margin-top:0.25rem;opacity:0.75;line-height:1.4;">'
             '<span><span style="font-weight:700;color:#C44B3F;">R</span> Galerien · Museen · Kunstgeschichte</span>'
             '<span style="opacity:0.3;">|</span>'
-            '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Letzte 3 J.: Solo-Shows · Biennalen · Preise</span>'
+            '<span><span style="font-weight:700;color:#6B7DB3;">M</span> Aktualität: Museums-Solo · Biennale · Preis · Galeriewechsel · Auktionstrend (jüngste Jahre stärker; auch posthum)</span>'
             '<span style="opacity:0.3;">|</span>'
             '<span><span style="font-weight:700;color:#5A9E5A;">T</span> Druckwert pro Blatt: Unikat (5) → Offset (1) — zählt nur zum Blatt-Wert</span>'
             '<span style="opacity:0.3;">|</span>'
@@ -974,6 +988,98 @@ def parse_significance(sig_text):
         if not matched:
             result["other"].append(part)
     return result
+
+
+
+# ─── Querverbindungen zwischen Künstlern (Stufe 1: aus Daten abgeleitet) ───
+_MOVEMENTS = [
+    ("Junge Wilde / Mülheimer Freiheit", ["junge wilde", "mülheimer freiheit"]),
+    ("Neue Leipziger Schule", ["neue leipziger schule", "leipziger schule"]),
+    ("Clara Mosch", ["clara mosch", "clara-mosch"]),
+    ("Becher-Schule", ["becher-schule", "becher-klasse", "becher schule"]),
+    ("Fluxus", ["fluxus"]),
+    ("Neue Sachlichkeit", ["neue sachlichkeit"]),
+    ("Bauhaus", ["bauhaus"]),
+    ("Moskauer Konzeptualismus", ["moskauer konzeptual"]),
+    ("DDR-Avantgarde", ["ddr-avantgarde", "ddr-kunst", "clara mosch"]),
+    ("Hamburger Sezession", ["hamburger sezession"]),
+    ("Gruppe Normal", ["gruppe normal", "normal group"]),
+    ("Neues Sehen", ["neues sehen"]),
+]
+
+def _artist_text(info):
+    return ((info.get("significance","") or "") + " " + (info.get("potential","") or ""))
+
+def _extract_teachers(info):
+    text = _artist_text(info)
+    low = text.lower()
+    teachers = set()
+    if "beuys-schüler" in low or "beuys-klasse" in low or "beuys-umfeld" in low:
+        teachers.add("Joseph Beuys")
+    for m in re.finditer(r"Meistersch[üu]ler(?:in)?\s+(?:von\s+|bei\s+)?([A-ZÄÖÜ][\wäöüß.]+(?:\s+[A-ZÄÖÜ][\wäöüß.]+){1,2})", text):
+        teachers.add(m.group(1).strip(" .,|"))
+    for m in re.finditer(r"Sch[üu]ler(?:in)?\s+von\s+([A-ZÄÖÜ][\wäöüß.]+(?:\s+[A-ZÄÖÜ][\wäöüß.]+){0,2})", text):
+        teachers.add(m.group(1).strip(" .,|"))
+    return teachers
+
+_art_galleries = {}
+_art_movements = {}
+_art_teachers = {}
+_CANON_GALLERIES = [
+    "Gagosian", "Hauser & Wirth", "Pace Gallery", "David Zwirner", "Marian Goodman",
+    "Sprüth Magers", "Lisson", "Thaddaeus Ropac", "Gladstone", "White Cube",
+    "neugerriemschneider", "Esther Schipper", "Galerie Buchholz", "Matthew Marks",
+    "Paula Cooper", "Max Hetzler", "König Galerie", "Perrotin", "Petzel", "Eigen+Art",
+    "Tanya Bonakdar", "Sadie Coles", "Konrad Fischer", "Karsten Greve", "Templon",
+    "Almine Rech", "Peter Kilchmann", "Capitain", "Nagel Draxler", "Barbara Wien",
+    "Meyer Riegger", "Contemporary Fine Arts", "Kleindienst", "LEVY", "Whitestone",
+    "COSAR", "Loock", "Klemm", "Anton Kern", "Kicken", "Miles McEnery", "Galleria Continua",
+    "Campoli Presti", "MASSIMODECARLO", "Nächst St. Stephan", "Sies + Höke", "Ruediger Schoettle",
+    "Rüdiger Schöttle", "Produzentengalerie", "Jo van de Loo", "Guido Baudach",
+]
+for _cn, _ci in artists_data.items():
+    _clow = _artist_text(_ci).lower()
+    _art_galleries[_cn] = set(_gn for _gn in _CANON_GALLERIES if _gn.lower() in _clow)
+    _art_movements[_cn] = set(lbl for lbl, kws in _MOVEMENTS if any(k in _clow for k in kws))
+    _art_teachers[_cn] = _extract_teachers(_ci)
+
+_artists_with_works = set(w["artist"] for w in collection)
+
+_MANUAL_CONN_MAP = {}
+for _mc in (data.get("connections") or []):
+    _ma, _mb, _mt, _mn = _mc.get("a"), _mc.get("b"), _mc.get("type"), _mc.get("note", "")
+    if _ma and _mb:
+        _MANUAL_CONN_MAP.setdefault(_ma, []).append((_mb, _mt, _mn))
+        _MANUAL_CONN_MAP.setdefault(_mb, []).append((_ma, _mt, _mn))
+
+def derive_connections(name):
+    conns = {"Lehrer–Schüler": set(), "Gleiche Schule / Bewegung": {}, "Gemeinsame Galerie": {}, "Gleicher Lehrer": {}}
+    my_gal = _art_galleries.get(name, set())
+    my_mov = _art_movements.get(name, set())
+    my_teach = _art_teachers.get(name, set())
+    for other in _artists_with_works:
+        if other == name:
+            continue
+        sm = my_mov & _art_movements.get(other, set())
+        if sm:
+            conns["Gleiche Schule / Bewegung"][other] = ", ".join(sorted(sm))
+        sg = my_gal & _art_galleries.get(other, set())
+        if sg:
+            conns["Gemeinsame Galerie"][other] = ", ".join(sorted(sg))
+        st_ = my_teach & _art_teachers.get(other, set())
+        if st_:
+            conns["Gleicher Lehrer"][other] = ", ".join(sorted(st_))
+    for t in my_teach:
+        if t in _artists_with_works:
+            conns["Lehrer–Schüler"].add((t, "Lehrer·in von " + name))
+    for other in _artists_with_works:
+        if name in _art_teachers.get(other, set()):
+            conns["Lehrer–Schüler"].add((other, "Schüler·in"))
+    conns["Paar"] = {}; conns["Kollaboration"] = {}; conns["Gemeinsame Ausstellung"] = {}
+    _tm = {"Paar": "Paar", "Kollaboration": "Kollaboration", "Gruppenausstellung": "Gemeinsame Ausstellung"}
+    for _o, _t, _note in _MANUAL_CONN_MAP.get(name, []):
+        conns[_tm.get(_t, "Gemeinsame Ausstellung")][_o] = _note
+    return conns
 
 
 # ─── Artist Detail Panel ───
@@ -1197,6 +1303,31 @@ if st.session_state.selected_artist and st.session_state.selected_artist in arti
         st.session_state.selected_artist = None
         st.rerun()
     show_artist_detail(selected)
+    # ── Querverbindungen ──
+    _conns = derive_connections(selected)
+    _dict_cats = [
+        ("💞 Paar", "Paar"),
+        ("🤝 Kollaboration", "Kollaboration"),
+        ("🖼️ Gemeinsame Ausstellung", "Gemeinsame Ausstellung"),
+        ("🎭 Gleiche Schule / Bewegung", "Gleiche Schule / Bewegung"),
+        ("🏛️ Gemeinsame Galerie", "Gemeinsame Galerie"),
+        ("🎓 Gleicher Lehrer", "Gleicher Lehrer"),
+    ]
+    _any = bool(_conns["Lehrer–Schüler"]) or any(_conns.get(_k) for _, _k in _dict_cats)
+    if _any:
+        st.markdown('<div style="font-family:Cormorant Garamond,serif;font-size:1.1rem;color:#1B3A2A;font-weight:700;margin:1.2rem 0 0.3rem;">Querverbindungen</div><div style="font-size:0.72rem;color:#998E7D;margin-bottom:0.5rem;">recherchierte (Paar · Kollaboration · Ausstellung) und aus den Daten abgeleitete (Schule · Galerie · Lehrer) Verbindungen — klickbar</div>', unsafe_allow_html=True)
+        for _other, _role in sorted(_conns["Lehrer–Schüler"]):
+            if st.button(f"🎓 {_role}: {_other}", key=f"conn_ls_{_other}", use_container_width=True):
+                st.session_state.selected_artist = _other; st.rerun()
+        for _title, _key in _dict_cats:
+            _items = sorted(_conns.get(_key, {}).items())
+            if _items:
+                st.markdown(f'<div style="font-size:0.72rem;color:#888;margin:0.6rem 0 0.15rem;font-weight:600;">{_title}</div>', unsafe_allow_html=True)
+                for _other, _reason in _items[:12]:
+                    if st.button(f"{_other}  ·  {_reason}", key=f"conn_{_key}_{_other}", use_container_width=True):
+                        st.session_state.selected_artist = _other; st.rerun()
+                if len(_items) > 12:
+                    st.markdown(f'<div style="font-size:0.68rem;color:#bbb;margin-bottom:0.2rem;">… und {len(_items)-12} weitere</div>', unsafe_allow_html=True)
     # Zweiter Zurück-Button am Ende (wichtig für Mobile)
     st.markdown("<div style='height:0.5rem;'></div>", unsafe_allow_html=True)
     if st.button("← Zurück zur Galerie", key="btn_back_bottom", use_container_width=True):
