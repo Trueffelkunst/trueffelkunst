@@ -1853,4 +1853,5 @@ else:
 
 # ─── Footer ───
 st.markdown("---")
-st.markdown('<div style="text-align: center; padding: 1rem 0 2rem; color: #B8964E; font-size: 0.75rem; letter-spacing: 0.08em; font-family: Cormorant Garamond, Georgia, serif;">Trüffelkunst · Sammlung Bodman</div>', unsafe_allow_html=True)
+APP_BUILD = "2026-08-07a"
+st.markdown(f'<div style="text-align: center; padding: 1rem 0 2rem; color: #B8964E; font-size: 0.75rem; letter-spacing: 0.08em; font-family: Cormorant Garamond, Georgia, serif;">Trüffelkunst · Sammlung Bodman<br><span style="font-size:0.62rem;color:#cfae7a;letter-spacing:0.04em;">Build {APP_BUILD}</span></div>', unsafe_allow_html=True)
