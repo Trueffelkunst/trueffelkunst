@@ -877,6 +877,22 @@ meisterschueler_count = len(meisterschueler_artists)
 # Techniken zählen
 technique_count = len(set(extract_technique(w["work"]) for w in collection if extract_technique(w["work"]) != "Sonstige"))
 
+# ─── Druckwerkstätten ───
+def canon_drucker(d):
+    """Werkstatt-Name vereinheitlichen (Klammern/Block-Notizen entfernen)."""
+    if not d: return ""
+    d = re.sub(r"\([^)]*\)", "", d)          # (P82-P84) etc. raus
+    d = d.split(";")[0]                        # nur erster Block
+    d = d.replace("-", " ").replace("_", " ")  # Tabor-Presse == Tabor Presse
+    return re.sub(r"\s+", " ", d).strip(" ,;")
+
+_werkstatt_groups = {}
+for w in collection:
+    _cd = canon_drucker(w.get("drucker", ""))
+    if _cd:
+        _werkstatt_groups.setdefault(_cd, []).append(w)
+druckwerkstatt_count = len(_werkstatt_groups)
+
 if "view" not in st.session_state:
     st.session_state.view = "künstler"
 if "selected_artist" not in st.session_state:
@@ -885,6 +901,9 @@ if "selected_technique" not in st.session_state:
     st.session_state.selected_technique = None
 if "selected_blatttyp" not in st.session_state:
     st.session_state.selected_blatttyp = None
+    st.session_state.selected_werkstatt = None
+if "selected_werkstatt" not in st.session_state:
+    st.session_state.selected_werkstatt = None
 
 def set_view(v):
     st.session_state.view = v
@@ -893,7 +912,7 @@ def set_view(v):
     st.session_state.selected_blatttyp = None
 
 # ── Navigation ausblenden wenn Künstler-Detail oder Technik-Detail offen ──
-_show_nav = (st.session_state.selected_artist is None and st.session_state.get("selected_technique") is None and st.session_state.get("selected_blatttyp") is None)
+_show_nav = (st.session_state.selected_artist is None and st.session_state.get("selected_technique") is None and st.session_state.get("selected_blatttyp") is None and st.session_state.get("selected_werkstatt") is None)
 
 if _show_nav:
     # Zeile 1: Hauptzahlen (5 Spalten)
@@ -928,12 +947,15 @@ if _show_nav:
         if st.button("**+**\n\nBEWERTEN", use_container_width=True, key="btn_bewerten"):
             set_view("bewerten")
 
-    # Blatt-Typ + Externe Sammlung
-    _navrow = st.columns(2)
+    # Blatt-Typ + Druckwerkstätten + Externe Sammlung
+    _navrow = st.columns(3)
     with _navrow[0]:
         if st.button(f"**{len(set(blatt_typ(w['edition'], w['work']) for w in collection))}**\n\nBLATT-TYP", use_container_width=True, key="btn_blatttyp"):
             set_view("blatttyp")
     with _navrow[1]:
+        if st.button(f"**{druckwerkstatt_count}**\n\nDRUCK­WERKSTÄTTEN", use_container_width=True, key="btn_druckwerkstatt"):
+            set_view("druckwerkstaetten")
+    with _navrow[2]:
         if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
             set_view("extern")
 
@@ -941,7 +963,8 @@ if _show_nav:
     _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
                  "bluechip": "btn_bluechip", "meisterschueler": "btn_meister", "liga1": "btn_liga1",
                  "liga2": "btn_liga2", "liga3": "btn_liga3", "bewerten": "btn_bewerten",
-                 "blatttyp": "btn_blatttyp", "extern": "btn_extern"}
+                 "blatttyp": "btn_blatttyp", "extern": "btn_extern",
+                 "druckwerkstaetten": "btn_druckwerkstatt"}
     _active_key = _view_key.get(st.session_state.view)
     if _active_key:
         st.markdown(
@@ -1233,7 +1256,11 @@ def show_artist_detail(artist_name):
                 img_parts.append(f'<a href="{iu}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{iu}" style="max-width: 260px; max-height: 200px; border: 1px solid #E8E5E0; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);cursor:zoom-in;" loading="lazy" onerror="{onerror}"></a>')
             img_html = f'<div style="margin: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 8px;">{"".join(img_parts)}</div>'
         _dw = technique_value(w["work"]); _bval = artist_total(info) + _dw
-        parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span><div style="font-size:0.6rem;color:#B98;">Druckwert {_dw}/5 · Blatt {_bval}/20</div></div></div></div>')
+        _meta_bits = []
+        if w.get("blattgroesse"): _meta_bits.append(f'&#128208; {w["blattgroesse"]}')
+        if w.get("drucker"): _meta_bits.append(f'&#128424; {w["drucker"]}')
+        _meta_html = f'<div style="font-size:0.66rem;color:#8A8277;margin-top:3px;">{" &middot; ".join(_meta_bits)}</div>' if _meta_bits else ''
+        parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span>{_meta_html}</div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span><div style="font-size:0.6rem;color:#B98;">Druckwert {_dw}/5 · Blatt {_bval}/20</div></div></div></div>')
     parts.append('</div>')
     html = "\n".join(parts)
     st.markdown(html, unsafe_allow_html=True)
@@ -1303,6 +1330,9 @@ elif view == "bluechip":
 elif view == "meisterschueler":
     view_filtered = [w for w in filtered if is_meisterschueler(w["artist"])]
     view_label = "Meisterschüler"
+elif view == "druckwerkstaetten":
+    view_filtered = filtered
+    view_label = "Druckwerkstätten"
 elif view == "techniken":
     view_filtered = filtered
     view_label = "Techniken"
@@ -1553,6 +1583,38 @@ elif view == "extern":
                 f'</div>',
                 unsafe_allow_html=True
             )
+elif view == "druckwerkstaetten":
+    _sel = st.session_state.get("selected_werkstatt")
+    if _sel and _sel in _werkstatt_groups:
+        _ws_works = _werkstatt_groups[_sel]
+        if st.button("← Zurück zu den Werkstätten", key="btn_back_ws"):
+            st.session_state.selected_werkstatt = None; st.rerun()
+        st.markdown(f'<div style="font-family: Cormorant Garamond, Georgia, serif; font-size: 1.4rem; color: #1B3A2A; margin-bottom: 0.3rem;">{_sel}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem;">{len(_ws_works)} Blätter der Sammlung aus dieser Werkstatt</div>', unsafe_allow_html=True)
+        _wc = st.columns(3)
+        for j, w in enumerate(_ws_works):
+            lc = get_liga_class(w["liga"]); dot = "● " if w["isBlueChip"] else ""
+            iu = w.get("image_url", "")
+            ih = f'<div style="margin:0.4rem 0;"><img src="{iu}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div>' if iu else ""
+            with _wc[j % 3]:
+                st.markdown(f'<div class="work-card liga-border-{lc}">{ih}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
+                if st.button(f"{dot}{w['artist']}", key=f"ws_artist_{j}", use_container_width=True):
+                    st.session_state.selected_artist = w["artist"]; st.rerun()
+    else:
+        _ws_sorted = sorted(_werkstatt_groups.items(), key=lambda kv: (-len(kv[1]), kv[0]))
+        _n_bl = sum(len(v) for v in _werkstatt_groups.values())
+        st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 0.6rem; letter-spacing: 0.03em;">{len(_ws_sorted)} Druckwerkstätten · {_n_bl} zugeordnete Blätter</div>', unsafe_allow_html=True)
+        st.markdown('<div style="font-size:0.75rem;color:#6B6255;background:#F5F3EE;border-left:3px solid #B8964E;padding:0.6rem 0.9rem;border-radius:0 3px 3px 0;margin-bottom:1rem;line-height:1.5;">Druckgraphik lebt vom Handwerk der Werkstätten. Hier die Ateliers und Drucker·innen, welche die Blätter der Sammlung realisiert haben — nach Anzahl geordnet.</div>', unsafe_allow_html=True)
+        _wcols = st.columns(3)
+        for idx, (ws, wks) in enumerate(_ws_sorted):
+            with _wcols[idx % 3]:
+                _s = ""
+                for tw in wks:
+                    if tw.get("image_url"): _s = tw["image_url"]; break
+                if _s:
+                    st.markdown(f'<div style="width:100%;height:110px;overflow:hidden;border-radius:3px 3px 0 0;background:#F5F3EE;border:1px solid #E8E5E0;border-bottom:none;"><img src="{_s}" style="width:100%;height:110px;object-fit:contain;padding:4px;" loading="lazy" onerror="this.parentElement.style.display=&quot;none&quot;"></div>', unsafe_allow_html=True)
+                if st.button(f"{ws} ({len(wks)})", key=f"ws_{idx}", use_container_width=True):
+                    st.session_state.selected_werkstatt = ws; st.rerun()
 elif view == "blatttyp":
     from collections import defaultdict
     _bt_groups = defaultdict(list)
