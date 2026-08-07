@@ -169,10 +169,10 @@
       "liga": "Liga 2",
       "source": "receipt",
       "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/371_A2_Thorsten_Brinkmann.jpg",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/371_A2_Thorsten_Brinkmann.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/371_A2_Thorsten_Brinkmann.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/371_A4_Thorsten_Brinkmann.jpg"
+        "https://www.griffelkunst.de/galleryimages/_xlarge/371_A2_Thorsten_Brinkmann.jpg",
+        "https://www.griffelkunst.de/galleryimages/_xlarge/371_A4_Thorsten_Brinkmann.jpg"
       ],
       "blattgroesse": "38,2 × 30,0 cm / 35,9 × 27,0 cm",
       "drucker": "Foto Company Altona",
@@ -436,11 +436,11 @@
       "liga": "Liga 2",
       "source": "receipt",
       "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kießling_351_C_1.jpg",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kie%C3%9Fling_351_C_1.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kießling_351_C_1.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kießling_351_C_3.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kießling_351_C_4.jpg"
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kie%C3%9Fling_351_C_1.jpg",
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kie%C3%9Fling_351_C_3.jpg",
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kie%C3%9Fling_351_C_4.jpg"
       ],
       "blattgroesse": "50 x 60 cm / 35 x 46 cm",
       "drucker": "Thomas Franke, stein_werk, Leipzig",
@@ -1189,13 +1189,9 @@
       "isBlueChip": true,
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/394_C3_Walid_Raad.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/394_C1_Walid_Raad.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/394_C2_Walid_Raad.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/394_C3_Walid_Raad.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/394_C4_Walid_Raad.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/394_C5_Walid_Raad.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/394_C6_Walid_Raad.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/Mappe_Raad.jpg"
+        "https://www.griffelkunst.de/galleryimages/_xlarge/394_C5_Walid_Raad.jpg"
       ],
       "technik": "Offsetdruck",
       "technik_quelle": "griffelkunst.de Raad 394 Digitaler Offset-Druck"
@@ -1215,10 +1211,7 @@
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/394_B1_Madamme_d%C2%B4Ora.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/394_B2_Madamme_d%C2%B4Ora.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/394_B3_Madamme_d%C2%B4Ora.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/394_B5_Madamme_d%C2%B4Ora.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/394_B4_Madamme_d%C2%B4Ora.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/394_B6_Madamme_d%C2%B4Ora.jpg"
+        "https://www.griffelkunst.de/galleryimages/_xlarge/394_B5_Madamme_d%C2%B4Ora.jpg"
       ],
       "drucker": "Recom Art, Berlin",
       "technik": "Fotografie"
@@ -1693,7 +1686,9 @@
       "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/284A3-96KLUGE.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/284A3-96KLUGE.jpg"
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/284A3-96KLUGE.jpg",
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/284A4-96KLUGE.jpg",
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/284A5-96KLUGE.jpg"
       ]
     },
     {
@@ -2479,7 +2474,8 @@
       "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/SHNEIDER-320-A5.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/SHNEIDER-320-A5.jpg"
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/SHNEIDER-320-A5.jpg",
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/SHNEIDER-320-A6.jpg"
       ],
       "technik": "Lithographie",
       "technik_quelle": "griffelkunst.de Shneider 320 Farblithographien"
@@ -3287,8 +3283,8 @@
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Tchepets341_C2.JPG",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Tchepets341_C2.JPG",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Tchepets341_C6.JPG",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Tchepets_341_C3.JPG"
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Tchepets_341_C3.JPG",
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Tchepets341_C6.JPG"
       ],
       "blattgroesse": "53,7 x 39,3 cm / 42,5 x 29,0 cm",
       "drucker": "Reinhard Scheuble, Witzwort",
@@ -4362,10 +4358,12 @@
         "R": 5,
         "M": 5,
         "T": 1,
-        "P": 3,
-        "total": 13
+        "P": 2,
+        "total": 12
       },
-      "portrait_url": "https://www.theartstory.org/images20/new_design/bio/bio_weiner_lawrence.jpg"
+      "portrait_url": "https://www.theartstory.org/images20/new_design/bio/bio_weiner_lawrence.jpg",
+      "birth": 1942,
+      "death": 2021
     },
     "Tony Cragg": {
       "tier": 1,
@@ -4399,8 +4397,8 @@
         "R": 5,
         "M": 5,
         "T": 1,
-        "P": 3,
-        "total": 13
+        "P": 2,
+        "total": 12
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/293C6-99WALTER.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/walther.jpg",
@@ -4575,8 +4573,8 @@
         "R": 5,
         "M": 5,
         "T": 1,
-        "P": 4,
-        "total": 14
+        "P": 2,
+        "total": 12
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/394_C3_Walid_Raad.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Raad_portraet_1.jpg",
@@ -4615,8 +4613,8 @@
         "R": 5,
         "M": 4,
         "T": 3,
-        "P": 5,
-        "total": 14
+        "P": 2,
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/388_A5_Marcel_Odenbach.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_odenbach_1.jpg",
@@ -4756,8 +4754,8 @@
         "R": 5,
         "M": 4,
         "T": 3,
-        "P": 4,
-        "total": 13
+        "P": 2,
+        "total": 11
       },
       "portrait_url": "https://thephotographersgallery.org.uk/sites/default/files/styles/original/public/images/Portrait%202-Boris%20Mikhailov%2C%202015%2C%20photo%20by%20Vita%20Mikhailov.jpg.webp",
       "birth": 1938,
@@ -4794,10 +4792,10 @@
       "gender": "m",
       "rmtp": {
         "R": 5,
-        "M": 5,
+        "M": 3,
         "T": 3,
-        "P": 5,
-        "total": 15
+        "P": 2,
+        "total": 10
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_488_Janssen_1.jpg",
       "portrait_url": "https://www.horst-janssen-museum.de/fileadmin/_processed_/c/5/csm_02_Horst_Janssen__Portraet__Foto_Hans_Eick_7df9876816.jpg",
@@ -4895,8 +4893,8 @@
         "R": 5,
         "M": 5,
         "T": 1,
-        "P": 4,
-        "total": 14
+        "P": 2,
+        "total": 12
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/387_B3_Thomas_Bayrle.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_Bayrle_Foto_Wolfgang-Guenzel_1.jpg",
@@ -4915,8 +4913,8 @@
         "R": 5,
         "M": 4,
         "T": 3,
-        "P": 4,
-        "total": 13
+        "P": 2,
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/398_C1_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portrait_Tremlett.jpg",
@@ -5114,8 +5112,8 @@
         "R": 5,
         "M": 4,
         "T": 3,
-        "P": 4,
-        "total": 13
+        "P": 2,
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/382_A1_Gerwald_Rockenschaub.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Rockenschaub_portrait_web_1.jpg",
@@ -5274,8 +5272,8 @@
         "R": 5,
         "M": 4,
         "T": 3,
-        "P": 5,
-        "total": 14
+        "P": 2,
+        "total": 11
       },
       "portrait_url": "https://images-prod.dazeddigital.com/800/azure/dazed-prod/1130/2/1132275.jpg",
       "birth": 1958,
@@ -6575,8 +6573,8 @@
         "R": 5,
         "M": 5,
         "T": 4,
-        "P": 3,
-        "total": 13
+        "P": 2,
+        "total": 12
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/Trockel%2CRosemarie_314_C4_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Trockel_1.jpg",
@@ -6595,10 +6593,11 @@
         "R": 5,
         "M": 5,
         "T": 1,
-        "P": 3,
-        "total": 13
+        "P": 2,
+        "total": 12
       },
-      "portrait_url": "https://www.pacegallery.com/media/images/Smith_Kiki.original.jpg"
+      "portrait_url": "https://www.pacegallery.com/media/images/Smith_Kiki.original.jpg",
+      "birth": 1954
     },
     "Monica Bonvicini": {
       "tier": 1,
@@ -6752,8 +6751,8 @@
         "R": 5,
         "M": 4,
         "T": 3,
-        "P": 3,
-        "total": 12
+        "P": 2,
+        "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/366_B1_Ulla_von_Brandenburg.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_brandenburg_1.jpg",
@@ -6912,8 +6911,8 @@
         "R": 5,
         "M": 3,
         "T": 3,
-        "P": 3,
-        "total": 11
+        "P": 2,
+        "total": 10
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/362_C1_Germaine_Krull.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_krull.jpg",
@@ -7735,8 +7734,8 @@
         "R": 5,
         "M": 4,
         "T": 2,
-        "P": 3,
-        "total": 12
+        "P": 2,
+        "total": 11
       },
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Dahn_1.jpg",
       "birth": 1954,
@@ -7755,8 +7754,8 @@
         "R": 5,
         "M": 4,
         "T": 2,
-        "P": 3,
-        "total": 12
+        "P": 2,
+        "total": 11
       },
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Weisz.jpg",
       "birth": 1966

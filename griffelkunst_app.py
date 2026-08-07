@@ -428,10 +428,14 @@ for name, info in artists_data.items():
     else:
         info["liga"] = ""
 
-# Liga in collection-Einträgen aktualisieren (aus Artist-Score)
+# Spitze der Sammlung: reputationsgewichteter Rang (R×2+M+P) ≥ 17
+SPITZE_RANG_MIN = 17
+
+# Liga + Spitze in collection-Einträgen aktualisieren (aus Artist-Score)
 for w in collection:
     artist_info = artists_data.get(w["artist"], {})
     w["liga"] = artist_info.get("liga", "")
+    w["isSpitze"] = bool(artist_info.get("rmtp")) and rang_score(artist_info) >= SPITZE_RANG_MIN
 
 # Stats dynamisch berechnen
 stats = {
@@ -442,6 +446,7 @@ stats = {
     "liga3": len(set(w["artist"] for w in collection if w["liga"] == "Liga 3")),
     "liga4": len(set(w["artist"] for w in collection if w["liga"] == "Liga 4")),
     "blueChip": len(set(w["artist"] for w in collection if w["isBlueChip"])),
+    "spitze": len(set(w["artist"] for w in collection if w.get("isSpitze"))),
 }
 
 
@@ -891,6 +896,7 @@ if monitoring_file.exists():
 # ─── Interactive Stats Bar ───
 unique_artists = len(set(w["artist"] for w in collection))
 blue_chip_count = len(set(w["artist"] for w in collection if w["isBlueChip"]))
+spitze_count = len(set(w["artist"] for w in collection if w.get("isSpitze")))
 
 # Meisterschüler zählen (aus Referenzdaten)
 def is_meisterschueler(name):
@@ -976,7 +982,7 @@ if "selected_blatttyp" not in st.session_state:
 if "selected_werkstatt" not in st.session_state:
     st.session_state.selected_werkstatt = None
 
-SCORE_VIEWS = {"künstler", "werke", "liga1", "liga2", "liga3", "bluechip", "meisterschueler"}
+SCORE_VIEWS = {"künstler", "werke", "spitze", "liga1", "liga2", "liga3", "bluechip", "meisterschueler"}
 
 def set_view(v):
     st.session_state.view = v
@@ -1000,6 +1006,8 @@ if _show_nav:
     .st-key-btn_blatttyp button p,.st-key-btn_druckwerkstatt button p,.st-key-btn_extern button p,
     .st-key-btn_liga1 button p,.st-key-btn_liga2 button p,.st-key-btn_liga3 button p{
       font-size:0.8rem !important;color:#6B6255 !important;}
+    .st-key-btn_spitze button{background:#F3ECD9 !important;border:1px solid #D9C27A !important;}
+    .st-key-btn_spitze button p{color:#8A6D22 !important;}
     </style>""", unsafe_allow_html=True)
 
     # ── Ebene 1: Haupt-Ansichten ──
@@ -1010,6 +1018,11 @@ if _show_nav:
     with _rowA[1]:
         if st.button(f"**{len(collection)}**\n\nWERKE", use_container_width=True, key="btn_werke"):
             set_view("werke")
+
+    # ── Auslese: Spitze der Sammlung (Reputation ≥ Rang 17) ──
+    st.markdown('<div class="nav-group-label">Auslese</div>', unsafe_allow_html=True)
+    if st.button(f"**{stats['spitze']}**\n\nSPITZE", use_container_width=True, key="btn_spitze"):
+        set_view("spitze")
 
     # ── Liga (gebündelt) ──
     st.markdown('<div class="nav-group-label">Liga · nach Rang</div>', unsafe_allow_html=True)
@@ -1049,7 +1062,7 @@ if _show_nav:
 
     # ── Aktive Kachel hellgrün hervorheben ──
     _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
-                 "bluechip": "btn_bluechip", "meisterschueler": "btn_meister", "liga1": "btn_liga1",
+                 "spitze": "btn_spitze", "bluechip": "btn_bluechip", "meisterschueler": "btn_meister", "liga1": "btn_liga1",
                  "liga2": "btn_liga2", "liga3": "btn_liga3",
                  "blatttyp": "btn_blatttyp", "extern": "btn_extern",
                  "druckwerkstaetten": "btn_druckwerkstatt"}
@@ -1431,6 +1444,9 @@ elif view == "liga2":
 elif view == "liga3":
     view_filtered = [w for w in filtered if w["liga"] == "Liga 3"]
     view_label = "Liga 3"
+elif view == "spitze":
+    view_filtered = [w for w in filtered if w.get("isSpitze")]
+    view_label = "Spitze"
 elif view == "bluechip":
     view_filtered = [w for w in filtered if w["isBlueChip"]]
     view_label = "Blue Chip"
@@ -1770,7 +1786,7 @@ elif view == "blatttyp":
 else:
     # ── Künstler·innen-Galerie: Portrait-Tiles im Grid ──
     filter_hint = f" — {view_label}" if view_label else ""
-    _ranked = view in ("liga1", "liga2", "liga3", "bluechip", "meisterschueler")
+    _ranked = view in ("spitze", "liga1", "liga2", "liga3", "bluechip", "meisterschueler")
     _sort_hint = "nach Rang · Reputation ×2 · beste zuerst" if _ranked else "alphabetisch nach Nachname"
     st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(artist_groups)} Künstler·innen · {len(view_filtered)} Werke{filter_hint} — {_sort_hint}</div>', unsafe_allow_html=True)
 
@@ -1853,5 +1869,5 @@ else:
 
 # ─── Footer ───
 st.markdown("---")
-APP_BUILD = "2026-08-07a"
+APP_BUILD = "2026-08-07b"
 st.markdown(f'<div style="text-align: center; padding: 1rem 0 2rem; color: #B8964E; font-size: 0.75rem; letter-spacing: 0.08em; font-family: Cormorant Garamond, Georgia, serif;">Trüffelkunst · Sammlung Bodman<br><span style="font-size:0.62rem;color:#cfae7a;letter-spacing:0.04em;">Build {APP_BUILD}</span></div>', unsafe_allow_html=True)
