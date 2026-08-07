@@ -462,8 +462,8 @@ st.markdown("""
     .app-header {
         font-family: 'Cormorant Garamond', Georgia, serif;
         text-align: center;
-        background: linear-gradient(rgba(20,40,29,0.62), rgba(20,40,29,0.80)), url('https://www.griffelkunst.de/galleryimages/_galleryimages/E417-Tal-R.jpg');
-        background-size: cover; background-position: center; background-color: #1B3A2A;
+        background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.36)), url('https://www.griffelkunst.de/galleryimages/_galleryimages/E417-Tal-R.jpg');
+        background-size: 130%; background-position: center; background-color: #1B3A2A;
         margin: -2rem -1rem 2rem -1rem;
         padding: 3.4rem 1rem 1.8rem;
         border-radius: 0 0 2px 2px;
@@ -1881,5 +1881,5 @@ else:
 
 # ─── Footer ───
 st.markdown("---")
-APP_BUILD = "2026-08-07f"
+APP_BUILD = "2026-08-07h"
 st.markdown(f'<div style="text-align: center; padding: 1rem 0 2rem; color: #B8964E; font-size: 0.75rem; letter-spacing: 0.08em; font-family: Cormorant Garamond, Georgia, serif;">Trüffelkunst · Sammlung Bodman<br><span style="font-size:0.62rem;color:#cfae7a;letter-spacing:0.04em;">Build {APP_BUILD}</span></div>', unsafe_allow_html=True)
