@@ -1228,9 +1228,11 @@
       "source": "receipt",
       "isBlueChip": true,
       "image_url": "https://www.van-ham.com/fileadmin/kdb/TonyCragg/Serievon6Radierungen_03.jpg",
-      "image_urls": [],
+      "image_urls": [
+        "https://www.van-ham.com/fileadmin/kdb/TonyCragg/Serievon6Radierungen_03.jpg"
+      ],
       "image_unverified": true,
-      "image_note": "Serienabbildung 275 B1–B6 (Van Ham)"
+      "image_note": "Van Ham: Gesamtaufnahme aller 6 Blätter (B1–B6) — deine Blätter B3+B6 bitte prüfen/zuschneiden"
     },
     {
       "id": 65,
@@ -2831,8 +2833,12 @@
       "liga": "Liga 4",
       "source": "catalog",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://www.artax.de/pictures/user_images/full/500_Q690_St.jpg",
+      "image_urls": [
+        "https://www.artax.de/pictures/user_images/full/500_Q690_St.jpg"
+      ],
+      "image_unverified": true,
+      "image_note": "ARTAX: Blatt A3 „Wie steht's?“ — A2 noch offen"
     },
     {
       "id": 155,
@@ -3073,8 +3079,12 @@
       "liga": "Liga 2",
       "source": "catalog",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://www.artax.de/pictures/user_images/full/789_0245_Le.jpg",
+      "image_urls": [
+        "https://www.artax.de/pictures/user_images/full/789_0245_Le.jpg"
+      ],
+      "image_unverified": true,
+      "image_note": "ARTAX: Blatt B5 „Steinstufen“ — B2 noch offen"
     },
     {
       "id": 171,
