@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-08-07n"
+APP_BUILD = "2026-08-07p"
 
 # ─── Passwortschutz (nur in der Cloud aktiv) ───
 import os
@@ -1351,6 +1351,14 @@ def show_artist_detail(artist_name):
         parts.append(f'<div class="editions-info">Editionen: {info["editions"]}</div>')
     artist_works = [w for w in collection if w["artist"] == artist_name]
     parts.append(f'<div class="value-summary"><div class="value-item"><strong>{info["sheetCount"]}</strong> Blätter laut Referenz</div><div class="value-item"><strong>{len(artist_works)}</strong> Werke in Sammlung</div></div>')
+    if info.get("artist_bio"):
+        _who = "Zur Künstlerin" if info.get("gender") == "f" else "Zum Künstler"
+        parts.append(
+            '<details style="margin:0.5rem 0 0.2rem;">'
+            '<summary style="cursor:pointer;font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;color:#B8964E;outline:none;">' + _who + '</summary>'
+            '<div style="font-size:0.85rem;color:#5A5449;line-height:1.55;margin-top:6px;border-left:2px solid #B8964E;background:#F3EFE7;border-radius:0 4px 4px 0;padding:8px 11px;">'
+            + info["artist_bio"] + '</div></details>'
+        )
     potential = info.get("potential", "")
     if potential:
         accent_class = f"liga-accent-{liga_class}" if liga_class in ["1","2","3","4"] else ""
@@ -1400,7 +1408,16 @@ def show_artist_detail(artist_name):
         if w.get("image_unverified"):
             _meta_bits.append(f'<span style="color:#C4632B;font-weight:600;">&#9888; Sekundärmarkt{(" · " + w["image_note"]) if w.get("image_note") else ""} — bitte prüfen</span>')
         _meta_html = f'<div style="font-size:0.66rem;color:#8A8277;margin-top:3px;">{" &middot; ".join(_meta_bits)}</div>' if _meta_bits else ''
-        parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span>{_meta_html}</div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span><div style="font-size:0.6rem;color:#B98;">Druckwert {_dw}/5 · Blatt {_bval}/20</div></div></div></div>')
+        _werkidee_html = ""
+        if w.get("werkidee"):
+            _wi = w["werkidee"]
+            _werkidee_html = (
+                '<details style="margin-top:6px;">'
+                '<summary style="cursor:pointer;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:#B8964E;outline:none;">Zur Edition</summary>'
+                '<div style="font-size:0.8rem;color:#5A5449;line-height:1.5;font-style:italic;margin-top:5px;border-left:2px solid #B8964E;background:#F3EFE7;border-radius:0 4px 4px 0;padding:6px 10px;">'
+                + _wi + '</div></details>'
+            )
+        parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span>{_meta_html}{_werkidee_html}</div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span><div style="font-size:0.6rem;color:#B98;">Druckwert {_dw}/5 · Blatt {_bval}/20</div></div></div></div>')
     parts.append('</div>')
     html = "\n".join(parts)
     st.markdown(html, unsafe_allow_html=True)

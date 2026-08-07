@@ -1008,7 +1008,9 @@
       ],
       "blattgroesse": "54,5 x 76,0 cm",
       "drucker": "Hostrup-Pedersen & Johansen, Kopenhagen",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Zwei bauchige Figuren, in denen man überdimensionale Trinkgefäße erkennen kann, gerahmt von geometrischen Farbflächen — Tal Rs Spiel zwischen Figuration, Abstraktion und Anleihen bei der Volkskunst.",
+      "werkidee_quelle": "griffelkunst.de/tal-r"
     },
     {
       "id": 53,
@@ -1406,7 +1408,9 @@
       ],
       "blattgroesse": "13,6 × 9,4 cm",
       "drucker": "Kira Enss, Butzlab, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Sechs S/W-Handabzüge des studierten Biologen Lempert, die zum eigenen Sortieren und Sehen einladen; ein gemeinsamer „Schwung“ — vom Stiel bis zur Tropfenform (Blatt B3 „Tropfen“) — verbindet die Motive und lenkt den Blick aufs Übersehene.",
+      "werkidee_quelle": "griffelkunst.de/lempert"
     },
     {
       "id": 74,
@@ -1517,7 +1521,9 @@
       ],
       "blattgroesse": "21,0 × 14,8 × 0,6 cm",
       "drucker": "Beisner Druck, Buchholz",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "Ceal Floyer ahmt das schwarze Griffelkunst-Mitgliedermagazin nach; die Banderole weist es als „First Edition“ aus — zugleich ihre erste Griffelkunst-Edition. Das Abnehmen der Banderole ist bewusst der erste Akt der Kunsterfahrung.",
+      "werkidee_quelle": "griffelkunst.de/ceal-floyer"
     },
     {
       "id": 80,
@@ -4968,7 +4974,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/E417-Tal-R.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Tal-R.jpg",
-      "birth": 1967
+      "birth": 1967,
+      "artist_bio": "Dänisch-israelischer Maler (*1967, Tel Aviv), Kopenhagen; Professor in Düsseldorf. Arbeitet zwischen Figuration und Abstraktion und schöpft aus Volkskunst, Erinnerung und Alltag."
     },
     "Philip Grözinger": {
       "tier": 3,
@@ -5028,7 +5035,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/399B3.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Lempert.jpg",
-      "birth": 1958
+      "birth": 1958,
+      "artist_bio": "Fotograf und studierter Biologe (*1958), Hamburg. In poetischen Schwarz-Weiß-Serien verbindet er naturwissenschaftliches Beobachten mit dem Blick für das Übersehene."
     },
     "Tilo Baumgärtel": {
       "tier": 3,
@@ -6646,7 +6654,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E627.jpg",
       "portrait_url": "https://static-assets.artlogic.net/w_1600,h_1600,c_limit,f_auto,fl_lossy,q_auto:best/ws-estherschipper2/usr/images/artists/artist_image/items/02/023c431cf7684f0f9e5382c61672c8fb/cf_portrait-hugo-glendinning.jpg",
-      "birth": 1968
+      "birth": 1968,
+      "artist_bio": "Britische Konzeptkünstlerin (*1968, Karachi), lebt in Berlin. Mit minimalen Mitteln und Alltagsgegenständen befragt sie Wahrnehmung, Sprache und Erwartung; vertreten u. a. von Esther Schipper."
     },
     "Hanne Darboven": {
       "tier": 1,
