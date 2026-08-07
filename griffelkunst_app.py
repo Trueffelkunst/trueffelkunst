@@ -327,7 +327,7 @@ if _app_pw:
         </style>
         <div style="display:flex;align-items:center;justify-content:center;min-height:48vh;">
         <div style="text-align:center;max-width:360px;">
-        <div style="font-family:Cormorant Garamond,Georgia,serif;font-size:2.7rem;color:#F2ECDD;letter-spacing:0.02em;text-shadow:0 2px 10px rgba(0,0,0,0.55);">Trüffelkunst</div>
+        <div style="font-family:Cormorant Garamond,Georgia,serif;font-size:clamp(1.8rem,9vw,2.7rem);white-space:nowrap;color:#F2ECDD;letter-spacing:0.02em;text-shadow:0 2px 10px rgba(0,0,0,0.55);">Trüffelkunst</div>
         <div style="font-family:Georgia,serif;font-size:0.8rem;letter-spacing:0.22em;color:#DCC78F;margin-top:1.0rem;margin-bottom:1.4rem;text-shadow:0 1px 5px rgba(0,0,0,0.55);">SAMMLUNG BODMAN</div>
         </div></div>
         """, unsafe_allow_html=True)
@@ -463,13 +463,13 @@ st.markdown("""
         font-family: 'Cormorant Garamond', Georgia, serif;
         text-align: center;
         background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.36)), url('https://www.griffelkunst.de/galleryimages/_galleryimages/E417-Tal-R.jpg');
-        background-size: 130%; background-position: center; background-color: #1B3A2A;
+        background-size: 130%; background-position: center 28%; background-color: #1B3A2A;
         margin: -2rem -1rem 2rem -1rem;
         padding: 3.4rem 1rem 1.8rem;
         border-radius: 0 0 2px 2px;
     }
     .app-header h1 {
-        font-size: 2.7rem; font-weight: 400; letter-spacing: 0.12em;
+        font-size: clamp(1.55rem, 8vw, 2.7rem); font-weight: 400; letter-spacing: 0.1em; white-space: nowrap;
         color: #F8F6F3; margin-bottom: 0.3rem; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0,0,0,0.45);
     }
     .app-header .subtitle {
@@ -1025,41 +1025,44 @@ if _show_nav:
     if st.button(f"**{stats['spitze']}**\n\nSPITZE", use_container_width=True, key="btn_spitze"):
         set_view("spitze")
 
-    # ── Liga (gebündelt) ──
-    st.markdown('<div class="nav-group-label">Liga · nach Rang</div>', unsafe_allow_html=True)
-    _rowL = st.columns(3)
-    with _rowL[0]:
-        if st.button(f"**{stats['liga1']}**\n\nLIGA 1", use_container_width=True, key="btn_liga1"):
-            set_view("liga1")
-    with _rowL[1]:
-        if st.button(f"**{stats['liga2']}**\n\nLIGA 2", use_container_width=True, key="btn_liga2"):
-            set_view("liga2")
-    with _rowL[2]:
-        if st.button(f"**{stats['liga3']}**\n\nLIGA 3", use_container_width=True, key="btn_liga3"):
-            set_view("liga3")
+    # ── Weitere Sichten & Filter (zugeklappt; öffnet sich bei aktiver Auswahl) ──
+    _more_open = st.session_state.view not in ("künstler", "werke", "spitze")
+    with st.expander("Weitere Sichten & Filter", expanded=_more_open):
+        # Liga (gebündelt)
+        st.markdown('<div class="nav-group-label">Liga · nach Rang</div>', unsafe_allow_html=True)
+        _rowL = st.columns(3)
+        with _rowL[0]:
+            if st.button(f"**{stats['liga1']}**\n\nLIGA 1", use_container_width=True, key="btn_liga1"):
+                set_view("liga1")
+        with _rowL[1]:
+            if st.button(f"**{stats['liga2']}**\n\nLIGA 2", use_container_width=True, key="btn_liga2"):
+                set_view("liga2")
+        with _rowL[2]:
+            if st.button(f"**{stats['liga3']}**\n\nLIGA 3", use_container_width=True, key="btn_liga3"):
+                set_view("liga3")
 
-    # ── Ebene 2: Sichten & Filter ──
-    st.markdown('<div class="nav-group-label">Sichten &amp; Filter</div>', unsafe_allow_html=True)
-    _rowB = st.columns(3)
-    with _rowB[0]:
-        if st.button(f"**{technique_count}**\n\nTECHNIK", use_container_width=True, key="btn_techniken"):
-            set_view("techniken")
-    with _rowB[1]:
-        if st.button(f"**{blue_chip_count}**\n\nBLUE CHIP", use_container_width=True, key="btn_bluechip"):
-            set_view("bluechip")
-    with _rowB[2]:
-        if st.button(f"**{meisterschueler_count}**\n\nMEISTER\u00adSCHÜLER", use_container_width=True, key="btn_meister"):
-            set_view("meisterschueler")
-    _rowC = st.columns(3)
-    with _rowC[0]:
-        if st.button(f"**{len(set(blatt_typ(w['edition'], w['work']) for w in collection))}**\n\nBLATT-TYP", use_container_width=True, key="btn_blatttyp"):
-            set_view("blatttyp")
-    with _rowC[1]:
-        if st.button(f"**{druckwerkstatt_count}**\n\nDRUCK\u00adWERKSTÄTTEN", use_container_width=True, key="btn_druckwerkstatt"):
-            set_view("druckwerkstaetten")
-    with _rowC[2]:
-        if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
-            set_view("extern")
+        # Sichten & Filter
+        st.markdown('<div class="nav-group-label">Sichten &amp; Filter</div>', unsafe_allow_html=True)
+        _rowB = st.columns(3)
+        with _rowB[0]:
+            if st.button(f"**{technique_count}**\n\nTECHNIK", use_container_width=True, key="btn_techniken"):
+                set_view("techniken")
+        with _rowB[1]:
+            if st.button(f"**{blue_chip_count}**\n\nBLUE CHIP", use_container_width=True, key="btn_bluechip"):
+                set_view("bluechip")
+        with _rowB[2]:
+            if st.button(f"**{meisterschueler_count}**\n\nMEISTER\u00adSCHÜLER", use_container_width=True, key="btn_meister"):
+                set_view("meisterschueler")
+        _rowC = st.columns(3)
+        with _rowC[0]:
+            if st.button(f"**{len(set(blatt_typ(w['edition'], w['work']) for w in collection))}**\n\nBLATT-TYP", use_container_width=True, key="btn_blatttyp"):
+                set_view("blatttyp")
+        with _rowC[1]:
+            if st.button(f"**{druckwerkstatt_count}**\n\nDRUCK\u00adWERKSTÄTTEN", use_container_width=True, key="btn_druckwerkstatt"):
+                set_view("druckwerkstaetten")
+        with _rowC[2]:
+            if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
+                set_view("extern")
 
     # ── Aktive Kachel hellgrün hervorheben ──
     _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
@@ -1881,5 +1884,5 @@ else:
 
 # ─── Footer ───
 st.markdown("---")
-APP_BUILD = "2026-08-07h"
+APP_BUILD = "2026-08-07k"
 st.markdown(f'<div style="text-align: center; padding: 1rem 0 2rem; color: #B8964E; font-size: 0.75rem; letter-spacing: 0.08em; font-family: Cormorant Garamond, Georgia, serif;">Trüffelkunst · Sammlung Bodman<br><span style="font-size:0.62rem;color:#cfae7a;letter-spacing:0.04em;">Build {APP_BUILD}</span></div>', unsafe_allow_html=True)
