@@ -325,10 +325,10 @@ if _app_pw:
         }
         [data-testid="stHeader"] { background: transparent; }
         </style>
-        <div style="display:flex;align-items:center;justify-content:center;min-height:56vh;">
+        <div style="display:flex;align-items:center;justify-content:center;min-height:48vh;">
         <div style="text-align:center;max-width:360px;">
         <div style="font-family:Cormorant Garamond,Georgia,serif;font-size:2.7rem;color:#F2ECDD;letter-spacing:0.02em;text-shadow:0 2px 10px rgba(0,0,0,0.55);">Trüffelkunst</div>
-        <div style="font-family:Georgia,serif;font-size:0.8rem;letter-spacing:0.22em;color:#DCC78F;margin-top:0.25rem;margin-bottom:1.4rem;text-shadow:0 1px 5px rgba(0,0,0,0.55);">SAMMLUNG BODMAN</div>
+        <div style="font-family:Georgia,serif;font-size:0.8rem;letter-spacing:0.22em;color:#DCC78F;margin-top:1.0rem;margin-bottom:1.4rem;text-shadow:0 1px 5px rgba(0,0,0,0.55);">SAMMLUNG BODMAN</div>
         </div></div>
         """, unsafe_allow_html=True)
         _col1, _col2, _col3 = st.columns([1, 2, 1])
@@ -462,17 +462,18 @@ st.markdown("""
     .app-header {
         font-family: 'Cormorant Garamond', Georgia, serif;
         text-align: center;
-        background: #1B3A2A;
+        background: linear-gradient(rgba(20,40,29,0.62), rgba(20,40,29,0.80)), url('https://www.griffelkunst.de/galleryimages/_galleryimages/E417-Tal-R.jpg');
+        background-size: cover; background-position: center; background-color: #1B3A2A;
         margin: -2rem -1rem 2rem -1rem;
-        padding: 2.5rem 1rem 1.5rem;
+        padding: 3.4rem 1rem 1.8rem;
         border-radius: 0 0 2px 2px;
     }
     .app-header h1 {
-        font-size: 2.4rem; font-weight: 400; letter-spacing: 0.12em;
-        color: #F8F6F3; margin-bottom: 0.3rem; text-transform: uppercase;
+        font-size: 2.7rem; font-weight: 400; letter-spacing: 0.12em;
+        color: #F8F6F3; margin-bottom: 0.3rem; text-transform: uppercase; text-shadow: 0 2px 10px rgba(0,0,0,0.45);
     }
     .app-header .subtitle {
-        font-size: 0.95rem; color: #B8964E; letter-spacing: 0.05em; font-style: italic;
+        font-size: 1.1rem; color: #E8CE92; letter-spacing: 0.05em; font-style: italic; text-shadow: 0 1px 6px rgba(0,0,0,0.5);
     }
     .stats-bar {
         display: flex; justify-content: center; gap: 0;
@@ -1128,13 +1129,24 @@ if _show_nav:
               try{docs.push(window.parent.document);}catch(e){}
               try{if(window.top && window.top!==window.parent){docs.push(window.top.document);}}catch(e){}
               for(var i=0;i<docs.length;i++){
-                var el=docs[i].querySelector('.gk-content-top');
-                if(el){ el.scrollIntoView({block:'start'}); return true; }
+                var d=docs[i];
+                var el=d.querySelector('.gk-content-top');
+                if(el){
+                  var w=d.defaultView||window;
+                  var y=el.getBoundingClientRect().top + (w.pageYOffset||d.documentElement.scrollTop||0) - 6;
+                  try{ w.scrollTo(0, y); }catch(e){}
+                  try{ d.documentElement.scrollTop=y; }catch(e){}
+                  try{ if(d.body) d.body.scrollTop=y; }catch(e){}
+                  var sels=['section.main','[data-testid="stAppViewContainer"]','[data-testid="stMainBlockContainer"]','.main','.block-container'];
+                  for(var s=0;s<sels.length;s++){ var c=d.querySelector(sels[s]); if(c){ try{ c.scrollTop = (el.getBoundingClientRect().top - c.getBoundingClientRect().top) + c.scrollTop - 6; }catch(e){} } }
+                  try{ el.scrollIntoView({block:'start'}); }catch(e){}
+                  return true;
+                }
               }
             }catch(e){}
             return false;
           }
-          var n=0; var t=setInterval(function(){ if(++n>6){ clearInterval(t); } else { go(); } }, 90);
+          go(); [50,150,300,500,800,1200,1800].forEach(function(ms){ setTimeout(go, ms); });
         })();
         </script>
         """, height=0)
@@ -1869,5 +1881,5 @@ else:
 
 # ─── Footer ───
 st.markdown("---")
-APP_BUILD = "2026-08-07b"
+APP_BUILD = "2026-08-07f"
 st.markdown(f'<div style="text-align: center; padding: 1rem 0 2rem; color: #B8964E; font-size: 0.75rem; letter-spacing: 0.08em; font-family: Cormorant Garamond, Georgia, serif;">Trüffelkunst · Sammlung Bodman<br><span style="font-size:0.62rem;color:#cfae7a;letter-spacing:0.04em;">Build {APP_BUILD}</span></div>', unsafe_allow_html=True)
