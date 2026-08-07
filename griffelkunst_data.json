@@ -17,7 +17,8 @@
       ],
       "blattgroesse": "42,0 x 30,0 cm",
       "drucker": "Stephan Rosentreter, Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt »Clapper« aus der C-Reihe der 354. Wahl, Lithographie von Zinkplatten; die Serie »Auf der Suche nach dem komischen Moment« speist sich aus Musik und humorvollen Stilzitaten der Moderne."
     },
     {
       "id": 2,
@@ -52,7 +53,8 @@
       ],
       "blattgroesse": "33,5 x 18,0 x 8,0 cm",
       "drucker": "Atelier für Kunstformung Ulrich Wolff, Karlsruhe",
-      "technik": "Multiple"
+      "technik": "Multiple",
+      "werkidee": "Skulptur eines jungen Mannes im Antimon-Hartbleiguss (2005); durch veränderte Proportionen und die unbemalte Metalloberfläche gewinnt die etwa 30 cm hohe Figur eine gewisse Monumentalität."
     },
     {
       "id": 4,
@@ -74,7 +76,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C5_Cyrill_Lachauer.jpg"
       ],
       "technik": "Heliogravüre",
-      "technik_quelle": "griffelkunst.de Lachauer 361 Heliogravueren"
+      "technik_quelle": "griffelkunst.de Lachauer 361 Heliogravueren",
+      "werkidee": "Die C-Reihe besteht aus farbigen Heliogravüren, mit denen Lachauer eine topographische Erfassung Deutschlands von Nord nach Süd vornimmt (C1–C5: Nauendorf-Sachsenbande, Wilseder Berg, Brocken, Fichtelberg, Großer Arber). An jedem Ort zündete er Rauchpatronen und fotografierte den Rauch, der den scheinbar wissenschaftlichen Akt der Vermessung markiert und zugleich verbirgt."
     },
     {
       "id": 5,
@@ -116,7 +119,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/366_B6_Ulla_von_Brandenburg.jpg"
       ],
       "technik": "Holzdruck",
-      "technik_quelle": "griffelkunst.de v. Brandenburg 366 Holzdruck"
+      "technik_quelle": "griffelkunst.de v. Brandenburg 366 Holzdruck",
+      "werkidee": "Die B-Reihe (366. Wahl, 2017) »Karneval I–VII«: Holzdrucke mit scherenschnittartigen Figuren nach karnevalistischen Motiven osteuropäischer Volkskultur; jedes Blatt monochrom in einer anderen Farbe, sodass die bizarren Wesen eine bunte Prozession bilden."
     },
     {
       "id": 7,
@@ -135,7 +139,8 @@
       ],
       "blattgroesse": "42,0 × 29,7 cm",
       "drucker": "Martin Samuel, Berlin",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "Aus der Serie »Drawings in circles and out of them«: »Circle 5 – The Cape Town Cyclist«, ein Fahrradfahrer, der sich aus ornamentalen Liniengeflechten erhebt; die Blätter entstehen durch spontanes Zeichnen aus einer geschlossenen Kreisform."
     },
     {
       "id": 8,
@@ -156,7 +161,8 @@
       ],
       "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
       "drucker": "Larry Lazarus, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Teil der Serie »Das Watt – Chaos und Struktur« (1933–36): Ehrhardt fotografierte abstrakte Sandformen im Wattenmeer und macht die immanente Schönheit und Ordnung des Naturgeschehens sichtbar. Die Blätter B3, B4 und B6 zeigen aderähnliche Riffelungen, schwere Brandungswellungen und den Wechsel von Längswellungen und Kräuselformen."
     },
     {
       "id": 9,
@@ -176,7 +182,8 @@
       ],
       "blattgroesse": "38,2 × 30,0 cm / 35,9 × 27,0 cm",
       "drucker": "Foto Company Altona",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Aus der Serie »Aufis« (371. Wahl): Assemblagen, in denen Brinkmann historische Griffelkunst-Photoklassiker respektlos und humorvoll mit Trödelfundstücken überarbeitet – A2 »Bloonis« und A4 »Granadissipo« (Granatapfel als Vanitas-Symbol)."
     },
     {
       "id": 10,
@@ -195,7 +202,8 @@
       ],
       "blattgroesse": "40,0 × 55,0 cm / 36,0 × 52,0 cm",
       "drucker": "Ellen Sturm-Loeding, Carlos Leon, Hamburg (372); Handdruck Loeding & Sturm (E620)",
-      "technik": "Holzdruck/Lithographie"
+      "technik": "Holzdruck/Lithographie",
+      "werkidee": "In der B-Reihe der 372. Wahl entstanden während Talbots Griffelkunst-Stipendium Holzdrucke und Lithographien. Blatt B6 »Dream« ist ein Holzdruck aus der Werkgruppe, in der die Künstlerin Träume und innere Welten erkundet und die analoge der digitalen Welt gegenüberstellt."
     },
     {
       "id": 11,
@@ -218,7 +226,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/373_A6_Friedrich_Seidenstu%CC%88cker.jpg"
       ],
       "drucker": "Fotocompany Altona",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Die A-Reihe der 373. Wahl versammelt sechs Schwarzweiß-Zoo-Photographien aus dem Nachlass (1927–1955) unter dem Titel »Achtung böse!«. Mit Humor und Menschlichkeit zeigt Seidenstücker Tiere des Berliner Zoos – etwa den See-Elefanten »Roland« – als Partner und Freunde des Menschen."
     },
     {
       "id": 12,
@@ -239,7 +248,8 @@
       ],
       "blattgroesse": "35,0 × 28,0 cm / ca. 27,0 × 20,0 cm",
       "drucker": "BUCCA Foto Grafik Fine Art Print, Baden, Schweiz (373)",
-      "technik": "Inkjet-Print"
+      "technik": "Inkjet-Print",
+      "werkidee": "Die Serie »Polygone« (Polygon III–V) zeigt vielschichtig überlagerte geometrische Formen mit bis zu 24 Farben, die zu funkeln scheinen und einen räumlichen Eindruck erzeugen. Zoderer macht so das Poetische im scheinbar Banalen der Geometrie erfahrbar."
     },
     {
       "id": 13,
@@ -259,7 +269,8 @@
       ],
       "blattgroesse": "38,8 × 58,8 cm",
       "drucker": "PIGLAB, Hamburg",
-      "technik": "Inkjet-Print"
+      "technik": "Inkjet-Print",
+      "werkidee": "Die als Diptychon angeordnete »Exposure« zeigt eine New Yorker Straßenkreuzung gleichzeitig aus der Vogelperspektive und aus Sicht eines Passanten. Probst zelebriert Gleichzeitigkeit und Multiperspektivität; die Aufnahmen entstammen einer Modestrecke für »Wallpaper«."
     },
     {
       "id": 14,
@@ -279,7 +290,8 @@
       ],
       "blattgroesse": "70,0 × 50,0 cm / 58,0 x 44,2 cm",
       "drucker": "1×2 Siebdruck, Martin Samuel, Berlin",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "Die Siebdrucke E 554/E 555 geben Einblick in Richters »Bildervorrat«: E 555 zeigt eine ausgerissene Modeseite über geschichteten Porträtumrissen, E 554 entwickelt sich aus einer Modephotographie, ergänzt um Figuren wie aus einem mittelalterlichen Holzschnitt. Beide verweben historisches und aktuelles Bildmaterial."
     },
     {
       "id": 15,
@@ -299,7 +311,8 @@
       ],
       "blattgroesse": "54,0 × 38,0 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Für die Lithographie-Serie (376. Wahl) übersetzte Ogasawara ihre reduzierte Malerei in den Steindruck; die Blätter »Zu Dritt« (C4) und »Fliegen« (C6) verhandeln Licht und Schatten, Innen und Außen sowie die Grenzen menschlicher Wahrnehmung."
     },
     {
       "id": 16,
@@ -335,7 +348,8 @@
       "image_urls": [],
       "blattgroesse": "65,0 × 50,0 cm / 55,0 × 40,0 cm",
       "drucker": "Tabor Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Zwei Lithographien (2019) nach Gemälden seiner Lackserie: E 557 zeigt in Kupferton ein Bergmassiv, E 556 in Silber eine bewegte Wasseroberfläche. Die gegensätzlichen, zwischen Meer und Gebirge oszillierenden Motive lassen sich als Diptychon hängen."
     },
     {
       "id": 18,
@@ -354,7 +368,8 @@
       ],
       "blattgroesse": "92,0 × 70,0 cm / 69,0 × 49,0 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Hochdruck"
+      "technik": "Hochdruck",
+      "werkidee": "»wat mutt dat mutt« (2019), ein Hochdruck, dessen Farbklang aus langjährigen Beobachtungen von Farben im urbanen Raum Hamburgs entstand; schon die plattdeutschen Titel beziehen sich auf die Stadt. De Britos Arbeiten sind ein Spiel aus Farbe, Fläche und Form."
     },
     {
       "id": 19,
@@ -372,7 +387,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/E_560_Stefan_Marx_III.jpg"
       ],
       "blattgroesse": "Höhe 20 cm",
-      "technik": "Multiple"
+      "technik": "Multiple",
+      "werkidee": "»Forever Yours«: von Hand bemalte KPM-Porzellanvase auf Basis der Form »Halle« von Marguerite Friedlaender (1931). In Kobaltblau tanzt der Schriftzug »Forever Yours« über das weiße Porzellan – eine Hommage an die Zeitlosigkeit des Bauhaus-Designs."
     },
     {
       "id": 20,
@@ -404,7 +420,8 @@
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_C2_Karo_Akpokiere.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/368_C2_Karo_Akpokiere.jpg"
-      ]
+      ],
+      "werkidee": "Aus derselben Siebdruck-Serie: »Circle 2 – Distinct spots on an unravelling heart«, ein aus der Kreisform spontan entwickeltes Motiv zwischen Abstraktion und Gegenständlichkeit."
     },
     {
       "id": 22,
@@ -423,7 +440,8 @@
       ],
       "blattgroesse": "42,0 x 30,0 cm",
       "drucker": "Stephan Rosentreter, Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt »Elbower« aus derselben C-Reihe der 354. Wahl; Teil der Serie »Auf der Suche nach dem komischen Moment«, deren Bildideen oft aus Musik und Formzitaten der Moderne entstehen."
     },
     {
       "id": 23,
@@ -444,7 +462,8 @@
       ],
       "blattgroesse": "50 x 60 cm / 35 x 46 cm",
       "drucker": "Thomas Franke, stein_werk, Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blätter aus der Farblithographie-Serie »rivière« (2013): en plein air – teils vom Boot aus – auf den Lithostein getuschte Fluss- und Uferlandschaften, die das Changieren zwischen flüssig und fest festhalten."
     },
     {
       "id": 24,
@@ -464,7 +483,8 @@
       ],
       "blattgroesse": "50,0 x 70,0 cm",
       "drucker": "Thomas Siemon, Leipzig",
-      "technik": "Linolschnitt"
+      "technik": "Linolschnitt",
+      "werkidee": "Die sechsteilige Serie mehrfarbiger Linoldrucke zeigt je eine einzelne Figur, die – tanzend, ruhend oder clownesk posierend – vor farbig rhythmisiertem Hintergrund wie auf einer Bühne agiert. Ruckhäberle verbindet Klassische Moderne, Scherenschnitt und Pop Art und macht den Druckprozess sichtbar."
     },
     {
       "id": 25,
@@ -483,7 +503,8 @@
       ],
       "blattgroesse": "60,0 x 62,5 cm / 55,5 x 58,5 cm",
       "drucker": "Stefan Rosentreter, Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Die quadratische Farblithographie zeigt eine üppige Dschungel-Landschaft in Blau-, Grün- und Violett-Tönen; in der weißen Bildmitte deutet sich ein von einer Pflanze überlagerter Rückenakt an, rechts das Hinterteil eines Löwen. Das Motiv geht auf ein Gemälde von 2015/16 zurück."
     },
     {
       "id": 26,
@@ -504,7 +525,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/363-C4-Franziska-Holstein.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/363-C5-Franziska-Holstein.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/363-C6-Franziska-Holstein.jpg"
-      ]
+      ],
+      "werkidee": "Sechs titellose Handoffsetdrucke »o.T. (6 von 52, RGB)«. Holstein wählte sechs Motive aus einer 52-teiligen Serie abstrakter, im »Abklatsch«-Verfahren entstandener Acrylarbeiten, rasterte sie ins Drei-Farb-System und trieb so »die Abstraktion des Abstrakten« weiter; die dick stehende Farbe wirkt fast dreidimensional."
     },
     {
       "id": 27,
@@ -523,7 +545,8 @@
       ],
       "blattgroesse": "80 x 60 cm",
       "drucker": "Saal-Presse, Bergsdorf",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "»snapshot #5« aus der Serie »snapshots«: großformatiger, monochromer Holzdruck nach einer eigenen Photographie, der aus der Ferne wie eine Schwarzweiß-Photographie wirkt und das Bild durch Auslassung auf das Wesentliche reduziert."
     },
     {
       "id": 28,
@@ -544,7 +567,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/371_C4_Kay_Rosen.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/371_C5_Kay_Rosen.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/371_C6_Kay_Rosen.jpg"
-      ]
+      ],
+      "werkidee": "Serie »Leaning Strongly L«: sechs Siebdrucke, die alle um den Buchstaben L kreisen und zeigen, wie entscheidend ein einzelner Buchstabe für die Bedeutung eines Wortes oder Satzes ist."
     },
     {
       "id": 29,
@@ -563,7 +587,8 @@
       ],
       "blattgroesse": "42,0 x 30,0 cm",
       "drucker": "Stephan Rosentreter, Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt »The No Face« aus derselben humorvoll angelegten Serie »Auf der Suche nach dem komischen Moment« (354. Wahl)."
     },
     {
       "id": 30,
@@ -582,7 +607,8 @@
       ],
       "blattgroesse": "39,0 x 49,0 cm / 23,5 x 31,5 cm",
       "drucker": "Kunst- und Radierwerkstatt Willi Jesse, Berlin",
-      "technik": "Radierung"
+      "technik": "Radierung",
+      "werkidee": "Blatt 5 der 322er B-Reihe: Radierung »ohne Titel«, einfarbig mit chine collée; Teil von Knaps bewusst einfacher, religiös-harmonischer Bildwelt (»Malerei ist ein Gebet«)."
     },
     {
       "id": 31,
@@ -599,7 +625,8 @@
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/E_513_Christopher_Wool.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/E_514_Christopher_Wool.jpg"
-      ]
+      ],
+      "werkidee": "Für seine Griffelkunst-Edition schichtete Wool am Computer Typografisches und Zeichenhaftes zu hermetischen, rätselhaften und (ausnahmsweise) zweifarbigen Kompositionen übereinander, die mit höchster Präzision als Siebdrucke von Lorenz Boegli umgesetzt wurden."
     },
     {
       "id": 32,
@@ -618,7 +645,8 @@
       ],
       "blattgroesse": "55,2 x 94,5 cm / 45,8 x 86,5 cm",
       "drucker": "Stefan Rosentreter, Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Das großformatige, panoramaartige Blatt zeigt in fünf Farben Weischers Atelier in blau-grauem Morgenlicht, dessen feinnuancierte Farbverläufe eine eigene Licht- und Raumwirkung schaffen."
     },
     {
       "id": 33,
@@ -635,7 +663,8 @@
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Moritz_Schleime_E_480.JPG",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Moritz_Schleime_E_481.JPG"
-      ]
+      ],
+      "werkidee": "Zwei großformatige Radierungen wie »Wimmelbücher für Erwachsene«: »Absinth Eden« zählt zu Schleimes Wald- und Baumbildern, die die Natur als Ausweg zeigen, während »it don't take much to have a good time…« als Selbstporträt am Schreibtisch ein Loblied auf die Phantasie ist."
     },
     {
       "id": 34,
@@ -655,7 +684,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/379_A3_Marten_Lange.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/379_A4_Marten_Lange.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/379_A5_Marten_Lange.jpg"
-      ]
+      ],
+      "werkidee": "Die A-Reihe »Yoyogi Crows« zeigt die Dickschnabelkrähen des Tokioter Yoyogi-Parks, die Lange über Jahre mit Teleobjektiv und Blitz photographierte. Inspiriert von japanischer Tuschemalerei heben sich die glänzend schwarzen Vögel vor lichtem Grau ab – in Japan wie in der nordischen Mythologie Götterbotin und Symbol der Weisheit."
     },
     {
       "id": 35,
@@ -674,7 +704,8 @@
       ],
       "blattgroesse": "40,0 × 40,0 cm",
       "drucker": "stein_werk, Thomas Franke, Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt »Fusiform #2« (379 C2) aus der Serie »Untitled (Fusiforms)« (2020): aus einer mathematischen Zufallsfunktion erzeugte geschlossene Linien, die Schubert mit Nadeln auf den Lithostein übertrug – gespenstische, an Zellformationen erinnernde Bilder zwischen Kontrolle und Zufall."
     },
     {
       "id": 36,
@@ -697,7 +728,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/380_B6_Katharina_Sieverding.jpg"
       ],
       "drucker": "Michael Pfisterer, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Serie »Die Sonne um Mitternacht schauen« (2019): sechs Inkjet-Prints auf Basis von Sonnenaufnahmen der NASA/SDO, die kosmische Phänomene mit Sieverdings Auseinandersetzung um Sichtbarkeit, Wahrnehmung und Widerstand verbinden."
     },
     {
       "id": 37,
@@ -716,7 +748,8 @@
       ],
       "blattgroesse": "58,0 × 40,0 cm / 54,0 × 36,0 cm",
       "drucker": "Humme, Leipzig",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Einzelblatt »Homi-1« (E 565): eine bei Nacht in Japan entstandene Aufnahme eines jungen Liebespaares über den Lichtern der Stadt, die Zielonys Interesse an universellen Codes von Jugendkulturen und an ausschließlich natürlichem Licht zeigt."
     },
     {
       "id": 38,
@@ -735,7 +768,8 @@
       ],
       "blattgroesse": "86,0 × 66,0 cm / 64,0 × 52,0 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "Großformatiger Holzdruck und Auftakt der sechsteiligen Serie: einer der beiden frontal gegenüberstehenden, flächig gedruckten stilisierten Köpfe – ein gelbes Gesicht mit angedeuteten Augen, das für Gedanken und die enge Verbindung von Mensch, Kopf und Pflanzenwelt steht."
     },
     {
       "id": 39,
@@ -758,7 +792,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/381_B6_Peter_Puklus.jpg"
       ],
       "drucker": "PigLab, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "»The Hero Mother – How to build a house« – sechs Inkjet-Photographien (2016–2020), die humorvoll Rollenklischees von Eltern- und Mutterschaft verhandeln: Puklus inszeniert sich als Haus bauender Architekt, seine Frau als »Helden-Mutter«, wobei männliche und weibliche Idealbilder ins Trudeln geraten."
     },
     {
       "id": 40,
@@ -779,7 +814,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/382_A4_Gerwald_Rockenschaub.jpg"
       ],
       "drucker": "Graphicline, Berlin",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "Vierteilige Inkjet-Serie »(re)flowered 1–4« mit stark abstrahierten Blumen. Über die vier Blätter kommt der Rhythmus zum Tragen: ein roter Punkt wandert, wird addiert oder subtrahiert, wird zum Zentrum oder zum Störfaktor."
     },
     {
       "id": 41,
@@ -798,7 +834,8 @@
       ],
       "blattgroesse": "81,0 × 61,0 cm / 54,0 × 49,0 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»Light« (2020) – Lithographie. Aus zufällig gesägten Polyurethan-Schnittprofilen entstandene Schablonen begrenzen die Linien; der Punkt, an dem sie zusammenlaufen, wird von der Zeichnung verdeckt und durch eine metallische Überlagerung »beleuchtet«."
     },
     {
       "id": 42,
@@ -817,7 +854,8 @@
       ],
       "blattgroesse": "66,0 × 50,0 cm / 59,5 × 43,0 cm",
       "drucker": "Tabor-Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»Liebesbotschaft«: textbasierte Lithographie nach einer großformatigen Lackmalerei. Die orangefarbenen Lettern »Lonely 4 U Only« leuchten wie eine Leuchtschrift aus dunkler Bildtiefe und changieren zwischen poetischer Verheißung und der Tragik des Scheiterns."
     },
     {
       "id": 43,
@@ -836,7 +874,8 @@
       ],
       "blattgroesse": "66,0 × 53,0 cm / 40,0 × 27,0 cm",
       "drucker": "Gundolf Roy, Zülpich (P82-P84)",
-      "technik": "Siebdruck mit Kupferpigmenten"
+      "technik": "Siebdruck mit Kupferpigmenten",
+      "werkidee": "Siebdruck mit reinen Kupferpigmenten aus der Serie »Botanische Garten« (»A light white wind«). Das Kupfer reflektiert das Licht und oxidiert über Jahre zu moosigem Grün, sodass sich das Bild wandelt und den Zyklus von Werden und Vergehen spiegelt."
     },
     {
       "id": 44,
@@ -856,7 +895,8 @@
       ],
       "blattgroesse": "48,0 × 37,5 cm",
       "drucker": "Thomas Franke, stein_werk., Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Die sechsteilige Lithographie-Serie »Secrets from the Essence Chamber« zeichnete Stabe direkt mit Kugelschreiber auf den Stein; jedes titellose Blatt (u.a. C2, C3) setzt sich aus drei Airbrush- und Kugelschreiber-Ebenen zusammen. Kaleidoskopartig fügen sich die Elemente in jedem Druck neu – es geht um Facetten, Verfremdung und Experiment."
     },
     {
       "id": 45,
@@ -875,7 +915,8 @@
       ],
       "blattgroesse": "76,0 × 53,0 cm / 70,0 × 47,0 cm",
       "drucker": "Gundolf Roy, Zülpich (P82-P84)",
-      "technik": "Siebdruck mit Kupferpigmenten"
+      "technik": "Siebdruck mit Kupferpigmenten",
+      "werkidee": "Siebdruck mit Kupferpigmenten aus derselben Serie (»Messy«), nach Aufnahmen im Botanischen Garten Meise; das oxidierende Kupfer verweist zugleich auf die koloniale Geschichte des Kupferabbaus im Kongo."
     },
     {
       "id": 46,
@@ -895,7 +936,8 @@
       ],
       "blattgroesse": "50,5 × 38,0 cm / 39,5 × 30,0 cm",
       "drucker": "Tabor Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "In der Lithographie-Serie überführt Weber sein comichaftes Bildpersonal in tektonische Stadtlandschaften voller geometrischer Raster, in denen Lieferhelden, Hunde und Passanten agieren. Er mischt Realistisches mit Groteskem und spielt mit Verweisen auf Toulouse-Lautrec, Pollock, Lichtenstein und Otto Dix (B1 »O.P.«, B2 »V«)."
     },
     {
       "id": 47,
@@ -914,7 +956,8 @@
       ],
       "blattgroesse": "30,0 × 24,0 cm / 27,8 × 20,0 cm",
       "drucker": "Recom Art, Berlin",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Blatt »Drive-in Kino bei Cincinnati, 1952« (385 A6) aus der Serie »Amerika, 1952«: Schwarzweiß-Photographie von Umbos dreimonatiger USA-Reise, die den »American Way of Life« und die technische Moderne festhält."
     },
     {
       "id": 48,
@@ -932,7 +975,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/385_C1_Yvette_Kießling.jpg"
       ],
       "drucker": "Thomas Franke, stein_werk, Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt »Amani 1« (385 C1) aus der Serie »Amani« (2022): Ergebnis von Kießlings Feldforschung in den Usambara-Bergen Tansanias, die die Kolonialgeschichte einer botanischen Forschungsstation und ihre Flora als Dokument von Migration thematisiert."
     },
     {
       "id": 49,
@@ -951,7 +995,8 @@
       ],
       "blattgroesse": "76,0 × 56,0 cm / 49,5 × 32,5 cm",
       "drucker": "Keystone, Berlin",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "»Flora 2«, Holz-, UV- und Siebdruck aus der Serie »Flora«: Ausgangspunkt sind Röntgenaufnahmen übermalter Gemälde der Kunstgeschichte, hier das geisterhafte Röntgenbild der Flora aus Botticellis »Primavera«."
     },
     {
       "id": 50,
@@ -970,7 +1015,8 @@
       ],
       "blattgroesse": "63,0 × 63,0 cm / 48,0 × 48,0 cm",
       "drucker": "1×2 Siebdruck, Martin Samuel, Berlin",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "»ohne Titel« (1965/2022), ein Siebdruck: Mayer ordnet das Alphabet als quadratischen Block an und dreht es bei jedem Druckvorgang um 90°. Was zunächst lesbar scheint, entzieht sich der Entzifferung; das Schichten der Farben von dunkel zu hell erzeugt räumliche Tiefe."
     },
     {
       "id": 51,
@@ -989,7 +1035,8 @@
       ],
       "blattgroesse": "60,0 × 50,0 cm / 55,0 × 45,0 cm",
       "drucker": "Foto Company Altona, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "»Klein Köris, 2019« aus der Serie »Ich denke auch Familienbilder«: ein Inkjet-Print mit Blick auf einen Goldfischteich, in dessen Spiegelung Himmel und Wasser verschmelzen, sodass die Fische zugleich in den Wolken zu fliegen scheinen."
     },
     {
       "id": 52,
@@ -1029,7 +1076,8 @@
       ],
       "blattgroesse": "70,0 × 50,0 cm",
       "drucker": "Mediadruckwerk, Hamburg",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "Die Serie im digitalen Offsetdruck verschränkt Rauminstallation und Text: In ihrer »Schlauchschrift« setzt Bonvicini kurze Ansagen wie »hysteria«, »guilt« oder »sadisfy me«, deren Buchstaben fensterartig Durchblicke auf ihre Ketteninstallationen freigeben. »sadisfy me« bricht durch das Wortspiel mit »sad« zusätzlich ironisch."
     },
     {
       "id": 54,
@@ -1051,7 +1099,8 @@
       ],
       "blattgroesse": "73,0 x 72,0 cm / 60,0 x 60,0 cm",
       "drucker": "Kunst- und Radierwerkstatt W. Jesse, Berlin",
-      "technik": "Aquatinta"
+      "technik": "Aquatinta",
+      "werkidee": "Die Projekt-Reihe »FORM AND RHYTHM« versammelt farbige Aquatinta-Radierungen nach Tremletts Pastellzeichnungen: geometrische Kompositionen mit grundrissähnlichen Linien in je drei Farben. In einem Transferdruckverfahren über Ölpapier wurde die Pastell-Oberflächenstruktur in die Radierung überführt."
     },
     {
       "id": 55,
@@ -1085,7 +1134,8 @@
       ],
       "blattgroesse": "38,3 × 28,5 cm / 36,0 × 26,0 cm",
       "drucker": "Tabor Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Farblithographien aus der sechsteiligen Serie (372. Wahl, 2018), an der Tabor Presse entstanden, wo jede Farbe einen eigenen Stein erforderte (u.a. A4 »Konstantins Traum«, A5 »Spiegelung«). Fox überführt darin Farbschichten, symmetrische Formbeziehungen und Flächenstrukturen seiner Malerei in die Lithographie."
     },
     {
       "id": 57,
@@ -1103,7 +1153,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/293C6-99WALTER.jpg"
       ],
       "blattgroesse": "64,6 x 47,6 cm / 53,3 x 37,8 cm",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "»Geste entwickelt Sprache II«, ein Farboffsetdruck aus der C-Reihe der 293. Wahl, deren Blätter Titel wie »Feld entwickelt Sprache« und »Geste entwickelt Sprache« tragen. Die Griffelkunst-Seite nennt nur Titel und Technik, keinen Werktext."
     },
     {
       "id": 58,
@@ -1122,7 +1173,8 @@
       ],
       "blattgroesse": "37,5 × 28,0 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Aus derselben Serie: Blatt »Raum« (C1) thematisiert die Welt hinter dem Vorhang, der hier für die verblassende Erinnerung steht; durch reduzierte Pinselstriche scheint im Druck die Papierfarbe."
     },
     {
       "id": 59,
@@ -1156,7 +1208,8 @@
       ],
       "blattgroesse": "38,0 × 30,0 cm / 24,0 × 22,0 cm",
       "drucker": "Saal-Presse, Bergsdorf",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Zwei Lithographien aus der Serie »Symbiotische Lebensgemeinschaften«: C1 »Honiganzeiger« und C5 »davonkriechende Insekten«, bei der sie aufgereihten Käfern Beine und Flügel verleiht und sie mit gedrucktem Blattwerk in ihren natürlichen Raum zurückführt. Ihre Motive zeichnete sie mikrodivisionistisch mit einem Pinsel der Stärke 0 auf den Stein."
     },
     {
       "id": 61,
@@ -1176,7 +1229,8 @@
       ],
       "blattgroesse": "30,4 × 24,3 cm / 19,6 × 18,8 cm",
       "drucker": "Foto Company Altona",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Zwei Schwarzweiß-Pflanzenphotographien aus dem Nachlass: C1 »Nickende Distel«, frontal wie ein Porträt inszeniert, und C6 »Crassulaceae, Echeveria, von oben«. Im Stil der Neuen Sachlichkeit nutzt Koch Nahansichten, extreme Ausschnitte und akzentuierte Beleuchtungskontraste."
     },
     {
       "id": 62,
@@ -1196,7 +1250,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/394_C5_Walid_Raad.jpg"
       ],
       "technik": "Offsetdruck",
-      "technik_quelle": "griffelkunst.de Raad 394 Digitaler Offset-Druck"
+      "technik_quelle": "griffelkunst.de Raad 394 Digitaler Offset-Druck",
+      "werkidee": "Blätter aus »The Bleeding Heart Cookbook« (C-Reihe, 2024): ein digitaler Offset-Zyklus, der die fiktive Geschichte der libanesischen Köchin Ramza erzählt, die im Bürgerkrieg Gerichte mit beigemischten Drogen kochte – Raads Verbindung von Alltag, Fiktion und politischem Konflikt."
     },
     {
       "id": 63,
@@ -1216,7 +1271,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/394_B5_Madamme_d%C2%B4Ora.jpg"
       ],
       "drucker": "Recom Art, Berlin",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Die B-Reihe versammelt Schwarzweiß-Photographien aus d'Oras Zeitschriftenarbeit von 1917 bis 1929 (Nachlassedition), darunter Mode-, Gesellschafts- und Tanzaufnahmen wie das Porträt Arlettys. Die Motive zeigen den Wandel von der kunstphotographischen Porträtaufnahme hin zum modernen Frauenbild der Zeitschriftenphotographie."
     },
     {
       "id": 64,
@@ -1253,7 +1309,8 @@
       ],
       "blattgroesse": "54,5 x 76,0 cm",
       "drucker": "Hostrup-Pedersen & Johansen, Kopenhagen",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Siebenfarbige Farblithographie (2006), deren Rahmung einen weißen Bühnenraum öffnet; zwischen Gegenständlichkeit und Auflösung sind figurative Elemente wie eine Blumenvase und eine sie abmalende Person erkennbar."
     },
     {
       "id": 66,
@@ -1272,7 +1329,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/E_611_Jenny_Brosinski_1.jpg"
       ],
       "technik": "Lithographie",
-      "technik_quelle": "griffelkunst.de Brosinski E610/611 Lithographie"
+      "technik_quelle": "griffelkunst.de Brosinski E610/611 Lithographie",
+      "werkidee": "Zwei Farblithographien (2024): E 610 »And that's just what they'll do« und E 611 »I'd never done before – again«, mit figürlich-comichaften Fabelwesen (Stier, Kopffüßler) in Brosinskis spontan-gestischem Stil."
     },
     {
       "id": 67,
@@ -1290,7 +1348,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/395_B1_Takako_Saito_1.jpg"
       ],
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Prägedruck"
+      "technik": "Prägedruck",
+      "werkidee": "»Offer a chair to someone« aus dem Zyklus »a chair 6 events« (1968/2024). Der alltägliche Stuhl erscheint im Blindprägedruck als haptisches Papierrelief, ergänzt durch feine Radierungen, die die poetische Ereignis-Anweisung als Linienzeichnung umsetzen."
     },
     {
       "id": 68,
@@ -1311,7 +1370,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/396_B5_Kerstin_Bra%CC%88tsch_1.jpg"
       ],
       "drucker": "Merkur Druck, Norderstedt",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "Blätter der Serie »Schrättel Rorschach«: digital gespiegelte Ausschnitte handmarmorierter Papiere, in denen nach dem Rorschach-Prinzip geisterhafte »Schrättel«-Kreaturen erscheinen."
     },
     {
       "id": 69,
@@ -1330,7 +1390,8 @@
       ],
       "blattgroesse": "40,6 × 40,6 cm / 38,6 × 38,6 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Die Lithographie »Add & Subtract I« überträgt Tremletts Wandzeichnungen auf Papier: in erdiger, von Grün und Gelb durchbrochener Palette ein scharfkantiges Quadrat mit präziser Linie, in dem geometrische Formen addiert und subtrahiert werden."
     },
     {
       "id": 70,
@@ -1351,7 +1412,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/E614_Variante_4.jpg"
       ],
       "blattgroesse": "59,5 × 42,0 cm",
-      "technik": "Sonstige"
+      "technik": "Sonstige",
+      "werkidee": "»Nichts ist egal«: Statt zu drucken, beschreibt Sander jedes Blatt von Hand mit dem Satz »nichts ist egal« und stempelt ihre Signatur – jedes Blatt wird ein Unikat und stellt so das »Prinzip Griffelkunst« der Vervielfältigung in Frage."
     },
     {
       "id": 71,
@@ -1370,7 +1432,8 @@
       ],
       "blattgroesse": "42,0 × 36,0 × 2,8 cm",
       "drucker": "Hobelsberger Studios, Berlin",
-      "technik": "Sonstige"
+      "technik": "Sonstige",
+      "werkidee": "Einzelblatt »What Wasn't Said« (E 615): ein Spiegelobjekt in Form einer Sprechblase mit drei applizierten Glaskristallen, das den Betrachter zum Werkteil macht und über Sehen, Denken und Sprechen sowie über Sein und Schein nachdenken lässt."
     },
     {
       "id": 72,
@@ -1389,7 +1452,8 @@
       ],
       "blattgroesse": "48,0 × 37,0 cm",
       "drucker": "Handsiebdruckerei, Berlin",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "Die beiden Siebdrucke zeigen zwei Variationen von Butzers ikonischem Motiv »die Frau« mit Blusenkragen und kariertem Kleid (in Anlehnung an Matisse). »Absichtslos« gearbeitet, veranschaulichen sie, dass erst durch Wiederholung und feine Abweichung jedes Blatt zum Unikat wird."
     },
     {
       "id": 73,
@@ -1429,7 +1493,8 @@
       ],
       "blattgroesse": "41,2 × 56,5 cm / 38,0 × 49,0 cm",
       "drucker": "Thomas Franke, stein_werk., Leipzig",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "»Output 0351 A«, als einziges Blatt der Serie im Hand-Offset gedruckt. Die Serie »Output 0351« verbindet technikbegeisterte Kunstbewegungen wie Futurismus und Avantgarde mit einem KI-generierten, per umgebautem Plotter »gemalten« Automobilmotiv."
     },
     {
       "id": 75,
@@ -1448,7 +1513,8 @@
       ],
       "blattgroesse": "48,0 × 65,5 cm / 42,0 × 60,5 cm",
       "drucker": "Ellen Sturm-Loeding, Carlos Leon, Hamburg (372); Handdruck Loeding & Sturm (E620)",
-      "technik": "Holzdruck/Lithographie"
+      "technik": "Holzdruck/Lithographie",
+      "werkidee": "Das Einzelblatt »When Dreams Take Flight« (2025) ist ein dreifarbiger Linolschnitt: eine hybride Gestalt, halb Vogel, halb Mensch, in aufsteigender Bewegung, mit orange-gelbem Körper vor tiefviolettem Grund und einem Zweig im Schnabel als Symbol für Neubeginn."
     },
     {
       "id": 76,
@@ -1467,7 +1533,8 @@
       ],
       "blattgroesse": "80,0 × 60,5 cm / 77,0 × 57,0 cm",
       "drucker": "Tabor-Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Farblithographie »ERZMUTTERZ NATYRNS M.E.E.S.E.« (2025), entstanden zur 400. Wahl: ein Porträt seiner damals 95-jährigen Mutter Brigitte als Bild der Mutterliebe."
     },
     {
       "id": 77,
@@ -1486,7 +1553,8 @@
       ],
       "blattgroesse": "49,5 × 64,5 cm / 45,0 × 61,0 cm",
       "drucker": "Gundolf Roy, Zülpich",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "Für »Blood Print« reproduzierte Dekyndt im Siebdruck mit Tierblut eine ursprünglich 1998 mit eigenem Blut gezeichnete Arbeit auf kariertem Transparentpapier. Das instabile, oxidierende Material widerspricht der scheinbaren Rationalität des Rasters und lässt das Motiv körperlich und vergänglich erscheinen."
     },
     {
       "id": 78,
@@ -1502,7 +1570,8 @@
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/Balkenhol_E432_1.JPG",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/Balkenhol_E432_1.JPG"
-      ]
+      ],
+      "werkidee": "Als Pendant zur Männerfigur von 2006 geschaffene Skulptur einer Frau im Antimon-Hartbleiguss (2008), die sich nach oben leicht verjüngt und dadurch besonders zart wirkt."
     },
     {
       "id": 79,
@@ -1555,7 +1624,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/363-A6-Blossfeldt.jpg"
       ],
       "blattgroesse": "24,0 x 30,5 cm / 18,8 x 24,5 cm",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Aus der Mappe »Pflanzenformen II«: Nahaufnahme des Blütenstiels der Schachblume (Fritillaria meleagris), eine der Pflanzenphotographien aus Blossfeldts Nachlass."
     },
     {
       "id": 82,
@@ -1574,7 +1644,8 @@
       ],
       "blattgroesse": "30,5 x 24,0 cm",
       "drucker": "Atelier Margotow, Wahlershausen",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Das Blatt »Krämerladen an der Zwirnerstraße« stammt aus dem Fotobuch »Cologne intime« (1957). Die scheinbar belanglosen Alltagsszenen zeichnen ein eindrucksvolles, menschliches Porträt des Nachkriegsdeutschlands zwischen Trostlosigkeit und neuem Selbstvertrauen."
     },
     {
       "id": 83,
@@ -1593,7 +1664,8 @@
       ],
       "blattgroesse": "30,0 x 24,0 cm / 24,8 x 18,8 cm",
       "drucker": "Atelier Margotow, Wahlershausen",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "»Wire sculpture, Somonauk 1946« aus der Mappe »Photographien aus dem Nachlass«: Aufnahme einer Drahtskulptur aus der amerikanischen Werkperiode, in der Bewegung transparenter, kinetischer Objekte als Lichtspur festgehalten wird."
     },
     {
       "id": 84,
@@ -1628,7 +1700,8 @@
       ],
       "blattgroesse": "30,4 x 24,0 cm / 25,5 x 19,0 cm",
       "drucker": "Atelier Margotow, Wahlershausen",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "»Photo-relief« (1938) – Photographie aus dem Nachlass. Die reliefartig-skulpturale Wirkung entsteht durch Negativ-Positiv-Kombination und (Teil-)Solarisation, mit der Ubac die optische Wirklichkeit in einen präkristallinen, magmaartigen Zustand zurückführt."
     },
     {
       "id": 86,
@@ -1665,7 +1738,8 @@
       ],
       "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
       "drucker": "Larry Lazarus, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Aus derselben Serie »Das Watt – Chaos und Struktur«: Die Blätter B1, B2 und B5 zeigen Rundwellungen, den windbedingten Richtungswechsel der Riffelungen und den von sturmbewegten Wassermassen hart gestampften Boden – »System in die Strukturen und Ordnung in das Chaos der Natur«."
     },
     {
       "id": 88,
@@ -1749,7 +1823,8 @@
       ],
       "blattgroesse": "61,0 cm x 50,7 cm / 40,0 cm x 40,0 cm",
       "drucker": "PPS, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Blatt 4 (ohne Titel) aus der Farbphotographie-Serie »I am happy because everyone loves me« (304. Wahl, 2001)."
     },
     {
       "id": 93,
@@ -1768,7 +1843,8 @@
       ],
       "blattgroesse": "40,0 cm x 50,0 cm",
       "drucker": "Hostrup-Pedersen & Johansen, Kopenhagen",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»Daloa dublet«, Blatt aus der Farblithographie-Serie von 2003."
     },
     {
       "id": 94,
@@ -1808,7 +1884,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B4.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B5.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B6.jpg"
-      ]
+      ],
+      "werkidee": "B-Reihe der 322. Wahl: sechs Radierungen ohne Titel, in denen Knap seine Suche nach Schönheit und Harmonie in bewusst einfacher Malerei verfolgt."
     },
     {
       "id": 96,
@@ -1829,7 +1906,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A4.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A5.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A6.jpg"
-      ]
+      ],
+      "werkidee": "Aus der Serie »Rauten traurig« (2006): Farblithographien mit hohen, leeren, mustertragenden Bildräumen, die durch als weiße Flächen ausgesparte Durchbrüche strukturiert werden und mit Perspektive, Tiefe und Wahrnehmung spielen."
     },
     {
       "id": 97,
@@ -1852,7 +1930,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Feuchtenberger_334_B6.JPG"
       ],
       "drucker": "Squadro, Bologna",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "Die farbenfrohe Siebdruck-Edition zeigt sechs »Liebes-Ikonen« (u.a. Herz, Wunderbaum, rotes Kleid) unter dem Motto »Pathos und Peinlichkeit«. Feuchtenberger lotet aus, wie weit sich starke Gefühle darstellen lassen, und bringt süße Symbole in surreale Zusammenhänge."
     },
     {
       "id": 98,
@@ -1886,7 +1965,8 @@
       "image_unverified": true,
       "image_note": "Motiv 'Nearctic' — Code evtl. 353 A4, prüfen",
       "technik": "Siebdruck",
-      "technik_quelle": "griffelkunst.de Dion Nearctic Siebdruck / dort als 353 A4"
+      "technik_quelle": "griffelkunst.de Dion Nearctic Siebdruck / dort als 353 A4",
+      "werkidee": "Die Siebdrucke auf Leinwandgewebe treten als Schulwandkarten auf und setzen sich mit naturwissenschaftlicher Klassifikation auseinander. Dion nummeriert und benennt Vogelköpfe (»The Naturalists«), führt die Beschriftung tierischer Körper aber mit viel Humor ad absurdum."
     },
     {
       "id": 100,
@@ -1906,7 +1986,8 @@
       ],
       "blattgroesse": "50,0 x 35,0 cm",
       "drucker": "Gundolf Roy, Zülpich",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "Zwei titellose Mehrfarbsiebdrucke (A3, A8) aus der neunteiligen Serie der 358. Wahl. Wie in ihren Gemälden setzt Barath ihr »Stammpersonal« frontal vor diffusem Hintergrund ins Bild; die Reihenfolge der Blätter ist frei – man kann sich sein eigenes »Team« zusammenstellen."
     },
     {
       "id": 101,
@@ -1925,7 +2006,8 @@
       ],
       "blattgroesse": "65,0 x 51,0 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»Delhi« – Lithographie aus der siebenteiligen Serie (2015), die die Kreuzschraffuren von Deacons »Interferenzen« aufgreift."
     },
     {
       "id": 102,
@@ -1941,7 +2023,8 @@
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/Richard_Deacon_360_A6_1.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/Richard_Deacon_360_A6_1.jpg"
-      ]
+      ],
+      "werkidee": "»Jaipur« – Lithographie aus derselben Serie; sie greift die Struktur einer großen Arbeit Deacons auf und erinnert an die Rhythmik der Siebdruckfolge »Sleeping Beauty«."
     },
     {
       "id": 103,
@@ -1960,7 +2043,8 @@
       ],
       "blattgroesse": "81,0 × 61,0 cm / 60,0 × 54,0 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»More Light« (2020) – Lithographie und Pendant zu »Light«; Verbergen und Erleuchten werden zum Thema, mit Gold, Silber und Strahlenkranz."
     },
     {
       "id": 104,
@@ -1978,7 +2062,8 @@
       "drucker": "Stephan Rosentreter, Lithographisches Atelier Leipzig",
       "technik": "Lithographie",
       "image_unverified": true,
-      "image_note": "gefunden als 363 B2 (Serie 363 B — Blatt bestätigen)"
+      "image_note": "gefunden als 363 B2 (Serie 363 B — Blatt bestätigen)",
+      "werkidee": "Die B-Reihe (363. Wahl, 2016): sechs Farblithographien von Zinkplatten in drei Hoch- und drei Querformaten, die eine rätselhafte, surreale Bildwelt mit hybriden Mensch-Tier-Wesen und fantastischen Erzählungen entfalten."
     },
     {
       "id": 105,
@@ -1997,7 +2082,8 @@
       ],
       "blattgroesse": "47,0 x 32,0 cm",
       "drucker": "Handdruck Loeding & Sturm, Hamburg",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "Während eines Griffelkunst-Stipendiums entstand die Serie mehrfarbiger Farbholzdrucke: Michalko übersetzt ihr abstraktes Bildvokabular in mal deckende, mal durchscheinende Formen auf Japanpapier, aus denen grob geschnittene Worte auftauchen; A1 »The corpse and the moon«."
     },
     {
       "id": 106,
@@ -2018,7 +2104,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C4_Stefan_Marx.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C5_Stefan_Marx.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C6_Stefan_Marx.jpg"
-      ]
+      ],
+      "werkidee": "Erste Lithographie-Serie des Künstlers (2017, gedruckt bei Felix Bauer, Köln), in der er Früchte zum Leben erweckt und Lieblingszeilen aus Songtexten in seiner Typografie auf den Lithostein schreibt."
     },
     {
       "id": 107,
@@ -2037,7 +2124,8 @@
       ],
       "blattgroesse": "30,5 × 22,0 cm",
       "drucker": "Steindruckerei Wolfensberger, Zürich",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt »Sternwarte« (369 C1) aus der Lithographie-Serie (2018): eine von fünf ausschnitthaften, fiktiven Treppenhausansichten aus wechselnden Perspektiven, in denen Leuteneggers Interesse an Räumen und deren Aneignung durch Erinnerung sichtbar wird."
     },
     {
       "id": 108,
@@ -2058,7 +2146,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A4_Gerrit_Frohne-Brinkmann.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A5_Gerrit_Frohne-Brinkmann.jpg",
         "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A_Box_Gerrit_Frohne-Brinkmann.jpg"
-      ]
+      ],
+      "werkidee": "Polaroids »Mammuthus primigenius«, Momentaufnahmen des ausgestorbenen Mammuts. Dem Sofortbild ist – in Analogie zum Tier – das eigene Verschwinden eingeschrieben, da der Entwicklungsprozess weiterläuft und nachdunkelt; die Blätter werden daher in Druckverschlussbeuteln angeboten."
     },
     {
       "id": 109,
@@ -2077,7 +2166,8 @@
       ],
       "blattgroesse": "38,2 × 30,0 cm / 35,9 × 27,0 cm",
       "drucker": "Foto Company Altona",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Blatt »Noblesse de Jour« (371 A1) aus der »Aufis«-Serie: eine historische Aktphotographie wird durch ein appliziertes Fundstück verdeckt und so zum neuen Kunstwerk verfremdet."
     },
     {
       "id": 110,
@@ -2096,7 +2186,8 @@
       ],
       "blattgroesse": "59,5 × 42,0 cm / 43,0 × 32,0 cm",
       "drucker": "Tabor Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt A4 »Paradise City« gehört zur Lithographie-Serie »Parade«, in der Thurau drei biblische und drei profane Motive vereint. Das Paradies-Motiv greift die Sündenfall-Ikonographie von Adam und Eva auf und überträgt sie mit gegenwartsbezogenen Genussattributen in die Gegenwart."
     },
     {
       "id": 111,
@@ -2115,7 +2206,8 @@
       ],
       "blattgroesse": "50 x 60 cm / 35 x 46 cm",
       "drucker": "Thomas Franke, stein_werk, Leipzig",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt aus derselben Serie »rivière« (2013): eine getuschte Flusslandschaft, in der sich die Grenze zwischen Ufer und Wasser in Schattierungen von Braun, Grün und Rosa auflöst."
     },
     {
       "id": 112,
@@ -2161,7 +2253,8 @@
       "image_url": "",
       "image_urls": [],
       "drucker": "Florian Caspar GmbH, Haan-Gruiten",
-      "technik": "Sonstige"
+      "technik": "Sonstige",
+      "werkidee": "Aus der Tapeten-Edition »mental map« (2008): eine Vliestapete mit wechselnden Motiven, die ins Negativ gekehrte historische Photographien mit scherenschnittartigen Silhouetten auf verfremdeten Landkarten kombiniert – Erinnerung und Geschichte als frei anzuordnender Wandschmuck."
     },
     {
       "id": 115,
@@ -2177,7 +2270,8 @@
       "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/386_A5_Misaki_Kawai.jpg",
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/386_A5_Misaki_Kawai.jpg"
-      ]
+      ],
+      "werkidee": "Die Serie mehrfarbiger Farblithographien entstand in der Berliner Tabor Presse und folgt Kawais Credo, dass Kunst Spaß machen soll. Blatt »BFF« (best friends forever) gehört zu dieser bunten Welt aus personifizierten Objekten, Tieren und Alltagsmotiven."
     },
     {
       "id": 116,
@@ -2197,7 +2291,8 @@
       ],
       "blattgroesse": "45,0 × 35,0 cm / 40,0 × 30,0 cm",
       "drucker": "Foto Company Altona",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Die A-Reihe (387. Wahl, 2022) »Fruits & Roses«: handelsübliche Farbtonmuster-Papierstreifen werden zu minimalistischen Stillleben arrangiert – A1 »Pink Rose«, A4 »Bananas« – und reflektieren die Emotionalisierung und Benennung von Farbe."
     },
     {
       "id": 117,
@@ -2216,7 +2311,8 @@
       ],
       "blattgroesse": "60,0 × 27,0 cm",
       "drucker": "Druckerei E. Sauerland, Gelnhausen",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "»Atommann III«, Blatt aus der Schwarzweiß-Serie »Atommann« (Offsetdruck nach Fotokopiecollage, 1987/2022). Bayrle setzt eine aus geometrischen Blöcken gebaute Maschinenfigur zusammen, die sich wie animiert über die Blätter bewegt – ein dystopisches, radioaktives »Monstrum«."
     },
     {
       "id": 118,
@@ -2235,7 +2331,8 @@
       ],
       "blattgroesse": "24,0 × 30,0 cm / 16,8 × 27,8 cm",
       "drucker": "Recom Art, Berlin",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Blatt »Down-Town Sky Line, New York, 1952« (385 A1) aus derselben Amerika-Serie: eine Wolkenkratzer-Ansicht, die Umbos Faszination für die wirtschaftliche und technische Macht der USA bezeugt."
     },
     {
       "id": 119,
@@ -2257,7 +2354,8 @@
       ],
       "blattgroesse": "50,3 × 38,0 cm / 39,0 × 30,0 cm",
       "drucker": "Tabor Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Farblithographien aus der sechsteiligen Serie »A Day«, die als mystischer Tagesablauf an einem Gewässer zugleich über den Lauf eines ganzen Lebens nachdenkt. Nach Buntstiftzeichnungen an der Tabor Presse in je drei Farben umgesetzt, greifen die Blätter literarische und kunsthistorische Motive auf (u.a. Böcklins »Toteninsel«)."
     },
     {
       "id": 120,
@@ -2276,7 +2374,8 @@
       ],
       "blattgroesse": "40,0 × 30,0 cm / 25,7 × 19,5 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Radierung"
+      "technik": "Radierung",
+      "werkidee": "Die Radierung »I miss the Future« gehört zu fünf Textarbeiten, deren bildschirmartige Buchstaben von einer CNC-Maschine in die Kupferplatte gekratzt wurden. Der Titel spielt humorvoll auf das Ausbleiben von Zukunftsvisionen in der heutigen Retro-Popkultur an."
     },
     {
       "id": 121,
@@ -2298,7 +2397,8 @@
       ],
       "blattgroesse": "45,0 × 36,0 cm / 24,5 × 20,0 cm",
       "drucker": "Handdruck Loeding & Sturm, Hamburg",
-      "technik": "Aquatinta mit Blindätzung"
+      "technik": "Aquatinta mit Blindätzung",
+      "werkidee": "Vier Blätter der Aquatinta-Serie »mit Liebe. Hamburg«: geometrisch-abstrakte, von Hamburgs Architektur und Herbstfarben (Blau- und Rottöne) inspirierte Raumkompositionen, mehrfarbig von mehreren Platten aufgebaut und teils durch Blindätzung strukturiert."
     },
     {
       "id": 122,
@@ -2317,7 +2417,8 @@
       ],
       "blattgroesse": "29,7 × 42,0 cm",
       "drucker": "PigLab, Hamburg",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "Blatt aus der Inkjet-Serie »SCHWARZ AUF WEISS«. Die Motive gehen auf eine 1984 mit Lackspray und geometrischen Kartonabfällen entstandene Serie zurück, die durch digitale Bearbeitung und hochwertigen Inkjet-Druck »wie ein Original« erscheint."
     },
     {
       "id": 123,
@@ -2392,7 +2493,8 @@
       ],
       "blattgroesse": "54,0 × 39,0 cm / 33,2 × 35,2 cm",
       "drucker": "Martin Samuel, 1x2 Siebdruck, Berlin",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "»Maschen II«, ein Siebdruck aus der Serie »Maschen«. Die stark vergrößerten Maschenstrukturen erinnern an Strick- und Häkelanleitungen; lasierend übereinandergedruckt, versteht Rath die »Masche« als verbindendes Element und augenzwinkernden Kommentar auf die vernetzende Idee der Griffelkunst."
     },
     {
       "id": 128,
@@ -2411,7 +2513,8 @@
       ],
       "blattgroesse": "52,5 x 41,0 cm",
       "drucker": "Kunst- und Radierwerkstatt Willi Jesse, Berlin",
-      "technik": "Radierung"
+      "technik": "Radierung",
+      "werkidee": "Blatt 5 »Radikal« aus der Radierserie »Irrige Vorstellungen kausaler Zusammenhänge« (Vernis mou mit Aquatinta); die Serie verhandelt in fiktiven Text-Bild-Konstruktionen zentrale Fragen der menschlichen Existenz."
     },
     {
       "id": 129,
@@ -2467,7 +2570,8 @@
       "blattgroesse": "59,5 × 46,5 cm / 44,0 × 33,5 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
       "technik": "Radierung",
-      "technik_quelle": "griffelkunst.de Hassani E584/585 Radierung"
+      "technik_quelle": "griffelkunst.de Hassani E584/585 Radierung",
+      "werkidee": "Einzelblätter E 584 »And so on to infinity« (raumfüllende Peano-Kurve in Rot/Orange) und E 585 »not fixed could change« (Zick-Zack-Raster in tiefem Blau) – aufwendig von Hand in die Kupferplatte radierte Annäherungen an eine »verrückte Ordnung«."
     },
     {
       "id": 132,
@@ -2486,7 +2590,8 @@
         "https://www.griffelkunst.de/galleryimages/_galleryimages/SHNEIDER-320-A6.jpg"
       ],
       "technik": "Lithographie",
-      "technik_quelle": "griffelkunst.de Shneider 320 Farblithographien"
+      "technik_quelle": "griffelkunst.de Shneider 320 Farblithographien",
+      "werkidee": "Die A-Reihe der 320. Wahl »Entscheidende Lücke« besteht aus ein- und zweifarbigen Farblithographien; die Blätter A5 »Where am I?« und A6 »Where am I – detail« kreisen um den titelgebenden Zwischenraum. Shneider will den Moment des Schwebens dehnen und Auge, Ohr und Phantasie im Ungewissen offen halten."
     },
     {
       "id": 133,
@@ -2505,7 +2610,8 @@
       ],
       "blattgroesse": "41,8 x 29,7 cm",
       "drucker": "Tabor-Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt aus der dreifarbigen Farblithographie-Serie »Salto« (2006): inszenierte, komponierte Bilder, in denen sich Favres Theatererfahrung als erzählerische, ereignishafte Bildwelt niederschlägt."
     },
     {
       "id": 134,
@@ -2524,7 +2630,8 @@
       ],
       "blattgroesse": "30,5 x 24,0 cm / 20,5 x 14,0 cm",
       "drucker": "Fritze Margull, Berlin",
-      "technik": "Radierung"
+      "technik": "Radierung",
+      "werkidee": "Die C-Reihe der 330. Wahl umfasst sechs unbetitelte Radierungen (»Pars pro Toto«), die sich wie Puzzleteile zusammensetzen lassen; die Anordnung feiner amorpher Partikel erinnert an Metallspäne in einem Kräftefeld oder an einen kleinen Urknall."
     },
     {
       "id": 135,
@@ -2543,7 +2650,8 @@
       ],
       "blattgroesse": "70,5 x 49,5 cm / 39,5 x 29,6 cm",
       "drucker": "Kunst- und Radierwerkstatt W. Jesse, Berlin",
-      "technik": "Aquatinta"
+      "technik": "Aquatinta",
+      "werkidee": "Für die Serie kehrte Mullican zu den Anfängen seiner Arbeit zurück und schrieb in Aquatinta (Reservage) und Strichätzung direkt auf die Kupferplatten. Die Blätter wirken wie Auszüge aus einem Tagebuch und machen sein automatisches Schreiben – bewusst seitenverkehrt – zum Bild."
     },
     {
       "id": 136,
@@ -2562,7 +2670,8 @@
       ],
       "blattgroesse": "76 x 47 cm / 76 x 38,5 cm",
       "drucker": "Saal-Presse, Bergsdorf",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "Eines der sechs Blätter der 350. Wahl (»Lesarten der Landschaft«): mehrfarbige, aus digitalen Collagen entwickelte Holzschnitte, die u.a. auf »The Big Hole«, die stillgelegte Diamantenmine in Kimberley, Bezug nehmen und Landschaft als vom Menschen veränderten Raum verhandeln."
     },
     {
       "id": 137,
@@ -2584,7 +2693,8 @@
       ],
       "blattgroesse": "50 x 65 cm",
       "drucker": "Ellen Sturm-Loeding, Hamburg",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Für die A-Reihe entwickelte Vater sechs hintersinnige Lithographien, mit Tusche direkt auf den Stein notiert, in denen sich Abstruses, Ironisches und Poetisches verbinden. Bild und Text verschmelzen zu cartoonhaften Geschichten, u.a. »Damm« (A2), »Reality gap« (A3), »Painter« (A4), »Mond Staubsauger« (A5)."
     },
     {
       "id": 138,
@@ -2603,7 +2713,8 @@
       ],
       "blattgroesse": "64,5 × 51,0 cm / 48,0 × 37,0 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt »Father, Son and the Holy Ghost« aus der sechsteiligen Lithographie-Serie von 2017."
     },
     {
       "id": 139,
@@ -2638,7 +2749,8 @@
       ],
       "blattgroesse": "42,0 × 59,4 cm",
       "drucker": "Block 6, Köln",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "Für die Siebdruck-Serie »Außer Rand und Band« collagiert Odenbach drei Schnittvorlagen zu einem triptychonartigen Ganzen: die Mitte bilden Postkarten aus ehemaligen afrikanischen Kolonien, links und rechts Bilder vom Sturm auf das US-Kapitol 2021. Die zweifarbige Überlagerung geht farblich auf Warhols Electric-Chair-Serie zurück."
     },
     {
       "id": 141,
@@ -2658,7 +2770,8 @@
       ],
       "blattgroesse": "53,0 x 48,5 cm / 28,5 x 25,0 cm",
       "drucker": "Kunst- und Radierwerkstatt Willi Jesse, Berlin",
-      "technik": "Heliogravüre"
+      "technik": "Heliogravüre",
+      "werkidee": "Aus der für die Griffelkunst geschaffenen Heliogravüren-Serie »Für Freunde und Förderer« (2004): C4 und C5 sind zwei scheinbar abstrakte Farbvariationen desselben Motivs, deren fotografischer Bildinhalt bis zur Unkenntlichkeit reduziert ist."
     },
     {
       "id": 142,
@@ -2935,7 +3048,8 @@
       ],
       "blattgroesse": "20,0 x 30,0 cm",
       "drucker": "Handdruck Loeding & Sturm, Hamburg",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»Motiv VI (Reiter)«, Blatt aus einer achtteiligen Serie von Steindrucken (Lithographie) von 1993."
     },
     {
       "id": 161,
@@ -3041,7 +3155,8 @@
       ],
       "blattgroesse": "50,0 x 90,0 cm / 30,0 x 70,0 cm",
       "drucker": "Atelier für Druckgrafik, Hamburg",
-      "technik": "Prägedruck"
+      "technik": "Prägedruck",
+      "werkidee": "Aus einer 1994 erschienenen Serie von sechs jeweils zweifarbigen Hochdrucken (Prägedruck/Collographie). Die ungewöhnlichen Druckstöcke bestanden aus Pappe mit aufgezogenem Tesakrepp sowie aus mit Modelliermasse aufgerakelten Strukturen."
     },
     {
       "id": 168,
@@ -3072,7 +3187,8 @@
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_xlarge/276A3-94NOEL.jpg"
       ],
-      "technik": "Holzschnitt"
+      "technik": "Holzschnitt",
+      "werkidee": "Für die A-Reihe von 1994 schuf Noël Holzschnitte, in denen sich auf monochromem Untergrund die Linie in den Vordergrund schiebt; die Blätter tragen Namen von Fußballspielern der WM 1994, A3 »Bebeto«."
     },
     {
       "id": 170,
@@ -3110,7 +3226,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/279A3-95STRAWALDE.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/279A4-95STRAWALDE.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/279A5-95STRAWALDE.jpg"
-      ]
+      ],
+      "werkidee": "Blätter aus einer 1995 edierten Serie farbiger Lithographien (A1 Vorort, A2 Arbuse, A3 Szene, A4 Ausflug, A5 Dschungel), in denen Strawalde auf sein malerisches Repertoire zurückgreift."
     },
     {
       "id": 172,
@@ -3128,7 +3245,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/280A1-95DROESE.jpg"
       ],
       "blattgroesse": "86,0 x 50,8 cm / 59,5 x 28,4 cm",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "Blatt »a Schlüssel im Holz« aus der Holzdruck-Serie »Schlüssel im Holz« (1995). Die Griffelkunst-Seite nennt nur Titel und Technik, keinen weiteren Werktext."
     },
     {
       "id": 173,
@@ -3304,7 +3422,8 @@
       ],
       "blattgroesse": "53,7 x 39,3 cm / 42,5 x 29,0 cm",
       "drucker": "Reinhard Scheuble, Witzwort",
-      "technik": "Hochdruck"
+      "technik": "Hochdruck",
+      "werkidee": "Die Serie »Omis und Homies« stellt russische »Babuschkas« aus St. Petersburg schwarzen Jugendlichen (»Homeboyz«) aus New York gegenüber, die Tchepets wegen ihres ähnlichen, aus der Not geborenen Kleidungsstils verbindet. In vielschichtigen Druckgängen treten die wie Models auftretenden Figuren aus einer silbrig-grauen Großstadtkulisse hervor."
     },
     {
       "id": 184,
@@ -3323,7 +3442,8 @@
       ],
       "blattgroesse": "ca. 34,5 cm",
       "drucker": "Atelier für Kunstformung Ulrich Wolff, Karlsruhe",
-      "technik": "Multiple"
+      "technik": "Multiple",
+      "werkidee": "Multiple in Form eines Autos im Antimon-Hartbleiguss (2011), an sportliche Modelle der 1960er erinnernd; der leere Fahrersitz lässt offen, wer am Steuer Platz nimmt."
     },
     {
       "id": 185,
@@ -3342,7 +3462,8 @@
       ],
       "blattgroesse": "15,8 x 24,2 cm / 23,9 x 29,8 cm",
       "drucker": "Ilona Ripke, Berlin",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Die C-Reihe der 346. Wahl versammelt sechs Schwarzweiß-Photographien aus dem Nachlass (»Das Wirkliche als Komposition«), ausgewählt von Barbara Klemm. Blatt C5 »Great Spruce Head Island, Maine 1940« zeigt vier Kinder auf einem Stein, deren Aufmerksamkeit auf etwas außerhalb des Bildes gerichtet ist."
     },
     {
       "id": 186,
@@ -3381,7 +3502,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/Auberger%2CPidder_313_C4_1.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/Auberger%2CPidder_313_C5_1.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/Auberger%2CPidder_313_C6_1.jpg"
-      ]
+      ],
+      "werkidee": "Farbholzdrucke aus der zwölfteiligen Serie »Orwellskijs« (2003/04). Zugrunde liegt eine erfundene Entstehungsgeschichte um eine Apparatur namens ORWELLSKIJ, die in einer Kneipe die Gedanken der Gäste auf Postkarten skizziert und mit neuen Bildern »gereinigt« werden muss."
     },
     {
       "id": 188,
@@ -3559,7 +3681,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/292A4-98STRAWALDE.jpg"
       ],
       "blattgroesse": "84,0 x 61,0 cm / 55,4 x 48,3 cm",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "»Tobacco Burri I«, Farboffsetdruck (1998) nach einem überarbeiteten Grundriss einer Tabakfabrik in Norditalien; das Blatt folgt seinem filmischen Montageprinzip."
     },
     {
       "id": 200,
@@ -3637,7 +3760,8 @@
       ],
       "blattgroesse": "60 x 50 cm / 48,5 x 37,5 cm",
       "drucker": "Tabor-Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»money, strength and poverty 5«, Blatt aus der Lithographieserie von 2012, in der Doll das Copyright-Zeichen als Ausdruck ihrer Aneignungs-Strategie ins Zentrum stellt."
     },
     {
       "id": 205,
@@ -3656,7 +3780,8 @@
       ],
       "blattgroesse": "64,5 x 48 cm / 56 x 42 cm",
       "drucker": "Siebdruckwerkstatt Ahrens, München",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "Aus der Siebdruck-Reihe der 347. Wahl: collageartige, mehrfarbige Blätter, in denen Estermann Zeichnungen seiner architektonischen Modelle zerlegt und mit Aufforderungen wie »flex it«, »mix up« oder »take off« kombiniert."
     },
     {
       "id": 206,
@@ -3675,7 +3800,8 @@
       ],
       "blattgroesse": "62 x 50,5 cm / 47 x 37 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt 2 der Lithographie-Serie »Magic moments of homeopathy & other adventures«, in enger Anlehnung an Meisenbergs Malerei direkt auf den Lithostein gemalt. Die überwiegend im Irisdruck gedruckte Serie ist von pastelliger Farbigkeit geprägt; jedes Blatt verhandelt das Bild als Illusion."
     },
     {
       "id": 207,
@@ -3694,7 +3820,8 @@
       ],
       "blattgroesse": "40 x 50 cm / 30 x 40 cm",
       "drucker": "Pig Lab, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Blatt aus der Serie »Wie war Las Vegas« (2011): Inkjet-Photographien einer USA-Reise, die statt Sehenswürdigkeiten funktionslose Reklameschilder, Boden und Himmel zeigen und Las Vegas mit dokumentarisch-melancholischem Blick erfassen."
     },
     {
       "id": 208,
@@ -3715,7 +3842,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/353_A4_Mark_Dion_1.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/353_A5_Mark_Dion_1.jpg",
         "https://www.griffelkunst.de/galleryimages/_xlarge/353_A6_Mark_Dion_1.jpg"
-      ]
+      ],
+      "werkidee": "In der Serie setzt sich Dion mit einer zoo-geographischen Weltkarte auseinander und zeigt in wissenschaftlich anmutenden Schautafeln je eine Faunenregion. Blatt »Nearctic« steht für Nordamerika; die von groß nach klein geordnete Tiergruppierung ironisiert die vermeintlich objektive Klassifikation."
     },
     {
       "id": 209,
@@ -3734,7 +3862,8 @@
       ],
       "blattgroesse": "28,0 x 40,0 cm / 23,9 x 35,8 cm",
       "drucker": "PPS, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "»Blair Witch? (Haus für Vögel)«, 1999, aus der Farbphotographie-Serie »Sommer wie Winter« (1999–2003)."
     },
     {
       "id": 210,
@@ -3753,7 +3882,8 @@
       ],
       "blattgroesse": "28,0 x 40,0 cm / 23,9 x 35,8 cm",
       "drucker": "PPS, Hamburg",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "»Der Zerzauste«, 2003, aus derselben Farbphotographie-Serie »Sommer wie Winter«."
     },
     {
       "id": 211,
@@ -3788,7 +3918,8 @@
       ],
       "blattgroesse": "70,5 x 49,5 cm / 39,5 x 29,6 cm",
       "drucker": "Kunst- und Radierwerkstatt W. Jesse, Berlin",
-      "technik": "Aquatinta"
+      "technik": "Aquatinta",
+      "werkidee": "Teil derselben Radierserie (335. Wahl): stempelartige schwarze Formen und leichte handschriftliche Konturen stehen sich gegenüber; das automatische Schreiben wird seitenverkehrt zum Bild."
     },
     {
       "id": 213,
@@ -3807,7 +3938,8 @@
       ],
       "blattgroesse": "51,0 x 61,0 cm / 27,5 x 43,5 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»Frau im Fass« – schwarz-weiße Lithographie aus der Serie zum »Gilded Age«; eine Figur, die zögernd und ängstlich wie eine Schnecke ihre schützende Behausung verlässt."
     },
     {
       "id": 214,
@@ -3826,7 +3958,8 @@
       ],
       "blattgroesse": "61,0 x 51,0 cm / 46,0 x 37,5 cm",
       "drucker": "Felix Bauer, Köln",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»Thoreau« – Porträt des Naturphilosophen Henry David Thoreau (1817–1862), das die Künstlerin ihrer Serie über Charaktere des 19. Jahrhunderts zwischen Romantik und Realismus voranstellt."
     },
     {
       "id": 215,
@@ -3845,7 +3978,8 @@
       ],
       "blattgroesse": "40,0 x 50,0 cm / 19,9 x 33,6 cm",
       "drucker": "Druckerei Priess, Reinbek",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "Für »Kleine Seestücke« vergrößerte Esser Ausschnitte historischer französischer Postkarten und wandelte sie zu Farboffsetdrucken; Blatt C5 zeigt »ROYAN – La Jetée vers Foncillon«. Durch die Vergrößerung wird das Korn sichtbar, und einzelne Boote verleihen den Seestücken eine Aura melancholischer Schönheit."
     },
     {
       "id": 216,
@@ -3864,7 +3998,8 @@
       ],
       "blattgroesse": "41,4 × 31,3 cm",
       "drucker": "Saal-Presse, Bergsdorf",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Blatt Nr. 1 der Lithographie-Serie: die postmoderne Pariser Wohnanlage »Espaces d'Abraxas« von Ricardo Bofill, überlagert von farbigen Pflanzen- und Tiermotiven nach alten Textilmustern."
     },
     {
       "id": 217,
@@ -3883,7 +4018,8 @@
       ],
       "blattgroesse": "69,0 × 49,0 cm",
       "drucker": "Siebdruckwerkstatt Ahrens, Ottobrunn",
-      "technik": "Siebdruck"
+      "technik": "Siebdruck",
+      "werkidee": "»sehwege A« – Siebdruck aus einer sechsteiligen Serie, in der Fries historisches Bildmaterial (u.a. Barockradierungen von Stefano della Bella und eine Börsenseite der SZ) aneignet, schichtet und mit eigener Malerei zu neuen, ungegenständlichen Kompositionen verwebt."
     },
     {
       "id": 218,
@@ -3901,7 +4037,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/396_B2_Kerstin_Bra%CC%88tsch_1.jpg"
       ],
       "drucker": "Merkur Druck, Norderstedt",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "»Schrättel Rorschach II«: ein spiegelsymmetrisches Marmorierungs-Motiv, das Assoziationen an Gesichter, Schädel oder Fabelwesen weckt."
     },
     {
       "id": 219,
@@ -3919,7 +4056,8 @@
         "https://www.griffelkunst.de/galleryimages/_xlarge/396_B6_Kerstin_Bra%CC%88tsch_1.jpg"
       ],
       "drucker": "Merkur Druck, Norderstedt",
-      "technik": "Offsetdruck"
+      "technik": "Offsetdruck",
+      "werkidee": "»Schrättel Rorschach VI«: digital gespiegelte Marmorierung nach dem Rorschach-Prinzip, deren Deutung im Auge der Betrachtenden liegt."
     },
     {
       "id": 220,
@@ -3938,7 +4076,8 @@
       ],
       "blattgroesse": "64,0 x 50,0 cm / 30,0 x 21,0 cm",
       "drucker": "Fritz Margull, Berlin",
-      "technik": "Heliogravüre"
+      "technik": "Heliogravüre",
+      "werkidee": "Blatt P47 aus der Photogravüren-Serie »Echo 3D xyz« (2015): von digital hergestellten Platten gedruckte Formen, die aus Scheibitz' Skulpturenmodellen stammen und in Gips-, Holz- oder Metallanmutung erscheinen."
     },
     {
       "id": 221,
@@ -3957,7 +4096,8 @@
       ],
       "blattgroesse": "27,0 × 33,0 cm / 16,0 × 20,5 cm",
       "drucker": "Atelier für Druckgrafik, Hamburg",
-      "technik": "Radierung"
+      "technik": "Radierung",
+      "werkidee": "Radierung »The Old Can« – eines von fünf Blättern, für die Solakov jede »Story« ohne Vorskizze direkt auf die Platte zeichnete. Motiv ist eine alte, rostige Blechdose; beim Umsetzen in Spiegelschrift unterlief ihm ein Buchstabenfehler, den er im Blatt selbst korrigierte."
     },
     {
       "id": 222,
@@ -3976,7 +4116,8 @@
       ],
       "blattgroesse": "59,0 x 79,5 cm / 50,5 x 72,0 cm",
       "drucker": "Kunst- und Radierwerkstatt W. Jesse, Berlin",
-      "technik": "Heliogravüre"
+      "technik": "Heliogravüre",
+      "werkidee": "Die Heliogravüren gehören zu einer Werkgruppe um die Stahlbeton-Bäume des Architekten Robert Mallet-Stevens (Paris 1925); aus deren Proportionen leitet Boyce Muster und eine eigene Schrift ab. »Electric Trees« verbindet formale Strenge mit poetisch-spielerischem Zugang."
     },
     {
       "id": 223,
@@ -3995,7 +4136,8 @@
       ],
       "blattgroesse": "24,0 x 30,0 cm / 18,3 x 26,0 cm",
       "drucker": "Atelier Margotow, Wahlershausen",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "»Spirals«, 1945 aus derselben Mappe: eine Photographie der späten amerikanischen Werkperiode, die Moholy-Nagys Beschäftigung mit Licht, Bewegung und »Raumzeit« dokumentiert."
     },
     {
       "id": 224,
@@ -4014,7 +4156,8 @@
       ],
       "blattgroesse": "48,3 × 32,9 cm / 40,7 × 30,5 cm",
       "drucker": "gOdigital, Berlin",
-      "technik": "Fotografie"
+      "technik": "Fotografie",
+      "werkidee": "Aus der Serie »Travertinsäulen, Recyclingpark Neckartal«: Kelm fotografierte monumentale Steinsäulen, die einst für ein NS-Monument Albert Speers gefertigt wurden und heute anachronistisch in einer Industrieanlage stehen – nüchtern dokumentiert und zugleich inszeniert."
     },
     {
       "id": 225,
@@ -4033,7 +4176,8 @@
       ],
       "blattgroesse": "42,0 × 30,0 cm",
       "drucker": "Handdruck Loeding & Sturm, Hamburg",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "Das Blatt »Conditions« (Holz- und Reliefdruck) entstand 2019 während eines Werkstattaufenthalts bei der Griffelkunst und verbindet verschiedene Drucktechniken, sodass jeder Druck Unikatcharakter erhält. Getreu John Cages »begin anywhere« entwickelt Phillips die Bilder intuitiv aus dem Material."
     },
     {
       "id": 226,
@@ -4052,7 +4196,8 @@
       ],
       "blattgroesse": "61,0 × 45,5 cm / 42,0 × 29,5 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "Blatt »Bad Nature (Silver Moose) 1« aus der Holzschnitt-Serie »Bad Nature« (2025) zeigt fragmentierte Wimpern von Rothirschen/Elchen im Themenfeld Queer Nature; das Elch-Motiv in Silber verweist mit metallischem Glanz auf Glitzer und Pride der queeren Kultur."
     },
     {
       "id": 227,
@@ -4071,7 +4216,8 @@
       ],
       "blattgroesse": "61,0 × 45,5 cm / 42,0 × 29,5 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "Blatt »Bad Nature (Soft Pink Deer) 2« aus derselben Serie: das sanfte Rosa steht bei Fleckner für Mitgefühl und feminine Werte und bricht bewusst mit der Darstellung des Rothirsches als »König des Waldes«."
     },
     {
       "id": 228,
@@ -4109,7 +4255,8 @@
       ],
       "blattgroesse": "25,2 × 45,0 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Hochdruck"
+      "technik": "Hochdruck",
+      "werkidee": "»Icons (Machine Boys) I«: Hochdruck nach einem Filmstill des in Venedig prämierten Films »Machine Boys« über die Motorradtaxi-Fahrer von Lagos; das invertierte Motiv ist in Farbe auf silbernen/goldenen Fond gesetzt und thematisiert die Beziehung von Mensch und Maschine."
     },
     {
       "id": 230,
@@ -4128,7 +4275,8 @@
       ],
       "blattgroesse": "25,2 × 45,0 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Hochdruck"
+      "technik": "Hochdruck",
+      "werkidee": "»Icons (Machine Boys) II«: Hochdruck der Serie nach »Machine Boys«, der die Intimität zwischen Körper und Maschine in metallisch-farbiger Übersetzung zeigt."
     },
     {
       "id": 231,
@@ -4147,7 +4295,8 @@
       ],
       "blattgroesse": "25,2 × 45,0 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Hochdruck"
+      "technik": "Hochdruck",
+      "werkidee": "»Icons (Machine Boys) III«: Hochdruck der Serie, der einen der jungen Fahrer bzw. Details der Motorräder aufgreift und ihre Spuren von Arbeit und Gebrauch sichtbar macht."
     },
     {
       "id": 232,
@@ -4166,7 +4315,8 @@
       ],
       "blattgroesse": "25,2 × 45,0 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Hochdruck"
+      "technik": "Hochdruck",
+      "werkidee": "»Icons (Machine Boys) IV«: Hochdruck der Serie, der Mensch und Maschine als Träger von Arbeit, Identität und gelebter Erfahrung zeigt."
     },
     {
       "id": 233,
@@ -4185,7 +4335,8 @@
       ],
       "blattgroesse": "25,2 × 45,0 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Hochdruck"
+      "technik": "Hochdruck",
+      "werkidee": "»Icons (Machine Boys) V«: Hochdruck der Serie, invertiert und in mehreren Farbschichten auf Metallic-Fond gesetzt."
     },
     {
       "id": 234,
@@ -4204,7 +4355,8 @@
       ],
       "blattgroesse": "25,2 × 45,0 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Hochdruck"
+      "technik": "Hochdruck",
+      "werkidee": "»Icons (Machine Boys) VI«: abschließendes Blatt der Serie nach Filmstills aus »Machine Boys«."
     },
     {
       "id": 235,
@@ -4223,7 +4375,8 @@
       ],
       "blattgroesse": "35,0 × 46,0 cm",
       "drucker": "Tabor Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»ophelia«, mehrfarbige Lithographie aus ihrer sechsteiligen Serie, in der sie ihre Malerei ins druckgraphische Medium übersetzt; ein farbintensiveres, figürlich angedeutetes Motiv."
     },
     {
       "id": 236,
@@ -4242,7 +4395,8 @@
       ],
       "blattgroesse": "35,0 × 46,0 cm",
       "drucker": "Tabor Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»pillow talk«, mehrfarbige Lithographie derselben Serie; Amadyar nutzt Lasuren, Schraffuren und Farbüberlagerungen, um Räume, Landschaften und angedeutete Schatten erscheinen zu lassen."
     },
     {
       "id": 237,
@@ -4261,7 +4415,8 @@
       ],
       "blattgroesse": "46,0 × 35,0 cm",
       "drucker": "Tabor Presse, Berlin",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "»(summer) blues«, mehrfarbige Lithographie im Hochformat aus der Serie, in den für ihre Malerei typischen Farbkombinationen."
     },
     {
       "id": 238,
@@ -4280,7 +4435,8 @@
       ],
       "blattgroesse": "73,0 × 53,5 cm / 60,0 × 39,5 cm",
       "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Radierung"
+      "technik": "Radierung",
+      "werkidee": "Die farbige Radierung »Lesen« zeigt ein lesendes Mädchen, um das herum Objekte, Pflanzen und Figuren zu schweben beginnen. Fujikawa zeigt Lesen nicht als Rückzug, sondern als schöpferische Kraft, die die Grenzen zwischen Realität und Vorstellung auflöst."
     },
     {
       "id": 239,
@@ -4299,7 +4455,8 @@
       ],
       "blattgroesse": "50,0 × 38,0 cm / 30,0 × 28,0 cm",
       "drucker": "Saal Presse, Bergsdorf",
-      "technik": "Linoldruck"
+      "technik": "Linoldruck",
+      "werkidee": "Der zweifarbige Linolschnitt »Bluepoolfoolfeelings« zeigt eine zusammengerollte, in sich gekehrte Figur; ein blauer Pool dient als Spiegel der Seele. Durante setzt innere Zustände zwischen Verletzlichkeit und Widerstandsfähigkeit ins Bild."
     },
     {
       "id": 240,
@@ -4318,7 +4475,8 @@
       ],
       "blattgroesse": "65,0 x 51,0 cm",
       "drucker": "Ellen Sturm-Loeding, Hamburg",
-      "technik": "Lithographie"
+      "technik": "Lithographie",
+      "werkidee": "Lithographie »Junger Mann« (2015); die Besteller erhielten zusätzlich das umfassende Werkverzeichnis der Druckgraphik und Fotoeditionen des Künstlers."
     },
     {
       "id": 241,
@@ -4337,7 +4495,8 @@
       ],
       "blattgroesse": "49,0 × 66,0 cm / 42,0 × 57,0 cm",
       "drucker": "Handdruck Loeding & Sturm, Hamburg",
-      "technik": "Holzdruck"
+      "technik": "Holzdruck",
+      "werkidee": "Zweifarbiger Holzschnitt »Schwimmer« (2025) zum 100-jährigen Jubiläum: ein junger Mann treibt in der Blauen Stunde schwimmend im Wasser – ungewöhnlich romantisch und atmosphärisch für Balkenhol."
     }
   ],
   "artists": {
@@ -4359,7 +4518,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/E_513_Christopher_Wool.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_wool.jpg",
-      "birth": 1955
+      "birth": 1955,
+      "artist_bio": "Christopher Wool, 1955 in Chicago geboren, ist einer der einflussreichsten amerikanischen Gegenwartskünstler und feiert vor allem als Maler das Malen selbst als Prozess; er lebt in New York und Marfa, Texas."
     },
     "Lawrence Weiner": {
       "tier": 1,
@@ -4379,7 +4539,8 @@
       },
       "portrait_url": "https://www.theartstory.org/images20/new_design/bio/bio_weiner_lawrence.jpg",
       "birth": 1942,
-      "death": 2021
+      "death": 2021,
+      "artist_bio": "1942 in New York geboren, 2021 ebenda gestorben; US-amerikanischer Konzeptkünstler und Pionier der Concept Art, dessen Werk vor allem aus sprachbasierten Textarbeiten besteht."
     },
     "Tony Cragg": {
       "tier": 1,
@@ -4398,7 +4559,8 @@
         "total": 12
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Craig-325-A1.jpg",
-      "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Craig.jpg"
+      "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Craig.jpg",
+      "artist_bio": "Tony Cragg, 1949 in Liverpool geboren, ist ein britischer Bildhauer (Turner Prize 1988) und zählt zu den wichtigsten Vertretern der zeitgenössischen Skulptur; er lebt in Wuppertal."
     },
     "Franz Erhard Walther": {
       "tier": 1,
@@ -4418,7 +4580,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/293C6-99WALTER.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/walther.jpg",
-      "birth": 1939
+      "birth": 1939,
+      "artist_bio": "Franz Erhard Walther, 1939 in Fulda geboren, ist ein deutscher Künstler und Pionier einer prozess- und handlungsorientierten, den Betrachter einbeziehenden Kunst; sein »1. Werksatz« aus textilen Objekten revolutionierte den Werkbegriff. 2017 erhielt er den Goldenen Löwen der Biennale Venedig."
     },
     "Günther Förg": {
       "tier": 1,
@@ -4436,7 +4599,8 @@
         "P": 2,
         "total": 11
       },
-      "portrait_url": "app/static/portraits/guenther_foerg.jpg"
+      "portrait_url": "app/static/portraits/guenther_foerg.jpg",
+      "artist_bio": "Günther Förg (1952 Füssen – 2013) war ein deutscher Maler, Bildhauer und Fotokünstler, der ausgehend von monochromen »Gitterbildern« ein umfangreiches, oft architekturbezogenes Werk schuf und u.a. an der documenta IX teilnahm."
     },
     "Dieter Roth": {
       "tier": 1,
@@ -4457,7 +4621,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/263C1-91ROTH.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portr%C3%A4t-Roth_1.jpg",
       "birth": 1930,
-      "death": 1998
+      "death": 1998,
+      "artist_bio": "Dieter Roth (1930 Hannover – 1998 Basel) war ein vielseitiger Künstler, der experimentelle Druckgraphik, Künstlerbücher und Objektkunst schuf; ihn verband eine lange Zusammenarbeit mit der Griffelkunst."
     },
     "Richard Deacon": {
       "tier": 1,
@@ -4477,7 +4642,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_568_Richard_Deacon.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Deacon-portrait_web_1.jpg",
-      "birth": 1949
+      "birth": 1949,
+      "artist_bio": "Richard Deacon, 1949 in Bangor (Wales) geboren; einer der bedeutendsten Bildhauer seiner Generation und zugleich leidenschaftlicher Zeichner. »Zeichnen und Denken liegen sehr nahe beieinander«, sagt der Turner-Preisträger."
     },
     "Matt Mullican": {
       "tier": 1,
@@ -4497,7 +4663,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Matt_Mullican_335_C_4.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Mullican.jpg",
-      "birth": 1951
+      "birth": 1951,
+      "artist_bio": "Matt Mullican, 1951 in Santa Monica geboren, ist bekannt für seinen Kosmos aus Piktogrammen und Ordnungstabellen; ein Teil seiner Arbeit geht auf Performances unter Hypnose zurück, in denen er innere Bilder entwickelt."
     },
     "László Moholy-Nagy": {
       "tier": 1,
@@ -4518,7 +4685,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Moholy-317-A6.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Moholy-Nagy.jpg",
       "birth": 1895,
-      "death": 1946
+      "death": 1946,
+      "artist_bio": "1895 in Bácsborsod (Ungarn) geboren, 1946 in Chicago gestorben; Bauhaus-Meister, Maler, Photograph und Lichtkünstler, bekannt vor allem für seine Photogramme und kinetischen Lichtarbeiten."
     },
     "Edvard Munch": {
       "tier": 1,
@@ -4536,7 +4704,8 @@
         "P": 2,
         "total": 11
       },
-      "portrait_url": "https://www.dailyartmagazine.com/wp-content/uploads/2022/12/EdvardMunch1926.jpeg"
+      "portrait_url": "https://www.dailyartmagazine.com/wp-content/uploads/2022/12/EdvardMunch1926.jpeg",
+      "artist_bio": "Edvard Munch (1863–1944) war ein norwegischer Maler und Grafiker, dessen Werk – darunter »Der Schrei« – als wegweisend für Symbolismus und Expressionismus gilt."
     },
     "Stephan Balkenhol": {
       "tier": 1,
@@ -4556,7 +4725,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_505_Stephan_Balkenhol_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portr%C3%A4t-Balkenhol_1.jpg",
-      "birth": 1957
+      "birth": 1957,
+      "artist_bio": "1957 in Fritzlar geboren; international bekannter Bildhauer (Studium u.a. bei Ulrich Rückriem); im Zentrum steht die gegenständliche menschliche Figur – oft der Mann im weißen Hemd – bei betont ungeglätteter Materialität und stoischem Ausdruck."
     },
     "Leon Golub": {
       "tier": 1,
@@ -4574,7 +4744,8 @@
         "P": 2,
         "total": 10
       },
-      "portrait_url": "https://www.theartstory.org/images20/new_design/bio/bio_golub_leon.jpg"
+      "portrait_url": "https://www.theartstory.org/images20/new_design/bio/bio_golub_leon.jpg",
+      "artist_bio": "1922 in Chicago geboren, 2004 in New York gestorben; US-amerikanischer Maler, bekannt für großformatige, politisch engagierte figurative Bilder über Macht, Krieg und Gewalt."
     },
     "Walid Raad": {
       "tier": 2,
@@ -4594,7 +4765,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/394_C3_Walid_Raad.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Raad_portraet_1.jpg",
-      "birth": 1967
+      "birth": 1967,
+      "artist_bio": "Walid Raad, 1967 in Chbanieh (Libanon) geboren, lebt in New York; seine Arbeiten kreisen um Erinnerung, Erzählung und die Verstrickung von Dokumentation und Fiktion in politischen Konfliktsituationen."
     },
     "Daniel Richter": {
       "tier": 2,
@@ -4614,7 +4786,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_554_Daniel_Richter.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/DAR_Portrait_Ben-Westoby_28_300dpi_1.jpg",
-      "birth": 1962
+      "birth": 1962,
+      "artist_bio": "Daniel Richter, 1962 in Eutin geboren, ist ein deutscher Maler, der an der HFBK Hamburg studierte; sein Werk bewegt sich zwischen Figuration und Abstraktion."
     },
     "Marcel Odenbach": {
       "tier": 2,
@@ -4634,7 +4807,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/388_A5_Marcel_Odenbach.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_odenbach_1.jpg",
-      "birth": 1953
+      "birth": 1953,
+      "artist_bio": "Marcel Odenbach, 1953 in Köln geboren, gilt als Pionier der Videokunst und arbeitet in Film wie in Papierarbeiten mit dem Prinzip der Collage; oft mit Bezug zur eigenen Biographie lenkt er den Blick auf autoritäre Strukturen, die NS-Vergangenheit sowie Kolonialismus und Rassismus."
     },
     "Simon Denny": {
       "tier": 2,
@@ -4654,7 +4828,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/400B1.jpg",
       "portrait_url": "https://hfbk-hamburg.de/media/pages/personen/simon-denny/079fd87fe7-1751393519/scr-20250701-rogm-1000x1333-crop-45-2-38-9.jpg",
-      "birth": 1982
+      "birth": 1982,
+      "artist_bio": "1982 in Auckland geboren, lebt in Hamburg und Berlin; untersucht die sozialen und politischen Auswirkungen der Technologiebranche – von Social Media, Startups und Blockchain bis zur Künstlichen Intelligenz."
     },
     "Heimo Zobernig": {
       "tier": 2,
@@ -4674,7 +4849,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/393_A2_Heimo_Zobernig_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Heimo-Zobernig.jpg",
-      "birth": 1958
+      "birth": 1958,
+      "artist_bio": "Heimo Zobernig, 1958 in Mauthen (Österreich) geboren, lebt in Wien; sein medienübergreifendes, analytisches Werk kreist um die »ausdruckslose« Sprache geometrischer Abstraktion und war u.a. auf der Biennale Venedig, der documenta und im MoMA zu sehen."
     },
     "Martin Boyce": {
       "tier": 2,
@@ -4694,7 +4870,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Boyce-323-C-1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Boyce.jpg",
-      "birth": 1967
+      "birth": 1967,
+      "artist_bio": "Martin Boyce, 1967 in Glasgow geboren, arbeitet mit einem dichten Netz an Referenzen auf Kunst-, Architektur- und Designgeschichte, besonders die Moderne der 1940er/50er Jahre, und verwandelt vertraute Formen in verstörende Objekte."
     },
     "Thomas Scheibitz": {
       "tier": 2,
@@ -4714,7 +4891,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Scheibitz-307-A1.jpg",
       "portrait_url": "https://spruethmagers.com/files/img_4405-scaled-1920x1278.jpeg",
-      "birth": 1968
+      "birth": 1968,
+      "artist_bio": "Thomas Scheibitz, 1968 in Radeberg geboren, ist ein deutscher Maler und Bildhauer, dessen Werk zwischen Abstraktion und Gegenständlichkeit changiert."
     },
     "Nedko Solakov": {
       "tier": 2,
@@ -4734,7 +4912,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/366_C1_Nedko_Solakov.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_solakov.jpg",
-      "birth": 1957
+      "birth": 1957,
+      "artist_bio": "Nedko Solakov, 1957 in Cherven Brjag (Bulgarien) geboren, lebt in Sofia; bekannt für seine mit handschriftlichen Texten kombinierten Miniatur-»Stories« – zeitgenössische Fabeln voll subversivem Humor (documenta 12)."
     },
     "Umbo (Otto Umbehr)": {
       "tier": 2,
@@ -4755,7 +4934,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/385_A6_Umbo.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_-umbo_1.jpg",
       "birth": 1902,
-      "death": 1980
+      "death": 1980,
+      "artist_bio": "Umbo (Otto Umbehr, 1902–1980) war ein bedeutender Bauhaus-Photograph und gilt als einer der Begründer und Meister der modernen Street-Photography."
     },
     "Boris Michailow": {
       "tier": 2,
@@ -4795,7 +4975,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/376_B3_Jonathan_Monk.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait-monk.jpg",
-      "birth": 1969
+      "birth": 1969,
+      "artist_bio": "Jonathan Monk, 1969 in Leicester (England) geboren, ist ein britischer Konzeptkünstler, der seit Ende der 1980er Ikonen der zeitgenössischen Kunst zitiert, aneignet und augenzwinkernd zwischen Hommage und Persiflage konterkariert."
     },
     "Horst Janssen": {
       "tier": 2,
@@ -4816,7 +4997,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_488_Janssen_1.jpg",
       "portrait_url": "https://www.horst-janssen-museum.de/fileadmin/_processed_/c/5/csm_02_Horst_Janssen__Portraet__Foto_Hans_Eick_7df9876816.jpg",
       "birth": 1929,
-      "death": 1995
+      "death": 1995,
+      "artist_bio": "Horst Janssen (1929–1995, Hamburg) war ein deutscher Zeichner und Grafiker, der bei Alfred Mahlau studierte und mit Porträts, Landschaften, Stillleben und erotischen Motiven berühmt wurde; kein Künstler war der Griffelkunst über so lange Zeit und mit so vielen Editionen verbunden wie er."
     },
     "Dmitrij Prigov": {
       "tier": 2,
@@ -4834,7 +5016,8 @@
         "P": 2,
         "total": 9
       },
-      "portrait_url": "http://russia-ic.com/img/people/d_prigov.jpg"
+      "portrait_url": "http://russia-ic.com/img/people/d_prigov.jpg",
+      "artist_bio": "Dmitri Alexandrowitsch Prigow (1940–2007) war ein russischer Konzeptkünstler, Dichter und Zeichner und einer der zentralen Vertreter des Moskauer Konzeptualismus."
     },
     "Michel Majerus": {
       "tier": 2,
@@ -4855,7 +5038,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Majerus-308-A1.jpg",
       "portrait_url": "https://images.squarespace-cdn.com/content/v1/5cb09473755be259f904d128/1623210504794-7STWPXDOFLBN9FC7CTWH/Michel+Majerus+SMALLER.jpg",
       "birth": 1967,
-      "death": 2002
+      "death": 2002,
+      "artist_bio": "Michel Majerus (1967 Esch-sur-Alzette – 2002), war ein installativ arbeitender Maler und Bildhauer; bekannt wurde er durch die entgrenzende Kombination von Motiven der Kunstgeschichte mit denen der populären Massen- und Computerkultur."
     },
     "Christian Schad": {
       "tier": 2,
@@ -4873,7 +5057,8 @@
         "P": 2,
         "total": 9
       },
-      "portrait_url": "https://artpil.com/wp-content/themes/yootheme/cache/a7/Christian-Schad-bio320-a7ae66c4.jpeg"
+      "portrait_url": "https://artpil.com/wp-content/themes/yootheme/cache/a7/Christian-Schad-bio320-a7ae66c4.jpeg",
+      "artist_bio": "Christian Schad (1894–1982) war ein deutscher Maler und bedeutender Vertreter der Neuen Sachlichkeit; in der Dada-Zeit schuf er zudem kameralose Fotogramme, die sogenannten »Schadographien«."
     },
     "Karl Bloßfeldt": {
       "tier": 2,
@@ -4894,7 +5079,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/363-A6-Blossfeldt.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Blossfeldt.jpg",
       "birth": 1865,
-      "death": 1932
+      "death": 1932,
+      "artist_bio": "1865 in Schielo geboren, 1932 in Berlin gestorben; Photograph und Lehrer, dessen Pflanzenstudien als stilprägend für die Neue Sachlichkeit gelten. Mit »Urformen der Kunst« (1928) wurde er über Nacht bekannt."
     },
     "Thomas Bayrle": {
       "tier": 2,
@@ -4914,7 +5100,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/387_B3_Thomas_Bayrle.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_Bayrle_Foto_Wolfgang-Guenzel_1.jpg",
-      "birth": 1937
+      "birth": 1937,
+      "artist_bio": "1937 in Berlin geboren, lebt in Frankfurt am Main; ausgehend von einer Weberlehre entwickelt er serielle Rasterstrukturen, in denen sich viele Einzelbilder zu großen »Superformen« fügen; er gilt als Pionier der computergenerierten Kunst."
     },
     "David Tremlett": {
       "tier": 2,
@@ -4934,7 +5121,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/398_C1_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portrait_Tremlett.jpg",
-      "birth": 1945
+      "birth": 1945,
+      "artist_bio": "David Tremlett, 1945 in Cornwall geboren, ist ein britischer Bildhauer und Zeichner der Minimal Art, bekannt vor allem für seine großflächigen Wandzeichnungen (»Walldrawings«)."
     },
     "Ernesto Caivano": {
       "tier": 2,
@@ -4954,7 +5142,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Caivano_330_C3.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Caivano.jpg",
-      "birth": 1972
+      "birth": 1972,
+      "artist_bio": "In New York lebender Künstler, 1972 in Madrid geboren; in Zeichnungen, Radierungen und Skulpturen entwirft er ein komplexes, erzählerisches Paralleluniversum."
     },
     "Tal R": {
       "tier": 3,
@@ -4995,7 +5184,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/391_A1_Philip_Gr%C3%B6zinger.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/philip-groezinger_1.jpg",
-      "birth": 1972
+      "birth": 1972,
+      "artist_bio": "Philip Grözinger, 1972 in Braunschweig geboren, lebt in Berlin; Maler und Zeichner, der in überbordenden, melancholisch grundierten Bildwelten voller Wesen und Zitate Utopien und Dystopien erzählt."
     },
     "Tobias Zielony": {
       "tier": 3,
@@ -5015,7 +5205,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/E_565_Tobias_Zielony.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/DianeVincent_TobiasZielony_2-Portrait.jpg",
-      "birth": 1973
+      "birth": 1973,
+      "artist_bio": "Tobias Zielony, 1973 in Wuppertal geboren, lebt in Berlin; er photographiert Sub- und Jugendkulturen und sprengt mit filmisch-erzählerischen Serien den Rahmen der dokumentarischen Photographie."
     },
     "Jochen Lempert": {
       "tier": 3,
@@ -5055,7 +5246,8 @@
         "total": 9
       },
       "portrait_url": "https://www.burg-halle.de/media/_processed_/6/a/csm_BURG-Prof-Baumg%C3%A4rtel-Tilo-2020-Foto_Michel-Klehm-LQ-_02__dfe8ff2c4a.jpg",
-      "birth": 1972
+      "birth": 1972,
+      "artist_bio": "Tilo Baumgärtel, 1972 in Leipzig geboren, ist ein Maler der Neuen Leipziger Schule; seine großformatigen Werke wurzeln im Surrealismus und changieren zwischen Traum und Wirklichkeit."
     },
     "Matthias Weischer": {
       "tier": 3,
@@ -5075,7 +5267,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/E-523-Matthias-Weischer.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_weischer.jpg",
-      "birth": 1973
+      "birth": 1973,
+      "artist_bio": "Matthias Weischer, 1973 in Elte geboren, lebt in Leipzig und wurde mit konstruierten, atmosphärisch aufgeladenen Interieurs bekannt; seine bühnenartig inszenierten Bildräume sind zugleich stets ein Nachdenken über Malerei."
     },
     "André Butzer": {
       "tier": 3,
@@ -5094,7 +5287,8 @@
         "total": 12
       },
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait-Butzer_1.jpg",
-      "birth": 1973
+      "birth": 1973,
+      "artist_bio": "André Butzer, 1973 in Stuttgart geboren, ist Maler und Grafiker, der Figuration und Abstraktion, Politik und Popkultur zu Sinnbildern der menschlichen Existenz verbindet; er lebt und arbeitet in Berlin."
     },
     "Norbert Schwontkowski": {
       "tier": 3,
@@ -5115,7 +5309,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/299A2-00SCHWONTKOWSKI.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portr%C3%A4t-Schwontkowski_1.jpg",
       "birth": 1949,
-      "death": 2013
+      "death": 2013,
+      "artist_bio": "Norbert Schwontkowski (1949–2013, Bremen), Maler leiser, ironisch-poetischer Bilder mit charakteristisch pastoser, aus vielen Lasuren aufgebauter Grundierung."
     },
     "Gerwald Rockenschaub": {
       "tier": 3,
@@ -5135,7 +5330,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/382_A1_Gerwald_Rockenschaub.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Rockenschaub_portrait_web_1.jpg",
-      "birth": 1952
+      "birth": 1952,
+      "artist_bio": "Gerwald Rockenschaub, 1952 in Linz geboren, lebt in Berlin und ist in bildender Kunst und Musik tätig; ausgehend von minimalistisch-geometrischer Malerei (Neo-Geo) entwickelte er raumbezogene Installationen, wobei der Rhythmus sein Werk durchzieht."
     },
     "Beat Zoderer": {
       "tier": 3,
@@ -5155,7 +5351,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/373_C3_Beat_Zoderer.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portrait-Zoderer.jpg",
-      "birth": 1955
+      "birth": 1955,
+      "artist_bio": "Beat Zoderer, 1955 in Zürich geboren, zählt zu den wichtigen Vertretern einer zeitgenössischen konstruktiv-konkreten Kunst, die er mit Alltagsmaterialien und bewussten Ungenauigkeiten undogmatisch fortführt; er lebt in Wettingen und Genua."
     },
     "Markus Vater": {
       "tier": 3,
@@ -5176,7 +5373,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/362_A2_Markus_Vater_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_MVater_1.jpg",
       "birth": 1970,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "Markus Vater, 1970 in Düsseldorf geboren und in London lebend, reflektiert mit bildlichen und textlichen Notizen die Absurditäten des Alltags; charakteristisch sind aus der Linie entwickelte Zeichnungen mit einer prägnanten handschriftlichen Textzeile."
     },
     "Jonathan Meese": {
       "tier": 3,
@@ -5196,7 +5394,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E621.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Meese-Portr%C3%A4t_web_1.jpg",
-      "birth": 1970
+      "birth": 1970,
+      "artist_bio": "Jonathan Meese, 1970 in Tokio geboren, ist ein deutscher Künstler (Malerei, Performance, Skulptur, Dichtung), der seit rund 30 Jahren mit Mythen, Helden und Tabus provoziert; er lebt in Berlin und Hamburg."
     },
     "Stefan Marx": {
       "tier": 3,
@@ -5216,7 +5415,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/E_560_Stefan_Marx_III.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/SMarx_Portrait_web.jpg",
-      "birth": 1979
+      "birth": 1979,
+      "artist_bio": "1979 in Schwalmstadt geboren, lebt in Berlin; Zeichner mit unverwechselbarer Typografie, dessen Arbeiten ein demokratisches Kunstverständnis verkörpern und spielerisch zwischen Hoch- und Popkultur pendeln."
     },
     "Christoph Ruckhäberle": {
       "tier": 3,
@@ -5236,7 +5436,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/357_B4_Christoph_Ruckhaeberle.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portrait_Ruckhaeberle.jpg",
-      "birth": 1972
+      "birth": 1972,
+      "artist_bio": "Christoph Ruckhäberle, 1972 in Pfaffenhofen geboren, ist Maler und Grafiker sowie Mitbegründer des Leipziger Lubok Verlags und arbeitet seit vielen Jahren intensiv mit dem Linolschnitt."
     },
     "Elger Esser": {
       "tier": 3,
@@ -5255,7 +5456,8 @@
         "total": 10
       },
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Esser.jpg",
-      "birth": 1967
+      "birth": 1967,
+      "artist_bio": "Elger Esser, 1967 in Stuttgart geboren, ist ein deutscher Fotograf, bekannt vor allem für seine großformatigen Landschafts- und Küstenaufnahmen."
     },
     "Felix Droese": {
       "tier": 3,
@@ -5275,7 +5477,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/280A1-95DROESE.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portr%C3%A4t-Droese_1.jpg",
-      "birth": 1950
+      "birth": 1950,
+      "artist_bio": "Felix Droese, 1950 in Singen geboren, ist ein deutscher Künstler und Beuys-Schüler, der seit den 1980er-Jahren mit Scherenschnitten, Holzdrucken, Objekten und Installationen ein politisch engagiertes Werk schuf; er nahm an der documenta teil und bespielte 1988 den Deutschen Pavillon der Biennale Venedig."
     },
     "Timur Novikov": {
       "tier": 3,
@@ -5295,7 +5498,8 @@
       },
       "portrait_url": "https://images-prod.dazeddigital.com/800/azure/dazed-prod/1130/2/1132275.jpg",
       "birth": 1958,
-      "death": 2002
+      "death": 2002,
+      "artist_bio": "Timur Nowikow (1958–2002) war ein russischer Künstler aus Leningrad/St. Petersburg, Gründer der Gruppe »Neue Künstler« und der Neuen Akademie der Schönen Künste sowie zentrale Figur der Leningrader Underground- und Neoakademismus-Bewegung."
     },
     "Strawalde": {
       "tier": 3,
@@ -5315,7 +5519,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/279A1-95STRAWALDE.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portr%C3%A4t-Strawalde_1.jpg",
-      "birth": 1931
+      "birth": 1931,
+      "artist_bio": "Künstlername von Jürgen Böttcher, 1931 in Frankenthal (Sachsen) geboren; Maler, Regisseur und Dokumentarfilmer, einer der bedeutenden oppositionellen Maler der DDR; sein Stil wechselt zwischen Abstraktion, freier Gestik und figürlich-surrealen Elementen."
     },
     "Gustav Kluge": {
       "tier": 3,
@@ -5334,7 +5539,8 @@
         "total": 10
       },
       "portrait_url": "https://www.gustavkluge.de/wp-content/uploads/2020/09/Bild-e1599910257438.jpg",
-      "birth": 1947
+      "birth": 1947,
+      "artist_bio": "Gustav Kluge, 1947 in Wittenberge geboren, ist ein deutscher Maler und Grafiker, der an der HFBK Hamburg studierte und 1996–2014 in Karlsruhe lehrte; seine vielschichtigen Gemälde und existenziell aufgeladenen Farbholzschnitte gelten als Hauptwerke eines Neoexpressionismus."
     },
     "Heinrich Zille": {
       "tier": 3,
@@ -5352,7 +5558,8 @@
         "P": 2,
         "total": 9
       },
-      "portrait_url": "https://www.dhm.de/lemo/fileadmin/medien/lemo/images/f67_2015.jpg"
+      "portrait_url": "https://www.dhm.de/lemo/fileadmin/medien/lemo/images/f67_2015.jpg",
+      "artist_bio": "Heinrich Zille (1858 Radeburg – 1929 Berlin) war ein deutscher Zeichner, Grafiker und Fotograf, der vor allem das Berliner Arbeiter- und Kleinbürgermilieu (»Milljöh«) humorvoll und sozialkritisch festhielt."
     },
     "Alfred Ehrhardt": {
       "tier": 3,
@@ -5373,7 +5580,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B3_Alfred_Erhardt.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_ehrhardt.jpg",
       "birth": 1901,
-      "death": 1984
+      "death": 1984,
+      "artist_bio": "Alfred Ehrhardt (1901 Triptis – 1984 Hamburg) war ein deutscher Fotograf, Filmemacher und Maler im Umfeld der Neuen Sachlichkeit, der sich nach seiner Entlassung aus dem Hochschuldienst 1933 vor allem der Natur- und Strukturfotografie zuwandte."
     },
     "F. Seidenstücker": {
       "tier": 3,
@@ -5394,7 +5602,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/373_A1_Friedrich_Seidenstu%CC%88cker.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait-seidenstuecker.jpg",
       "birth": 1882,
-      "death": 1966
+      "death": 1966,
+      "artist_bio": "Deutscher Fotograf (1882 Unna – 1966 Berlin); ursprünglich Bildhauer, wurde er um 1928 Fotograf und ist vor allem für seine Berliner Straßen- und Zoophotographien bekannt."
     },
     "Sven Drühl": {
       "tier": 3,
@@ -5414,7 +5623,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/344_A1_Druehl.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/portrait-druehl.jpg",
-      "birth": 1968
+      "birth": 1968,
+      "artist_bio": "1968 in Nassau an der Lahn geboren, lebt in Berlin; seine Landschafts- und Architekturmotive beziehen sich stets auf Werke anderer Künstler und »remixen« diese – als Abstraktionen zweiter Ordnung – in seinen unverwechselbaren Stil."
     },
     "Raoul Ubac": {
       "tier": 3,
@@ -5435,7 +5645,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Ubac-331-B4.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Ubac.jpg",
       "birth": 1910,
-      "death": 1985
+      "death": 1985,
+      "artist_bio": "Raoul Ubac (1910–1985), belgisch-französischer Künstler im Umfeld des Surrealismus; mit Techniken wie Solarisation, Pétrification und Brûlage entwickelte er eine neue Bildsprache der Photographie, bevor er zur Malerei wechselte."
     },
     "Chargesheimer": {
       "tier": 3,
@@ -5456,7 +5667,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Chargesheimer-329-C1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Chargesheimer.jpg",
       "birth": 1924,
-      "death": 1972
+      "death": 1972,
+      "artist_bio": "Chargesheimer (Karl Heinz Hargesheimer, 1924–1971, Köln) war einer der bedeutendsten deutschen Nachkriegsfotografen, der vor allem in Bildserien und Fotobüchern über Köln und das Ruhrgebiet arbeitete."
     },
     "Ludger Gerdes": {
       "tier": 3,
@@ -5476,7 +5688,8 @@
       },
       "portrait_url": "app/static/portraits/ludger_gerdes.jpg",
       "birth": 1954,
-      "death": 2008
+      "death": 2008,
+      "artist_bio": "1954 in Lastrup geboren, 2008 in Amsterdam gestorben; deutscher Künstler, der mit Malerei, Skulptur und Kunst im öffentlichen Raum arbeitete und dabei häufig Zeichen und Wörter einsetzte."
     },
     "Mark Dion": {
       "tier": 3,
@@ -5495,7 +5708,8 @@
         "total": 12
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/353_A1_Mark_Dion_1.jpg",
-      "portrait_url": "https://www.griffelkunst.de/i/_medium/MarkDion-Portrait_1.jpg"
+      "portrait_url": "https://www.griffelkunst.de/i/_medium/MarkDion-Portrait_1.jpg",
+      "artist_bio": "Mark Dion, 1961 in New Bedford/Massachusetts geboren, analysiert die kulturellen Konstruktionen, unter denen Wissen über Natur produziert wird; angelehnt an Museum, Taxonomie und Naturforschung ironisiert er unsere Ordnungs- und Sammlungssysteme."
     },
     "Via Lewandowsky": {
       "tier": 3,
@@ -5515,7 +5729,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E615_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Lewandowsky_2023_oliver_mark.jpg",
-      "birth": 1963
+      "birth": 1963,
+      "artist_bio": "Via Lewandowsky, 1963 in Dresden geboren, lebt in Berlin; sein oft mit Humor und Verblüffung arbeitendes Werk umfasst Objekte, Installationen und Spiegelarbeiten."
     },
     "Florian Meisenberg": {
       "tier": 3,
@@ -5535,7 +5750,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/Meisenberg_348_B_2_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Meisenberg_1.jpg",
-      "birth": 1980
+      "birth": 1980,
+      "artist_bio": "Florian Meisenberg, 1980 in Berlin geboren, lebt in New York und versteht sich vor allem als Maler; er verbindet Malerei mit virtuellem Raum und arbeitet als Zeichner sowie Performance-, Video- und Installationskünstler. Er war Meisterschüler von Peter Doig in Düsseldorf."
     },
     "John Isaacs": {
       "tier": 3,
@@ -5555,7 +5771,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Isaacs-304-A4.jpg",
       "portrait_url": "",
-      "birth": 1968
+      "birth": 1968,
+      "artist_bio": "John Isaacs, 1968 in Lancaster (England) geboren, ist ein britischer Künstler, der u.a. mit Objekten, Skulpturen und Fotografien arbeitet; er lebt in Berlin."
     },
     "Thomas Huber": {
       "tier": 3,
@@ -5574,7 +5791,8 @@
         "total": 10
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A1.jpg",
-      "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Huber.jpg"
+      "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Huber.jpg",
+      "artist_bio": "1955 in Zürich geboren, lebt in Berlin; Maler und ausgesprochener Kritiker der Malerei, der seine Bilder durch Essays und Reden ergänzt und den Bildraum als imaginär begehbaren Raum neu entwirft."
     },
     "A. Paul Weber": {
       "tier": 3,
@@ -5595,7 +5813,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/384_B1_Marcus_Weber.jpg",
       "portrait_url": "",
       "birth": 1893,
-      "death": 1980
+      "death": 1980,
+      "artist_bio": "Andreas Paul Weber (1893–1980) war ein deutscher Zeichner und Lithograf, bekannt vor allem für seine gesellschaftskritischen, satirischen und fabelhaft-hintergründigen Schwarz-Weiß-Blätter. Ihm ist das A. Paul Weber-Museum in Ratzeburg gewidmet."
     },
     "Jan Knap": {
       "tier": 3,
@@ -5615,7 +5834,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B5.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Knap.jpg",
-      "birth": 1949
+      "birth": 1949,
+      "artist_bio": "Jan Knap, 1949 in Chrudim (Tschechoslowakei) geboren, studierte bei Joseph Beuys und Gerhard Richter in Düsseldorf und begründete 1979 die »Gruppe Normal« mit; sein Werk sucht Schönheit und Harmonie in einer bewusst einfachen, religiös geprägten Bildwelt."
     },
     "Karo Akpokiere": {
       "tier": 3,
@@ -5635,7 +5855,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_C5_Karo_Akpokiere.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait-karo-akpokiere.jpg",
-      "birth": 1981
+      "birth": 1981,
+      "artist_bio": "1981 in Lagos geboren, lebt in Lagos, Berlin und Hamburg. Arbeitet im Grenzbereich von Zeichnung, Comic, Illustration und Typographie, geprägt vom Alltag und der urbanen Schrift- und Graffitikultur."
     },
     "Katsutoshi Yuasa": {
       "tier": 3,
@@ -5655,7 +5876,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/Yuasa_330_A5.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Yuasa_1.jpg",
-      "birth": 1978
+      "birth": 1978,
+      "artist_bio": "Japanischer Künstler, der ausschließlich im Holzschnitt arbeitet und eigene Schnappschuss-Photographien mit traditionellen japanischen Werkzeugen in monochrome Drucke übersetzt."
     },
     "Norbert Prangenberg": {
       "tier": 3,
@@ -5675,7 +5897,8 @@
       },
       "portrait_url": "https://studio.brooklynrail.org/assets/217453bc-9a42-423c-baaf-c1fc033c1182.jpg",
       "birth": 1949,
-      "death": 2012
+      "death": 2012,
+      "artist_bio": "Norbert Prangenberg (1949 Rommerskirchen – 2012), Maler, Bildhauer und Graphiker mit einer elementaren, körperhaft-abstrakten Formensprache."
     },
     "Martin Noël": {
       "tier": 3,
@@ -5696,7 +5919,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/276A3-94NOEL.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portr%C3%A4t-No%C3%ABl_1.jpg",
       "birth": 1956,
-      "death": 2010
+      "death": 2010,
+      "artist_bio": "Martin Noël (1956 Berlin – 2010 Bonn) war ein Künstler, in dessen Holzdrucken und Lithographien die Linie im Vordergrund steht; seine Motive schöpfte er aus einer flanierenden Wahrnehmung von Rissen, Strukturen und linearen Spuren des Alltags."
     },
     "Jerry Zeniuk": {
       "tier": 3,
@@ -5716,7 +5940,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/E406-Zeniuk-E406.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Zeniuk.jpg",
-      "birth": 1945
+      "birth": 1945,
+      "artist_bio": "Jerry Zeniuk, 1945 in Deutschland geboren und in den USA aufgewachsen, wurde als Protagonist der analytischen bzw. fundamentalen Malerei international bekannt (u.a. documenta 1977) und beschäftigt sich vor allem mit Farbe und Form."
     },
     "Peter Angermann": {
       "tier": 3,
@@ -5735,7 +5960,8 @@
         "total": 12
       },
       "portrait_url": "",
-      "birth": 1945
+      "birth": 1945,
+      "artist_bio": "Peter Angermann, 1945 in Rehau geboren; deutscher Maler, studierte u.a. bei Joseph Beuys in Düsseldorf und wandte sich der gegenständlichen Pleinairmalerei zu; Professor u.a. an der Akademie der Bildenden Künste Nürnberg."
     },
     "Hansjörg Mayer": {
       "tier": 3,
@@ -5755,7 +5981,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_580_Hansjo%CC%88rg_Mayer.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_mayer_1.jpg",
-      "birth": 1943
+      "birth": 1943,
+      "artist_bio": "Hansjörg Mayer, 1943 in Stuttgart geboren, lebt in London und gilt als wichtiger Vertreter der konkreten und visuellen Poesie; er zerlegt Wörter und Buchstaben in ihre Grundformen und war als Verleger (edition hansjörg mayer) einflussreich."
     },
     "Kai Schiemenz": {
       "tier": 3,
@@ -5776,7 +6003,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/350_A3_Schiemenz_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait-Schiemenz_1.jpg",
       "birth": 1966,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "1966 in Erfurt geboren, lebt in Berlin. Bekannt für begehbare Skulpturen und Installationen sowie mehrfarbige Holzschnitte, in denen er sich mit Landschaft und Raum auseinandersetzt."
     },
     "Richard Haizmann": {
       "tier": 3,
@@ -5797,7 +6025,8 @@
       "portrait_url": "https://www.haizmann-museum.de/wp-content/uploads/2019/12/haizmann-216x300.jpg",
       "birth": 1895,
       "death": 1963,
-      "sekundaermarkt": "mittel"
+      "sekundaermarkt": "mittel",
+      "artist_bio": "Richard Haizmann (1895 Villingen – 1963 Niebüll), deutscher Maler, Bildhauer, Keramiker und Holzschneider der Klassischen Moderne, der sich nach NS-Ausstellungsverbot nach Nordfriesland zurückzog (heute Richard-Haizmann-Museum)."
     },
     "Heinrich Stegemann": {
       "tier": 3,
@@ -5818,7 +6047,8 @@
       "portrait_url": "app/static/portraits/heinrich_stegemann.jpg",
       "birth": 1888,
       "death": 1945,
-      "sekundaermarkt": "mittel"
+      "sekundaermarkt": "mittel",
+      "artist_bio": "Heinrich Stegemann (1888–1945, Hamburg) war ein deutscher Maler und Bildhauer der klassischen Moderne; 1937 wurden zahlreiche seiner Werke als »Entartete Kunst« beschlagnahmt."
     },
     "Willem Grimm": {
       "tier": 3,
@@ -5839,7 +6069,8 @@
       "portrait_url": "https://www.mkg-hamburg.de/sites/default/files/styles/teaser/public/externals/e/4/e4463e7ac9fa0f96ec05b3f55b1f21be.jpg.webp?itok=Wpa1p7P3",
       "birth": 1904,
       "death": 1986,
-      "sekundaermarkt": "mittel"
+      "sekundaermarkt": "mittel",
+      "artist_bio": "Willem Grimm (1904–1986) war ein deutscher Maler und Graphiker, Mitglied der Hamburgischen Sezession und langjähriger Lehrer an der Landeskunstschule Hamburg."
     },
     "Thorsten Brinkmann": {
       "tier": 3,
@@ -5858,7 +6089,8 @@
         "total": 9
       },
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_Thorsten_Brinkmann.jpg",
-      "birth": 1971
+      "birth": 1971,
+      "artist_bio": "Thorsten Brinkmann, 1971 in Herne geboren, lebt in Hamburg; er arbeitet skulptural, photographisch und installativ auf Basis gefundener Alltagsgegenstände."
     },
     "Fred Koch": {
       "tier": 3,
@@ -5878,7 +6110,8 @@
       },
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_koch_1.jpg",
       "birth": 1904,
-      "death": 1947
+      "death": 1947,
+      "artist_bio": "Fred Koch (1904 Berleburg – 1947) zählt mit seinen neusachlichen Schwarzweißphotographien zu den wichtigen Photographen der Weimarer Republik und gilt neben Karl Blossfeldt und Albert Renger-Patzsch als Meister der Pflanzenphotographie; nach frühem Tod geriet er in Vergessenheit."
     },
     "Johannes Wüsten": {
       "tier": 3,
@@ -5898,7 +6131,8 @@
       },
       "portrait_url": "https://asset.museum-digital.org/sachsen/images/74/202101/26173/foto-von-johannes-wuesten-26173.jpg",
       "birth": 1896,
-      "death": 1943
+      "death": 1943,
+      "artist_bio": "Johannes Wüsten (1896 Heidelberg – 1943 Zuchthaus Brandenburg-Görden) war ein deutscher Maler, Grafiker, Kupferstecher und Schriftsteller sowie antifaschistischer Widerstandskämpfer, der in NS-Haft starb."
     },
     "Pavel Pepperstein": {
       "tier": 3,
@@ -5916,7 +6150,8 @@
         "P": 3,
         "total": 10
       },
-      "portrait_url": "https://images.prismic.io/kewenig/2eeead0e-fb0c-44de-a1dc-3a1f297b5829_PP_P_202.003.O.jpg?auto=compress%2Cformat&w=1024"
+      "portrait_url": "https://images.prismic.io/kewenig/2eeead0e-fb0c-44de-a1dc-3a1f297b5829_PP_P_202.003.O.jpg?auto=compress%2Cformat&w=1024",
+      "artist_bio": "Pavel Pepperstein, 1966 in Moskau geboren; russischer Künstler und Schriftsteller, Mitbegründer der »Inspektion Medizinische Hermeneutik« und Vertreter der Moskauer konzeptuellen Schule."
     },
     "Michael Morgner": {
       "tier": 3,
@@ -5935,7 +6170,8 @@
         "total": 9
       },
       "portrait_url": "https://www.sadk.de/fileadmin/user_upload/Mitglieder/Morgner_Michael-Foto_Herbst_Dittersdorf.jpg",
-      "birth": 1942
+      "birth": 1942,
+      "artist_bio": "Michael Morgner, 1942 in Chemnitz geboren, ist ein freischaffender Künstler und Mitbegründer der Chemnitzer Gruppe Clara Mosch; sein Werk (u.a. in der Lavage-Technik) kreist um die menschliche Figur und existenzielle Themen. 1991 erhielt er den Grafikpreis der Griffelkunst-Mitglieder."
     },
     "Thomas Ranft": {
       "tier": 3,
@@ -5953,7 +6189,8 @@
         "P": 3,
         "total": 9
       },
-      "portrait_url": "https://kunsttempel.net/wp-content/uploads/2018/12/ranft_web1.jpg"
+      "portrait_url": "https://kunsttempel.net/wp-content/uploads/2018/12/ranft_web1.jpg",
+      "artist_bio": "1945 in Königsee geboren; deutscher Grafiker, nach dem Studium in Leipzig freischaffend in Karl-Marx-Stadt und Mitbegründer der Künstlergruppe Clara Mosch (1977–1982)."
     },
     "Friedrich Einhoff": {
       "tier": 4,
@@ -5973,7 +6210,8 @@
       },
       "portrait_url": "https://www.galerievandeloo-projekte.de/sites/default/files/pics/friedrich_einhoff/biographie/friedrich-einhoff.jpg",
       "birth": 1936,
-      "death": 2018
+      "death": 2018,
+      "artist_bio": "Friedrich Einhoff (1936 Magdeburg – 2018 Hamburg) war ein deutscher Maler und Zeichner, der an der HFBK Hamburg studierte und dort später als Professor lehrte; sein Werk kreist in reduzierter, figürlicher Form um das fragile Bild des Menschen."
     },
     "Arno Beck": {
       "tier": 4,
@@ -5993,7 +6231,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/392_A5_Arno_Beck.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Arno-Beck_1.jpg",
-      "birth": 1985
+      "birth": 1985,
+      "artist_bio": "Arno Beck, 1985 in Bonn geboren, bewegt sich an der Schwelle zwischen Digitalem und Analogem und übersetzt digitale Bildwelten mit klassischen künstlerischen Techniken in greifbare Form."
     },
     "Pidder Auberger": {
       "tier": 4,
@@ -6014,7 +6253,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/Auberger%2CPidder_313_C1_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Auberger_1.jpg",
       "birth": 1946,
-      "death": 2012
+      "death": 2012,
+      "artist_bio": "Pidder Auberger (1946 Lohberg – 2012 Burbach), Künstler, dessen Farbholzdrucke fiktive, absurd-humorvolle Erzählungen entfalten."
     },
     "Moritz Schleime": {
       "tier": 4,
@@ -6035,7 +6275,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Moritz_Schleime_E_480.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/Portrait-Schleime.jpg",
       "birth": 1978,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "Moritz Schleime, 1978 in Berlin geboren, ist Meisterschüler von Hanns Schimansky und zählt zur figürlich-erzählerischen »Berliner Schule«; seine rauen Bilder kreisen um Jugend, Pop- und Gegenkultur, den Tod und die Flucht in die Natur."
     },
     "Marcus Weber": {
       "tier": 4,
@@ -6056,7 +6297,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/384_B1_Marcus_Weber.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Foto-von-Heidi-Specker-Kopie_1.jpg",
       "birth": 1965,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "Marcus Weber, 1965 in Stuttgart geboren und in Berlin lebend, ist ein Maler erzählerischer Stadtlandschaften; seine comichaften Bilder verbinden urbanen Alltag mit Zitaten aus Kunst-, Werbe- und Populärkultur."
     },
     "Cyrill Lachauer": {
       "tier": 4,
@@ -6076,7 +6318,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C1_Cyrill_Lachauer.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_lachauer.jpg",
-      "birth": 1979
+      "birth": 1979,
+      "artist_bio": "Cyrill Lachauer, 1979 in Rosenheim geboren, ist Künstler und ausgebildeter Ethnologe (Berlin); er untersucht die impliziten Erzählungen von Landschaften und Räumen mit Film, Fotografie, Text, Installation und Klang."
     },
     "Henrik Eiben": {
       "tier": 4,
@@ -6136,7 +6379,8 @@
         "total": 4
       },
       "portrait_url": "",
-      "birth": 1947
+      "birth": 1947,
+      "artist_bio": "1947 in Lank/Niederrhein geboren; Schüler und Mitarbeiter von Joseph Beuys (jüngerer Bruder von Johannes Stüttgen), engagiert in der FIU und bei »7000 Eichen«, lebt als Maler in Düsseldorf."
     },
     "Rolf Rose": {
       "tier": 4,
@@ -6156,7 +6400,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/273C1-94ROSE.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/roseimages_1.jpg",
-      "birth": 1933
+      "birth": 1933,
+      "artist_bio": "1933 in Halberstadt geboren, lebt nahe Hamburg; ungegenständlicher Maler, in dessen Werk Farbe und Struktur der eigentliche Bildgegenstand sind – die dick aufgetragene Farbe durchkämmt er mit Rakeln und Spachteln."
     },
     "Michael Bauch": {
       "tier": 4,
@@ -6176,7 +6421,8 @@
       },
       "portrait_url": "",
       "birth": 1951,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "Michael Bauch, 1951 in Wiesbaden geboren, ist ein in Hamburg lebender Maler und Graphiker (Studium HFBK Hamburg, u.a. bei Gotthard Graubner); er verfolgt eine konzeptuelle Malerei, in der er durch Schneiden, Durchstoßen und Falten der Leinwand räumliche Wirkungen erzeugt."
     },
     "Jonas Hafner": {
       "tier": 4,
@@ -6196,7 +6442,8 @@
       },
       "portrait_url": "",
       "birth": 1940,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "Jonas Hafner, 1940 in Augsburg geboren, ist ein deutscher Maler und Grafiker."
     },
     "Mårten Lange": {
       "tier": 4,
@@ -6216,7 +6463,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/379_A1_Marten_Lange.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/marten-lange-portrait220.jpg",
-      "birth": 1984
+      "birth": 1984,
+      "artist_bio": "Mårten Lange, 1984 in Göteborg geboren, lebt in Berlin und veröffentlicht seine Projekte meist als Photobuch; in konsequenter Schwarzweiß-Photographie sucht er die Schnittstelle zwischen Natur und Kultur."
     },
     "Peter Puklus": {
       "tier": 4,
@@ -6236,7 +6484,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/381_B1_Peter_Puklus.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Puklus_portrait_web_1.jpg",
-      "birth": 1980
+      "birth": 1980,
+      "artist_bio": "Peter Puklus, 1980 in Klausenburg (Rumänien) geboren, lebt in Budapest; Photograph und Bildhauer, der Familie und Freundeskreis zum Ausgangspunkt nimmt, um größere gesellschaftliche Zusammenhänge spielerisch nachzuzeichnen."
     },
     "Jan Schoenmakers": {
       "tier": 4,
@@ -6275,7 +6524,8 @@
       "portrait_url": "",
       "birth": 1945,
       "death": 2021,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "1944 in Dresden geboren, 2021 in München gestorben; deutscher Maler, Grafiker und Hochschullehrer, ab 2019 Mitglied der Bayerischen Akademie der Schönen Künste."
     },
     "Klaus Beck": {
       "tier": 4,
@@ -6313,7 +6563,8 @@
         "total": 9
       },
       "portrait_url": "https://www.gemeinwesenarbeit-chemnitz.de/wp-content/uploads/2017/02/Osten.jpg",
-      "birth": 1959
+      "birth": 1959,
+      "artist_bio": "Osmar Osten, 1959 in Karl-Marx-Stadt (Chemnitz) geboren; deutscher Maler und Graphiker, Studium Malerei/Graphik an der HfBK Dresden."
     },
     "Claus Georg Stabe": {
       "tier": 4,
@@ -6333,7 +6584,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/383_C2_Claus_Georg_Stabe.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_stabe_1.jpg",
-      "birth": 1984
+      "birth": 1984,
+      "artist_bio": "Claus Georg Stabe, 1984 in Lauchhammer geboren, ist ein deutscher Maler und Zeichner (Berlin/Leipzig); charakteristisch ist sein Arbeiten mit dem Kugelschreiber, aus dessen Wiederholung und Schichtung er einen eigenen geometrischen Bildkosmos entwickelt."
     },
     "Daniel M Thurau": {
       "tier": 4,
@@ -6353,7 +6605,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/375_A4_Daniel_M_Thurau.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait-Thurau.jpg",
-      "birth": 1974
+      "birth": 1974,
+      "artist_bio": "Daniel M Thurau, 1974 in Köthen geboren, ist ein Zeichner und Maler (Berlin); er möchte »Wirklichkeit mit einem Lebensgefühl versehen und dann in Malerei übersetzen«."
     },
     "Fernando de Brito": {
       "tier": 4,
@@ -6374,7 +6627,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_558_Fernando_de_Brito.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/debrito_web.jpg",
       "birth": 1956,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "Fernando de Brito, 1956 in Portugal geboren, lebt und arbeitet in Hamburg; sein Werk kreist um abstrahierte, »seismographische« Porträts sowie das Zusammenspiel von Farbe, Fläche und Form aus zeichnerischen Liniengeflechten."
     },
     "Roman Moriceau": {
       "tier": 4,
@@ -6394,7 +6648,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_594_Roman_Moriceau.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/moriceau_1.jpg",
-      "birth": 1976
+      "birth": 1976,
+      "artist_bio": "1976 in Frankreich geboren, lebt in Paris; thematisiert Umweltzerstörung und die Folgen der Globalisierung und findet dafür Bilder von großer Schönheit, häufig mit vergänglichen, sich verändernden Materialien."
     },
     "Alfons Lachauer": {
       "tier": 4,
@@ -6415,7 +6670,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_577_Alfons_Lachhauer.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_lachauer_1_1.jpg",
       "birth": 1944,
-      "sekundaermarkt": "mittel"
+      "sekundaermarkt": "mittel",
+      "artist_bio": "Alfons Lachauer, 1944 in Rosenheim geboren, studierte bei Günther Fruhtrunk an der Münchner Akademie und zählt zu den Altmeistern der konkreten und konstruktivistischen Malerei; er lebt und arbeitet in Stephanskirchen."
     },
     "Pius Fox": {
       "tier": 4,
@@ -6434,7 +6690,8 @@
         "total": 9
       },
       "portrait_url": "https://www.griffelkunst.de/i/Portrait_Fox.jpg",
-      "birth": 1983
+      "birth": 1983,
+      "artist_bio": "Pius Fox, 1983 in Berlin geboren; Maler, dessen überwiegend gegenstandslose Arbeit sich an architektonischen Strukturen orientiert und strenge geometrische Gerüste mit zarten Farbverläufen und gestischen Spuren verschränkt."
     },
     "Yann-Vari Schubert": {
       "tier": 4,
@@ -6454,7 +6711,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/379_C2_Yann-Vari_Schubert.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_sw_y220.jpg",
-      "birth": 1984
+      "birth": 1984,
+      "artist_bio": "Yann-Vari Schubert, 1984 in Göttingen geboren, lebt in Berlin; er verbindet mathematisch-technische Verfahren mit den unvorhersehbaren Prozessen der Lithographie."
     },
     "Wolf von Waldow": {
       "tier": 4,
@@ -6474,7 +6732,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Waldow_448.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Waldow.jpg",
-      "birth": 1962
+      "birth": 1962,
+      "artist_bio": "Wolf von Waldow, 1962 in Hamburg geboren, ist ein interdisziplinär arbeitender Künstler, dessen Werk Skulptur, Installation und Wandobjekte umfasst und eine Tendenz zu Ornament und Rapport zeigt."
     },
     "Gerrit Frohne-Brinkmann": {
       "tier": 4,
@@ -6494,7 +6753,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A1_Gerrit_Frohne-Brinkmann.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_gerrit_frohne.jpg",
-      "birth": 1990
+      "birth": 1990,
+      "artist_bio": "Gerrit Frohne-Brinkmann, 1990 in Friesoythe geboren, lebt in Hamburg; sein offener Werkbegriff spielt mit Illusion und Desillusion und übersetzt Elemente von Unterhaltung, Show und Theater in den Kunstkontext."
     },
     "Pipi Paloma": {
       "tier": 4,
@@ -6514,7 +6774,8 @@
       },
       "portrait_url": "",
       "birth": 1938,
-      "death": 2022
+      "death": 2022,
+      "artist_bio": "Pipi Paloma (Rosemarie Koblischeck, 1938 Chemnitz – 2022), deutsche Künstlerin und Radiererin."
     },
     "Herbert Grunwaldt": {
       "tier": 4,
@@ -6535,7 +6796,8 @@
       "portrait_url": "",
       "birth": 1928,
       "death": 2014,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "Herbert Grunwaldt (1928 Bunzlau – 2014 Hamburg) war ein deutscher Maler und Grafiker; er studierte an der HFBK Hamburg u.a. bei Alfred Mahlau und widmete sich vor allem Aquarell und Radierung, von Naturalismus bis Surrealismus."
     },
     "Lorenz Estermann": {
       "tier": 4,
@@ -6555,7 +6817,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Estermann_347_C_5.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Estermann.jpg",
-      "birth": 1968
+      "birth": 1968,
+      "artist_bio": "Lebt in Wien und Linz; photographiert unscheinbare Alltagsarchitekturen und baut daraus dreidimensionale Modelle aus ausrangierten Materialien, wobei ihn vor allem der skulpturale Wert der Baukörper interessiert."
     },
     "Volker Renner": {
       "tier": 4,
@@ -6576,7 +6839,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Volker_Renner_349_A6.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/renner_web.jpg",
       "birth": 1977,
-      "sekundaermarkt": "kein"
+      "sekundaermarkt": "kein",
+      "artist_bio": "Volker Renner, 1977 geboren, lebt in Hamburg; er arbeitet konzeptuell und photographisch mit dem sammelnden, vergleichenden Blick."
     },
     "Rosemarie Trockel": {
       "tier": 1,
@@ -6596,7 +6860,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/Trockel%2CRosemarie_314_C4_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Trockel_1.jpg",
-      "birth": 1952
+      "birth": 1952,
+      "artist_bio": "1952 in Schwerte geboren; vielseitige Künstlerin (Strickbilder, Skulpturen, Installationen, Video, Druckgraphik), oft als feministisch bezeichnet, die Klischees zur Rolle der Frau und vermeintlich weibliche Tätigkeiten wie das Stricken hinterfragt."
     },
     "Kiki Smith": {
       "tier": 1,
@@ -6615,7 +6880,8 @@
         "total": 12
       },
       "portrait_url": "https://www.pacegallery.com/media/images/Smith_Kiki.original.jpg",
-      "birth": 1954
+      "birth": 1954,
+      "artist_bio": "1954 in Nürnberg geboren, US-amerikanische Künstlerin (Tochter des Bildhauers Tony Smith), lebt in New York. Bekannt für Skulpturen, Zeichnungen und Druckgrafik zu Körper, Natur, Leben und Tod."
     },
     "Monica Bonvicini": {
       "tier": 1,
@@ -6634,7 +6900,8 @@
         "total": 12
       },
       "portrait_url": "https://www.griffelkunst.de/i/portrait-Bonvicini.jpg",
-      "birth": 1965
+      "birth": 1965,
+      "artist_bio": "Monica Bonvicini, 1965 in Venedig geboren und in Berlin lebend, thematisiert patriarchale Kunst-, Architektur- und Gesellschaftsformen; sie setzt »männlich« konnotierte Materialien wie Stahlketten, Chrom und Leder ein und kehrt deren Ikonographie um. 1999 Goldener Löwe der Biennale Venedig."
     },
     "Ceal Floyer": {
       "tier": 1,
@@ -6674,7 +6941,8 @@
         "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/216B1-79DARBOVEN.jpg",
-      "portrait_url": "https://spruethmagers.com/files/hannedarboven_portrait_1968-1-scaled-1920x1012.jpg"
+      "portrait_url": "https://spruethmagers.com/files/hannedarboven_portrait_1968-1-scaled-1920x1012.jpg",
+      "artist_bio": "Hanne Darboven (1941–2009, Hamburg) war eine der bedeutendsten deutschen Konzeptkünstlerinnen, bekannt für großflächige Installationen aus handgeschriebenen Zahlentabellen, Kalenderberechnungen und Texten; ihre serielle Praxis war von Rhythmus und Wiederholung geprägt."
     },
     "Madame d'Ora": {
       "tier": 1,
@@ -6695,7 +6963,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/394_B1_Madamme_d%C2%B4Ora.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Madame_1.jpg",
       "birth": 1881,
-      "death": 1963
+      "death": 1963,
+      "artist_bio": "Madame d'Ora (Dora Kallmus, 1881 Wien – 1963 Frohnleiten) zählt zu den wichtigsten Mode- und Gesellschaftsphotographinnen des frühen 20. Jahrhunderts; ihre Bilder erschienen europaweit in Zeitschriften, vor allem beim Berliner Ullstein Verlag."
     },
     "Katharina Sieverding": {
       "tier": 2,
@@ -6715,7 +6984,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/380_B1_Katharina_Sieverding.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/220_KS-Portrait_FotoKlausMettig_R_A5.jpg",
-      "birth": 1944
+      "birth": 1944,
+      "artist_bio": "1944 in Prag geboren; Photokünstlerin und Beuys-Schülerin (Düsseldorf/Berlin), bekannt für großformatige, oft solarisierte Selbstporträts und eine politisch aufgeladene Bildsprache."
     },
     "Kerstin Brätsch": {
       "tier": 2,
@@ -6735,7 +7005,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/396_B1_Kerstin_Bra%CC%88tsch_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrai_-Bra%CC%88tsch_-KB_PORTRAIT.jpg",
-      "birth": 1979
+      "birth": 1979,
+      "artist_bio": "1979 in Hamburg geboren, lebt in Berlin und New York. Malerin, die alte Handwerkstechniken wie Marmorieren, Stuckmarmor und Buntglas nutzt, um Malerei und Zufall neu zu verbinden."
     },
     "Edith Dekyndt": {
       "tier": 2,
@@ -6755,7 +7026,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E624.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/PAT_9979.jpg",
-      "birth": 1960
+      "birth": 1960,
+      "artist_bio": "Die belgische Künstlerin Edith Dekyndt, 1960 in Ypern geboren, lebt in Brüssel und arbeitet mit vergänglichen Materialien wie Staub, Haaren, Luft, Licht und organischen Substanzen, mit denen sie das Unsichtbare erfahrbar macht."
     },
     "Ulla von Brandenburg": {
       "tier": 2,
@@ -6775,7 +7047,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/366_B1_Ulla_von_Brandenburg.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_brandenburg_1.jpg",
-      "birth": 1974
+      "birth": 1974,
+      "artist_bio": "Ulla von Brandenburg, 1974 in Karlsruhe geboren, lebt bei Paris; ihr Werk aus Film, Installation, Performance und Zeichnung ist von Theater, Bühne und Maskerade geprägt."
     },
     "Karimah Ashadu": {
       "tier": 2,
@@ -6795,7 +7068,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/401_A1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Karimah_Ashadu_-_Portrait_2025_-_Photo_Aaron_Leithauser.jpg",
-      "birth": 1985
+      "birth": 1985,
+      "artist_bio": "1985 in London geboren, lebt in Hamburg, London und Lagos. Filmkünstlerin, die informelle Ökonomien und Männlichkeit in Lagos untersucht; 2024 mit dem Silbernen Löwen der Biennale Venedig ausgezeichnet."
     },
     "Ellen Auerbach": {
       "tier": 2,
@@ -6816,7 +7090,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Ellen-Auerbach-346-C5a.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portrait-Auerbach.jpg",
       "birth": 1906,
-      "death": 2004
+      "death": 2004,
+      "artist_bio": "Deutsch-amerikanische Fotografin (1906 Karlsruhe – 2004 New York); Anfang der 1930er arbeitete sie mit Grete Stern als Atelier ringl + pit in Berlin und emigrierte später über London nach New York."
     },
     "Isa Melsheimer": {
       "tier": 2,
@@ -6836,7 +7111,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/382_B1_Isa_Melsheimer.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Melsheimer_Portrait_Oliver-Mark-_1.jpg",
-      "birth": 1968
+      "birth": 1968,
+      "artist_bio": "Isa Melsheimer, 1968 in Neuss geboren, arbeitet mit Objekten, Installationen, Zeichnungen und Keramik zu architektonischen und urbanen Räumen – besonders Moderne, Postmoderne und Brutalismus (Berlin)."
     },
     "Pia Fries": {
       "tier": 2,
@@ -6856,7 +7132,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/353_B1_Pia_Fries.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portrait-Fries.jpg",
-      "birth": 1955
+      "birth": 1955,
+      "artist_bio": "Pia Fries, 1955 in Beromünster (Schweiz) geboren; Malerin und Meisterschülerin von Gerhard Richter, die Farbe als körperlich-plastisches Material versteht und pastose Farbmassen mit planen Druckelementen zusammenführt."
     },
     "Valérie Favre": {
       "tier": 2,
@@ -6876,7 +7153,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Favre-321-B3.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Favre.jpg",
-      "birth": 1959
+      "birth": 1959,
+      "artist_bio": "Valérie Favre, 1959 in Evilard bei Biel geboren, war zunächst Schauspielerin, bevor sie sich der Malerei zuwandte; sie lebt seit 1998 in Berlin."
     },
     "Annette Kelm": {
       "tier": 2,
@@ -6895,7 +7173,8 @@
         "total": 11
       },
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_kelm_1.jpg",
-      "birth": 1975
+      "birth": 1975,
+      "artist_bio": "Annette Kelm, 1975 in Stuttgart geboren, ist eine Fotografin, deren sachliche, klare Bilder das Dokumentarische mit dem Inszenierten verbinden und sich oft mit Archiv, Geschichte und deren Repräsentation auseinandersetzen; sie lebt in Berlin."
     },
     "Emma Talbot": {
       "tier": 2,
@@ -6915,7 +7194,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/372-B6-Emma-Talbot.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/ET_Portrait.jpg",
-      "birth": 1969
+      "birth": 1969,
+      "artist_bio": "Britische Künstlerin, 1969 in Worcestershire geboren; sie lebt in London und verbindet Zeichnung mit Malerei, Text und Skulptur."
     },
     "Germaine Krull": {
       "tier": 2,
@@ -6999,7 +7279,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/371_C1_Kay_Rosen.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Kay-Rosen_Photo-by-Larry-Lapidus.jpg",
-      "birth": 1943
+      "birth": 1943,
+      "artist_bio": "1949 in Corpus Christi, Texas geboren, lebt in Gary, Indiana. Künstlerin und Linguistin, die seit über 40 Jahren mit Wort, Buchstabe und Sprache arbeitet und deren Bedeutungen humorvoll und scharfsinnig verschiebt."
     },
     "Franziska Holstein": {
       "tier": 3,
@@ -7019,7 +7300,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/363-C1-Franziska-Holstein.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_holstein.jpg",
-      "birth": 1978
+      "birth": 1978,
+      "artist_bio": "Franziska Holstein, 1978 in Leipzig geboren, ist eine in Leipzig lebende Malerin, deren serielles Werk nicht von einer Bildidee, sondern von einem prozesshaften Verfahren ausgeht, aus dem Serien abstrakter Motive entstehen."
     },
     "Barbara Probst": {
       "tier": 3,
@@ -7039,7 +7321,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/374_B2_Barbara_Probst.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_probst.jpg",
-      "birth": 1964
+      "birth": 1964,
+      "artist_bio": "Barbara Probst, 1964 in München geboren, kam von der Bildhauerei zur Fotografie und nimmt Szenen gleichzeitig mit mehreren Kameras aus verschiedenen Blickwinkeln auf (»Exposures«); sie lebt in New York und München."
     },
     "Miwa Ogasawara": {
       "tier": 3,
@@ -7059,7 +7342,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/376_C4_Miwa_Ogasawara.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait-ogasawara_1.jpg",
-      "birth": 1973
+      "birth": 1973,
+      "artist_bio": "Miwa Ogasawara, 1973 in Kyoto geboren, lebt seit 1992 in Hamburg; in reduzierter, von Grau- und Blautönen bestimmter Malerei aus feinen Lasuren sucht sie Bilder für die Schönheit und Zerbrechlichkeit menschlicher Existenz."
     },
     "Viktoria Binschtok": {
       "tier": 3,
@@ -7079,7 +7363,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/387_A1_Viktoria_Binschtok.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_Binschtok_1.jpg",
-      "birth": 1972
+      "birth": 1972,
+      "artist_bio": "Viktoria Binschtok, 1972 in Moskau geboren, lebt in Berlin; die bei Timm Rautert ausgebildete Künstlerin untersucht die Photographie als sich ständig wandelndes Medium zwischen digitaler und analoger Welt."
     },
     "Irina Ojovan": {
       "tier": 3,
@@ -7099,7 +7384,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/392_C1_Irina_Ojovan.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait-%28Photo-Credits-Adrienne-Meister_1.jpg",
-      "birth": 1988
+      "birth": 1988,
+      "artist_bio": "Irina Ojovan, 1988 in Chișinău (Moldawien) geboren, studierte u.a. bei Gregor Hildebrandt an der Akademie der Bildenden Künste München und schafft in geometrisch-abstrakter Malerei von Architektur inspirierte Raumillusionen (Düsseldorf)."
     },
     "Toulu Hassani": {
       "tier": 3,
@@ -7119,7 +7405,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_584_Toulu_Hassani.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_Hassani_1.jpg",
-      "birth": 1984
+      "birth": 1984,
+      "artist_bio": "Toulu Hassani (*1984) befasst sich malerisch und zeichnerisch mit kosmischen, astrophysischen und mathematischen Ordnungssystemen und überführt deren Raster in eine eigene Logik."
     },
     "Yvette Kießling": {
       "tier": 3,
@@ -7140,7 +7427,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Yvette_Kießling_351_C_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/kiessling_portrat.jpg",
       "birth": 1978,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "Yvette Kießling, 1978 in Ilmenau geboren, lebt in Leipzig; als malende »Feldforscherin« geht sie kulturell bedingten Veränderungen in Natur und Flora nach und arbeitet häufig en plein air direkt auf dem Lithostein."
     },
     "Misaki Kawai": {
       "tier": 3,
@@ -7160,7 +7448,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/386_A1_Misaki_Kawai.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_kawai_1.jpg",
-      "birth": 1978
+      "birth": 1978,
+      "artist_bio": "Misaki Kawai, 1978 in Kagawa/Japan geboren, lebt in Kopenhagen und sprengt mit ihrer bunten, flauschigen, bewusst naiv-subversiven Formensprache (von ihr »Heta-uma« genannt) die Grenze zwischen freier und angewandter Kunst."
     },
     "Tatjana Doll": {
       "tier": 3,
@@ -7181,7 +7470,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_571_Tatjana_Doll.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait-Doll_1.jpg",
       "birth": 1970,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "1970 in Burgsteinfurt geboren, lebt in Berlin und lehrt in Karlsruhe; malt meist großformatig Alltagsmotive (Sportwagen, Container, Piktogramme) in Originalgröße und mit satter Lackfarbe, wobei der energische Duktus sichtbar bleibt."
     },
     "Ciara Phillips": {
       "tier": 3,
@@ -7200,7 +7490,8 @@
         "total": 11
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/381_C1_Ciara_Phillips.jpg",
-      "portrait_url": "https://www.griffelkunst.de/i/_medium/Ciara_Portrait_web_1.jpg"
+      "portrait_url": "https://www.griffelkunst.de/i/_medium/Ciara_Portrait_web_1.jpg",
+      "artist_bio": "Ciara Phillips, in Ottawa geboren und in Glasgow lebend, experimentiert mit kombinierten druckgraphischen Techniken und versteht das Drucken als offenen, improvisierten und intuitiven Prozess."
     },
     "Jenny Brosinski": {
       "tier": 3,
@@ -7219,7 +7510,8 @@
         "total": 11
       },
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_JennyBrosinski-154_2_JoostJossen.jpg",
-      "birth": 1975
+      "birth": 1975,
+      "artist_bio": "Jenny Brosinski, 1975 in Celle geboren, ist eine Malerin, deren großformatige, abstrakt-gestische Arbeiten auf rohen, ungrundierten Leinwänden als »dirty minimalism« beschrieben werden (Berlin)."
     },
     "Karin Sander": {
       "tier": 3,
@@ -7239,7 +7531,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E614_Variante_1_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Sander_Portrait_%C2%A9-Jens-Ziehe_web.jpg",
-      "birth": 1957
+      "birth": 1957,
+      "artist_bio": "1957 in Bensberg geboren, lebt in Berlin und Zürich. Konzeptuelle Künstlerin, die augenzwinkernd das System Kunst sowie dessen Ausstellungs-, Präsentations- und Vermarktungsformen hinterfragt."
     },
     "Takako Saito": {
       "tier": 3,
@@ -7259,7 +7552,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/395_B1_Takako_Saito_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_takako_saito_thomas_koester_kunstarztpraxis09997-Bearbeitet.jpg",
-      "birth": 1929
+      "birth": 1929,
+      "artist_bio": "1929 in Sabae (Japan) geboren, lebt in Düsseldorf; mit der Fluxus-Bewegung assoziierte Künstlerin, bekannt v.a. für ihre Schachspiel-Variationen und interaktiven Objekte."
     },
     "Jana Gunstheimer": {
       "tier": 3,
@@ -7278,7 +7572,8 @@
         "total": 10
       },
       "portrait_url": "https://www.griffelkunst.de/i/portrait-gunstheimer.jpg",
-      "birth": 1974
+      "birth": 1974,
+      "artist_bio": "Jana Gunstheimer, 1974 in Zwickau geboren, studierte Anthropologie und Kunstgeschichte in Leipzig sowie Kunst in Halle; in fiktiven Text-Bild-Erzählungen betrachtet sie den Menschen aus distanziertem Blickwinkel."
     },
     "Zilla Leutenegger": {
       "tier": 3,
@@ -7298,7 +7593,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/369_C1_Zilla_Leutenegger.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_leuttenegger.jpg",
-      "birth": 1968
+      "birth": 1968,
+      "artist_bio": "Zilla Leutenegger, 1968 in Zürich geboren, lebt dort; sie verbindet Zeichnung mit Skulptur und Projektion und erweitert so das zweidimensionale Bild in den Raum."
     },
     "Dasha Shishkin": {
       "tier": 3,
@@ -7318,7 +7614,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/SHISHKIN319B5_1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_DASHA_happy-face-logo-DS_1.jpg",
-      "birth": 1977
+      "birth": 1977,
+      "artist_bio": "Dasha Shishkin, 1977 in Moskau geboren, ist eine in New York lebende Künstlerin, bekannt vor allem für ihre dicht bevölkerten figurativen Zeichnungen und Malereien."
     },
     "Olga Tobreluts": {
       "tier": 3,
@@ -7336,7 +7633,8 @@
         "P": 3,
         "total": 9
       },
-      "portrait_url": "app/static/portraits/olga_tobreluts.jpg"
+      "portrait_url": "app/static/portraits/olga_tobreluts.jpg",
+      "artist_bio": "Olga Tobreluts, 1970 bei Leningrad geboren; russische Medienkünstlerin, Pionierin der digitalen Kunst in Russland und Vertreterin des Neo-Akademismus (St. Petersburg/Berlin)."
     },
     "Natalia Stachon": {
       "tier": 3,
@@ -7397,7 +7695,8 @@
         "total": 9
       },
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_EsterFleckner_by_Sophia_Baader.jpg",
-      "birth": 1983
+      "birth": 1983,
+      "artist_bio": "1983 in Aarhus geboren; sie lebt auf der dänischen Insel Møn und arbeitet seit 2013 konsequent mit dem Holzschnitt zu Fragen von Geschlecht, Identität und Körperlichkeit."
     },
     "Tamina Amadyar": {
       "tier": 4,
@@ -7417,7 +7716,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/402_C1.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portra%CC%88t_Tamina-175.jpg",
-      "birth": 1989
+      "birth": 1989,
+      "artist_bio": "1989 in Kabul geboren, lebt in Berlin; Malerin, die Erinnerungen an Licht und Raum in leuchtende Farbkompositionen verwandelt und dabei meist nur zwei Farben (mit Pigmenten und Hasenleim) in Beziehung setzt."
     },
     "Kristina Schuldt": {
       "tier": 4,
@@ -7458,7 +7758,8 @@
       },
       "portrait_url": "https://www.bundesakademie.de/fileadmin/_processed_/e/4/csm_Silke_Leverkuehne_Foto_Kathie_Wewer_ee57162471.jpg",
       "birth": 1953,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "1953 in Rendsburg geboren; deutsche Malerin, studierte an der Kunstakademie Düsseldorf (u.a. Meisterschülerin bei Alfonso Hüppi); im Zentrum ihres Werks steht die Landschaftsmalerei."
     },
     "Anja Tchepets": {
       "tier": 4,
@@ -7478,7 +7779,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Tchepets341_C2.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Tchepets.jpg",
-      "birth": 1970
+      "birth": 1970,
+      "artist_bio": "Anja Tchepets, 1970 in St. Petersburg geboren, schafft collagenhaft aus vielen Druckgängen aufgebaute, unikathafte Hochdrucke; sie erhielt den 6. Graphikpreis der Griffelkunst-Mitglieder."
     },
     "Anke Feuchtenberger": {
       "tier": 4,
@@ -7498,7 +7800,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Feuchtenberger_334_B1.JPG",
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Feuchtenberger.jpg",
-      "birth": 1963
+      "birth": 1963,
+      "artist_bio": "Anke Feuchtenberger (1963 in Ost-Berlin geboren) ist eine wichtige Protagonistin der deutschen Comic-Avantgarde; sie arbeitet häufig mit Kohle und schafft traumhaft-surreale Bildwelten, etwa in ihrer Zusammenarbeit mit Katrin de Vries über die »Hure H«."
     },
     "Heike Kati Barath": {
       "tier": 4,
@@ -7518,7 +7821,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/358_A3_Heike_Kati_Barath.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_barath.jpg",
-      "birth": 1966
+      "birth": 1966,
+      "artist_bio": "Heike Kati Barath, 1966 in Vaihingen/Enz geboren, lebt in Berlin und Bremen; sie steht für eine unmittelbare, starkfarbige Malerei im übergroßen Format mit frontalen Bildnissen von Jugendlichen, Mischwesen und Fabelfiguren."
     },
     "Henriette Grahnert": {
       "tier": 4,
@@ -7538,7 +7842,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/354_C3_Henriette_Grahnert.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/Grahnert-portrait_8746.jpg",
-      "birth": 1977
+      "birth": 1977,
+      "artist_bio": "Henriette Grahnert, 1977 in Dresden geboren, ist eine deutsche Malerin; sie studierte bei Arno Rink an der HGB Leipzig und entwickelt eine humorvolle »Malerei über Malerei« mit Stilzitaten der klassischen Moderne (Leipzig)."
     },
     "Hannah Rath": {
       "tier": 4,
@@ -7559,7 +7864,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/397_A2_2.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Hannah_web.jpg",
       "birth": 1983,
-      "sekundaermarkt": "kein"
+      "sekundaermarkt": "kein",
+      "artist_bio": "Hannah Rath, 1983 in Marburg geboren, lebt in Berlin; von minimalistischen Textbildern der konkreten Poesie ausgehend entwickelt sie Texturen und Gewebe, die sie als Siebdrucke, Textilien und ortsbezogene Skulpturen umsetzt."
     },
     "Linn Schröder": {
       "tier": 4,
@@ -7580,7 +7886,8 @@
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_583_Linn_Schro%CC%88der.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Schroeder_1.jpg",
       "birth": 1977,
-      "sekundaermarkt": "kein"
+      "sekundaermarkt": "kein",
+      "artist_bio": "In Berlin lebende Photographin, die sich mit dem Thema Familie und den Konventionen des Genres auseinandersetzt und eine surreal-magische, zeitlose Bildsprache entwickelt."
     },
     "Johanna Tiedtke": {
       "tier": 4,
@@ -7600,7 +7907,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/E_579_Johanna_Tiedtke.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_tiedtke_1.jpg",
-      "birth": 1981
+      "birth": 1981,
+      "artist_bio": "Johanna Tiedtke, 1981 in Eckernförde geboren, studierte Malerei an der UdK Berlin und der HFBK Hamburg und erwarb einen MFA am Bard College; sie lebt in Berlin."
     },
     "Nobuko Watabiki": {
       "tier": 4,
@@ -7620,7 +7928,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/381_A1_Nobuko_Watabiki.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/nobuko_Portrait_Ralf_Plessmann_web_1.jpg",
-      "birth": 1958
+      "birth": 1958,
+      "artist_bio": "Nobuko Watabiki, 1958 in Tokio geboren, kam 2008 mit einem Stipendium nach Hamburg, wo sie als Malerin lebt; ihre reduzierte, kontrastreiche Formensprache verbindet japanische Kultur mit Themen wie Identität, Kommunikation und Natur."
     },
     "Gabriela Oberkofler": {
       "tier": 4,
@@ -7640,7 +7949,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/389_C1_Gabriela_Oberkofler.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/_medium/portrait_oberkofler_1.jpg",
-      "birth": 1975
+      "birth": 1975,
+      "artist_bio": "Gabriela Oberkofler, 1975 in Bozen geboren, lebt in Stuttgart und Flaas (Südtirol); in filigranen Zeichnungen, Skulpturen und Installationen erforscht sie Flora, Fauna und symbiotische Lebensgemeinschaften."
     },
     "Katya Bonnenfant": {
       "tier": 4,
@@ -7659,7 +7969,8 @@
         "total": 8
       },
       "portrait_url": "https://www.griffelkunst.de/i/portrait_obc.jpg",
-      "birth": 1975
+      "birth": 1975,
+      "artist_bio": "Französische Grafikdesignerin, Illustratorin und Künstlerin."
     },
     "Monika Michalko": {
       "tier": 4,
@@ -7679,7 +7990,8 @@
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/364-A1-Monika-Michalko.jpg",
       "portrait_url": "https://www.griffelkunst.de/i/portrait_michalko.jpg",
-      "birth": 1982
+      "birth": 1982,
+      "artist_bio": "Monika Michalko, 1982 in Sokolov/Tschechien geboren und in Berlin lebend, malt fantastische Traumlandschaften und Stadtansichten, inspiriert von Reisen und osteuropäischer Volkskunst; ihr abstraktes Vokabular erinnert an Klee und Miró."
     },
     "Claudia Schneider": {
       "tier": 4,
@@ -7698,7 +8010,8 @@
         "total": 6
       },
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Shneider.jpg",
-      "birth": 1961
+      "birth": 1961,
+      "artist_bio": "Claudia Shneider, 1961 in Johannesburg geboren, studierte Schmuckkunst in Stellenbosch und an der Akademie der Bildenden Künste München (u. a. bei Hermann Jünger) und arbeitet als Malerin zwischen Berlin und Johannesburg; Worte und Titel spielen in ihrem Werk eine zentrale Rolle."
     },
     "Nora Schattauer": {
       "tier": 4,
@@ -7738,7 +8051,8 @@
       },
       "portrait_url": "https://www.gemeinwesenarbeit-chemnitz.de/wp-content/uploads/2021/10/Seite-13-DRS-Foto-Malech-scaled.jpg",
       "birth": 1944,
-      "sekundaermarkt": "gering"
+      "sekundaermarkt": "gering",
+      "artist_bio": "Dagmar Ranft-Schinke, 1944 in Chemnitz geboren, ist eine deutsche Malerin und Grafikerin; sie studierte in Leipzig u. a. bei Werner Tübke und Wolfgang Mattheuer und war 1977 Mitbegründerin der Chemnitzer Künstlergruppe Clara Mosch."
     },
     "Walter Dahn": {
       "tier": 2,
@@ -7758,7 +8072,8 @@
       },
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Dahn_1.jpg",
       "birth": 1954,
-      "death": 2024
+      "death": 2024,
+      "artist_bio": "Walter Dahn (1954 St. Tönis – 2024 Köln) war ein deutscher Maler, Photograph und Musiker, der in den 1980ern als Teil der »Jungen Wilden« bekannt wurde."
     },
     "Paloma Varga Weisz": {
       "tier": 2,
@@ -7777,7 +8092,8 @@
         "total": 11
       },
       "portrait_url": "https://www.griffelkunst.de/i/Portr%C3%A4t-Weisz.jpg",
-      "birth": 1966
+      "birth": 1966,
+      "artist_bio": "Paloma Varga Weisz, 1966 in Mannheim geboren, lebt in Düsseldorf; Bildhauerin (bevorzugt Holz) und Zeichnerin, die menschlich anmutende Phantasiegestalten und Fabelwesen schafft."
     },
     "Hans Pfrommer": {
       "tier": 3,
@@ -7813,7 +8129,8 @@
         "total": 9
       },
       "portrait_url": "https://www.griffelkunst.de/i/_medium/Fotograf.Andy-Michaelis_1__.jpg",
-      "birth": 1981
+      "birth": 1981,
+      "artist_bio": "Asana Fujikawa, 1981 in Tokio geboren und in Hamburg lebend, verbindet in Zeichnungen, Radierungen und Keramiken japanische und europäische Mythologie mit Märchen und Alltag und erzählt von Momenten der Verwandlung."
     },
     "Ambra Durante": {
       "tier": 3,
@@ -7832,7 +8149,8 @@
         "total": 10
       },
       "birth": 2000,
-      "portrait_url": "https://www.gallery-weekend-berlin.de/files/2021/09/img_3548.jpg"
+      "portrait_url": "https://www.gallery-weekend-berlin.de/files/2021/09/img_3548.jpg",
+      "artist_bio": "Ambra Durante, 2000 in Genua geboren und seit 2007 in Berlin lebend, wurde durch ihre Graphic Novel »Black Box Blues« (2020) bekannt und macht in ihren Zeichnungen und Drucken innere Gefühlszustände ohne Worte sichtbar."
     }
   },
   "stats": {
