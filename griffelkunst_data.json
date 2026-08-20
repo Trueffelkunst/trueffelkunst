@@ -143,28 +143,6 @@
       "werkidee": "Aus der Serie »Drawings in circles and out of them«: »Circle 5 – The Cape Town Cyclist«, ein Fahrradfahrer, der sich aus ornamentalen Liniengeflechten erhebt; die Blätter entstehen durch spontanes Zeichnen aus einer geschlossenen Kreisform."
     },
     {
-      "id": 8,
-      "year": "2018",
-      "date": "Jan. 2018",
-      "artist": "Alfred Ehrhardt",
-      "work": "Zusatz B3,4,6 (aus Nachlass) (Fotografie)",
-      "edition": "368 B3,B4,B6",
-      "price": "114 €",
-      "liga": "Liga 1",
-      "source": "receipt",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B3_Alfred_Erhardt.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B3_Alfred_Erhardt.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B4_Alfred_Erhardt.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B6_Alfred_Erhardt.jpg"
-      ],
-      "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
-      "drucker": "Larry Lazarus, Hamburg",
-      "technik": "Fotografie",
-      "werkidee": "Teil der Serie »Das Watt – Chaos und Struktur« (1933–36): Ehrhardt fotografierte abstrakte Sandformen im Wattenmeer und macht die immanente Schönheit und Ordnung des Naturgeschehens sichtbar. Die Blätter B3, B4 und B6 zeigen aderähnliche Riffelungen, schwere Brandungswellungen und den Wechsel von Längswellungen und Kräuselformen."
-    },
-    {
       "id": 9,
       "year": "2019",
       "date": "Jan. 2019",
@@ -1642,28 +1620,6 @@
       "image_note": "Schadographie 75b = 297 A5 (Irrgang)"
     },
     {
-      "id": 87,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Alfred Ehrhardt",
-      "work": "Fotografie B1, B2, B5 (Ergänzung)",
-      "edition": "368 B1,B2,B5",
-      "price": "—",
-      "liga": "Liga 1",
-      "source": "inventory",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B1_Alfred_Erhardt.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B1_Alfred_Erhardt.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B2_Alfred_Erhardt.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B5_Alfred_Erhardt.jpg"
-      ],
-      "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
-      "drucker": "Larry Lazarus, Hamburg",
-      "technik": "Fotografie",
-      "werkidee": "Aus derselben Serie »Das Watt – Chaos und Struktur«: Die Blätter B1, B2 und B5 zeigen Rundwellungen, den windbedingten Richtungswechsel der Riffelungen und den von sturmbewegten Wassermassen hart gestampften Boden – »System in die Strukturen und Ordnung in das Chaos der Natur«."
-    },
-    {
       "id": 88,
       "year": "?",
       "date": "Bestand",
@@ -2769,14 +2725,17 @@
       "year": "?",
       "date": "Katalog Bd.2",
       "artist": "Ludger Gerdes",
-      "work": "C4",
+      "work": "C4 – Kirche (Farbsiebdruck)",
       "edition": "249 C4",
       "price": "—",
       "liga": "Liga 1",
       "source": "catalog",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_url": "https://pictures.abebooks.com/inventory/31924641045.jpg",
+      "image_urls": [
+        "https://pictures.abebooks.com/inventory/31924641045.jpg"
+      ],
+      "pruefnotiz": "Bild: „Kirche\" (AbeBooks-Beleg) — Motiv prüfen"
     },
     {
       "id": 147,
@@ -3587,10 +3546,10 @@
     },
     {
       "id": 197,
-      "year": "2000",
+      "year": "1998",
       "date": "VIELLEICHT",
       "artist": "Kiki Smith",
-      "work": "Fledermaus (B.A.T.) - Radierung",
+      "work": "Fledermaus (bat) – Lithografie mit auf Pergamin gedruckter Collage-Applikation, in betiteltem Umschlag",
       "edition": "287 B6",
       "price": "—",
       "liga": "Liga 1",
@@ -3602,9 +3561,10 @@
       ],
       "image_unverified": true,
       "image_note": "'Squirrel' 287 B2 (Van Ham)",
-      "technik": "Radierung auf Velin",
-      "werkidee": "Aus Kiki Smiths Tier-Suite fuer die Griffelkunst (287 B1-B6: Biene, Eichhoernchen, Motte, Vogel, Fliege, Fledermaus). Im Bestand ist das Fledermaus-Blatt B6 (B.A.T.), eine signierte Radierung von 2000.",
-      "bild_hinweis": "Kein Griffelkunst-Bild online (Edition 2000 archiviert) - ggf. eigenes Foto ergaenzen."
+      "technik": "Lithografie auf Velin mit Collage-Applikation (Pergamin)",
+      "werkidee": "Aus der 6-teiligen Serie „bee, squirrel, moth, bird, fly, bat\" (Griffelkunst 287, 1998). Jedes Blatt: Lithografie mit einer auf Pergamin gedruckten, collagierten Applikation, im betitelten Umschlag.",
+      "bild_hinweis": "Kein Griffelkunst-Bild online (Edition 2000 archiviert) - ggf. eigenes Foto ergaenzen.",
+      "blattgroesse": "50,0 × 42,0 cm"
     },
     {
       "id": 198,
@@ -3782,28 +3742,6 @@
       "drucker": "Pig Lab, Hamburg",
       "technik": "Fotografie",
       "werkidee": "Blatt aus der Serie »Wie war Las Vegas« (2011): Inkjet-Photographien einer USA-Reise, die statt Sehenswürdigkeiten funktionslose Reklameschilder, Boden und Himmel zeigen und Las Vegas mit dokumentarisch-melancholischem Blick erfassen."
-    },
-    {
-      "id": 208,
-      "year": "?",
-      "date": "VIELLEICHT",
-      "artist": "Mark Dion",
-      "work": "A-Reihe (Siebdruck, Blatt unklar)",
-      "edition": "353 A?",
-      "price": "—",
-      "liga": "Liga 1",
-      "source": "maybe",
-      "isBlueChip": true,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/353_A1_Mark_Dion_1.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/353_A1_Mark_Dion_1.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/353_A2_Mark_Dion_1.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/353_A3_Mark_Dion_1.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/353_A4_Mark_Dion_1.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/353_A5_Mark_Dion_1.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/353_A6_Mark_Dion_1.jpg"
-      ],
-      "werkidee": "In der Serie setzt sich Dion mit einer zoo-geographischen Weltkarte auseinander und zeigt in wissenschaftlich anmutenden Schautafeln je eine Faunenregion. Blatt »Nearctic« steht für Nordamerika; die von groß nach klein geordnete Tiergruppierung ironisiert die vermeintlich objektive Klassifikation."
     },
     {
       "id": 209,
@@ -5205,6 +5143,150 @@
       ],
       "pruefnotiz": "Bild: Griffelkunst-Aktstudien 1999 (Zuordnung näherungsweise)",
       "date": "Bestand"
+    },
+    {
+      "id": 277,
+      "year": "2017",
+      "date": "Jan. 2018",
+      "artist": "Alfred Ehrhardt",
+      "work": "Das Watt – Chaos und Struktur: Rundwellungen (Fotografie a.d.N.)",
+      "edition": "368 B1",
+      "price": "114 €",
+      "liga": "Liga 1",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B1_Alfred_Erhardt.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B1_Alfred_Erhardt.jpg"
+      ],
+      "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
+      "drucker": "Larry Lazarus, Hamburg",
+      "technik": "Schwarzweiß-Photographie (Abzug aus dem Nachlass)",
+      "werkidee": "Teil der Serie »Das Watt – Chaos und Struktur« (1933–36): Ehrhardt fotografierte abstrakte Sandformen im Wattenmeer und macht die immanente Schönheit und Ordnung des Naturgeschehens sichtbar. Die Blätter B3, B4 und B6 zeigen aderähnliche Riffelungen, schwere Brandungswellungen und den Wechsel von Längswellungen und Kräuselformen."
+    },
+    {
+      "id": 278,
+      "year": "2017",
+      "date": "Jan. 2018",
+      "artist": "Alfred Ehrhardt",
+      "work": "Das Watt – Chaos und Struktur: Windwechsel bedeutet Richtungswechsel der Riffelungen (Fotografie a.d.N.)",
+      "edition": "368 B2",
+      "price": "114 €",
+      "liga": "Liga 1",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B2_Alfred_Erhardt.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B2_Alfred_Erhardt.jpg"
+      ],
+      "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
+      "drucker": "Larry Lazarus, Hamburg",
+      "technik": "Schwarzweiß-Photographie (Abzug aus dem Nachlass)",
+      "werkidee": "Teil der Serie »Das Watt – Chaos und Struktur« (1933–36): Ehrhardt fotografierte abstrakte Sandformen im Wattenmeer und macht die immanente Schönheit und Ordnung des Naturgeschehens sichtbar. Die Blätter B3, B4 und B6 zeigen aderähnliche Riffelungen, schwere Brandungswellungen und den Wechsel von Längswellungen und Kräuselformen."
+    },
+    {
+      "id": 279,
+      "year": "2017",
+      "date": "Jan. 2018",
+      "artist": "Alfred Ehrhardt",
+      "work": "Das Watt – Chaos und Struktur: Ähnlichkeit mit der Aderung eines Pflanzenblattes (Fotografie a.d.N.)",
+      "edition": "368 B3",
+      "price": "114 €",
+      "liga": "Liga 1",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B3_Alfred_Erhardt.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B3_Alfred_Erhardt.jpg"
+      ],
+      "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
+      "drucker": "Larry Lazarus, Hamburg",
+      "technik": "Schwarzweiß-Photographie (Abzug aus dem Nachlass)",
+      "werkidee": "Teil der Serie »Das Watt – Chaos und Struktur« (1933–36): Ehrhardt fotografierte abstrakte Sandformen im Wattenmeer und macht die immanente Schönheit und Ordnung des Naturgeschehens sichtbar. Die Blätter B3, B4 und B6 zeigen aderähnliche Riffelungen, schwere Brandungswellungen und den Wechsel von Längswellungen und Kräuselformen."
+    },
+    {
+      "id": 280,
+      "year": "2017",
+      "date": "Jan. 2018",
+      "artist": "Alfred Ehrhardt",
+      "work": "Das Watt – Chaos und Struktur: Schwere, starke Wellungen aus einem Brandungsgebiet (Fotografie a.d.N.)",
+      "edition": "368 B4",
+      "price": "114 €",
+      "liga": "Liga 1",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B4_Alfred_Erhardt.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B4_Alfred_Erhardt.jpg"
+      ],
+      "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
+      "drucker": "Larry Lazarus, Hamburg",
+      "technik": "Schwarzweiß-Photographie (Abzug aus dem Nachlass)",
+      "werkidee": "Teil der Serie »Das Watt – Chaos und Struktur« (1933–36): Ehrhardt fotografierte abstrakte Sandformen im Wattenmeer und macht die immanente Schönheit und Ordnung des Naturgeschehens sichtbar. Die Blätter B3, B4 und B6 zeigen aderähnliche Riffelungen, schwere Brandungswellungen und den Wechsel von Längswellungen und Kräuselformen."
+    },
+    {
+      "id": 281,
+      "year": "2017",
+      "date": "Jan. 2018",
+      "artist": "Alfred Ehrhardt",
+      "work": "Das Watt – Chaos und Struktur: Von riesenhaft sturmbewegten Wassermassen metallisch hart gestampfter Boden (Fotografie a.d.N.)",
+      "edition": "368 B5",
+      "price": "114 €",
+      "liga": "Liga 1",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B5_Alfred_Erhardt.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B5_Alfred_Erhardt.jpg"
+      ],
+      "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
+      "drucker": "Larry Lazarus, Hamburg",
+      "technik": "Schwarzweiß-Photographie (Abzug aus dem Nachlass)",
+      "werkidee": "Teil der Serie »Das Watt – Chaos und Struktur« (1933–36): Ehrhardt fotografierte abstrakte Sandformen im Wattenmeer und macht die immanente Schönheit und Ordnung des Naturgeschehens sichtbar. Die Blätter B3, B4 und B6 zeigen aderähnliche Riffelungen, schwere Brandungswellungen und den Wechsel von Längswellungen und Kräuselformen."
+    },
+    {
+      "id": 282,
+      "year": "2017",
+      "date": "Jan. 2018",
+      "artist": "Alfred Ehrhardt",
+      "work": "Das Watt – Chaos und Struktur: Regelmäßiger Wechsel von Längswellungen und Kräuselformen (Fotografie a.d.N.)",
+      "edition": "368 B6",
+      "price": "114 €",
+      "liga": "Liga 1",
+      "source": "receipt",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B6_Alfred_Erhardt.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_B6_Alfred_Erhardt.jpg"
+      ],
+      "blattgroesse": "30,5 × 24,0 cm / 25,5 × 19,0 cm",
+      "drucker": "Larry Lazarus, Hamburg",
+      "technik": "Schwarzweiß-Photographie (Abzug aus dem Nachlass)",
+      "werkidee": "Teil der Serie »Das Watt – Chaos und Struktur« (1933–36): Ehrhardt fotografierte abstrakte Sandformen im Wattenmeer und macht die immanente Schönheit und Ordnung des Naturgeschehens sichtbar. Die Blätter B3, B4 und B6 zeigen aderähnliche Riffelungen, schwere Brandungswellungen und den Wechsel von Längswellungen und Kräuselformen."
+    },
+    {
+      "id": 283,
+      "year": "2009",
+      "date": "Bestand",
+      "artist": "Elger Esser",
+      "work": "Kleine Seestücke: 118 LE TRÉPORT – Vue prise des Docks (Farboffsetdruck)",
+      "edition": "334 C1",
+      "price": "45 €",
+      "liga": "Liga 2",
+      "source": "inventory",
+      "isBlueChip": false,
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Esser_334_C1.JPG",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Esser_334_C1.JPG"
+      ],
+      "blattgroesse": "40,0 × 50,0 cm",
+      "drucker": "Druckerei Priess, Reinbek",
+      "technik": "Farboffsetdruck",
+      "werkidee": "Für »Kleine Seestücke« vergrößerte Esser Ausschnitte historischer französischer Postkarten und wandelte sie zu Farboffsetdrucken; Blatt C5 zeigt »ROYAN – La Jetée vers Foncillon«. Durch die Vergrößerung wird das Korn sichtbar, und einzelne Boote verleihen den Seestücken eine Aura melancholischer Schönheit.",
+      "erworben": {
+        "rechnung": "",
+        "datum": ""
+      }
     }
   ],
   "artists": {
@@ -6456,7 +6538,7 @@
         "total": 10
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_galleryimages/Isaacs-304-A4.jpg",
-      "portrait_url": "",
+      "portrait_url": "https://travesiacuatro.com/wp-content/uploads/2017/11/john_isaacs_-_portrait.png",
       "birth": 1968,
       "artist_bio": "John Isaacs, 1968 in Lancaster (England) geboren, ist ein britischer Künstler, der u.a. mit Objekten, Skulpturen und Fotografien arbeitet; er lebt in Berlin."
     },
@@ -6497,10 +6579,11 @@
         "total": 10
       },
       "artist_image": "https://www.griffelkunst.de/galleryimages/_xlarge/384_B1_Marcus_Weber.jpg",
-      "portrait_url": "",
+      "portrait_url": "https://arteviva.de/wp-content/uploads/2021/09/APWSelbstportrait.jpg",
       "birth": 1893,
       "death": 1980,
-      "artist_bio": "Andreas Paul Weber (1893–1980) war ein deutscher Zeichner und Lithograf, bekannt vor allem für seine gesellschaftskritischen, satirischen und fabelhaft-hintergründigen Schwarz-Weiß-Blätter. Ihm ist das A. Paul Weber-Museum in Ratzeburg gewidmet."
+      "artist_bio": "Andreas Paul Weber (1893–1980) war ein deutscher Zeichner und Lithograf, bekannt vor allem für seine gesellschaftskritischen, satirischen und fabelhaft-hintergründigen Schwarz-Weiß-Blätter. Ihm ist das A. Paul Weber-Museum in Ratzeburg gewidmet.",
+      "portrait_note": "Selbstporträt"
     },
     "Jan Knap": {
       "tier": 3,
@@ -6645,7 +6728,7 @@
         "P": 4,
         "total": 12
       },
-      "portrait_url": "",
+      "portrait_url": "https://www.akt-kunstverein-amberg.de/wp-content/uploads/Angermann_interview_mit_KI_2025.jpg",
       "birth": 1945,
       "artist_bio": "Peter Angermann, 1945 in Rehau geboren; deutscher Maler, studierte u.a. bei Joseph Beuys in Düsseldorf und wandte sich der gegenständlichen Pleinairmalerei zu; Professor u.a. an der Akademie der Bildenden Künste Nürnberg."
     },
@@ -7064,7 +7147,7 @@
         "P": 1,
         "total": 4
       },
-      "portrait_url": "",
+      "portrait_url": "https://kurt-sandweg-stiftung.de/images/Stephan%20Stuettgen%202.jpg",
       "birth": 1947,
       "artist_bio": "1947 in Lank/Niederrhein geboren; Schüler und Mitarbeiter von Joseph Beuys (jüngerer Bruder von Johannes Stüttgen), engagiert in der FIU und bei »7000 Eichen«, lebt als Maler in Düsseldorf."
     },
@@ -7207,7 +7290,7 @@
         "P": 2,
         "total": 7
       },
-      "portrait_url": "",
+      "portrait_url": "https://www.edition-staeck.de/wp-content/uploads/2020/04/kaden.jpg",
       "birth": 1945,
       "death": 2021,
       "sekundaermarkt": "gering",
@@ -7479,7 +7562,7 @@
         "P": 1,
         "total": 4
       },
-      "portrait_url": "",
+      "portrait_url": "https://herbert-grunwaldt.de/wp-content/uploads/2025/08/foto_berti-2.jpg",
       "birth": 1928,
       "death": 2014,
       "sekundaermarkt": "gering",
@@ -8859,6 +8942,26 @@
       "birth": 1865,
       "death": 1932,
       "artist_bio": "1865 in Schielo geboren, 1932 in Berlin gestorben; Photograph und Lehrer, dessen Pflanzenstudien als stilprägend für die Neue Sachlichkeit gelten. Mit »Urformen der Kunst« (1928) wurde er über Nacht bekannt."
+    },
+    "Oliver Ross": {
+      "tier": 3,
+      "liga": "Liga 3",
+      "isBlueChip": false,
+      "gender": "m",
+      "birth": 1967,
+      "editions": "E 588 „Auge um Zahn\" (Leuchtobjekt, 2014); früher 317 B (2005), E 501/502 (2014)",
+      "sheetCount": 1,
+      "portrait_url": "https://www.griffelkunst.de/i/_medium/Portrait_Ross_1.jpg",
+      "significance": "Hamburger Konzeptkünstler; Installationen, Collagen, Zeichnungen, Texte („Rossology\") — Zeichen-, Sprach- und Neuro-Bildwelten",
+      "potential": "Eigenwilliger konzeptueller Kosmos; „Auge um Zahn\" war seine erste dreidimensionale Edition (Leucht­objekt) für die griffelkunst.",
+      "rmtp": {
+        "R": 3,
+        "M": 2,
+        "T": 1,
+        "P": 2,
+        "total": 8
+      },
+      "artist_bio": "1967 in München geboren, lebt und arbeitet in Hamburg. Konzeptkünstler, der mit Installationen, Collagen, Zeichnungen und Texten arbeitet („Rossology\"); vielfältigste Bild- und Drucktechniken."
     }
   },
   "stats": {
