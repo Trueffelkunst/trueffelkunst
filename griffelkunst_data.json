@@ -57,29 +57,6 @@
       "werkidee": "Skulptur eines jungen Mannes im Antimon-Hartbleiguss (2005); durch veränderte Proportionen und die unbemalte Metalloberfläche gewinnt die etwa 30 cm hohe Figur eine gewisse Monumentalität."
     },
     {
-      "id": 4,
-      "year": "2016",
-      "date": "Jul. 2016",
-      "artist": "Cyrill Lachauer",
-      "work": "Zusatz C2,5",
-      "edition": "361 C1–C5",
-      "price": "71 €",
-      "liga": "Liga 2",
-      "source": "receipt",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C1_Cyrill_Lachauer.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C1_Cyrill_Lachauer.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C2_Cyrill_Lachauer.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C3_Cyrill_Lachauer.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C4_Cyrill_Lachauer.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C5_Cyrill_Lachauer.jpg"
-      ],
-      "technik": "Heliogravüre",
-      "technik_quelle": "griffelkunst.de Lachauer 361 Heliogravueren",
-      "werkidee": "Die C-Reihe besteht aus farbigen Heliogravüren, mit denen Lachauer eine topographische Erfassung Deutschlands von Nord nach Süd vornimmt (C1–C5: Nauendorf-Sachsenbande, Wilseder Berg, Brocken, Fichtelberg, Großer Arber). An jedem Ort zündete er Rauchpatronen und fotografierte den Rauch, der den scheinbar wissenschaftlichen Akt der Vermessung markiert und zugleich verbirgt."
-    },
-    {
       "id": 7,
       "year": "2018",
       "date": "Jan. 2018",
@@ -97,7 +74,8 @@
       "blattgroesse": "42,0 × 29,7 cm",
       "drucker": "Martin Samuel, Berlin",
       "technik": "Siebdruck",
-      "werkidee": "Aus der Serie »Drawings in circles and out of them«: »Circle 5 – The Cape Town Cyclist«, ein Fahrradfahrer, der sich aus ornamentalen Liniengeflechten erhebt; die Blätter entstehen durch spontanes Zeichnen aus einer geschlossenen Kreisform."
+      "werkidee": "Aus der Serie »Drawings in circles and out of them«: »Circle 5 – The Cape Town Cyclist«, ein Fahrradfahrer, der sich aus ornamentalen Liniengeflechten erhebt; die Blätter entstehen durch spontanes Zeichnen aus einer geschlossenen Kreisform.",
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
     },
     {
       "id": 10,
@@ -237,23 +215,6 @@
       "image_note": "Fahne 2020 (Bassenge)"
     },
     {
-      "id": 21,
-      "year": "2020",
-      "date": "Aug. 2020",
-      "artist": "Karo Akpokiere",
-      "work": "Siebdruck C2 + Portfolio 10",
-      "edition": "368 C2 + PF10",
-      "price": "53 €",
-      "liga": "Liga 2",
-      "source": "receipt",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_C2_Karo_Akpokiere.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_C2_Karo_Akpokiere.jpg"
-      ],
-      "werkidee": "Aus derselben Siebdruck-Serie: »Circle 2 – Distinct spots on an unravelling heart«, ein aus der Kreisform spontan entwickeltes Motiv zwischen Abstraktion und Gegenständlichkeit."
-    },
-    {
       "id": 22,
       "year": "2020",
       "date": "Aug. 2020",
@@ -335,7 +296,7 @@
     },
     {
       "id": 30,
-      "year": "2020",
+      "year": "2006",
       "date": "Sep. 2020",
       "artist": "Jan Knap",
       "work": "Farbradierung B5",
@@ -351,7 +312,8 @@
       "blattgroesse": "39,0 x 49,0 cm / 23,5 x 31,5 cm",
       "drucker": "Kunst- und Radierwerkstatt Willi Jesse, Berlin",
       "technik": "Radierung",
-      "werkidee": "Blatt 5 der 322er B-Reihe: Radierung »ohne Titel«, einfarbig mit chine collée; Teil von Knaps bewusst einfacher, religiös-harmonischer Bildwelt (»Malerei ist ein Gebet«)."
+      "werkidee": "Blatt 5 der 322er B-Reihe: Radierung »ohne Titel«, einfarbig mit chine collée; Teil von Knaps bewusst einfacher, religiös-harmonischer Bildwelt (»Malerei ist ein Gebet«).",
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
     },
     {
       "id": 32,
@@ -444,14 +406,15 @@
       "liga": "Liga 1",
       "source": "receipt",
       "isBlueChip": true,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E_568_Richard_Deacon.jpg",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_medium/E_568_Richard_Deacon.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/E_568_Richard_Deacon.jpg"
+        "https://www.griffelkunst.de/galleryimages/_medium/E_568_Richard_Deacon.jpg"
       ],
       "blattgroesse": "81,0 × 61,0 cm / 54,0 × 49,0 cm",
       "drucker": "Felix Bauer, Köln",
       "technik": "Lithographie",
-      "werkidee": "»Light« (2020) – Lithographie. Aus zufällig gesägten Polyurethan-Schnittprofilen entstandene Schablonen begrenzen die Linien; der Punkt, an dem sie zusammenlaufen, wird von der Zeichnung verdeckt und durch eine metallische Überlagerung »beleuchtet«."
+      "werkidee": "»Light« (2020) – Lithographie. Aus zufällig gesägten Polyurethan-Schnittprofilen entstandene Schablonen begrenzen die Linien; der Punkt, an dem sie zusammenlaufen, wird von der Zeichnung verdeckt und durch eine metallische Überlagerung »beleuchtet«.",
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
     },
     {
       "id": 42,
@@ -630,7 +593,7 @@
       "blattgroesse": "54,5 x 76,0 cm",
       "drucker": "Hostrup-Pedersen & Johansen, Kopenhagen",
       "technik": "Lithographie",
-      "werkidee": "Zwei bauchige Figuren, in denen man überdimensionale Trinkgefäße erkennen kann, gerahmt von geometrischen Farbflächen — Tal Rs Spiel zwischen Figuration, Abstraktion und Anleihen bei der Volkskunst.",
+      "werkidee": "Zwei bauchige Figuren, in denen man überdimensionale Trinkgefäße erkennen kann von geometrischen Farbflächen — Tal Rs Spiel zwischen Figuration, Abstraktion und Anleihen bei der Volkskunst.",
       "werkidee_quelle": "griffelkunst.de/tal-r"
     },
     {
@@ -674,21 +637,23 @@
       "blattgroesse": "73,0 x 72,0 cm / 60,0 x 60,0 cm",
       "drucker": "Kunst- und Radierwerkstatt W. Jesse, Berlin",
       "technik": "Aquatinta",
-      "werkidee": "Die Projekt-Reihe »FORM AND RHYTHM« versammelt farbige Aquatinta-Radierungen nach Tremletts Pastellzeichnungen: geometrische Kompositionen mit grundrissähnlichen Linien in je drei Farben. In einem Transferdruckverfahren über Ölpapier wurde die Pastell-Oberflächenstruktur in die Radierung überführt."
+      "werkidee": "Die Projekt-Reihe »FORM AND RHYTHM« versammelt farbige Aquatinta-Radierungen nach Tremletts Pastellzeichnungen: geometrische Kompositionen mit grundrissähnlichen Linien in je drei Farben. In einem Transferdruckverfahren über Ölpapier wurde die Pastell-Oberflächenstruktur in die Radierung überführt.",
+      "pruefnotiz": "OFFEN – Bodman prueft in den Mappen: sicher 398 C1 und P39, evtl. weitere P-Blaetter (P37/P40/P42?). Noch NICHT aufgeteilt."
     },
     {
       "id": 55,
-      "year": "2022",
-      "date": "Okt. 2022",
+      "year": "1977",
+      "date": "Bestand",
       "artist": "Alfons Lachauer",
       "work": "Druckgrafik",
-      "edition": "F106 + 186-5",
+      "edition": "F106",
       "price": "56 €",
       "liga": "Liga 3",
-      "source": "receipt",
+      "source": "inventory",
       "isBlueChip": false,
       "image_url": "",
-      "image_urls": []
+      "image_urls": [],
+      "pruefnotiz": "Wahl 1977; Foto aus Werkverzeichnis 1977 nachtragen"
     },
     {
       "id": 57,
@@ -1160,23 +1125,6 @@
       "image_urls": []
     },
     {
-      "id": 90,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Olga Tobreluts",
-      "work": "4 Blätter (1999, gerahmt)",
-      "edition": "Tobreluts (4 Bl.)",
-      "price": "—",
-      "liga": "Liga 2",
-      "source": "inventory",
-      "isBlueChip": false,
-      "image_url": "https://framemark.vam.ac.uk/collections/2023NR4046/full/1400,/0/default.jpg",
-      "image_urls": [
-        "https://framemark.vam.ac.uk/collections/2023NR4046/full/1400,/0/default.jpg"
-      ],
-      "pruefnotiz": "Bild: „Antinous\" – eines der 4 Blätter der Serie (V&A)"
-    },
-    {
       "id": 91,
       "year": "?",
       "date": "Bestand",
@@ -1255,50 +1203,6 @@
       "technik": "Radierung"
     },
     {
-      "id": 95,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Jan Knap",
-      "work": "Farbradierungen (4 Bl. zusätzlich zu B5)",
-      "edition": "322 B (4 Bl.)",
-      "price": "—",
-      "liga": "Liga 2",
-      "source": "inventory",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B1.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B1.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B2.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B3.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B4.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B5.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B6.jpg"
-      ],
-      "werkidee": "B-Reihe der 322. Wahl: sechs Radierungen ohne Titel, in denen Knap seine Suche nach Schönheit und Harmonie in bewusst einfacher Malerei verfolgt."
-    },
-    {
-      "id": 96,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Thomas Huber",
-      "work": "2 Blätter",
-      "edition": "322 (2 Bl.)",
-      "price": "—",
-      "liga": "Liga 1",
-      "source": "inventory",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A1.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A1.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A2.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A3.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A4.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A5.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A6.jpg"
-      ],
-      "werkidee": "Aus der Serie »Rauten traurig« (2006): Farblithographien mit hohen, leeren, mustertragenden Bildräumen, die durch als weiße Flächen ausgesparte Durchbrüche strukturiert werden und mit Perspektive, Tiefe und Wahrnehmung spielen."
-    },
-    {
       "id": 97,
       "year": "?",
       "date": "Bestand",
@@ -1323,22 +1227,6 @@
       "werkidee": "Die farbenfrohe Siebdruck-Edition zeigt sechs »Liebes-Ikonen« (u.a. Herz, Wunderbaum, rotes Kleid) unter dem Motto »Pathos und Peinlichkeit«. Feuchtenberger lotet aus, wie weit sich starke Gefühle darstellen lassen, und bringt süße Symbole in surreale Zusammenhänge."
     },
     {
-      "id": 98,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Willem Grimm",
-      "work": "2 Karnevalsumzugsbilder (gerahmt)",
-      "edition": "Grimm (2 Bl.)",
-      "price": "—",
-      "liga": "Liga 3",
-      "source": "inventory",
-      "isBlueChip": false,
-      "image_url": "https://www.auktionshaus-stahl.de/ressourcen/auktionen/297/62156-0.jpg",
-      "image_urls": [],
-      "image_unverified": true,
-      "image_note": "'Rummelpott-Umzug' (Auktionshaus Stahl); 2. Blatt 'Karneval' vorhanden"
-    },
-    {
       "id": 99,
       "year": "?",
       "date": "Bestand",
@@ -1361,7 +1249,7 @@
     },
     {
       "id": 101,
-      "year": "?",
+      "year": "2015",
       "date": "Bestand",
       "artist": "Richard Deacon",
       "work": "Daily (Lithographie)",
@@ -1370,35 +1258,19 @@
       "liga": "Liga 1",
       "source": "inventory",
       "isBlueChip": true,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/Richard_Deacon_360_A5_1.jpg",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_medium/Richard_Deacon_360_A5_1.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/Richard_Deacon_360_A5_1.jpg"
+        "https://www.griffelkunst.de/galleryimages/_medium/Richard_Deacon_360_A5_1.jpg"
       ],
       "blattgroesse": "65,0 x 51,0 cm",
       "drucker": "Felix Bauer, Köln",
       "technik": "Lithographie",
-      "werkidee": "»Delhi« – Lithographie aus der siebenteiligen Serie (2015), die die Kreuzschraffuren von Deacons »Interferenzen« aufgreift."
-    },
-    {
-      "id": 102,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Richard Deacon",
-      "work": "Lithographien (3 Blätter)",
-      "edition": "360 (5,6,8)",
-      "price": "—",
-      "liga": "Liga 1",
-      "source": "inventory",
-      "isBlueChip": true,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/Richard_Deacon_360_A6_1.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/Richard_Deacon_360_A6_1.jpg"
-      ],
-      "werkidee": "»Jaipur« – Lithographie aus derselben Serie; sie greift die Struktur einer großen Arbeit Deacons auf und erinnert an die Rhythmik der Siebdruckfolge »Sleeping Beauty«."
+      "werkidee": "»Delhi« – Lithographie aus der siebenteiligen Serie (2015), die die Kreuzschraffuren von Deacons »Interferenzen« aufgreift.",
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
     },
     {
       "id": 103,
-      "year": "?",
+      "year": "2021",
       "date": "Bestand",
       "artist": "Richard Deacon",
       "work": "Edition (Lithographie)",
@@ -1407,33 +1279,15 @@
       "liga": "Liga 1",
       "source": "inventory",
       "isBlueChip": true,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E_569_Richard_Deacon.jpg",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_medium/E_569_Richard_Deacon.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/E_569_Richard_Deacon.jpg"
+        "https://www.griffelkunst.de/galleryimages/_medium/E_569_Richard_Deacon.jpg"
       ],
       "blattgroesse": "81,0 × 61,0 cm / 60,0 × 54,0 cm",
       "drucker": "Felix Bauer, Köln",
       "technik": "Lithographie",
-      "werkidee": "»More Light« (2020) – Lithographie und Pendant zu »Light«; Verbergen und Erleuchten werden zum Thema, mit Gold, Silber und Strahlenkranz."
-    },
-    {
-      "id": 104,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Tilo Baumgärtel",
-      "work": "Farblithographien B-Reihe",
-      "edition": "363 B",
-      "price": "—",
-      "liga": "Liga 2",
-      "source": "inventory",
-      "isBlueChip": false,
-      "image_url": "https://www.artax.de/pictures/user_images/full/789_0110_Ba.jpg",
-      "image_urls": [],
-      "drucker": "Stephan Rosentreter, Lithographisches Atelier Leipzig",
-      "technik": "Lithographie",
-      "image_unverified": true,
-      "image_note": "gefunden als 363 B2 (Serie 363 B — Blatt bestätigen)",
-      "werkidee": "Die B-Reihe (363. Wahl, 2016): sechs Farblithographien von Zinkplatten in drei Hoch- und drei Querformaten, die eine rätselhafte, surreale Bildwelt mit hybriden Mensch-Tier-Wesen und fantastischen Erzählungen entfalten."
+      "werkidee": "»More Light« (2020) – Lithographie und Pendant zu »Light«; Verbergen und Erleuchten werden zum Thema, mit Gold, Silber und Strahlenkranz.",
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
     },
     {
       "id": 105,
@@ -1454,28 +1308,6 @@
       "drucker": "Handdruck Loeding & Sturm, Hamburg",
       "technik": "Holzdruck",
       "werkidee": "Während eines Griffelkunst-Stipendiums entstand die Serie mehrfarbiger Farbholzdrucke: Michalko übersetzt ihr abstraktes Bildvokabular in mal deckende, mal durchscheinende Formen auf Japanpapier, aus denen grob geschnittene Worte auftauchen; A1 »The corpse and the moon«."
-    },
-    {
-      "id": 106,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Stefan Marx",
-      "work": "Lithographien (2 Bl.: Sad Songs + 1 weiteres)",
-      "edition": "365 (2 Bl.)",
-      "price": "—",
-      "liga": "Liga 2",
-      "source": "inventory",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C1_Stefan_Marx.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C1_Stefan_Marx.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C2_Stefan_Marx.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C3_Stefan_Marx.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C4_Stefan_Marx.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C5_Stefan_Marx.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C6_Stefan_Marx.jpg"
-      ],
-      "werkidee": "Erste Lithographie-Serie des Künstlers (2017, gedruckt bei Felix Bauer, Köln), in der er Früchte zum Leben erweckt und Lieblingszeilen aus Songtexten in seiner Typografie auf den Lithostein schreibt."
     },
     {
       "id": 107,
@@ -1499,25 +1331,21 @@
     },
     {
       "id": 108,
-      "year": "?",
+      "year": "2018",
       "date": "Bestand",
       "artist": "Gerrit Frohne-Brinkmann",
-      "work": "1 Polaroid",
-      "edition": "370 (1 Bl.)",
+      "work": "A1 (Polaroid)",
+      "edition": "370 A1",
       "price": "—",
       "liga": "Liga 2",
       "source": "inventory",
       "isBlueChip": false,
       "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A1_Gerrit_Frohne-Brinkmann.jpg",
       "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A1_Gerrit_Frohne-Brinkmann.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A2_Gerrit_Frohne-Brinkmann.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A3_Gerrit_Frohne-Brinkmann.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A4_Gerrit_Frohne-Brinkmann.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A5_Gerrit_Frohne-Brinkmann.jpg",
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A_Box_Gerrit_Frohne-Brinkmann.jpg"
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/370_A1_Gerrit_Frohne-Brinkmann.jpg"
       ],
-      "werkidee": "Polaroids »Mammuthus primigenius«, Momentaufnahmen des ausgestorbenen Mammuts. Dem Sofortbild ist – in Analogie zum Tier – das eigene Verschwinden eingeschrieben, da der Entwicklungsprozess weiterläuft und nachdunkelt; die Blätter werden daher in Druckverschlussbeuteln angeboten."
+      "werkidee": "Polaroids »Mammuthus primigenius«, Momentaufnahmen des ausgestorbenen Mammuts. Dem Sofortbild ist – in Analogie zum Tier – das eigene Verschwinden eingeschrieben, da der Entwicklungsprozess weiterläuft und nachdunkelt; die Blätter werden daher in Druckverschlussbeuteln angeboten.",
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
     },
     {
       "id": 109,
@@ -1580,27 +1408,12 @@
       "werkidee": "Blatt aus derselben Serie »rivière« (2013): eine getuschte Flusslandschaft, in der sich die Grenze zwischen Ufer und Wasser in Schattierungen von Braun, Grün und Rosa auflöst."
     },
     {
-      "id": 112,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Michel Majerus",
-      "work": "1 Blatt (gerahmt)",
-      "edition": "Majerus (1 Bl.)",
-      "price": "—",
-      "liga": "Liga 1",
-      "source": "inventory",
-      "isBlueChip": true,
-      "image_url": "",
-      "image_urls": [],
-      "pruefnotiz": "Mögliches Duplikat von id228 (308 A2) — Blatt unklar, Bild nicht automatisch gesetzt"
-    },
-    {
       "id": 113,
-      "year": "?",
+      "year": "1994",
       "date": "Bestand",
       "artist": "Leon Golub",
-      "work": "1 Blatt, 2 Figuren (gerahmt)",
-      "edition": "Golub (1 Bl.)",
+      "work": "C3",
+      "edition": "274 C3",
       "price": "—",
       "liga": "Liga 1",
       "source": "inventory",
@@ -1615,35 +1428,20 @@
       "year": "?",
       "date": "Bestand",
       "artist": "Wolf von Waldow",
-      "work": "Tapetenstück (gerahmt)",
-      "edition": "Waldow (1 Bl.)",
+      "work": "Tapetenstück",
+      "edition": "E449",
       "price": "—",
       "liga": "Liga 3",
       "source": "inventory",
       "isBlueChip": false,
-      "image_url": "",
-      "image_urls": [],
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Waldow_E449_.JPG",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Waldow_E449_.JPG"
+      ],
       "drucker": "Florian Caspar GmbH, Haan-Gruiten",
       "technik": "Sonstige",
       "werkidee": "Aus der Tapeten-Edition »mental map« (2008): eine Vliestapete mit wechselnden Motiven, die ins Negativ gekehrte historische Photographien mit scherenschnittartigen Silhouetten auf verfremdeten Landkarten kombiniert – Erinnerung und Geschichte als frei anzuordnender Wandschmuck.",
-      "pruefnotiz": "HP hat E448/E449, aber App-Blatt ohne Code — Zuordnung unklar, Bild nicht automatisch gesetzt"
-    },
-    {
-      "id": 115,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Misaki Kawai",
-      "work": "Multiple: Stofftasche TA1 + Lithographie A5 \"BFF\"",
-      "edition": "TA1 + 386 A5",
-      "price": "—",
-      "liga": "Liga 2",
-      "source": "inventory",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/386_A5_Misaki_Kawai.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/386_A5_Misaki_Kawai.jpg"
-      ],
-      "werkidee": "Die Serie mehrfarbiger Farblithographien entstand in der Berliner Tabor Presse und folgt Kawais Credo, dass Kunst Spaß machen soll. Blatt »BFF« (best friends forever) gehört zu dieser bunten Welt aus personifizierten Objekten, Tieren und Alltagsmotiven."
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
     },
     {
       "id": 117,
@@ -1857,28 +1655,6 @@
       "technik": "Radierung"
     },
     {
-      "id": 131,
-      "year": "?",
-      "date": "Bestand",
-      "artist": "Toulu Hassani",
-      "work": "Edition (2 Blätter)",
-      "edition": "E 584, E 585",
-      "price": "—",
-      "liga": "Liga 2",
-      "source": "inventory",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_xlarge/E_584_Toulu_Hassani.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_xlarge/E_584_Toulu_Hassani.jpg",
-        "https://www.griffelkunst.de/galleryimages/_xlarge/E_585_Toulu_Hassani.jpg"
-      ],
-      "blattgroesse": "59,5 × 46,5 cm / 44,0 × 33,5 cm",
-      "drucker": "Atelier für Druckgrafik, Wedel",
-      "technik": "Radierung",
-      "technik_quelle": "griffelkunst.de Hassani E584/585 Radierung",
-      "werkidee": "Einzelblätter E 584 »And so on to infinity« (raumfüllende Peano-Kurve in Rot/Orange) und E 585 »not fixed could change« (Zick-Zack-Raster in tiefem Blau) – aufwendig von Hand in die Kupferplatte radierte Annäherungen an eine »verrückte Ordnung«."
-    },
-    {
       "id": 133,
       "year": "?",
       "date": "Bestand",
@@ -1960,7 +1736,7 @@
     },
     {
       "id": 138,
-      "year": "?",
+      "year": "2017",
       "date": "Bestand",
       "artist": "Stefan Marx",
       "work": "Lithographie C5",
@@ -1976,7 +1752,8 @@
       "blattgroesse": "64,5 × 51,0 cm / 48,0 × 37,0 cm",
       "drucker": "Felix Bauer, Köln",
       "technik": "Lithographie",
-      "werkidee": "Blatt »Father, Son and the Holy Ghost« aus der sechsteiligen Lithographie-Serie von 2017."
+      "werkidee": "Blatt »Father, Son and the Holy Ghost« aus der sechsteiligen Lithographie-Serie von 2017.",
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
     },
     {
       "id": 140,
@@ -2453,25 +2230,8 @@
       "image_urls": []
     },
     {
-      "id": 178,
-      "year": "?",
-      "date": "Katalog Bd.2",
-      "artist": "Willem Grimm",
-      "work": "Rummelpottlaufen (Farbholzdruck, Nachlass)",
-      "edition": "298 B",
-      "price": "—",
-      "liga": "Liga 3",
-      "source": "catalog",
-      "isBlueChip": false,
-      "image_url": "https://www.auktionshaus-stahl.de/ressourcen/auktionen/306/69354-0.jpg",
-      "image_urls": [
-        "https://www.auktionshaus-stahl.de/ressourcen/auktionen/306/69354-0.jpg"
-      ],
-      "pruefnotiz": "Bild: gleiches Motiv „Rummelpott\" (Auktionshaus Stahl)"
-    },
-    {
       "id": 179,
-      "year": "?",
+      "year": "1996",
       "date": "Katalog Bd.2",
       "artist": "Gustav Kluge",
       "work": "Gondwana (Farbholzdruck)",
@@ -2638,31 +2398,18 @@
     },
     {
       "id": 189,
-      "year": "?",
-      "date": "VIELLEICHT",
+      "year": "1992",
+      "date": "Bestand",
       "artist": "Dagmar Ranft-Schinke",
-      "work": "C1+C2+C3 (unsicher)",
-      "edition": "266 C1,C2,C3",
+      "work": "C1",
+      "edition": "266 C1",
       "price": "—",
       "liga": "Liga 2",
-      "source": "maybe",
+      "source": "inventory",
       "isBlueChip": false,
       "image_url": "",
-      "image_urls": []
-    },
-    {
-      "id": 190,
-      "year": "?",
-      "date": "VIELLEICHT",
-      "artist": "Thomas Ranft",
-      "work": "C7 (unsicher)",
-      "edition": "266 C7",
-      "price": "—",
-      "liga": "Liga 2",
-      "source": "maybe",
-      "isBlueChip": false,
-      "image_url": "",
-      "image_urls": []
+      "image_urls": [],
+      "pruefnotiz": "Nur C1 im Bestand (C2/C3 nicht); Titel + Foto aus WV 1992 nachtragen"
     },
     {
       "id": 191,
@@ -2841,22 +2588,6 @@
         "https://images.kunstveiling.nl/img-artpeers-rms-titanic-original-farbradierung-aus-dem-jahr-2000-handsigniert-datiert-und-betitelt-85670.jpeg"
       ],
       "pruefnotiz": "Bild: verwandte Titanic-Radierung (Serie) — Motiv prüfen"
-    },
-    {
-      "id": 202,
-      "year": "?",
-      "date": "VIELLEICHT",
-      "artist": "Gustav Kluge",
-      "work": "schlaft IDOLE (Farbholzdruck)",
-      "edition": "E 334",
-      "price": "—",
-      "liga": "Liga 1",
-      "source": "maybe",
-      "isBlueChip": false,
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/299-300E334-00KLUGE.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/299-300E334-00KLUGE.jpg"
-      ]
     },
     {
       "id": 203,
@@ -3405,7 +3136,7 @@
     },
     {
       "id": 228,
-      "year": "2026",
+      "year": "2002",
       "date": "Jul. 2026",
       "artist": "Michel Majerus",
       "work": "Siebdruck",
@@ -3424,7 +3155,8 @@
       "erworben": {
         "rechnung": "09502/26",
         "datum": "2026-07-09"
-      }
+      },
+      "pruefnotiz": "2 Exemplare im Bestand (Doppel)"
     },
     {
       "id": 229,
@@ -5513,37 +5245,7 @@
       "liga": "Liga 1",
       "isBlueChip": false,
       "date": "Bestand",
-      "year": "?",
-      "id": 347,
-      "edition": "284 A3",
-      "work": "ohne Titel",
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/284A3-96KLUGE.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/284A3-96KLUGE.jpg"
-      ]
-    },
-    {
-      "artist": "Gustav Kluge",
-      "source": "inventory",
-      "liga": "Liga 1",
-      "isBlueChip": false,
-      "date": "Bestand",
-      "year": "?",
-      "id": 348,
-      "edition": "284 A4",
-      "work": "ohne Titel",
-      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/284A4-96KLUGE.jpg",
-      "image_urls": [
-        "https://www.griffelkunst.de/galleryimages/_galleryimages/284A4-96KLUGE.jpg"
-      ]
-    },
-    {
-      "artist": "Gustav Kluge",
-      "source": "inventory",
-      "liga": "Liga 1",
-      "isBlueChip": false,
-      "date": "Bestand",
-      "year": "?",
+      "year": "1996",
       "id": 349,
       "edition": "284 A5",
       "work": "ohne Titel",
@@ -6252,6 +5954,564 @@
       "image_urls": [
         "https://www.griffelkunst.de/galleryimages/_galleryimages/Tchepets341_C6.JPG"
       ]
+    },
+    {
+      "id": 395,
+      "artist": "Olga Tobreluts",
+      "edition": "294 A1",
+      "work": "Aphrodite",
+      "year": "1999",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Foto aus WV 1999 nachtragen"
+    },
+    {
+      "id": 396,
+      "artist": "Olga Tobreluts",
+      "edition": "294 A2",
+      "work": "Antinous",
+      "year": "1999",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://framemark.vam.ac.uk/collections/2023NR4046/full/1400,/0/default.jpg",
+      "image_urls": [
+        "https://framemark.vam.ac.uk/collections/2023NR4046/full/1400,/0/default.jpg"
+      ],
+      "pruefnotiz": "Bild: „Antinous\" (V&A)"
+    },
+    {
+      "id": 397,
+      "artist": "Olga Tobreluts",
+      "edition": "294 A3",
+      "work": "Hermes",
+      "year": "1999",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Foto aus WV 1999 nachtragen"
+    },
+    {
+      "id": 398,
+      "artist": "Olga Tobreluts",
+      "edition": "294 A4",
+      "work": "Griechischer anonymer Kopf",
+      "year": "1999",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Foto aus WV 1999 nachtragen"
+    },
+    {
+      "id": 399,
+      "artist": "Gustav Kluge",
+      "edition": "E 364",
+      "work": "arderei il mondo II",
+      "year": "?",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 1",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Gustav_Kluge_E364.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Gustav_Kluge_E364.jpg"
+      ],
+      "pruefnotiz": "Bild+Titel von Griffelkunst-Homepage",
+      "technik": "Stein- und Linoldruck"
+    },
+    {
+      "id": 400,
+      "artist": "Gustav Kluge",
+      "edition": "E 365",
+      "work": "Koppens VII",
+      "year": "?",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 1",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Gustav_Kluge_E365.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Gustav_Kluge_E365.jpg"
+      ],
+      "pruefnotiz": "Bild+Titel von Griffelkunst-Homepage",
+      "technik": "Stein- und Linoldruck"
+    },
+    {
+      "id": 401,
+      "artist": "Stefan Marx",
+      "edition": "365 C1",
+      "work": "Sad Songs",
+      "year": "2017",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C1_Stefan_Marx.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C1_Stefan_Marx.jpg"
+      ],
+      "pruefnotiz": "Foto aus WV 2017 nachtragen | Bild von Homepage"
+    },
+    {
+      "id": 402,
+      "artist": "Stefan Marx",
+      "edition": "365 C2",
+      "work": "C2",
+      "year": "2017",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C2_Stefan_Marx.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/365_C2_Stefan_Marx.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 403,
+      "artist": "Cyrill Lachauer",
+      "edition": "361 C1",
+      "work": "C1",
+      "technik": "Heliogravüre",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C1_Cyrill_Lachauer.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C1_Cyrill_Lachauer.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 404,
+      "artist": "Cyrill Lachauer",
+      "edition": "361 C3",
+      "work": "C3",
+      "technik": "Heliogravüre",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C3_Cyrill_Lachauer.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C3_Cyrill_Lachauer.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 405,
+      "artist": "Cyrill Lachauer",
+      "edition": "361 C4",
+      "work": "C4",
+      "technik": "Heliogravüre",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C4_Cyrill_Lachauer.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C4_Cyrill_Lachauer.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 406,
+      "artist": "Cyrill Lachauer",
+      "edition": "361 C5",
+      "work": "C5",
+      "technik": "Heliogravüre",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C5_Cyrill_Lachauer.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C5_Cyrill_Lachauer.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 407,
+      "artist": "Cyrill Lachauer",
+      "edition": "361 C6",
+      "work": "C6",
+      "technik": "Heliogravüre",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C6_Cyrill_Lachauer.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/361_C6_Cyrill_Lachauer.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 408,
+      "artist": "Thomas Huber",
+      "edition": "322 A2",
+      "work": "A2",
+      "year": "2006",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 1",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A2.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A2.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 409,
+      "artist": "Thomas Huber",
+      "edition": "322 A3",
+      "work": "A3",
+      "year": "2006",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 1",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A3.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Huber-322-A3.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 410,
+      "artist": "Jan Knap",
+      "edition": "322 B1",
+      "work": "B1",
+      "technik": "Radierung",
+      "year": "2006",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B1.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B1.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 411,
+      "artist": "Jan Knap",
+      "edition": "322 B2",
+      "work": "B2",
+      "technik": "Radierung",
+      "year": "2006",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B2.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B2.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 412,
+      "artist": "Jan Knap",
+      "edition": "322 B3",
+      "work": "B3",
+      "technik": "Radierung",
+      "year": "2006",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B3.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/Knap-322-B3.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 413,
+      "artist": "Karo Akpokiere",
+      "edition": "368 C1",
+      "work": "C1",
+      "technik": "Siebdruck",
+      "year": "2018",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_C1_Karo_Akpokiere.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_C1_Karo_Akpokiere.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 414,
+      "artist": "Karo Akpokiere",
+      "edition": "368 C3",
+      "work": "C3",
+      "technik": "Siebdruck",
+      "year": "2018",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_galleryimages/368_C3_Karo_Akpokiere.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_galleryimages/368_C3_Karo_Akpokiere.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 415,
+      "artist": "Misaki Kawai",
+      "edition": "386 A5",
+      "work": "BFF",
+      "technik": "Lithographie",
+      "year": "2022",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_medium/386_A5_Misaki_Kawai.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_medium/386_A5_Misaki_Kawai.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 416,
+      "artist": "Misaki Kawai",
+      "edition": "TA1",
+      "work": "Stofftasche (Multiple)",
+      "technik": "Multiple",
+      "year": "2022",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Objekt/Stofftasche; Foto nachtragen"
+    },
+    {
+      "id": 417,
+      "artist": "Toulu Hassani",
+      "edition": "E 584",
+      "work": "Edition",
+      "year": "?",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_medium/E_584_Toulu_Hassani.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_medium/E_584_Toulu_Hassani.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 418,
+      "artist": "Toulu Hassani",
+      "edition": "E 585",
+      "work": "Edition",
+      "year": "?",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "https://www.griffelkunst.de/galleryimages/_medium/E_585_Toulu_Hassani.jpg",
+      "image_urls": [
+        "https://www.griffelkunst.de/galleryimages/_medium/E_585_Toulu_Hassani.jpg"
+      ],
+      "pruefnotiz": "Bild von Griffelkunst-Homepage"
+    },
+    {
+      "id": 419,
+      "artist": "Willem Grimm",
+      "edition": "298 B1",
+      "work": "B1",
+      "technik": "Farbholzdruck",
+      "year": "2000",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 3",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Motive Rummelpott-Umzug/Karneval/Rummelpottlaufen – Zuordnung B1/B3/E291 + Foto aus WV"
+    },
+    {
+      "id": 420,
+      "artist": "Willem Grimm",
+      "edition": "298 B3",
+      "work": "B3",
+      "technik": "Farbholzdruck",
+      "year": "2000",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 3",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Motive Rummelpott-Umzug/Karneval/Rummelpottlaufen – Zuordnung B1/B3/E291 + Foto aus WV"
+    },
+    {
+      "id": 421,
+      "artist": "Willem Grimm",
+      "edition": "E 291",
+      "work": "291",
+      "technik": "Farbholzdruck",
+      "year": "?",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 3",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Motive Rummelpott-Umzug/Karneval/Rummelpottlaufen – Zuordnung B1/B3/E291 + Foto aus WV"
+    },
+    {
+      "id": 422,
+      "artist": "Tilo Baumgärtel",
+      "edition": "363 B1",
+      "work": "B1",
+      "technik": "Farblithographie",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Titel + Foto aus WV 2016 nachtragen"
+    },
+    {
+      "id": 423,
+      "artist": "Tilo Baumgärtel",
+      "edition": "363 B2",
+      "work": "B2",
+      "technik": "Farblithographie",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Titel + Foto aus WV 2016 nachtragen"
+    },
+    {
+      "id": 424,
+      "artist": "Tilo Baumgärtel",
+      "edition": "363 B3",
+      "work": "B3",
+      "technik": "Farblithographie",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Titel + Foto aus WV 2016 nachtragen"
+    },
+    {
+      "id": 425,
+      "artist": "Tilo Baumgärtel",
+      "edition": "363 B4",
+      "work": "B4",
+      "technik": "Farblithographie",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Titel + Foto aus WV 2016 nachtragen"
+    },
+    {
+      "id": 426,
+      "artist": "Tilo Baumgärtel",
+      "edition": "363 B5",
+      "work": "B5",
+      "technik": "Farblithographie",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Titel + Foto aus WV 2016 nachtragen"
+    },
+    {
+      "id": 427,
+      "artist": "Tilo Baumgärtel",
+      "edition": "363 B6",
+      "work": "B6",
+      "technik": "Farblithographie",
+      "year": "2016",
+      "date": "Bestand",
+      "source": "inventory",
+      "liga": "Liga 2",
+      "isBlueChip": false,
+      "price": "—",
+      "image_url": "",
+      "image_urls": [],
+      "pruefnotiz": "Titel + Foto aus WV 2016 nachtragen"
     }
   ],
   "artists": {
