@@ -375,6 +375,7 @@ def _load_data_cached(path_str, _mtime):
 data = load_data()
 collection = data["collection"]
 artists_data = data["artists"]
+kunstgeschichte = data.get("kunstgeschichte", {})
 
 
 # ─── Externe Sammlung (nicht Griffelkunst) ───
@@ -1002,6 +1003,8 @@ if "selected_blatttyp" not in st.session_state:
     st.session_state.selected_werkstatt = None
 if "selected_werkstatt" not in st.session_state:
     st.session_state.selected_werkstatt = None
+if "selected_kunstepoche" not in st.session_state:
+    st.session_state.selected_kunstepoche = None
 
 SCORE_VIEWS = {"künstler", "werke", "spitze", "liga1", "liga2", "liga3", "bluechip", "meisterschueler"}
 
@@ -1010,10 +1013,11 @@ def set_view(v):
     st.session_state.selected_artist = None
     st.session_state.selected_technique = None
     st.session_state.selected_blatttyp = None
+    st.session_state.selected_kunstepoche = None
     st.session_state["_scroll_to_content"] = True
 
 # ── Navigation ausblenden wenn Künstler-Detail oder Technik-Detail offen ──
-_show_nav = (st.session_state.selected_artist is None and st.session_state.get("selected_technique") is None and st.session_state.get("selected_blatttyp") is None and st.session_state.get("selected_werkstatt") is None)
+_show_nav = (st.session_state.selected_artist is None and st.session_state.get("selected_technique") is None and st.session_state.get("selected_blatttyp") is None and st.session_state.get("selected_werkstatt") is None and st.session_state.get("selected_kunstepoche") is None)
 
 if _show_nav:
     # ── Kachel-Styling: Gruppen-Labels + leichtere Sekundär-/Liga-Kacheln ──
@@ -1083,13 +1087,16 @@ if _show_nav:
         with _rowC[2]:
             if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
                 set_view("extern")
+        st.markdown('<div class="nav-group-label">Kontext</div>', unsafe_allow_html=True)
+        if st.button("**Kunstgeschichte**\n\nSTRÖMUNGEN & EPOCHEN", use_container_width=True, key="btn_kunstgeschichte"):
+            set_view("kunstgeschichte")
 
     # ── Aktive Kachel hellgrün hervorheben ──
     _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
                  "spitze": "btn_spitze", "bluechip": "btn_bluechip", "meisterschueler": "btn_meister", "liga1": "btn_liga1",
                  "liga2": "btn_liga2", "liga3": "btn_liga3",
                  "blatttyp": "btn_blatttyp", "extern": "btn_extern",
-                 "druckwerkstaetten": "btn_druckwerkstatt"}
+                 "druckwerkstaetten": "btn_druckwerkstatt", "kunstgeschichte": "btn_kunstgeschichte"}
     _active_key = _view_key.get(st.session_state.view)
     if _active_key:
         st.markdown(
@@ -1366,6 +1373,13 @@ def show_artist_detail(artist_name):
         parts.append(f'<div class="editions-info">Editionen: {info["editions"]}</div>')
     artist_works = [w for w in collection if w["artist"] == artist_name]
     parts.append(f'<div class="value-summary"><div class="value-item"><strong>{info["sheetCount"]}</strong> Blätter laut Referenz</div><div class="value-item"><strong>{len(artist_works)}</strong> Werke in Sammlung</div></div>')
+    _kgm = kunstgeschichte.get("mapping", {}).get(artist_name)
+    if _kgm and _kgm.get("movements"):
+        _MVx = kunstgeschichte.get("movements", {}); _KZx = kunstgeschichte.get("kurz", {}); _SUBx = kunstgeschichte.get("subgroups", {})
+        _cds = _kgm.get("movements", []); _pr = _cds[0]
+        _subt = f' ({_SUBx.get(_kgm.get("subgroup"))})' if _pr == "M12" and _kgm.get("subgroup") else ""
+        _alo = (" · auch " + ", ".join(_MVx.get(_c,"") for _c in _cds[1:])) if len(_cds) > 1 else ""
+        parts.append(f'<div style="font-size:0.82rem;color:#5A5449;margin:0.2rem 0 0.5rem;padding:0.5rem 0.8rem;background:#F3EFE7;border-left:3px solid #B8964E;border-radius:0 4px 4px 0;"><span style="text-transform:uppercase;letter-spacing:0.06em;font-size:0.62rem;color:#B8964E;">Kunsthistorische Einordnung</span><br><b>{_MVx.get(_pr,"")}{_subt}</b> — {_KZx.get(_pr,"")}{_alo}</div>')
     if info.get("artist_bio"):
         _who = "Zur Künstlerin" if info.get("gender") == "f" else "Zum Künstler"
         parts.append(
@@ -1643,6 +1657,75 @@ elif view == "werke":
             with wcols[j % 3]:
                 st.markdown(f'<div class="work-card liga-border-{liga_class}" style="margin-top:-0.3rem;">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div>{_blatt_html}</div>', unsafe_allow_html=True)
         st.markdown('<div style="height:0.9rem;"></div>', unsafe_allow_html=True)
+elif view == "kunstgeschichte":
+    _kg = kunstgeschichte
+    _MV = _kg.get("movements", {}); _SUB = _kg.get("subgroups", {}); _MAP = _kg.get("mapping", {}); _TX = _kg.get("texts", {})
+    _FOTO = ["F1","F2","F3","F4","F5"]
+    _GRAF = ["M1","M2","M3","M4","M5","M6","M7","M8","M9","M10","M11","M12"]
+    def _kg_codes(name): return _MAP.get(name, {}).get("movements", [])
+    _works_by_code = {}
+    for _w in collection:
+        for _c in _kg_codes(_w["artist"]):
+            _works_by_code.setdefault(_c, []).append(_w)
+    def _kg_yr(w):
+        y = str(w.get("year","")); return int(y) if y.isdigit() else 9999
+    _sel = st.session_state.get("selected_kunstepoche")
+    if _sel and _sel in _MV:
+        if st.button("← Zurück zur Kunstgeschichte", key="btn_back_kg", use_container_width=True):
+            st.session_state.selected_kunstepoche = None; st.rerun()
+        _strang = "Fotografie" if _sel.startswith("F") else "Malerei & Grafik"
+        st.markdown(f'<div style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:#B8964E;margin-bottom:2px;">{_strang}</div><div style="font-family:Cormorant Garamond,Georgia,serif;font-size:1.5rem;color:#1B3A2A;margin-bottom:0.5rem;">{_MV[_sel]}</div>', unsafe_allow_html=True)
+        _txt = _TX.get(_sel, "")
+        if _txt:
+            st.markdown(f'<div style="font-size:0.9rem;color:#4A443B;line-height:1.65;margin-bottom:1rem;padding:0.9rem 1.1rem;background:#F5F3EE;border-left:3px solid #B8964E;border-radius:0 4px 4px 0;">{_txt}</div>', unsafe_allow_html=True)
+        _mw = sorted(_works_by_code.get(_sel, []), key=_kg_yr)
+        def _kg_cards(_lst, _kp):
+            _by = {}
+            for _w in _lst: _by.setdefault(_w["artist"], []).append(_w)
+            def _rk(a):
+                _i = artists_data.get(a, {})
+                return -(rang_score(_i) if _i.get("rmtp") else 0)
+            for _ai, _a in enumerate(sorted(_by.keys(), key=lambda a:(_rk(a), a))):
+                _i = artists_data.get(_a, {}); _bd = "● " if _i.get("isBlueChip") else ""; _lg = _i.get("liga","")
+                if st.button(f"{_bd}{_a}" + (f"  ·  {_lg}" if _lg else ""), key=f"kg_{_kp}_{_ai}", use_container_width=True):
+                    st.session_state.selected_artist = _a; st.rerun()
+                _wc = st.columns(3)
+                for _j, _w in enumerate(sorted(_by[_a], key=_kg_yr)):
+                    _lc = get_liga_class(_w["liga"]); _iu = _w.get("image_url",""); _ih = ""
+                    if _iu:
+                        _ih = f'<div style="margin:0.35rem 0;"><img src="{_iu}" style="width:100%;max-height:140px;object-fit:contain;border-radius:2px;background:#F8F7F4;" loading="lazy" onerror="this.style.display=&quot;none&quot;"></div>'
+                    with _wc[_j % 3]:
+                        st.markdown(f'<div class="work-card liga-border-{_lc}" style="margin-top:-0.3rem;">{_ih}<div class="card-work">{_w["work"]}</div><div class="card-details"><div><span class="card-edition">{_w["edition"]}</span></div><div><span class="card-date">{_w.get("date","")}</span></div></div></div>', unsafe_allow_html=True)
+                st.markdown('<div style="height:0.5rem;"></div>', unsafe_allow_html=True)
+        if _sel == "M12":
+            for _sc, _sn in _SUB.items():
+                _sw = sorted([w for w in _mw if _MAP.get(w["artist"],{}).get("subgroup")==_sc], key=_kg_yr)
+                if not _sw: continue
+                st.markdown(f'<div style="font-family:Cormorant Garamond,serif;font-size:1.15rem;color:#1B3A2A;margin:1rem 0 0.2rem;border-bottom:1px solid #E8E5E0;">{_sn} <span style="font-size:0.8rem;color:#aaa;">({len(_sw)})</span></div>', unsafe_allow_html=True)
+                _kg_cards(_sw, _sc)
+        else:
+            st.markdown(f'<div style="font-size:0.78rem;color:#8A8A8A;margin-bottom:0.5rem;">{len(_mw)} Blätter in der Sammlung</div>', unsafe_allow_html=True)
+            _kg_cards(_mw, _sel)
+    else:
+        st.markdown('<div style="font-size:0.8rem;color:#8A8A8A;margin-bottom:0.8rem;letter-spacing:0.03em;">Die Sammlung nach kunsthistorischen Strömungen — zum Stöbern und Einordnen. Ein Klick öffnet eine kurze Einordnung und die zugehörigen Blätter.</div>', unsafe_allow_html=True)
+        def _kg_tiles(_codes_list, _prefix):
+            for _rs in range(0, len(_codes_list), 3):
+                _row = _codes_list[_rs:_rs+3]; _cols = st.columns(3)
+                for _i, _c in enumerate(_row):
+                    _n = len(_works_by_code.get(_c, []))
+                    _samp = ""
+                    for _w in _works_by_code.get(_c, []):
+                        if _w.get("image_url"): _samp = _w["image_url"]; break
+                    with _cols[_i]:
+                        if _samp:
+                            st.markdown(f'<div style="width:100%;height:110px;overflow:hidden;border-radius:3px 3px 0 0;background:#F5F3EE;border:1px solid #E8E5E0;border-bottom:none;"><img src="{_samp}" style="width:100%;height:110px;object-fit:contain;padding:4px;" loading="lazy" onerror="this.parentElement.style.display=&quot;none&quot;"></div>', unsafe_allow_html=True)
+                        if st.button(f"{_MV[_c]} ({_n})", key=f"kgtile_{_c}", use_container_width=True):
+                            st.session_state.selected_kunstepoche = _c; st.rerun()
+        st.markdown('<div class="nav-group-label" style="margin-top:0.4rem;">Fotografie</div>', unsafe_allow_html=True)
+        _kg_tiles(_FOTO, "F")
+        st.markdown('<div class="nav-group-label" style="margin-top:0.8rem;">Malerei &amp; Grafik</div>', unsafe_allow_html=True)
+        _kg_tiles(_GRAF, "M")
+
 elif view == "techniken":
     # ── Techniken-Ansicht: Kacheln → Klick → Werke ──
     from collections import defaultdict
