@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# ==================  BUILD 2026-08-07l  ==================
+# ==================  BUILD 2026-08-07q  ==================
 # (Diese Nummer muss in der App unter dem Titel und im Footer stehen.)
 """
 Trüffelkunst — Personal Collection App
@@ -311,7 +311,22 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-08-07p"
+APP_BUILD = "2026-08-07q"
+
+# ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
+try:
+    components.html(
+        '<script>(function(){try{var d=window.parent.document;'
+        'function L(rel,href){var l=d.querySelector(\'link[rel="\'+rel+\'"]\');'
+        'if(!l){l=d.createElement("link");l.setAttribute("rel",rel);d.head.appendChild(l);}l.setAttribute("href",href);}'
+        'var ic="data:image/png;base64,' + _FAV_CEAL_B64 + '";'
+        'L("apple-touch-icon",ic);L("apple-touch-icon-precomposed",ic);'
+        'function M(name,content){var m=d.querySelector(\'meta[name="\'+name+\'"]\');'
+        'if(!m){m=d.createElement("meta");m.setAttribute("name",name);d.head.appendChild(m);}m.setAttribute("content",content);}'
+        'M("apple-mobile-web-app-title","Tr\\u00fcffelkunst");M("apple-mobile-web-app-capable","yes");'
+        '}catch(e){}})();</script>', height=0)
+except Exception:
+    pass
 
 # ─── Passwortschutz (nur in der Cloud aktiv) ───
 import os
@@ -1597,28 +1612,37 @@ if st.session_state.selected_artist and st.session_state.selected_artist in arti
         st.rerun()
 
 elif view == "werke":
-    # ── Werke-Ansicht: alle Werke mit Abbildung als Karten ──
-    st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(view_filtered)} Werke — sortiert nach Künstler·in (Nachname)</div>', unsafe_allow_html=True)
-    card_cols = st.columns(3)
-    for j, w in enumerate(view_filtered):
-        liga_class = get_liga_class(w["liga"])
-        bc_dot = "● " if w["isBlueChip"] else ""
-        liga_badge = ""
-        if w["liga"]:
-            liga_badge = f'<span class="liga-badge liga-badge-{liga_class}">{w["liga"]}</span>'
-        technique = work_technique(w)
-        img_url = w.get("image_url", "")
-        img_html = ""
-        if img_url:
-            img_html = f'<div style="margin:0.4rem 0;"><a href="{img_url}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;cursor:zoom-in;" loading="lazy" onerror="this.style.display=\'none\'"></a></div>'
-        with card_cols[j % 3]:
-            _binfo = artists_data.get(w["artist"], {}); _dw = technique_value(w["work"])
-            _bval = _binfo.get("rmtp",{}).get("total",0) + _dw
-            _blatt_html = f'<div style="font-size:0.6rem;color:#B98;margin-top:3px;">Druckwert {_dw}/5 · Blatt {_bval}/20</div>' if _binfo.get("rmtp") else ""
-            if st.button(f"{bc_dot}{w['artist']}", key=f"werke_artist_{j}", use_container_width=True):
-                st.session_state.selected_artist = w["artist"]
-                st.rerun()
-            st.markdown(f'<div class="work-card liga-border-{liga_class}" style="margin-top:-0.3rem;">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div>{_blatt_html}</div>', unsafe_allow_html=True)
+    # ── Werke-Ansicht: pro Künstler EIN Name, darunter alle Blätter ──
+    st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(view_filtered)} Werke · {len(artist_groups)} Künstler·innen — Name einmal, Blätter darunter</div>', unsafe_allow_html=True)
+    def _werk_sort(w):
+        y = str(w.get("year", ""))
+        yv = int(y) if y.isdigit() else 9999
+        return (yv, str(w.get("edition", "")))
+    for _ai, (_artist, _works) in enumerate(artist_groups.items()):
+        _info = artists_data.get(_artist, {})
+        _bc = "● " if _info.get("isBlueChip") else ""
+        _liga = _works[0]["liga"]
+        _n = len(_works)
+        _blatt_word = "Blatt" if _n == 1 else "Blätter"
+        _liga_str = f"  ·  {_liga}" if _liga else ""
+        if st.button(f"{_bc}{_artist}{_liga_str}  ·  {_n} {_blatt_word}", key=f"werke_artist_{_ai}", use_container_width=True):
+            st.session_state.selected_artist = _artist
+            st.rerun()
+        _ws = sorted(_works, key=_werk_sort)
+        wcols = st.columns(3)
+        for j, w in enumerate(_ws):
+            liga_class = get_liga_class(w["liga"])
+            technique = work_technique(w)
+            img_url = w.get("image_url", "")
+            img_html = ""
+            if img_url:
+                img_html = f'<div style="margin:0.4rem 0;"><a href="{img_url}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;cursor:zoom-in;" loading="lazy" onerror="this.style.display=\'none\'"></a></div>'
+            _dw = technique_value(w["work"])
+            _bval = _info.get("rmtp", {}).get("total", 0) + _dw
+            _blatt_html = f'<div style="font-size:0.6rem;color:#B98;margin-top:3px;">Druckwert {_dw}/5 · Blatt {_bval}/20</div>' if _info.get("rmtp") else ""
+            with wcols[j % 3]:
+                st.markdown(f'<div class="work-card liga-border-{liga_class}" style="margin-top:-0.3rem;">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div>{_blatt_html}</div>', unsafe_allow_html=True)
+        st.markdown('<div style="height:0.9rem;"></div>', unsafe_allow_html=True)
 elif view == "techniken":
     # ── Techniken-Ansicht: Kacheln → Klick → Werke ──
     from collections import defaultdict
