@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-11-08b"
+APP_BUILD = "2026-11-08c"
 
 # ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
 try:
@@ -417,9 +417,10 @@ def rang_score(info):
     return r.get("R", 0) * 2 + r.get("M", 0) + r.get("P", 0)
 
 def rang_sortkey(info):
-    """Sortierschlüssel 'beste zuerst': Rang-Score, dann R, dann Blue-Chip, dann M+P."""
+    """Sortierschlüssel 'beste zuerst' (seit 08.11.2026): zuerst R (Kanon führt), dann Blue-Chip,
+    dann Rang-Score, dann M+P. Ein etablierter Name steht immer vor einem gerade angesagten."""
     r = info.get("rmtp", {})
-    return (rang_score(info), r.get("R", 0), 1 if info.get("isBlueChip") else 0,
+    return (r.get("R", 0), 1 if info.get("isBlueChip") else 0, rang_score(info),
             r.get("M", 0) + r.get("P", 0))
 
 def blatt_value(info, work_text):
@@ -1931,7 +1932,7 @@ else:
     # ── Künstler·innen-Galerie: Portrait-Tiles im Grid ──
     filter_hint = f" — {view_label}" if view_label else ""
     _ranked = view in ("spitze", "liga1", "liga2", "liga3", "bluechip", "meisterschueler")
-    _sort_hint = "nach Rang · Reputation ×2 · beste zuerst" if _ranked else "alphabetisch nach Nachname"
+    _sort_hint = "nach Rang · Reputation zuerst · beste zuerst" if _ranked else "alphabetisch nach Nachname"
     st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(artist_groups)} Künstler·innen · {len(view_filtered)} Werke{filter_hint} — {_sort_hint}</div>', unsafe_allow_html=True)
 
     # Render grid — Streamlit columns with portrait tiles
