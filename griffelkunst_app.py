@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-11-08a"
+APP_BUILD = "2026-11-08b"
 
 # ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
 try:
@@ -368,7 +368,7 @@ def load_data():
     return _load_data_cached(str(data_path), mtime)
 
 @st.cache_data
-def _load_data_cached(path_str, _mtime):
+def _load_data_cached(path_str, mtime):
     with open(path_str, "r", encoding="utf-8") as f:
         return json.load(f)
 
