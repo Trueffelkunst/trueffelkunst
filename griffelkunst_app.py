@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-08-07q"
+APP_BUILD = "2026-11-08a"
 
 # ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
 try:
@@ -427,7 +427,7 @@ def blatt_value(info, work_text):
     return artist_total(info) + technique_value(work_text)
 
 def liga_from_rmp(r, art):
-    if r >= 4 and art >= 10:
+    if r >= 4 and art >= 11:
         return "Liga 1"
     elif art >= 9 or r >= 4:
         return "Liga 2"
@@ -756,9 +756,9 @@ st.markdown("""
 # ─── Helper Functions ───
 def compute_liga(artist_name):
     """Liga aus R+M+T+P-Score berechnen — Reputation-gewichtet.
-    Liga 1: R≥4 UND Score≥12 (große Namen mit solidem Editionswert)
-    Liga 2: Score≥12 ODER R≥4 (hoher Editionswert oder großer Name)
-    Liga 3: Score≥8
+    Liga 1: R≥4 UND R+M+P≥11 (große Namen mit solidem Editionswert)
+    Liga 2: R+M+P≥9 ODER R≥4 (hoher Editionswert oder großer Name)
+    Liga 3: R+M+P≥5
     Liga 4: Rest
     """
     info = artists_data.get(artist_name, {})
@@ -1135,7 +1135,7 @@ if _show_nav:
                 '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C4993D;">P</span><b>Potenzial</b> — Wertsteigerungschance: Karrierestand · Marktdynamik · Editionsseltenheit</div>'
                 '<div style="margin-top:0.55rem;padding-top:0.45rem;border-top:1px solid #E8E4DC;">'
                 '<b>Liga</b> (nach R+M+P): '
-                '<span style="color:#C44B3F;font-weight:700;">1</span> R≥4 &amp; ≥10 &nbsp;·&nbsp; '
+                '<span style="color:#C44B3F;font-weight:700;">1</span> R≥4 &amp; ≥11 &nbsp;·&nbsp; '
                 '<span style="color:#6B7DB3;font-weight:700;">2</span> ≥9 oder R≥4 &nbsp;·&nbsp; '
                 '<span style="color:#5A9E5A;font-weight:700;">3</span> ≥5 &nbsp;·&nbsp; '
                 '<span style="color:#C4993D;font-weight:700;">4</span> Rest</div>'
@@ -1430,7 +1430,7 @@ def show_artist_detail(artist_name):
                 onerror = "this.style.display='none'"
                 img_parts.append(f'<a href="{iu}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{iu}" style="max-width: 260px; max-height: 200px; border: 1px solid #E8E5E0; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);cursor:zoom-in;" loading="lazy" onerror="{onerror}"></a>')
             img_html = f'<div style="margin: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 8px;">{"".join(img_parts)}</div>'
-        _dw = technique_value(w["work"]); _bval = artist_total(info) + _dw
+        _dw = technique_value((w.get("work","") or "") + " " + (w.get("technik","") or "")); _bval = artist_total(info) + _dw
         _meta_bits = []
         if w.get("blattgroesse"): _meta_bits.append(f'&#128208; {w["blattgroesse"]}')
         if w.get("drucker"): _meta_bits.append(f'&#128424; {w["drucker"]}')
@@ -1651,7 +1651,7 @@ elif view == "werke":
             img_html = ""
             if img_url:
                 img_html = f'<div style="margin:0.4rem 0;"><a href="{img_url}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;cursor:zoom-in;" loading="lazy" onerror="this.style.display=\'none\'"></a></div>'
-            _dw = technique_value(w["work"])
+            _dw = technique_value((w.get("work","") or "") + " " + (w.get("technik","") or ""))
             _bval = _info.get("rmtp", {}).get("total", 0) + _dw
             _blatt_html = f'<div style="font-size:0.6rem;color:#B98;margin-top:3px;">Druckwert {_dw}/5 · Blatt {_bval}/20</div>' if _info.get("rmtp") else ""
             with wcols[j % 3]:
