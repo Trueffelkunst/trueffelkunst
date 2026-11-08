@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-11-08e"
+APP_BUILD = "2026-11-08f"
 
 # ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
 try:
@@ -445,7 +445,7 @@ def has_momentum(info):
     return bool(info.get("momentum_aktiv")) and info.get("rmtp", {}).get("M", 0) >= 4
 
 def is_frisch(info):
-    """Frisch entdeckt: R ≤ 3, junge Karriere, ≥2 Signale in 24 Monaten, davon ≥1 institutionell."""
+    """Next Truffle: R ≤ 3, junge Karriere, ≥2 Signale in 24 Monaten, davon ≥1 institutionell."""
     return bool(info.get("frisch_entdeckt")) and info.get("rmtp", {}).get("R", 0) <= 3
 
 # ─── Liga dynamisch aus R+M+P berechnen (technikunabhängig) ───
@@ -1068,7 +1068,7 @@ if _show_nav:
         if st.button(f"**{stats['momentum']}**\n\nMOMENTUM", use_container_width=True, key="btn_momentum"):
             set_view("momentum")
     with _rowS[2]:
-        if st.button(f"**{stats['frisch']}**\n\nFRISCH ENTDECKT", use_container_width=True, key="btn_frisch"):
+        if st.button(f"**{stats['frisch']}**\n\nNEXT TRUFFLE", use_container_width=True, key="btn_frisch"):
             set_view("frisch")
 
     # ── Weitere Sichten & Filter (zugeklappt; öffnet sich bei aktiver Auswahl) ──
@@ -1162,7 +1162,7 @@ if _show_nav:
                 '<span style="color:#5A9E5A;font-weight:700;">3</span> national etabliert (R3) &nbsp;·&nbsp; '
                 '<span style="color:#C4993D;font-weight:700;">4</span> am Anfang (R1–2)</div>'
                 '<div style="margin-top:0.35rem;"><b>Kanon</b> = Liga 1 &nbsp;·&nbsp; <b>Momentum</b> = M ≥ 4 mit datiertem Anlass &nbsp;·&nbsp; '
-                '<b>Frisch entdeckt</b> = R ≤ 3, junge Karriere, mind. zwei Signale in 24 Monaten, davon eines institutionell (Kunstverein, Museum, Preis, Stipendium, Biennale, Messe-Sektion, Kuratorenlisten); dazu zählen Wechsel zu einer Top-Galerie und Privatsammlungen</div>''<div style="margin-top:0.35rem;">Die Zahl auf den Kacheln (z. B. 12/15) ist die Gesamtsumme R+M+P. &nbsp;·&nbsp; Bewertung Stand 11/2026</div>'
+                '<b>Next Truffle</b> = R ≤ 3, junge Karriere, mind. zwei Signale in 24 Monaten, davon eines institutionell (Kunstverein, Museum, Preis, Stipendium, Biennale, Messe-Sektion, Kuratorenlisten); dazu zählen Wechsel zu einer Top-Galerie und Privatsammlungen</div>''<div style="margin-top:0.35rem;">Die Zahl auf den Kacheln (z. B. 12/15) ist die Gesamtsumme R+M+P. &nbsp;·&nbsp; Bewertung Stand 11/2026</div>'
                 '</div>',
                 unsafe_allow_html=True
             )
@@ -1395,7 +1395,7 @@ def show_artist_detail(artist_name):
         </div>''')
     _flags = []
     if has_momentum(info): _flags.append('<span style="background:#F8E3DD;color:#B5452F;border-radius:3px;padding:1px 7px;font-size:0.72rem;margin-right:5px;">Momentum</span>')
-    if is_frisch(info): _flags.append('<span style="background:#E1EFE6;color:#2F6B4F;border-radius:3px;padding:1px 7px;font-size:0.72rem;margin-right:5px;">Frisch entdeckt</span>')
+    if is_frisch(info): _flags.append('<span style="background:#E1EFE6;color:#2F6B4F;border-radius:3px;padding:1px 7px;font-size:0.72rem;margin-right:5px;">Next Truffle</span>')
     _src = []
     if info.get("bewertet_am"): _src.append(f'bewertet {info["bewertet_am"]}')
     if info.get("m_ungeprueft"): _src.append('Momentum ungeprüft: keine aktuellen Anlässe belegt')
@@ -1411,7 +1411,7 @@ def show_artist_detail(artist_name):
         parts.append('<div class="artist-section-title">Was gibt\'s Neues</div>'
                      + _mb + f'<ul style="font-size:0.82rem;color:#4F473B;line-height:1.45;padding-left:1.1rem;margin:0 0 0.6rem;">{_li}</ul>')
     if info.get("frisch_begruendung") and is_frisch(info):
-        parts.append(f'<div style="font-size:0.8rem;color:#2F6B4F;background:#EEF6F0;border-left:3px solid #2F6B4F;padding:6px 10px;border-radius:0 4px 4px 0;margin-bottom:0.6rem;"><b>Warum frisch entdeckt:</b> {info["frisch_begruendung"]}</div>')
+        parts.append(f'<div style="font-size:0.8rem;color:#2F6B4F;background:#EEF6F0;border-left:3px solid #2F6B4F;padding:6px 10px;border-radius:0 4px 4px 0;margin-bottom:0.6rem;"><b>Warum Next Truffle:</b> {info["frisch_begruendung"]}</div>')
     _hist = info.get("rmtp_history") or []
     if len(_hist) > 1:
         _hr = " → ".join(f'{h.get("datum","")[:7]}: R{h.get("R")} M{h.get("M")} P{h.get("P")}' for h in _hist[-4:])
@@ -1565,7 +1565,7 @@ elif view == "momentum":
     view_label = "Momentum"
 elif view == "frisch":
     view_filtered = [w for w in filtered if is_frisch(artists_data.get(w["artist"], {}))]
-    view_label = "Frisch entdeckt"
+    view_label = "Next Truffle"
 elif view == "bluechip":
     view_filtered = [w for w in filtered if w["isBlueChip"]]
     view_label = "Blue Chip"
