@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-11-08c"
+APP_BUILD = "2026-11-08d"
 
 # ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
 try:
@@ -427,16 +427,26 @@ def blatt_value(info, work_text):
     """Blatt-Wert = Künstler-Score (R+M+P) + Druckwert (T) dieses Blattes (max. 20)."""
     return artist_total(info) + technique_value(work_text)
 
-def liga_from_rmp(r, art):
-    if r >= 4 and art >= 11:
+def liga_from_rmp(r, art=None):
+    """Liga = nur Reputation (seit 08.11.2026, Bewertungsregeln v3.1):
+    R5 Kanon · R4 international etabliert · R3 national etabliert · R1–2 am Anfang."""
+    if r >= 5:
         return "Liga 1"
-    elif art >= 9 or r >= 4:
+    elif r == 4:
         return "Liga 2"
-    elif art >= 5:
+    elif r == 3:
         return "Liga 3"
-    elif art > 0:
+    elif r > 0:
         return "Liga 4"
     return ""
+
+def has_momentum(info):
+    """Momentum-Sicht: M ≥ 4 mit datiertem Anlass aus den letzten 12 Monaten (Flag aus der Recherche)."""
+    return bool(info.get("momentum_aktiv")) and info.get("rmtp", {}).get("M", 0) >= 4
+
+def is_frisch(info):
+    """Frisch entdeckt: R ≤ 3, junge Karriere, ≥2 Signale in 24 Monaten, davon ≥1 institutionell."""
+    return bool(info.get("frisch_entdeckt")) and info.get("rmtp", {}).get("R", 0) <= 3
 
 # ─── Liga dynamisch aus R+M+P berechnen (technikunabhängig) ───
 # Liga in artists_data aktualisieren
@@ -468,6 +478,9 @@ stats = {
     "liga4": len(set(w["artist"] for w in collection if w["liga"] == "Liga 4")),
     "blueChip": len(set(w["artist"] for w in collection if w["isBlueChip"])),
     "spitze": len(set(w["artist"] for w in collection if w.get("isSpitze"))),
+    "kanon": len(set(w["artist"] for w in collection if w["liga"] == "Liga 1")),
+    "momentum": len(set(w["artist"] for w in collection if has_momentum(artists_data.get(w["artist"], {})))),
+    "frisch": len(set(w["artist"] for w in collection if is_frisch(artists_data.get(w["artist"], {})))),
 }
 
 
@@ -781,7 +794,7 @@ def get_liga_class(liga):
     return "none"
 
 def get_liga_label(liga):
-    labels = {"Liga 1": "Museumskanon", "Liga 2": "International etabliert", "Liga 3": "Aufstrebend", "Liga 4": "Weitere Position"}
+    labels = {"Liga 1": "Kanon", "Liga 2": "International etabliert", "Liga 3": "National etabliert", "Liga 4": "Am Anfang"}
     return labels.get(liga, "")
 
 def get_source_label(source):
@@ -972,7 +985,7 @@ def canon_drucker(d):
 
 # ─── Kurzprofile bekannter Werkstätten (verifizierte Charakterisierung) ───
 WERKSTATT_NOTE = {
-    "Tabor Presse, Berlin": "Renommierte Berliner Lithografie-Werkstatt; realisiert originale Steindrucke für zahlreiche zeitgenössische Künstlerinnen und Künstler.",
+    "Tabor Presse, Berlin": "Renommierte Berliner Lithografie-Werkstatt; realisiert originale Steindrucke für zahlreiche zeitgenössische Künstler·innen.",
     "Steindruckerei Wolfensberger, Zürich": "Traditionsreiche Schweizer Steindruckerei, spezialisiert auf künstlerische Lithografie.",
     "Handdruck Loeding & Sturm, Hamburg": "Hamburger Handdruck-Werkstatt (Ellen Sturm-Loeding / Peter Loeding), eng mit der Griffelkunst verbunden — Holzdruck, Lithografie, Radierung.",
     "Atelier für Druckgrafik, Wedel": "Druckwerkstatt bei Hamburg mit Schwerpunkt Hoch- und Tiefdruck (Holz-/Hochdruck, Radierung).",
@@ -1007,7 +1020,7 @@ if "selected_werkstatt" not in st.session_state:
 if "selected_kunstepoche" not in st.session_state:
     st.session_state.selected_kunstepoche = None
 
-SCORE_VIEWS = {"künstler", "werke", "spitze", "liga1", "liga2", "liga3", "bluechip", "meisterschueler"}
+SCORE_VIEWS = {"künstler", "werke", "spitze", "momentum", "frisch", "liga1", "liga2", "liga3", "bluechip", "meisterschueler"}
 
 def set_view(v):
     st.session_state.view = v
@@ -1032,8 +1045,8 @@ if _show_nav:
     .st-key-btn_blatttyp button p,.st-key-btn_druckwerkstatt button p,.st-key-btn_extern button p,
     .st-key-btn_liga1 button p,.st-key-btn_liga2 button p,.st-key-btn_liga3 button p{
       font-size:0.8rem !important;color:#6B6255 !important;}
-    .st-key-btn_spitze button{background:#F3ECD9 !important;border:1px solid #D9C27A !important;}
-    .st-key-btn_spitze button p{color:#8A6D22 !important;}
+    .st-key-btn_spitze button,.st-key-btn_momentum button,.st-key-btn_frisch button{background:#F3ECD9 !important;border:1px solid #D9C27A !important;}
+    .st-key-btn_spitze button p,.st-key-btn_momentum button p,.st-key-btn_frisch button p{color:#8A6D22 !important;}
     </style>""", unsafe_allow_html=True)
 
     # ── Ebene 1: Haupt-Ansichten ──
@@ -1047,11 +1060,19 @@ if _show_nav:
 
     # ── Auslese: Spitze der Sammlung (Reputation ≥ Rang 17) ──
     st.markdown('<div class="nav-group-label">Auslese</div>', unsafe_allow_html=True)
-    if st.button(f"**{stats['spitze']}**\n\nSPITZE", use_container_width=True, key="btn_spitze"):
-        set_view("spitze")
+    _rowS = st.columns(3)
+    with _rowS[0]:
+        if st.button(f"**{stats['kanon']}**\n\nKANON", use_container_width=True, key="btn_spitze"):
+            set_view("spitze")
+    with _rowS[1]:
+        if st.button(f"**{stats['momentum']}**\n\nMOMENTUM", use_container_width=True, key="btn_momentum"):
+            set_view("momentum")
+    with _rowS[2]:
+        if st.button(f"**{stats['frisch']}**\n\nFRISCH ENTDECKT", use_container_width=True, key="btn_frisch"):
+            set_view("frisch")
 
     # ── Weitere Sichten & Filter (zugeklappt; öffnet sich bei aktiver Auswahl) ──
-    _more_open = st.session_state.view not in ("künstler", "werke", "spitze")
+    _more_open = st.session_state.view not in ("künstler", "werke", "spitze", "momentum", "frisch")
     with st.expander("Weitere Sichten & Filter", expanded=_more_open):
         # Liga (gebündelt)
         st.markdown('<div class="nav-group-label">Liga · nach Rang</div>', unsafe_allow_html=True)
@@ -1094,7 +1115,7 @@ if _show_nav:
 
     # ── Aktive Kachel hellgrün hervorheben ──
     _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
-                 "spitze": "btn_spitze", "bluechip": "btn_bluechip", "meisterschueler": "btn_meister", "liga1": "btn_liga1",
+                 "spitze": "btn_spitze", "momentum": "btn_momentum", "frisch": "btn_frisch", "bluechip": "btn_bluechip", "meisterschueler": "btn_meister", "liga1": "btn_liga1",
                  "liga2": "btn_liga2", "liga3": "btn_liga3",
                  "blatttyp": "btn_blatttyp", "extern": "btn_extern",
                  "druckwerkstaetten": "btn_druckwerkstatt", "kunstgeschichte": "btn_kunstgeschichte"}
@@ -1123,23 +1144,25 @@ if _show_nav:
             '<span><span style="color:#6B7DB3;">M</span> Momentum</span>'
             '<span><span style="color:#5A9E5A;">T</span> Druckwert</span>'
             '<span><span style="color:#C4993D;">P</span> Potenzial</span>'
-            '<span style="font-weight:400;color:#8A8277;">Künstler-Liga = R+M+P (max 15) · Blatt-Wert = +T (max 20)</span>'
+            '<span style="font-weight:400;color:#8A8277;">Liga = Reputation · Gesamt = R+M+P (max 15) · Blatt-Wert = +T (max 20)</span>'
             '</div></div>',
             unsafe_allow_html=True
         )
         with st.expander("Was bedeuten R · M · T · P — und die Liga-Stufen?", expanded=False):
             st.markdown(
                 '<div style="font-size:0.8rem;color:#4F473B;line-height:1.7;">'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C44B3F;">R</span><b>Reputation</b> — Galerien · Museen · Kunstgeschichte</div>'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#6B7DB3;">M</span><b>Momentum</b> — Aktualität: Museums-Solo · Biennale · Preis · Galeriewechsel · Auktionstrend (jüngste Jahre stärker; auch posthum)</div>'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C44B3F;">R</span><b>Reputation</b> — bleibende Bedeutung: Museen · Galerien · Kunstgeschichte; Gegenprobe ArtFacts-Ranking</div>'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#6B7DB3;">M</span><b>Momentum</b> — was gerade passiert (letzte 12 Monate, mit Datum): Museums- und Kunstvereinssolo · Biennale · Preis/Shortlist · Stipendium · kuratierte Messe-Sektion · Galeriewechsel · Privatsammlung · Auktion · auch posthum</div>'
                 '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#5A9E5A;">T</span><b>Druckwert</b> — pro Blatt: Unikat (5) → Offset (1); zählt nur zum Blatt-Wert</div>'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C4993D;">P</span><b>Potenzial</b> — Wertsteigerungschance: Karrierestand · Marktdynamik · Editionsseltenheit</div>'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C4993D;">P</span><b>Potenzial</b> — Einschätzung nach vorn (Karrierestufe, Signale); eine Prognose, wird nach 12 Monaten überprüft</div>'
                 '<div style="margin-top:0.55rem;padding-top:0.45rem;border-top:1px solid #E8E4DC;">'
-                '<b>Liga</b> (nach R+M+P): '
-                '<span style="color:#C44B3F;font-weight:700;">1</span> R≥4 &amp; ≥11 &nbsp;·&nbsp; '
-                '<span style="color:#6B7DB3;font-weight:700;">2</span> ≥9 oder R≥4 &nbsp;·&nbsp; '
-                '<span style="color:#5A9E5A;font-weight:700;">3</span> ≥5 &nbsp;·&nbsp; '
-                '<span style="color:#C4993D;font-weight:700;">4</span> Rest</div>'
+                '<b>Liga</b> (nur Reputation): '
+                '<span style="color:#C44B3F;font-weight:700;">1</span> Kanon (R5) &nbsp;·&nbsp; '
+                '<span style="color:#6B7DB3;font-weight:700;">2</span> international etabliert (R4) &nbsp;·&nbsp; '
+                '<span style="color:#5A9E5A;font-weight:700;">3</span> national etabliert (R3) &nbsp;·&nbsp; '
+                '<span style="color:#C4993D;font-weight:700;">4</span> am Anfang (R1–2)</div>'
+                '<div style="margin-top:0.35rem;"><b>Kanon</b> = Liga 1 &nbsp;·&nbsp; <b>Momentum</b> = M ≥ 4 mit datiertem Anlass &nbsp;·&nbsp; '
+                '<b>Frisch entdeckt</b> = R ≤ 3, junge Karriere, mind. zwei Signale in 24 Monaten, davon eines institutionell (Kunstverein, Preis, Stipendium, Biennale, Messe-Sektion)</div>'
                 '</div>',
                 unsafe_allow_html=True
             )
@@ -1370,6 +1393,29 @@ def show_artist_detail(artist_name):
             <span class="rmtp-pill rmtp-pill-m"><span class="rmtp-label">M</span> {m}</span>
             <span class="rmtp-pill rmtp-pill-p"><span class="rmtp-label">P</span> {p}</span>
         </div>''')
+    _flags = []
+    if has_momentum(info): _flags.append('<span style="background:#F8E3DD;color:#B5452F;border-radius:3px;padding:1px 7px;font-size:0.72rem;margin-right:5px;">Momentum</span>')
+    if is_frisch(info): _flags.append('<span style="background:#E1EFE6;color:#2F6B4F;border-radius:3px;padding:1px 7px;font-size:0.72rem;margin-right:5px;">Frisch entdeckt</span>')
+    _src = []
+    if info.get("artfacts"): _src.append(f'ArtFacts: {info["artfacts"]}')
+    if info.get("bewertet_am"): _src.append(f'bewertet {info["bewertet_am"]}')
+    if _flags or _src:
+        parts.append('<div style="margin:0.2rem 0 0.5rem;">' + "".join(_flags) + (f'<span style="font-size:0.7rem;color:#8A8277;">{" · ".join(_src)}</span>' if _src else "") + '</div>')
+    _an = info.get("anlaesse") or []
+    if _an:
+        _li = "".join(
+            f'<li style="margin-bottom:3px;"><b>{a.get("datum","")}</b>' + (' <span style="background:#EEE7D6;color:#8A6D22;border-radius:3px;padding:0 5px;font-size:0.68rem;">angekündigt</span>' if a.get("angekuendigt") else '') + f' – {a.get("was","")}'
+            + (f' <a href="{a["quelle_url"]}" target="_blank" rel="noopener" style="color:#B8964E;font-size:0.7rem;">Quelle</a>' if a.get("quelle_url") else "")
+            + '</li>' for a in _an[:8])
+        _mb = f'<div style="font-size:0.78rem;color:#6B6255;margin-bottom:4px;">{info["m_begruendung"]}</div>' if info.get("m_begruendung") else ""
+        parts.append('<div class="artist-section-title">Was gibt\'s Neues</div>'
+                     + _mb + f'<ul style="font-size:0.82rem;color:#4F473B;line-height:1.45;padding-left:1.1rem;margin:0 0 0.6rem;">{_li}</ul>')
+    if info.get("frisch_begruendung") and is_frisch(info):
+        parts.append(f'<div style="font-size:0.8rem;color:#2F6B4F;background:#EEF6F0;border-left:3px solid #2F6B4F;padding:6px 10px;border-radius:0 4px 4px 0;margin-bottom:0.6rem;"><b>Warum frisch entdeckt:</b> {info["frisch_begruendung"]}</div>')
+    _hist = info.get("rmtp_history") or []
+    if len(_hist) > 1:
+        _hr = " → ".join(f'{h.get("datum","")[:7]}: R{h.get("R")} M{h.get("M")} P{h.get("P")}' for h in _hist[-4:])
+        parts.append(f'<div style="font-size:0.68rem;color:#8A8277;margin:-0.2rem 0 0.6rem;">Verlauf: {_hr} · P ist eine Einschätzung</div>')
     if info.get("editions"):
         parts.append(f'<div class="editions-info">Editionen: {info["editions"]}</div>')
     artist_works = [w for w in collection if w["artist"] == artist_name]
@@ -1512,8 +1558,14 @@ elif view == "liga3":
     view_filtered = [w for w in filtered if w["liga"] == "Liga 3"]
     view_label = "Liga 3"
 elif view == "spitze":
-    view_filtered = [w for w in filtered if w.get("isSpitze")]
-    view_label = "Spitze"
+    view_filtered = [w for w in filtered if w["liga"] == "Liga 1"]
+    view_label = "Kanon"
+elif view == "momentum":
+    view_filtered = [w for w in filtered if has_momentum(artists_data.get(w["artist"], {}))]
+    view_label = "Momentum"
+elif view == "frisch":
+    view_filtered = [w for w in filtered if is_frisch(artists_data.get(w["artist"], {}))]
+    view_label = "Frisch entdeckt"
 elif view == "bluechip":
     view_filtered = [w for w in filtered if w["isBlueChip"]]
     view_label = "Blue Chip"
@@ -1931,8 +1983,10 @@ elif view == "blatttyp":
 else:
     # ── Künstler·innen-Galerie: Portrait-Tiles im Grid ──
     filter_hint = f" — {view_label}" if view_label else ""
-    _ranked = view in ("spitze", "liga1", "liga2", "liga3", "bluechip", "meisterschueler")
-    _sort_hint = "nach Rang · Reputation zuerst · beste zuerst" if _ranked else "alphabetisch nach Nachname"
+    _ranked = view in ("spitze", "momentum", "frisch", "liga1", "liga2", "liga3", "bluechip", "meisterschueler")
+    _sort_hint = ("nach Momentum · stärkster Anlass zuerst" if view == "momentum" else
+                  "nach Potenzial und Momentum" if view == "frisch" else
+                  "nach Rang · Reputation zuerst · beste zuerst" if _ranked else "alphabetisch nach Nachname")
     st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(artist_groups)} Künstler·innen · {len(view_filtered)} Werke{filter_hint} — {_sort_hint}</div>', unsafe_allow_html=True)
 
     # Render grid — Streamlit columns with portrait tiles
@@ -1940,7 +1994,13 @@ else:
     COLS_PER_ROW = 4
     artist_list = list(artist_groups.items())
     if _ranked:
-        artist_list.sort(key=lambda kv: rang_sortkey(artists_data.get(kv[0], {})), reverse=True)
+        if view == "momentum":
+            _k = lambda i: (i.get("rmtp", {}).get("M", 0), i.get("momentum_datum", ""), i.get("rmtp", {}).get("R", 0))
+        elif view == "frisch":
+            _k = lambda i: (i.get("rmtp", {}).get("P", 0), i.get("rmtp", {}).get("M", 0), i.get("rmtp", {}).get("R", 0))
+        else:
+            _k = rang_sortkey
+        artist_list.sort(key=lambda kv: _k(artists_data.get(kv[0], {})), reverse=True)
     for row_start in range(0, len(artist_list), COLS_PER_ROW):
         row_items = artist_list[row_start:row_start + COLS_PER_ROW]
         # Nur so viele Spalten wie Einträge → keine leeren Spalten am Ende
