@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-11-08d"
+APP_BUILD = "2026-11-08e"
 
 # ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
 try:
@@ -1151,9 +1151,9 @@ if _show_nav:
         with st.expander("Was bedeuten R · M · T · P — und die Liga-Stufen?", expanded=False):
             st.markdown(
                 '<div style="font-size:0.8rem;color:#4F473B;line-height:1.7;">'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C44B3F;">R</span><b>Reputation</b> — bleibende Bedeutung: Museen · Galerien · Kunstgeschichte; Gegenprobe ArtFacts-Ranking</div>'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#6B7DB3;">M</span><b>Momentum</b> — was gerade passiert (letzte 12 Monate, mit Datum): Museums- und Kunstvereinssolo · Biennale · Preis/Shortlist · Stipendium · kuratierte Messe-Sektion · Galeriewechsel · Privatsammlung · Auktion · auch posthum</div>'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#5A9E5A;">T</span><b>Druckwert</b> — pro Blatt: Unikat (5) → Offset (1); zählt nur zum Blatt-Wert</div>'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C44B3F;">R</span><b>Reputation</b> — bleibende Bedeutung: internationale institutionelle Anerkennung (Museen, Kunsthallen, Galerien, Netzwerk); bei Verstorbenen die kunsthistorische Stellung. Ändert sich höchstens um 1 Punkt pro Jahr</div>'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#6B7DB3;">M</span><b>Momentum</b> — was gerade passiert, mit Datum (letzte 12 Monate und angekündigt): <b>5</b> Retrospektive · Biennale · großer Preis &nbsp;·&nbsp; <b>4</b> Museums-/Kunstvereinssolo · Stipendium · kuratierte Messe-Sektion · Einzelschau in einer Top-Galerie · Galeriewechsel · Privatsammlung &nbsp;·&nbsp; <b>3</b> normale Galerie- und Gruppenschauen. Auch posthum. <b>?</b> = nicht belegt (ungeprüft)</div>'
+                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#5A9E5A;">T</span><b>Druckwert</b> — pro Blatt: 5 Unikat · 4 Heliogravüre, Holzschnitt, Aquatinta · 3 Radierung, Lithografie, Linolschnitt · 2 Siebdruck, Fotografie · 1 Offset; zählt nur zum Blatt-Wert</div>'
                 '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C4993D;">P</span><b>Potenzial</b> — Einschätzung nach vorn (Karrierestufe, Signale); eine Prognose, wird nach 12 Monaten überprüft</div>'
                 '<div style="margin-top:0.55rem;padding-top:0.45rem;border-top:1px solid #E8E4DC;">'
                 '<b>Liga</b> (nur Reputation): '
@@ -1162,7 +1162,7 @@ if _show_nav:
                 '<span style="color:#5A9E5A;font-weight:700;">3</span> national etabliert (R3) &nbsp;·&nbsp; '
                 '<span style="color:#C4993D;font-weight:700;">4</span> am Anfang (R1–2)</div>'
                 '<div style="margin-top:0.35rem;"><b>Kanon</b> = Liga 1 &nbsp;·&nbsp; <b>Momentum</b> = M ≥ 4 mit datiertem Anlass &nbsp;·&nbsp; '
-                '<b>Frisch entdeckt</b> = R ≤ 3, junge Karriere, mind. zwei Signale in 24 Monaten, davon eines institutionell (Kunstverein, Preis, Stipendium, Biennale, Messe-Sektion)</div>'
+                '<b>Frisch entdeckt</b> = R ≤ 3, junge Karriere, mind. zwei Signale in 24 Monaten, davon eines institutionell (Kunstverein, Museum, Preis, Stipendium, Biennale, Messe-Sektion, Kuratorenlisten); dazu zählen Wechsel zu einer Top-Galerie und Privatsammlungen</div>''<div style="margin-top:0.35rem;">Die Zahl auf den Kacheln (z. B. 12/15) ist die Gesamtsumme R+M+P. &nbsp;·&nbsp; Bewertung Stand 11/2026</div>'
                 '</div>',
                 unsafe_allow_html=True
             )
@@ -1390,15 +1390,15 @@ def show_artist_detail(artist_name):
         parts.append(f'''<div class="rmtp-bar">
             <span class="rmtp-score-total">{total}/15</span>
             <span class="rmtp-pill rmtp-pill-r"><span class="rmtp-label">R</span> {r}</span>
-            <span class="rmtp-pill rmtp-pill-m"><span class="rmtp-label">M</span> {m}</span>
+            <span class="rmtp-pill rmtp-pill-m"><span class="rmtp-label">M</span> {m}{'?' if info.get("m_ungeprueft") else ''}</span>
             <span class="rmtp-pill rmtp-pill-p"><span class="rmtp-label">P</span> {p}</span>
         </div>''')
     _flags = []
     if has_momentum(info): _flags.append('<span style="background:#F8E3DD;color:#B5452F;border-radius:3px;padding:1px 7px;font-size:0.72rem;margin-right:5px;">Momentum</span>')
     if is_frisch(info): _flags.append('<span style="background:#E1EFE6;color:#2F6B4F;border-radius:3px;padding:1px 7px;font-size:0.72rem;margin-right:5px;">Frisch entdeckt</span>')
     _src = []
-    if info.get("artfacts"): _src.append(f'ArtFacts: {info["artfacts"]}')
     if info.get("bewertet_am"): _src.append(f'bewertet {info["bewertet_am"]}')
+    if info.get("m_ungeprueft"): _src.append('Momentum ungeprüft: keine aktuellen Anlässe belegt')
     if _flags or _src:
         parts.append('<div style="margin:0.2rem 0 0.5rem;">' + "".join(_flags) + (f'<span style="font-size:0.7rem;color:#8A8277;">{" · ".join(_src)}</span>' if _src else "") + '</div>')
     _an = info.get("anlaesse") or []
