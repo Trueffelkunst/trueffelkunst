@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-11-10b"
+APP_BUILD = "2026-11-10c"
 
 # ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
 try:
@@ -481,8 +481,8 @@ def kurator_zeile(info, n=3):
 def score_chip(info, size="0.8rem"):
     if not info.get("score"):
         return ""
-    return (f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:{size};color:#1B3A2A;">'
-            f'Nr. {tplatz(info)}</span><span style="font-size:0.66rem;color:#8A8277;margin-left:4px;">{tscore(info)} Pkt.</span>')
+    return (f'<span style="white-space:nowrap;"><span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:{size};color:#1B3A2A;">'
+            f'Nr. {tplatz(info)}</span><span style="font-size:0.66rem;color:#8A8277;margin-left:4px;">{tscore(info)} Pkt.</span></span>')
 
 # „liga“ trägt nur noch die Trüffel-Markierung (Top 20) für Rahmen und Abzeichen
 for name, info in artists_data.items():
@@ -1093,13 +1093,13 @@ if _show_nav:
         with _rowC[2]:
             if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
                 set_view("extern")
-        _rowD = st.columns(3)
+        _rowD = st.columns(2)
         with _rowD[0]:
             if st.button(f"**{len(set(w['artist'] for w in collection if kurator_punkte(artists_data.get(w['artist'], {}))))}**\n\nKURATORENBLICK", use_container_width=True, key="btn_kurator"):
                 set_view("kurator")
-        st.markdown('<div class="nav-group-label">Kontext</div>', unsafe_allow_html=True)
-        if st.button("**Kunstgeschichte**\n\nSTRÖMUNGEN & EPOCHEN", use_container_width=True, key="btn_kunstgeschichte"):
-            set_view("kunstgeschichte")
+        with _rowD[1]:
+            if st.button("**Kunstgeschichte**\n\nSTRÖMUNGEN & EPOCHEN", use_container_width=True, key="btn_kunstgeschichte"):
+                set_view("kunstgeschichte")
 
     # ── Aktive Kachel hellgrün hervorheben ──
     _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
@@ -2097,6 +2097,18 @@ elif view == "ranking":
 else:
     # ── Künstler·innen-Galerie: Portrait-Tiles im Grid ──
     filter_hint = f" — {view_label}" if view_label else ""
+    if view == "frisch":
+        st.markdown(
+            '<div style="font-size:0.8rem;color:#2F6B4F;background:#EEF6F0;border-left:3px solid #2F6B4F;padding:8px 12px;border-radius:0 4px 4px 0;margin-bottom:0.8rem;line-height:1.55;">'
+            '<b>So entsteht „Next Truffle“</b> – eine Wette darauf, wer am Markt steigen wird. Alle vier Bedingungen müssen erfüllt sein:'
+            '<ol style="margin:0.3rem 0 0.2rem;padding-left:1.2rem;">'
+            '<li>kunstgeschichtlich noch nicht gesetzt (Stufe „keine“),</li>'
+            '<li>junge Karriere: weniger als etwa 15 Jahre seit dem Studienabschluss,</li>'
+            '<li>mindestens zwei Signale in den letzten 24 Monaten,</li>'
+            '<li>davon mindestens eines institutionell: Einzelausstellung in Museum oder Kunstverein, Preis oder Shortlist, Biennale, kuratierte Messe-Sektion, große Museums-Gruppenschau oder Nennung auf einer Kuratorenliste (ArtReview „Future Greats“, Artsy „Vanguard“, Kunstkompass „Sterne von morgen“).</li>'
+            '</ol>Reine Galerieschauen und regionale Stipendien zählen nicht; ein Wechsel zu einer Top-Galerie oder ein Ankauf durch eine große Privatsammlung zählt als weiteres Signal. '
+            'Die blaue Zeile unter dem Namen zeigt, wer die Person früh entdeckt hat (Kuratorenblick).</div>',
+            unsafe_allow_html=True)
     _ranked = view in ("trueffel", "momentum", "frisch", "kurator", "bluechip", "meisterschueler")
     _sort_hint = ("nach Momentum · stärkster Anlass zuerst" if view == "momentum" else
                   "nach Potenzial und Momentum" if view == "frisch" else
@@ -2162,12 +2174,20 @@ else:
                         f'<div style="width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:#EDEAE5;color:#C0B8A8;font-size:2.5rem;font-family:Cormorant Garamond,Georgia,serif;border-radius:3px 3px 0 0;cursor:pointer;" {_click_js}>{initial}</div>',
                         unsafe_allow_html=True
                     )
+                # ── Meta line direkt unter dem Bild: Trüffel + Platz/Punkte | Werke ──
+                st.markdown(
+                    f'<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;column-gap:6px;margin:0.15rem 0 -0.35rem;padding:0 2px;">'
+                    f'<div style="white-space:nowrap;">{liga_badge_html} {score_html}</div>'
+                    f'<div style="font-size:0.68rem;color:#aaa;white-space:nowrap;">{len(works)} {works_label}</div>'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
                 # ── Name as clickable button ──
                 if st.button(f"{bc_dot}{artist_name}", key=f"tile_{artist_name}", use_container_width=True):
                     st.session_state.selected_artist = artist_name
                     st.rerun()
                 # ── Kuratorenblick: Grund unter dem Namen ──
-                if view == "kurator" and kurator_zeile(info):
+                if view in ("kurator", "frisch") and kurator_zeile(info):
                     st.markdown(
                         f'<div style="font-size:0.66rem;color:#6B7DB3;font-style:italic;'
                         f'margin:-0.15rem 0 0.35rem;padding:0 2px;line-height:1.3;">'
@@ -2185,14 +2205,8 @@ else:
                             f'Meisterschüler·in von {_tlabel}</div>',
                             unsafe_allow_html=True
                         )
-                # ── Meta line: Liga + Score | Werke ──
-                st.markdown(
-                    f'<div style="display:flex;justify-content:space-between;align-items:center;margin:-0.3rem 0 1rem;padding:0 2px;">'
-                    f'<div>{liga_badge_html} {score_html}</div>'
-                    f'<div style="font-size:0.68rem;color:#aaa;">{len(works)} {works_label}</div>'
-                    f'</div>',
-                    unsafe_allow_html=True
-                )
+                # ── Abstand zur nächsten Karte ──
+                st.markdown('<div style="height:0.9rem;"></div>', unsafe_allow_html=True)
 
 
 # ─── Footer ───
