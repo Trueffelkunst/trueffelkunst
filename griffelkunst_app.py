@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-11-10a"
+APP_BUILD = "2026-11-10b"
 
 # ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
 try:
@@ -451,10 +451,10 @@ def is_frisch(info):
 # ─── Trüffel-Score (Regelwerk v5, seit 10.11.2026) ───
 TRUEFFEL_TOP = 20
 SCORE_MAX = {"Kunstgeschichte": 50, "Museen": 50, "Sammlungen": 24, "Auktion": 20, "Großausstellungen": 20,
-             "Preise": 8, "Momentum": 8, "Privatsammlungen": 8, "Galerie": 6, "Bekanntheit": 5, "Tod": 3}
+             "Preise": 8, "Kurator": 8, "Momentum": 8, "Privatsammlungen": 8, "Galerie": 6, "Bekanntheit": 5, "Tod": 3}
 SCORE_LABEL = {"Kunstgeschichte": "Kunstgeschichte", "Museen": "Museumsausstellungen", "Sammlungen": "Museumssammlungen",
                "Auktion": "Auktionsrekord", "Großausstellungen": "documenta & Biennalen", "Preise": "Preise",
-               "Momentum": "Momentum", "Privatsammlungen": "Privatsammlungen", "Galerie": "Galerie",
+               "Momentum": "Momentum", "Privatsammlungen": "Privatsammlungen", "Galerie": "Galerie", "Kurator": "Kuratorisches Urteil",
                "Bekanntheit": "Bekanntheit", "Tod": "Nachlass"}
 
 def tscore(info):
@@ -469,6 +469,14 @@ def is_trueffel(info):
 def score_sortkey(info):
     """Sortierschlüssel 'beste zuerst' = Trüffel-Score."""
     return (tscore(info), -tplatz(info))
+
+def kurator_punkte(info):
+    return ((info.get("score") or {}).get("teile") or {}).get("Kurator", 0)
+
+def kurator_zeile(info, n=3):
+    _k = ((info.get("score") or {}).get("belege") or {}).get("kurator") or []
+    _k = sorted(_k, key=lambda e: (e.get("art") != "Kuratorische Liste", -(e.get("jahr") or 0)))
+    return " · ".join(f'{str(e.get("was") or "").split(" (")[0].replace("Kunstpreis der Böttcherstraße", "Böttcherstraße")} {e.get("jahr") or ""}'.strip() for e in _k[:n])
 
 def score_chip(info, size="0.8rem"):
     if not info.get("score"):
@@ -1008,7 +1016,7 @@ if "selected_werkstatt" not in st.session_state:
 if "selected_kunstepoche" not in st.session_state:
     st.session_state.selected_kunstepoche = None
 
-SCORE_VIEWS = {"künstler", "werke", "ranking", "trueffel", "momentum", "frisch", "bluechip", "meisterschueler"}
+SCORE_VIEWS = {"künstler", "werke", "ranking", "trueffel", "momentum", "frisch", "kurator", "bluechip", "meisterschueler"}
 
 def set_view(v):
     st.session_state.view = v
@@ -1026,10 +1034,10 @@ if _show_nav:
     st.markdown("""<style>
     .nav-group-label{font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:#B0A692;margin:0.6rem 0 0.15rem 3px;font-weight:600;}
     .st-key-btn_techniken button,.st-key-btn_bluechip button,.st-key-btn_meister button,
-    .st-key-btn_blatttyp button,.st-key-btn_druckwerkstatt button,.st-key-btn_extern button{
+    .st-key-btn_blatttyp button,.st-key-btn_druckwerkstatt button,.st-key-btn_extern button,.st-key-btn_kurator button{
       background:#FAF8F4 !important;border:1px solid #ECE7DE !important;}
     .st-key-btn_techniken button p,.st-key-btn_bluechip button p,.st-key-btn_meister button p,
-    .st-key-btn_blatttyp button p,.st-key-btn_druckwerkstatt button p,.st-key-btn_extern button p{
+    .st-key-btn_blatttyp button p,.st-key-btn_druckwerkstatt button p,.st-key-btn_extern button p,.st-key-btn_kurator button p{
       font-size:0.8rem !important;color:#6B6255 !important;}
     .st-key-btn_ranking button,.st-key-btn_trueffel button,.st-key-btn_momentum button,.st-key-btn_frisch button{background:#F3ECD9 !important;border:1px solid #D9C27A !important;}
     .st-key-btn_ranking button p,.st-key-btn_trueffel button p,.st-key-btn_momentum button p,.st-key-btn_frisch button p{color:#8A6D22 !important;}
@@ -1085,13 +1093,17 @@ if _show_nav:
         with _rowC[2]:
             if st.button(f"**{len(EXTERNAL_WORKS)}**\n\nWEITERE WERKE", use_container_width=True, key="btn_extern"):
                 set_view("extern")
+        _rowD = st.columns(3)
+        with _rowD[0]:
+            if st.button(f"**{len(set(w['artist'] for w in collection if kurator_punkte(artists_data.get(w['artist'], {}))))}**\n\nKURATORENBLICK", use_container_width=True, key="btn_kurator"):
+                set_view("kurator")
         st.markdown('<div class="nav-group-label">Kontext</div>', unsafe_allow_html=True)
         if st.button("**Kunstgeschichte**\n\nSTRÖMUNGEN & EPOCHEN", use_container_width=True, key="btn_kunstgeschichte"):
             set_view("kunstgeschichte")
 
     # ── Aktive Kachel hellgrün hervorheben ──
     _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
-                 "ranking": "btn_ranking", "trueffel": "btn_trueffel", "momentum": "btn_momentum", "frisch": "btn_frisch", "bluechip": "btn_bluechip", "meisterschueler": "btn_meister",
+                 "ranking": "btn_ranking", "trueffel": "btn_trueffel", "kurator": "btn_kurator", "momentum": "btn_momentum", "frisch": "btn_frisch", "bluechip": "btn_bluechip", "meisterschueler": "btn_meister",
                  "blatttyp": "btn_blatttyp", "extern": "btn_extern",
                  "druckwerkstaetten": "btn_druckwerkstatt", "kunstgeschichte": "btn_kunstgeschichte"}
     _active_key = _view_key.get(st.session_state.view)
@@ -1120,7 +1132,7 @@ if _show_nav:
                 f'<table style="margin:0.4rem 0 0.5rem;font-size:0.78rem;border-collapse:collapse;">{_rows}</table>'
                 '<div><b>Kunstgeschichte:</b> Weltrang 50 · international 25 · national 10. &nbsp;<b>Museumsausstellungen:</b> Einzelausstellung in einem großen Haus 2 (MoMA, Tate, Pompidou u. a. 3), Retrospektive +6, kleineres Haus 1. '
                 '&nbsp;<b>Museumssammlungen:</b> 2 je großes Haus (Griffelkunst-Blätter zählen nicht). &nbsp;<b>Auktionsrekord:</b> ab 10.000 € 4 bis ab 10 Mio. € 20. '
-                '&nbsp;<b>documenta & Biennalen:</b> documenta/Venedig 5, andere 2. &nbsp;<b>Privatsammlungen:</b> Besitz 2, nur Ausstellung 1. &nbsp;<b>Bekanntheit:</b> Zahl der Wikipedia-Sprachen. &nbsp;<b>Nachlass:</b> +3 nach dem Tod.</div>'
+                '&nbsp;<b>documenta & Biennalen:</b> documenta/Venedig 5, andere 2. &nbsp;<b>Privatsammlungen:</b> Besitz 2, nur Ausstellung 1; Firmensammlungen (Deutsche Bank, DZ BANK, Würth, Verbund) 1. &nbsp;<b>Kuratorisches Urteil:</b> je 2 für eine frühe Einzelausstellung (bis 45 Jahre) in einem Haus, das neue Positionen früh zeigt (z. B. Kunsthalle Basel, Portikus, Kunstverein München, Secession), und für eine Nennung durch Kuratorinnen und Kuratoren (ars viva, Böttcherstraße-Preis, Kunstkompass „Sterne von morgen“). &nbsp;<b>Bekanntheit:</b> Zahl der Wikipedia-Sprachen. &nbsp;<b>Nachlass:</b> +3 nach dem Tod.</div>'
                 '<div style="margin-top:0.5rem;padding-top:0.4rem;border-top:1px solid #E8E4DC;">'
                 '<b>Ranking</b> = alle nach Score &nbsp;·&nbsp; <b>Trüffel</b> = die besten 20 &nbsp;·&nbsp; '
                 '<b>Momentum</b> = gerade viel los (datierter Anlass der letzten 12 Monate, z. B. Museumssolo, Biennale, Preis) &nbsp;·&nbsp; '
@@ -1449,8 +1461,12 @@ def score_panel_html(info):
         det.append('<b>In Museumssammlungen</b><div style="margin:0.15rem 0 0.4rem;">' + " · ".join(_esc(x) for x in bl["sammlungen"]) + '</div>')
     if bl.get("privatsammlungen"):
         det.append('<b>Privatsammlungen</b>' + _li(
-            f'{_esc(e.get("sammlung"))}{" (Ausstellung)" if e.get("art") == "Ausstellung" else ""}{_qlink(e.get("quelle"))}'
+            f'{_esc(e.get("sammlung"))}{" · Firmensammlung" if any(k in str(e.get("sammlung","")).lower() for k in ("deutsche bank","dz bank","würth","verbund")) else ""}{" (Ausstellung)" if e.get("art") == "Ausstellung" else ""}{_qlink(e.get("quelle"))}'
             for e in bl["privatsammlungen"]))
+    if bl.get("kurator"):
+        det.append('<b>Kuratorisches Urteil</b>' + _li(
+            f'{_esc(e.get("was"))}{" " + str(e["jahr"]) if e.get("jahr") else ""}{" (frühe Einzelausstellung)" if e.get("art") == "Talentfinder-Solo" else ""}{_qlink(e.get("quelle"))}'
+            for e in bl["kurator"]))
     if bl.get("preise"):
         det.append('<b>Preise</b>' + _li(
             f'{_esc(e.get("was"))}{" " + str(e["jahr"]) if e.get("jahr") else ""}{_qlink(e.get("quelle"))}' for e in bl["preise"]))
@@ -1644,6 +1660,9 @@ elif view == "frisch":
 elif view == "bluechip":
     view_filtered = [w for w in filtered if w["isBlueChip"]]
     view_label = "Blue Chip"
+elif view == "kurator":
+    view_filtered = [w for w in filtered if kurator_punkte(artists_data.get(w["artist"], {}))]
+    view_label = "Kuratorenblick"
 elif view == "meisterschueler":
     view_filtered = [w for w in filtered if is_meisterschueler(w["artist"])]
     view_label = "Meisterschüler"
@@ -1730,7 +1749,7 @@ if st.session_state.selected_artist and st.session_state.selected_artist in arti
         ("🖼️ Gemeinsame Ausstellung", "Gemeinsame Ausstellung"),
         ("🎭 Gleiche Schule / Bewegung", "Gleiche Schule / Bewegung"),
         ("🏛️ Gemeinsame Galerie", "Gemeinsame Galerie"),
-        ("🗝️ Gleiche Privatsammlung", "Gleiche Privatsammlung"),
+        ("🗝️ Gleiche Privat- oder Firmensammlung", "Gleiche Privatsammlung"),
         ("🎓 Gleicher Lehrer", "Gleicher Lehrer"),
     ]
     _any = bool(_conns["Lehrer–Schüler"]) or any(_conns.get(_k) for _, _k in _dict_cats)
@@ -2078,9 +2097,10 @@ elif view == "ranking":
 else:
     # ── Künstler·innen-Galerie: Portrait-Tiles im Grid ──
     filter_hint = f" — {view_label}" if view_label else ""
-    _ranked = view in ("trueffel", "momentum", "frisch", "bluechip", "meisterschueler")
+    _ranked = view in ("trueffel", "momentum", "frisch", "kurator", "bluechip", "meisterschueler")
     _sort_hint = ("nach Momentum · stärkster Anlass zuerst" if view == "momentum" else
                   "nach Potenzial und Momentum" if view == "frisch" else
+                  "früh von Kuratorinnen und Kuratoren ausgewählt · stärkstes Urteil zuerst" if view == "kurator" else
                   "nach Trüffel-Score · beste zuerst" if _ranked else "alphabetisch nach Nachname")
     st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(artist_groups)} Künstler·innen · {len(view_filtered)} Werke{filter_hint} — {_sort_hint}</div>', unsafe_allow_html=True)
 
@@ -2091,6 +2111,8 @@ else:
     if _ranked:
         if view == "momentum":
             _k = lambda i: (i.get("rmtp", {}).get("M", 0), i.get("momentum_datum", ""), i.get("rmtp", {}).get("R", 0))
+        elif view == "kurator":
+            _k = lambda i: (kurator_punkte(i), tscore(i))
         elif view == "frisch":
             _k = lambda i: (i.get("rmtp", {}).get("P", 0), i.get("rmtp", {}).get("M", 0), i.get("rmtp", {}).get("R", 0))
         else:
@@ -2144,6 +2166,14 @@ else:
                 if st.button(f"{bc_dot}{artist_name}", key=f"tile_{artist_name}", use_container_width=True):
                     st.session_state.selected_artist = artist_name
                     st.rerun()
+                # ── Kuratorenblick: Grund unter dem Namen ──
+                if view == "kurator" and kurator_zeile(info):
+                    st.markdown(
+                        f'<div style="font-size:0.66rem;color:#6B7DB3;font-style:italic;'
+                        f'margin:-0.15rem 0 0.35rem;padding:0 2px;line-height:1.3;">'
+                        f'{kurator_zeile(info)}</div>',
+                        unsafe_allow_html=True
+                    )
                 # ── Meisterschüler·in von … (nur in der Meisterschüler-Ansicht) ──
                 if view == "meisterschueler":
                     _tset = _art_teachers.get(artist_name, set())
