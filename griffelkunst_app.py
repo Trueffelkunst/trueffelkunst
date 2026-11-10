@@ -311,7 +311,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-APP_BUILD = "2026-11-08f"
+APP_BUILD = "2026-11-10a"
 
 # ── iOS-Homescreen-Icon (apple-touch-icon) = Lempert-Tropfen ──
 try:
@@ -445,40 +445,49 @@ def has_momentum(info):
     return bool(info.get("momentum_aktiv")) and info.get("rmtp", {}).get("M", 0) >= 4
 
 def is_frisch(info):
-    """Next Truffle: R ≤ 3, junge Karriere, ≥2 Signale in 24 Monaten, davon ≥1 institutionell."""
-    return bool(info.get("frisch_entdeckt")) and info.get("rmtp", {}).get("R", 0) <= 3
+    """Next Truffle: kunstgeschichtlich noch nicht gesetzt, junge Karriere, ≥2 Signale in 24 Monaten, davon ≥1 institutionell."""
+    return bool(info.get("frisch_entdeckt")) and (info.get("score") or {}).get("kunstgeschichte", {}).get("stufe", "keine") == "keine"
 
-# ─── Liga dynamisch aus R+M+P berechnen (technikunabhängig) ───
-# Liga in artists_data aktualisieren
+# ─── Trüffel-Score (Regelwerk v5, seit 10.11.2026) ───
+TRUEFFEL_TOP = 20
+SCORE_MAX = {"Kunstgeschichte": 50, "Museen": 50, "Sammlungen": 24, "Auktion": 20, "Großausstellungen": 20,
+             "Preise": 8, "Momentum": 8, "Privatsammlungen": 8, "Galerie": 6, "Bekanntheit": 5, "Tod": 3}
+SCORE_LABEL = {"Kunstgeschichte": "Kunstgeschichte", "Museen": "Museumsausstellungen", "Sammlungen": "Museumssammlungen",
+               "Auktion": "Auktionsrekord", "Großausstellungen": "documenta & Biennalen", "Preise": "Preise",
+               "Momentum": "Momentum", "Privatsammlungen": "Privatsammlungen", "Galerie": "Galerie",
+               "Bekanntheit": "Bekanntheit", "Tod": "Nachlass"}
+
+def tscore(info):
+    return (info.get("score") or {}).get("punkte", 0)
+
+def tplatz(info):
+    return (info.get("score") or {}).get("platz", 999)
+
+def is_trueffel(info):
+    return tplatz(info) <= TRUEFFEL_TOP
+
+def score_sortkey(info):
+    """Sortierschlüssel 'beste zuerst' = Trüffel-Score."""
+    return (tscore(info), -tplatz(info))
+
+def score_chip(info, size="0.8rem"):
+    if not info.get("score"):
+        return ""
+    return (f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:{size};color:#1B3A2A;">'
+            f'Nr. {tplatz(info)}</span><span style="font-size:0.66rem;color:#8A8277;margin-left:4px;">{tscore(info)} Pkt.</span>')
+
+# „liga“ trägt nur noch die Trüffel-Markierung (Top 20) für Rahmen und Abzeichen
 for name, info in artists_data.items():
-    rmtp = info.get("rmtp", {})
-    if rmtp:
-        r = rmtp.get("R", 0)
-        art = rmtp.get("R", 0) + rmtp.get("M", 0) + rmtp.get("P", 0)
-        info["liga"] = liga_from_rmp(r, art)
-    else:
-        info["liga"] = ""
-
-# Spitze der Sammlung: reputationsgewichteter Rang (R×2+M+P) ≥ 17
-SPITZE_RANG_MIN = 17
-
-# Liga + Spitze in collection-Einträgen aktualisieren (aus Artist-Score)
+    info["liga"] = "Trüffel" if is_trueffel(info) else ""
 for w in collection:
-    artist_info = artists_data.get(w["artist"], {})
-    w["liga"] = artist_info.get("liga", "")
-    w["isSpitze"] = bool(artist_info.get("rmtp")) and rang_score(artist_info) >= SPITZE_RANG_MIN
+    w["liga"] = artists_data.get(w["artist"], {}).get("liga", "")
 
 # Stats dynamisch berechnen
 stats = {
     "totalWorks": len(collection),
     "totalArtists": len(set(w["artist"] for w in collection)),
-    "liga1": len(set(w["artist"] for w in collection if w["liga"] == "Liga 1")),
-    "liga2": len(set(w["artist"] for w in collection if w["liga"] == "Liga 2")),
-    "liga3": len(set(w["artist"] for w in collection if w["liga"] == "Liga 3")),
-    "liga4": len(set(w["artist"] for w in collection if w["liga"] == "Liga 4")),
     "blueChip": len(set(w["artist"] for w in collection if w["isBlueChip"])),
-    "spitze": len(set(w["artist"] for w in collection if w.get("isSpitze"))),
-    "kanon": len(set(w["artist"] for w in collection if w["liga"] == "Liga 1")),
+    "trueffel": len(set(w["artist"] for w in collection if is_trueffel(artists_data.get(w["artist"], {})))),
     "momentum": len(set(w["artist"] for w in collection if has_momentum(artists_data.get(w["artist"], {})))),
     "frisch": len(set(w["artist"] for w in collection if is_frisch(artists_data.get(w["artist"], {})))),
 }
@@ -529,7 +538,7 @@ st.markdown("""
         font-size: 0.7rem; color: #8A8A8A; text-transform: uppercase;
         letter-spacing: 0.1em; margin-top: 0.2rem;
     }
-    .liga-1 { color: #C44B3F; }
+    .liga-1 { color: #B8964E; }
     .liga-2 { color: #6B7DB3; }
     .liga-3 { color: #5A9E5A; }
     .liga-4 { color: #C4993D; }
@@ -541,7 +550,7 @@ st.markdown("""
         box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
     .work-card:hover { border-color: #B8964E; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    .work-card.liga-border-1 { border-left: 3px solid #C44B3F; }
+    .work-card.liga-border-1 { border-left: 3px solid #B8964E; }
     .work-card.liga-border-2 { border-left: 3px solid #6B7DB3; }
     .work-card.liga-border-3 { border-left: 3px solid #5A9E5A; }
     .work-card.liga-border-4 { border-left: 3px solid #C4993D; }
@@ -565,7 +574,7 @@ st.markdown("""
         border-radius: 2px; font-weight: 600; letter-spacing: 0.05em;
         margin-left: 8px; vertical-align: middle;
     }
-    .liga-badge-1 { background: #C44B3F; color: white; }
+    .liga-badge-1 { background: #B8964E; color: white; }
     .liga-badge-2 { background: #6B7DB3; color: white; }
     .liga-badge-3 { background: #5A9E5A; color: white; }
     .liga-badge-4 { background: #C4993D; color: white; }
@@ -625,7 +634,7 @@ st.markdown("""
         display: inline-block; font-size: 0.7rem; padding: 3px 10px;
         border-radius: 2px; font-weight: 600; letter-spacing: 0.04em; margin-right: 6px;
     }
-    .liga-detail-badge-1 { background: #C44B3F; color: white; }
+    .liga-detail-badge-1 { background: #B8964E; color: white; }
     .liga-detail-badge-2 { background: #6B7DB3; color: white; }
     .liga-detail-badge-3 { background: #5A9E5A; color: white; }
     .liga-detail-badge-4 { background: #C4993D; color: white; }
@@ -634,7 +643,7 @@ st.markdown("""
         padding: 0.8rem 1rem; margin: 0.5rem 0 1rem;
         font-size: 0.88rem; color: #444; line-height: 1.6; font-style: italic;
     }
-    .ranking-box.liga-accent-1 { border-left-color: #C44B3F; }
+    .ranking-box.liga-accent-1 { border-left-color: #B8964E; }
     .ranking-box.liga-accent-2 { border-left-color: #6B7DB3; }
     .ranking-box.liga-accent-3 { border-left-color: #5A9E5A; }
     .ranking-box.liga-accent-4 { border-left-color: #C4993D; }
@@ -769,33 +778,13 @@ st.markdown("""
 
 # ─── Helper Functions ───
 def compute_liga(artist_name):
-    """Liga aus R+M+T+P-Score berechnen — Reputation-gewichtet.
-    Liga 1: R≥4 UND R+M+P≥11 (große Namen mit solidem Editionswert)
-    Liga 2: R+M+P≥9 ODER R≥4 (hoher Editionswert oder großer Name)
-    Liga 3: R+M+P≥5
-    Liga 4: Rest
-    """
-    info = artists_data.get(artist_name, {})
-    rmtp = info.get("rmtp", {})
-    if not rmtp:
-        return ""
-    r = rmtp.get("R", 0)
-    art = rmtp.get("R", 0) + rmtp.get("M", 0) + rmtp.get("P", 0)
-    _lg = liga_from_rmp(r, art)
-    if _lg:
-        return _lg
-    return ""
+    return artists_data.get(artist_name, {}).get("liga", "")
 
 def get_liga_class(liga):
-    if liga == "Liga 1": return "1"
-    if liga == "Liga 2": return "2"
-    if liga == "Liga 3": return "3"
-    if liga == "Liga 4": return "4"
-    return "none"
+    return "1" if liga == "Trüffel" else "none"
 
 def get_liga_label(liga):
-    labels = {"Liga 1": "Kanon", "Liga 2": "International etabliert", "Liga 3": "National etabliert", "Liga 4": "Am Anfang"}
-    return labels.get(liga, "")
+    return "unter den besten 20" if liga == "Trüffel" else ""
 
 def get_source_label(source):
     labels = {"receipt": "Rechnung", "inventory": "Bestand", "catalog": "Katalog", "maybe": "Vielleicht"}
@@ -932,7 +921,6 @@ if monitoring_file.exists():
 # ─── Interactive Stats Bar ───
 unique_artists = len(set(w["artist"] for w in collection))
 blue_chip_count = len(set(w["artist"] for w in collection if w["isBlueChip"]))
-spitze_count = len(set(w["artist"] for w in collection if w.get("isSpitze")))
 
 # Meisterschüler zählen (aus Referenzdaten)
 def is_meisterschueler(name):
@@ -1020,7 +1008,7 @@ if "selected_werkstatt" not in st.session_state:
 if "selected_kunstepoche" not in st.session_state:
     st.session_state.selected_kunstepoche = None
 
-SCORE_VIEWS = {"künstler", "werke", "spitze", "momentum", "frisch", "liga1", "liga2", "liga3", "bluechip", "meisterschueler"}
+SCORE_VIEWS = {"künstler", "werke", "ranking", "trueffel", "momentum", "frisch", "bluechip", "meisterschueler"}
 
 def set_view(v):
     st.session_state.view = v
@@ -1038,15 +1026,13 @@ if _show_nav:
     st.markdown("""<style>
     .nav-group-label{font-size:0.62rem;letter-spacing:0.09em;text-transform:uppercase;color:#B0A692;margin:0.6rem 0 0.15rem 3px;font-weight:600;}
     .st-key-btn_techniken button,.st-key-btn_bluechip button,.st-key-btn_meister button,
-    .st-key-btn_blatttyp button,.st-key-btn_druckwerkstatt button,.st-key-btn_extern button,
-    .st-key-btn_liga1 button,.st-key-btn_liga2 button,.st-key-btn_liga3 button{
+    .st-key-btn_blatttyp button,.st-key-btn_druckwerkstatt button,.st-key-btn_extern button{
       background:#FAF8F4 !important;border:1px solid #ECE7DE !important;}
     .st-key-btn_techniken button p,.st-key-btn_bluechip button p,.st-key-btn_meister button p,
-    .st-key-btn_blatttyp button p,.st-key-btn_druckwerkstatt button p,.st-key-btn_extern button p,
-    .st-key-btn_liga1 button p,.st-key-btn_liga2 button p,.st-key-btn_liga3 button p{
+    .st-key-btn_blatttyp button p,.st-key-btn_druckwerkstatt button p,.st-key-btn_extern button p{
       font-size:0.8rem !important;color:#6B6255 !important;}
-    .st-key-btn_spitze button,.st-key-btn_momentum button,.st-key-btn_frisch button{background:#F3ECD9 !important;border:1px solid #D9C27A !important;}
-    .st-key-btn_spitze button p,.st-key-btn_momentum button p,.st-key-btn_frisch button p{color:#8A6D22 !important;}
+    .st-key-btn_ranking button,.st-key-btn_trueffel button,.st-key-btn_momentum button,.st-key-btn_frisch button{background:#F3ECD9 !important;border:1px solid #D9C27A !important;}
+    .st-key-btn_ranking button p,.st-key-btn_trueffel button p,.st-key-btn_momentum button p,.st-key-btn_frisch button p{color:#8A6D22 !important;}
     </style>""", unsafe_allow_html=True)
 
     # ── Ebene 1: Haupt-Ansichten ──
@@ -1058,35 +1044,25 @@ if _show_nav:
         if st.button(f"**{len(collection)}**\n\nWERKE", use_container_width=True, key="btn_werke"):
             set_view("werke")
 
-    # ── Auslese: Spitze der Sammlung (Reputation ≥ Rang 17) ──
-    st.markdown('<div class="nav-group-label">Auslese</div>', unsafe_allow_html=True)
-    _rowS = st.columns(3)
+    # ── Auslese: Trüffel-Score ──
+    st.markdown('<div class="nav-group-label">Auslese · Trüffel-Score</div>', unsafe_allow_html=True)
+    _rowS = st.columns(4)
     with _rowS[0]:
-        if st.button(f"**{stats['kanon']}**\n\nKANON", use_container_width=True, key="btn_spitze"):
-            set_view("spitze")
+        if st.button(f"**{unique_artists}**\n\nRANKING", use_container_width=True, key="btn_ranking"):
+            set_view("ranking")
     with _rowS[1]:
+        if st.button(f"**{stats['trueffel']}**\n\nTRÜFFEL", use_container_width=True, key="btn_trueffel"):
+            set_view("trueffel")
+    with _rowS[2]:
         if st.button(f"**{stats['momentum']}**\n\nMOMENTUM", use_container_width=True, key="btn_momentum"):
             set_view("momentum")
-    with _rowS[2]:
+    with _rowS[3]:
         if st.button(f"**{stats['frisch']}**\n\nNEXT TRUFFLE", use_container_width=True, key="btn_frisch"):
             set_view("frisch")
 
     # ── Weitere Sichten & Filter (zugeklappt; öffnet sich bei aktiver Auswahl) ──
-    _more_open = st.session_state.view not in ("künstler", "werke", "spitze", "momentum", "frisch")
+    _more_open = st.session_state.view not in ("künstler", "werke", "ranking", "trueffel", "momentum", "frisch")
     with st.expander("Weitere Sichten & Filter", expanded=_more_open):
-        # Liga (gebündelt)
-        st.markdown('<div class="nav-group-label">Liga · nach Rang</div>', unsafe_allow_html=True)
-        _rowL = st.columns(3)
-        with _rowL[0]:
-            if st.button(f"**{stats['liga1']}**\n\nLIGA 1", use_container_width=True, key="btn_liga1"):
-                set_view("liga1")
-        with _rowL[1]:
-            if st.button(f"**{stats['liga2']}**\n\nLIGA 2", use_container_width=True, key="btn_liga2"):
-                set_view("liga2")
-        with _rowL[2]:
-            if st.button(f"**{stats['liga3']}**\n\nLIGA 3", use_container_width=True, key="btn_liga3"):
-                set_view("liga3")
-
         # Sichten & Filter
         st.markdown('<div class="nav-group-label">Sichten &amp; Filter</div>', unsafe_allow_html=True)
         _rowB = st.columns(3)
@@ -1115,8 +1091,7 @@ if _show_nav:
 
     # ── Aktive Kachel hellgrün hervorheben ──
     _view_key = {"künstler": "btn_kuenstler", "werke": "btn_werke", "techniken": "btn_techniken",
-                 "spitze": "btn_spitze", "momentum": "btn_momentum", "frisch": "btn_frisch", "bluechip": "btn_bluechip", "meisterschueler": "btn_meister", "liga1": "btn_liga1",
-                 "liga2": "btn_liga2", "liga3": "btn_liga3",
+                 "ranking": "btn_ranking", "trueffel": "btn_trueffel", "momentum": "btn_momentum", "frisch": "btn_frisch", "bluechip": "btn_bluechip", "meisterschueler": "btn_meister",
                  "blatttyp": "btn_blatttyp", "extern": "btn_extern",
                  "druckwerkstaetten": "btn_druckwerkstatt", "kunstgeschichte": "btn_kunstgeschichte"}
     _active_key = _view_key.get(st.session_state.view)
@@ -1137,32 +1112,20 @@ if _show_nav:
 
     # Score-Legende nur in den Bewertungs-/Listen-Ansichten
     if st.session_state.view in SCORE_VIEWS:
-        st.markdown(
-            '<div style="text-align:center;margin:-0.3rem 0 0.35rem;font-family:Cormorant Garamond,Georgia,serif;color:#3F382E;letter-spacing:0.02em;">'
-            '<div style="display:flex;gap:1.1rem;justify-content:center;align-items:center;flex-wrap:wrap;font-size:0.86rem;font-weight:600;">'
-            '<span><span style="color:#C44B3F;">R</span> Reputation</span>'
-            '<span><span style="color:#6B7DB3;">M</span> Momentum</span>'
-            '<span><span style="color:#5A9E5A;">T</span> Druckwert</span>'
-            '<span><span style="color:#C4993D;">P</span> Potenzial</span>'
-            '<span style="font-weight:400;color:#8A8277;">Liga = Reputation · Gesamt = R+M+P (max 15) · Blatt-Wert = +T (max 20)</span>'
-            '</div></div>',
-            unsafe_allow_html=True
-        )
-        with st.expander("Was bedeuten R · M · T · P — und die Liga-Stufen?", expanded=False):
+        _rows = "".join(f'<tr><td style="padding:1px 10px 1px 0;">{SCORE_LABEL[k]}</td><td style="text-align:right;color:#8A6D22;font-weight:600;">bis {v}</td></tr>' for k, v in SCORE_MAX.items())
+        with st.expander("Wie entsteht der Trüffel-Score?", expanded=False):
             st.markdown(
-                '<div style="font-size:0.8rem;color:#4F473B;line-height:1.7;">'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C44B3F;">R</span><b>Reputation</b> — bleibende Bedeutung: internationale institutionelle Anerkennung (Museen, Kunsthallen, Galerien, Netzwerk); bei Verstorbenen die kunsthistorische Stellung. Ändert sich höchstens um 1 Punkt pro Jahr</div>'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#6B7DB3;">M</span><b>Momentum</b> — was gerade passiert, mit Datum (letzte 12 Monate und angekündigt): <b>5</b> Retrospektive · Biennale · großer Preis &nbsp;·&nbsp; <b>4</b> Museums-/Kunstvereinssolo · Stipendium · kuratierte Messe-Sektion · Einzelschau in einer Top-Galerie · Galeriewechsel · Privatsammlung &nbsp;·&nbsp; <b>3</b> normale Galerie- und Gruppenschauen. Auch posthum. <b>?</b> = nicht belegt (ungeprüft)</div>'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#5A9E5A;">T</span><b>Druckwert</b> — pro Blatt: 5 Unikat · 4 Heliogravüre, Holzschnitt, Aquatinta · 3 Radierung, Lithografie, Linolschnitt · 2 Siebdruck, Fotografie · 1 Offset; zählt nur zum Blatt-Wert</div>'
-                '<div><span style="display:inline-block;width:1.15rem;font-weight:700;color:#C4993D;">P</span><b>Potenzial</b> — Einschätzung nach vorn (Karrierestufe, Signale); eine Prognose, wird nach 12 Monaten überprüft</div>'
-                '<div style="margin-top:0.55rem;padding-top:0.45rem;border-top:1px solid #E8E4DC;">'
-                '<b>Liga</b> (nur Reputation): '
-                '<span style="color:#C44B3F;font-weight:700;">1</span> Kanon (R5) &nbsp;·&nbsp; '
-                '<span style="color:#6B7DB3;font-weight:700;">2</span> international etabliert (R4) &nbsp;·&nbsp; '
-                '<span style="color:#5A9E5A;font-weight:700;">3</span> national etabliert (R3) &nbsp;·&nbsp; '
-                '<span style="color:#C4993D;font-weight:700;">4</span> am Anfang (R1–2)</div>'
-                '<div style="margin-top:0.35rem;"><b>Kanon</b> = Liga 1 &nbsp;·&nbsp; <b>Momentum</b> = M ≥ 4 mit datiertem Anlass &nbsp;·&nbsp; '
-                '<b>Next Truffle</b> = R ≤ 3, junge Karriere, mind. zwei Signale in 24 Monaten, davon eines institutionell (Kunstverein, Museum, Preis, Stipendium, Biennale, Messe-Sektion, Kuratorenlisten); dazu zählen Wechsel zu einer Top-Galerie und Privatsammlungen</div>''<div style="margin-top:0.35rem;">Die Zahl auf den Kacheln (z. B. 12/15) ist die Gesamtsumme R+M+P. &nbsp;·&nbsp; Bewertung Stand 11/2026</div>'
+                '<div style="font-size:0.8rem;color:#4F473B;line-height:1.6;">'
+                '<div>Der Trüffel-Score ist unser eigenes Ranking. Er setzt sich aus belegten Punkten zusammen; jeder Wert hat eine Quelle.</div>'
+                f'<table style="margin:0.4rem 0 0.5rem;font-size:0.78rem;border-collapse:collapse;">{_rows}</table>'
+                '<div><b>Kunstgeschichte:</b> Weltrang 50 · international 25 · national 10. &nbsp;<b>Museumsausstellungen:</b> Einzelausstellung in einem großen Haus 2 (MoMA, Tate, Pompidou u. a. 3), Retrospektive +6, kleineres Haus 1. '
+                '&nbsp;<b>Museumssammlungen:</b> 2 je großes Haus (Griffelkunst-Blätter zählen nicht). &nbsp;<b>Auktionsrekord:</b> ab 10.000 € 4 bis ab 10 Mio. € 20. '
+                '&nbsp;<b>documenta & Biennalen:</b> documenta/Venedig 5, andere 2. &nbsp;<b>Privatsammlungen:</b> Besitz 2, nur Ausstellung 1. &nbsp;<b>Bekanntheit:</b> Zahl der Wikipedia-Sprachen. &nbsp;<b>Nachlass:</b> +3 nach dem Tod.</div>'
+                '<div style="margin-top:0.5rem;padding-top:0.4rem;border-top:1px solid #E8E4DC;">'
+                '<b>Ranking</b> = alle nach Score &nbsp;·&nbsp; <b>Trüffel</b> = die besten 20 &nbsp;·&nbsp; '
+                '<b>Momentum</b> = gerade viel los (datierter Anlass der letzten 12 Monate, z. B. Museumssolo, Biennale, Preis) &nbsp;·&nbsp; '
+                '<b>Next Truffle</b> = kunstgeschichtlich noch nicht gesetzt, junge Karriere, mind. zwei Signale in 24 Monaten, davon eines institutionell</div>'
+                '<div style="margin-top:0.35rem;color:#8A8277;">Stand 10.11.2026</div>'
                 '</div>',
                 unsafe_allow_html=True
             )
@@ -1322,6 +1285,61 @@ for _cn, _ci in artists_data.items():
     _art_movements[_cn] = set(lbl for lbl, kws in _MOVEMENTS if any(k in _clow for k in kws))
     _art_teachers[_cn] = _extract_teachers(_ci)
 
+# ── Querverbindungen aus den Belegen (Recherche 09./10.11.2026) ──
+_BIENNALEN = [("documenta", "documenta"), ("venedig", "Biennale Venedig"), ("venice", "Biennale Venedig"),
+              ("whitney", "Whitney Biennial"), ("skulptur projekte", "Skulptur Projekte Münster"), ("sydney", "Biennale of Sydney"),
+              ("carnegie", "Carnegie International"), ("gwangju", "Gwangju Biennale"), ("manifesta", "Manifesta"),
+              ("shanghai", "Shanghai Biennale"), ("lyon", "Biennale de Lyon"), ("istanbul", "Istanbul Biennale"),
+              ("liverpool", "Liverpool Biennial"), ("berlin biennale", "Berlin Biennale"), ("são paulo", "Bienal de São Paulo"),
+              ("sao paulo", "Bienal de São Paulo"), ("taipei", "Taipei Biennial"), ("busan", "Busan Biennale")]
+_PRIVAT = [("goetz", "Sammlung Goetz"), ("stoschek", "Julia Stoschek Collection"), ("boros", "Sammlung Boros"),
+           ("hoffmann", "Sammlung Hoffmann"), ("falckenberg", "Sammlung Falckenberg"), ("haubrok", "Sammlung Haubrok"),
+           ("grässlin", "Sammlung Grässlin"), ("würth", "Sammlung Würth"), ("burda", "Sammlung Frieder Burda"),
+           ("philara", "Sammlung Philara"), ("schauwerk", "Schauwerk Sindelfingen"), ("verbund", "Sammlung Verbund"),
+           ("deutsche bank", "Deutsche Bank Collection"), ("dz bank", "DZ BANK Kunstsammlung"), ("marx", "Sammlung Marx"),
+           ("froehlich", "Sammlung Froehlich"), ("essl", "Sammlung Essl"), ("schürmann", "Sammlung Schürmann"),
+           ("viehof", "Sammlung Viehof"), ("pinault", "Pinault Collection"), ("louis vuitton", "Fondation Louis Vuitton"),
+           ("broad", "The Broad"), ("rubell", "Rubell Museum"), ("zabludowicz", "Zabludowicz Collection"), ("saatchi", "Saatchi"),
+           ("prada", "Fondazione Prada"), ("sandretto", "Fondazione Sandretto Re Rebaudengo"), ("hall art", "Hall Art Foundation"),
+           ("ringier", "Sammlung Ringier"), ("daros", "Daros"), ("kadist", "Kadist")]
+_BEWEGUNG = [("Konzeptkunst", ["konzeptkunst", "neo-konzeptual", "wiener konzeptkunst"]), ("Institutionskritik", ["institutionskritik"]),
+             ("Pictures Generation", ["pictures"]), ("Neo-Expressionismus", ["neo-expressionismus", "neue wilde"]),
+             ("Post-Internet", ["post-internet"]), ("New British Sculpture", ["new british sculpture", "britische skulptur"]),
+             ("Konzeptuelle Fotografie", ["konzeptuelle fotografie", "post-becher"]), ("Feministische Kunst", ["feministisch"]),
+             ("Wiener Szene", ["wiener szene", "wiener konzept"]), ("Kollaborative Praxis", ["kollaborativ"])]
+_DOCUMENTA_NR = {1955: 1, 1959: 2, 1964: 3, 1968: 4, 1972: 5, 1977: 6, 1982: 7, 1987: 8, 1992: 9, 1997: 10,
+                 2002: 11, 2007: 12, 2012: 13, 2017: 14, 2022: 15}
+_art_shows = {}; _art_privat = {}
+for _cn, _ci in artists_data.items():
+    _bl = (_ci.get("score") or {}).get("belege") or {}
+    _sh = {}
+    for _e in _bl.get("grossausstellungen") or []:
+        _was = str(_e.get("was") or "").lower(); _jr = _e.get("jahr")
+        for _kw, _lbl in _BIENNALEN:
+            if _kw in _was and _jr:
+                _dn = _DOCUMENTA_NR.get(int(_jr)) if _lbl == "documenta" and str(_jr).isdigit() else None
+                _sh[f"documenta {_dn} ({_jr})" if _dn else f"{_lbl} {_jr}"] = True; break
+    _art_shows[_cn] = set(_sh)
+    _art_privat[_cn] = set(_lbl for _e in (_bl.get("privatsammlungen") or []) for _kw, _lbl in _PRIVAT
+                           if _kw in str(_e.get("sammlung") or "").lower().split("(")[0])
+    # aktuelle Galerien laut Recherche (frühere Galerien zählen nicht)
+    _gal = [g for g in ((_bl.get("galerie") or {}).get("namen") or []) if not str(g).lower().startswith("früher")]
+    if _gal:
+        _gs = set()
+        for _g in _gal:
+            _cn_hit = [_gn for _gn in _CANON_GALLERIES if _gn.lower() in str(_g).lower()]
+            if _cn_hit:
+                _gs.update(_cn_hit); continue
+            _b = re.sub(r"\(.*?\)", "", str(_g)).split(",")[0].strip()
+            _b = re.sub(r"^(Galerie|Galería|Galleria|Gallery)\s+|\s+(Galerie|Gallery)$", "", _b, flags=re.I).strip()
+            if len(_b) > 2:
+                _gs.add(_b)
+        _art_galleries[_cn] = _gs
+    # Bewegung aus der kunsthistorischen Einordnung
+    _bw = str(((_ci.get("score") or {}).get("kunstgeschichte") or {}).get("bewegung") or "").lower()
+    if _bw:
+        _art_movements[_cn] |= set(lbl for lbl, kws in _MOVEMENTS + _BEWEGUNG if any(k in _bw for k in kws))
+
 _artists_with_works = set(w["artist"] for w in collection)
 
 _MANUAL_CONN_MAP = {}
@@ -1358,7 +1376,92 @@ def derive_connections(name):
     _tm = {"Paar": "Paar", "Kollaboration": "Kollaboration", "Gruppenausstellung": "Gemeinsame Ausstellung"}
     for _o, _t, _note in _MANUAL_CONN_MAP.get(name, []):
         conns[_tm.get(_t, "Gemeinsame Ausstellung")][_o] = _note
+    conns["Gleiche Privatsammlung"] = {}
+    my_sh = _art_shows.get(name, set()); my_pv = _art_privat.get(name, set())
+    for other in _artists_with_works:
+        if other == name:
+            continue
+        _ssh = my_sh & _art_shows.get(other, set())
+        if _ssh and other not in conns["Gemeinsame Ausstellung"]:
+            conns["Gemeinsame Ausstellung"][other] = ", ".join(sorted(_ssh))
+        _spv = my_pv & _art_privat.get(other, set())
+        if _spv:
+            conns["Gleiche Privatsammlung"][other] = ", ".join(sorted(_spv))
     return conns
+
+
+# ─── Trüffel-Score-Panel (Künstlerseite) ───
+def _esc(x):
+    return str(x or "").replace("<", "&lt;").replace(">", "&gt;")
+
+def _qlink(url):
+    return f' <a href="{url}" target="_blank" rel="noopener" style="color:#B8964E;font-size:0.68rem;">Quelle</a>' if url else ""
+
+def score_panel_html(info):
+    sc = info.get("score")
+    if not sc:
+        return ""
+    t = sc.get("teile", {})
+    out = ['<div style="background:#FBF8F1;border:1px solid #E6DCC3;border-radius:6px;padding:0.7rem 0.9rem;margin:0.4rem 0 0.8rem;">']
+    out.append('<div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;">'
+               f'<span style="font-family:Cormorant Garamond,serif;font-size:1.7rem;font-weight:700;color:#1B3A2A;">{sc["punkte"]}</span>'
+               f'<span style="font-size:0.78rem;color:#6B6255;">Punkte im Trüffel-Score · Platz {sc["platz"]} von {len(artists_data)}</span>'
+               + '</div>')
+    bars = []
+    for k in sorted(SCORE_MAX, key=lambda k: -t.get(k, 0)):
+        v = t.get(k, 0)
+        if not v:
+            continue
+        pct = min(100, round(100 * v / SCORE_MAX[k]))
+        bars.append('<div style="display:flex;align-items:center;gap:8px;font-size:0.76rem;color:#4F473B;margin:2px 0;">'
+                    f'<span style="width:9.5rem;flex-shrink:0;">{SCORE_LABEL[k]}</span>'
+                    f'<span style="flex:1;max-width:220px;height:7px;background:#EEE7D6;border-radius:4px;overflow:hidden;"><span style="display:block;height:100%;width:{pct}%;background:#B8964E;"></span></span>'
+                    f'<span style="width:4.2rem;text-align:right;color:#8A6D22;font-weight:600;">{v} / {SCORE_MAX[k]}</span></div>')
+    out.append('<div style="margin-top:0.35rem;">' + "".join(bars) + '</div>')
+    kg = sc.get("kunstgeschichte") or {}
+    _st = {"weltrang": "Weltrang", "international": "international", "national": "national"}.get(kg.get("stufe"))
+    if _st:
+        out.append(f'<div style="font-size:0.78rem;color:#4F473B;margin-top:0.5rem;"><b>Kunstgeschichte: {_st}</b>'
+                   + (f' ({_esc(kg["bewegung"])})' if kg.get("bewegung") else '') + (f' – {_esc(kg["begruendung"])}' if kg.get("begruendung") else '')
+                   + "".join(_qlink(b.get("quelle")) for b in (kg.get("belege") or [])[:2]) + '</div>')
+    rk = sc.get("rekord")
+    if rk:
+        _e = f'{rk["eur"]:,.0f} €'.replace(",", ".")
+        _orig = f' ({_esc(rk["original"])})' if rk.get("original") and "EUR" not in str(rk.get("original")) else ""
+        out.append(f'<div style="font-size:0.78rem;color:#4F473B;margin-top:0.35rem;"><b>Auktionsrekord ({rk.get("art","")}):</b> {_e}{_orig}'
+                   + (f', {_esc(rk.get("werk"))}' if rk.get("werk") else '') + (f', {_esc(rk.get("haus"))}' if rk.get("haus") else '')
+                   + (f' {rk.get("jahr")}' if rk.get("jahr") else '') + _qlink(rk.get("quelle")) + '</div>')
+    if sc.get("editionspreise"):
+        out.append(f'<div style="font-size:0.72rem;color:#8A8277;margin-top:0.15rem;">Editionen typischerweise: {_esc(sc["editionspreise"])}</div>')
+    bl = sc.get("belege") or {}
+    det = []
+    def _li(items):
+        return '<ul style="margin:0.15rem 0 0.4rem;padding-left:1.1rem;">' + "".join(f'<li>{x}</li>' for x in items) + '</ul>'
+    if bl.get("museumssolos"):
+        det.append('<b>Einzelausstellungen in großen Museen</b>' + _li(
+            f'{_esc(e.get("haus"))}{" " + str(e["jahr"]) if e.get("jahr") else ""}{" · Retrospektive" if e.get("retrospektive") else ""}{_qlink(e.get("quelle"))}'
+            for e in sorted(bl["museumssolos"], key=lambda e: str(e.get("jahr") or ""), reverse=True)))
+    if bl.get("grossausstellungen"):
+        det.append('<b>documenta & Biennalen</b>' + _li(
+            f'{_esc(e.get("was"))}{" " + str(e["jahr"]) if e.get("jahr") else ""}{_qlink(e.get("quelle"))}'
+            for e in sorted(bl["grossausstellungen"], key=lambda e: str(e.get("jahr") or ""), reverse=True)))
+    if bl.get("sammlungen"):
+        det.append('<b>In Museumssammlungen</b><div style="margin:0.15rem 0 0.4rem;">' + " · ".join(_esc(x) for x in bl["sammlungen"]) + '</div>')
+    if bl.get("privatsammlungen"):
+        det.append('<b>Privatsammlungen</b>' + _li(
+            f'{_esc(e.get("sammlung"))}{" (Ausstellung)" if e.get("art") == "Ausstellung" else ""}{_qlink(e.get("quelle"))}'
+            for e in bl["privatsammlungen"]))
+    if bl.get("preise"):
+        det.append('<b>Preise</b>' + _li(
+            f'{_esc(e.get("was"))}{" " + str(e["jahr"]) if e.get("jahr") else ""}{_qlink(e.get("quelle"))}' for e in bl["preise"]))
+    if bl.get("weitere_solos"):
+        det.append(f'<b>Weitere Einzelausstellungen in Museen und Kunstvereinen</b><div style="margin:0.15rem 0 0.4rem;">'
+                   + " · ".join(f'{_esc(e.get("haus"))}{" " + str(e["jahr"]) if e.get("jahr") else ""}' for e in bl["weitere_solos"]) + '</div>')
+    if det:
+        out.append('<details style="margin-top:0.45rem;"><summary style="cursor:pointer;font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;color:#B8964E;outline:none;">Belege zum Score</summary>'
+                   '<div style="font-size:0.76rem;color:#4F473B;line-height:1.5;margin-top:0.35rem;">' + "".join(det) + '</div></details>')
+    out.append('</div>')
+    return "".join(out)
 
 
 # ─── Artist Detail Panel ───
@@ -1378,21 +1481,11 @@ def show_artist_detail(artist_name):
     parts = []
     parts.append('<div class="artist-panel">')
     parts.append(f'<div class="artist-name">{bc_dot}{artist_name}{liga_badge}</div>')
-    liga_num = liga_class if liga_class != "none" else ""
-    detail_line = f'<span class="liga-detail-badge liga-detail-badge-{liga_num}">{liga}</span> {liga_label} · {gender_label}' if liga else f'{gender_label}'
+    detail_line = (f'Nr. {tplatz(info)} von {len(artists_data)} · ' if info.get("score") else '') + gender_label
     if sig["deceased"]:
         detail_line += f' · <span class="artist-tag-deceased">{sig["deceased"]}</span>'
     parts.append(f'<div class="artist-tier">{detail_line}</div>')
-    rmtp = info.get("rmtp", {})
-    if rmtp:
-        r, m, p = rmtp.get("R",0), rmtp.get("M",0), rmtp.get("P",0)
-        total = r + m + p
-        parts.append(f'''<div class="rmtp-bar">
-            <span class="rmtp-score-total">{total}/15</span>
-            <span class="rmtp-pill rmtp-pill-r"><span class="rmtp-label">R</span> {r}</span>
-            <span class="rmtp-pill rmtp-pill-m"><span class="rmtp-label">M</span> {m}{'?' if info.get("m_ungeprueft") else ''}</span>
-            <span class="rmtp-pill rmtp-pill-p"><span class="rmtp-label">P</span> {p}</span>
-        </div>''')
+    parts.append(score_panel_html(info))
     _flags = []
     if has_momentum(info): _flags.append('<span style="background:#F8E3DD;color:#B5452F;border-radius:3px;padding:1px 7px;font-size:0.72rem;margin-right:5px;">Momentum</span>')
     if is_frisch(info): _flags.append('<span style="background:#E1EFE6;color:#2F6B4F;border-radius:3px;padding:1px 7px;font-size:0.72rem;margin-right:5px;">Next Truffle</span>')
@@ -1412,10 +1505,6 @@ def show_artist_detail(artist_name):
                      + _mb + f'<ul style="font-size:0.82rem;color:#4F473B;line-height:1.45;padding-left:1.1rem;margin:0 0 0.6rem;">{_li}</ul>')
     if info.get("frisch_begruendung") and is_frisch(info):
         parts.append(f'<div style="font-size:0.8rem;color:#2F6B4F;background:#EEF6F0;border-left:3px solid #2F6B4F;padding:6px 10px;border-radius:0 4px 4px 0;margin-bottom:0.6rem;"><b>Warum Next Truffle:</b> {info["frisch_begruendung"]}</div>')
-    _hist = info.get("rmtp_history") or []
-    if len(_hist) > 1:
-        _hr = " → ".join(f'{h.get("datum","")[:7]}: R{h.get("R")} M{h.get("M")} P{h.get("P")}' for h in _hist[-4:])
-        parts.append(f'<div style="font-size:0.68rem;color:#8A8277;margin:-0.2rem 0 0.6rem;">Verlauf: {_hr} · P ist eine Einschätzung</div>')
     if info.get("editions"):
         parts.append(f'<div class="editions-info">Editionen: {info["editions"]}</div>')
     artist_works = [w for w in collection if w["artist"] == artist_name]
@@ -1477,7 +1566,7 @@ def show_artist_detail(artist_name):
                 onerror = "this.style.display='none'"
                 img_parts.append(f'<a href="{iu}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{iu}" style="max-width: 260px; max-height: 200px; border: 1px solid #E8E5E0; border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);cursor:zoom-in;" loading="lazy" onerror="{onerror}"></a>')
             img_html = f'<div style="margin: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 8px;">{"".join(img_parts)}</div>'
-        _dw = technique_value((w.get("work","") or "") + " " + (w.get("technik","") or "")); _bval = artist_total(info) + _dw
+        _dw = technique_value((w.get("work","") or "") + " " + (w.get("technik","") or ""))
         _meta_bits = []
         if w.get("blattgroesse"): _meta_bits.append(f'&#128208; {w["blattgroesse"]}')
         if w.get("drucker"): _meta_bits.append(f'&#128424; {w["drucker"]}')
@@ -1493,7 +1582,7 @@ def show_artist_detail(artist_name):
                 '<div style="font-size:0.8rem;color:#5A5449;line-height:1.5;font-style:italic;margin-top:5px;border-left:2px solid #B8964E;background:#F3EFE7;border-radius:0 4px 4px 0;padding:6px 10px;">'
                 + _wi + '</div></details>'
             )
-        parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span>{_meta_html}{_werkidee_html}</div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span><div style="font-size:0.6rem;color:#B98;">Druckwert {_dw}/5 · Blatt {_bval}/20</div></div></div></div>')
+        parts.append(f'<div style="padding: 0.6rem 0; border-bottom: 1px solid #F5F4F0;">{img_html}<div style="display: flex; justify-content: space-between;"><div><span style="font-style: italic; color: #555; font-size: 0.85rem;">{w["work"]}</span> <span class="card-edition" style="margin-left: 8px;">{w["edition"]}</span> <span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span>{_meta_html}{_werkidee_html}</div><div style="text-align: right; white-space: nowrap;"><span class="card-date">{w["date"]}</span><div style="font-size:0.6rem;color:#B98;">Druckwert {_dw}/5</div></div></div></div>')
     parts.append('</div>')
     html = "\n".join(parts)
     st.markdown(html, unsafe_allow_html=True)
@@ -1514,9 +1603,7 @@ def artist_label(artist_name):
     info = artists_data.get(artist_name, {})
     liga = compute_liga(artist_name)
     bc = "● " if info.get("isBlueChip") else ""
-    rmtp = info.get("rmtp", {})
-    total = rmtp.get("total", 0)
-    score_str = f" ({total}/15)" if total > 0 else ""
+    score_str = f" (Nr. {tplatz(info)})" if info.get("score") else ""
     liga_str = f" · {liga}" if liga else ""
     return f"{bc}{artist_name}{liga_str}{score_str}"
 
@@ -1532,11 +1619,8 @@ def render_work_cards(works, card_key_prefix="card"):
             liga_badge = f'<span class="liga-badge liga-badge-{liga_class}">{w["liga"]}</span>'
         rmtp_badge = ""
         artist_info = artists_data.get(w["artist"], {})
-        rmtp = artist_info.get("rmtp", {})
-        if rmtp:
-            total = rmtp.get("total", 0)
-            color = "#C44B3F" if total >= 15 else "#6B7DB3" if total >= 12 else "#999"
-            rmtp_badge = f'<span style="float:right;font-size:0.75rem;font-weight:700;color:{color};">{total}/15</span>'
+        if artist_info.get("score"):
+            rmtp_badge = f'<span style="float:right;">{score_chip(artist_info, "0.75rem")}</span>'
         with card_cols[j % 2]:
             st.markdown(f'<div class="work-card liga-border-{liga_class}"><div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span></div><div><span class="card-date">{w["date"]}</span></div></div></div>', unsafe_allow_html=True)
             if st.button(f"{bc_dot}{w['artist']}", key=f"{card_key_prefix}_{j}", use_container_width=True):
@@ -1548,18 +1632,9 @@ def render_work_cards(works, card_key_prefix="card"):
 view = st.session_state.view
 
 # Apply view-based filtering on top of sidebar filters
-if view == "liga1":
-    view_filtered = [w for w in filtered if w["liga"] == "Liga 1"]
-    view_label = "Liga 1"
-elif view == "liga2":
-    view_filtered = [w for w in filtered if w["liga"] == "Liga 2"]
-    view_label = "Liga 2"
-elif view == "liga3":
-    view_filtered = [w for w in filtered if w["liga"] == "Liga 3"]
-    view_label = "Liga 3"
-elif view == "spitze":
-    view_filtered = [w for w in filtered if w["liga"] == "Liga 1"]
-    view_label = "Kanon"
+if view in ("ranking", "trueffel"):
+    view_filtered = [w for w in filtered if view == "ranking" or is_trueffel(artists_data.get(w["artist"], {}))]
+    view_label = "Ranking" if view == "ranking" else "Trüffel"
 elif view == "momentum":
     view_filtered = [w for w in filtered if has_momentum(artists_data.get(w["artist"], {}))]
     view_label = "Momentum"
@@ -1655,11 +1730,12 @@ if st.session_state.selected_artist and st.session_state.selected_artist in arti
         ("🖼️ Gemeinsame Ausstellung", "Gemeinsame Ausstellung"),
         ("🎭 Gleiche Schule / Bewegung", "Gleiche Schule / Bewegung"),
         ("🏛️ Gemeinsame Galerie", "Gemeinsame Galerie"),
+        ("🗝️ Gleiche Privatsammlung", "Gleiche Privatsammlung"),
         ("🎓 Gleicher Lehrer", "Gleicher Lehrer"),
     ]
     _any = bool(_conns["Lehrer–Schüler"]) or any(_conns.get(_k) for _, _k in _dict_cats)
     if _any:
-        st.markdown('<div style="font-family:Cormorant Garamond,serif;font-size:1.1rem;color:#1B3A2A;font-weight:700;margin:1.2rem 0 0.3rem;">Querverbindungen</div><div style="font-size:0.72rem;color:#998E7D;margin-bottom:0.5rem;">recherchierte (Paar · Kollaboration · Ausstellung) und aus den Daten abgeleitete (Schule · Galerie · Lehrer) Verbindungen — klickbar</div>', unsafe_allow_html=True)
+        st.markdown('<div style="font-family:Cormorant Garamond,serif;font-size:1.1rem;color:#1B3A2A;font-weight:700;margin:1.2rem 0 0.3rem;">Querverbindungen</div><div style="font-size:0.72rem;color:#998E7D;margin-bottom:0.5rem;">recherchierte (Paar · Kollaboration · Ausstellung), aus den Belegen (documenta & Biennalen · Galerie · Privatsammlung) und aus den Daten abgeleitete (Schule · Lehrer) Verbindungen — klickbar</div>', unsafe_allow_html=True)
         for _other, _role in sorted(_conns["Lehrer–Schüler"]):
             if st.button(f"🎓 {_role}: {_other}", key=f"conn_ls_{_other}", use_container_width=True):
                 st.session_state.selected_artist = _other; st.rerun()
@@ -1705,8 +1781,7 @@ elif view == "werke":
             if img_url:
                 img_html = f'<div style="margin:0.4rem 0;"><a href="{img_url}" target="_blank" rel="noopener" title="Größer anzeigen"><img src="{img_url}" style="width:100%;max-height:160px;object-fit:contain;border-radius:2px;background:#F8F7F4;cursor:zoom-in;" loading="lazy" onerror="this.style.display=\'none\'"></a></div>'
             _dw = technique_value((w.get("work","") or "") + " " + (w.get("technik","") or ""))
-            _bval = _info.get("rmtp", {}).get("total", 0) + _dw
-            _blatt_html = f'<div style="font-size:0.6rem;color:#B98;margin-top:3px;">Druckwert {_dw}/5 · Blatt {_bval}/20</div>' if _info.get("rmtp") else ""
+            _blatt_html = f'<div style="font-size:0.6rem;color:#B98;margin-top:3px;">Druckwert {_dw}/5</div>'
             with wcols[j % 3]:
                 st.markdown(f'<div class="work-card liga-border-{liga_class}" style="margin-top:-0.3rem;">{img_html}<div class="card-work">{w["work"]}</div><div class="card-details"><div><span class="card-edition">{w["edition"]}</span><span style="font-size: 0.65rem; color: #aaa; margin-left: 6px;">{technique}</span></div><div><span class="card-date">{w["date"]}</span></div></div>{_blatt_html}</div>', unsafe_allow_html=True)
         st.markdown('<div style="height:0.9rem;"></div>', unsafe_allow_html=True)
@@ -1737,7 +1812,7 @@ elif view == "kunstgeschichte":
             for _w in _lst: _by.setdefault(_w["artist"], []).append(_w)
             def _rk(a):
                 _i = artists_data.get(a, {})
-                return -(rang_score(_i) if _i.get("rmtp") else 0)
+                return -tscore(_i)
             for _ai, _a in enumerate(sorted(_by.keys(), key=lambda a:(_rk(a), a))):
                 _i = artists_data.get(_a, {}); _bd = "● " if _i.get("isBlueChip") else ""; _lg = _i.get("liga","")
                 if st.button(f"{_bd}{_a}" + (f"  ·  {_lg}" if _lg else ""), key=f"kg_{_kp}_{_ai}", use_container_width=True):
@@ -1882,14 +1957,11 @@ elif view == "extern":
         year_str = (" (" + w["year"] + ")") if w.get("year") else ""
         _info = artists_data.get(w["artist"], {})
         _liga = _info.get("liga", "")
-        _total = _info.get("rmtp", {}).get("total", 0)
         _dw = technique_value(w.get("technique","") or w.get("work",""))
-        _bval = _total + _dw
-        if _liga or _total:
+        if _info.get("score"):
             _lc = get_liga_class(_liga)
             _lb = f'<span class="liga-badge liga-badge-{_lc}">{_liga}</span>' if _liga else ""
-            _sc = f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:0.8rem;color:#1B3A2A;margin-left:6px;">Blatt {_bval}/20</span>' if _total else ""
-            score_html = f'<div style="margin:6px 0 2px;">{_lb}{_sc}<div style="font-size:0.6rem;color:#B98;margin-top:1px;">Künstler {_total}/15 · Druckwert {_dw}/5</div></div>'
+            score_html = f'<div style="margin:6px 0 2px;">{_lb}{score_chip(_info)}<div style="font-size:0.6rem;color:#B98;margin-top:1px;">Druckwert {_dw}/5</div></div>'
         else:
             score_html = '<div style="font-size:0.65rem;color:#bbb;margin:6px 0 2px;font-style:italic;">noch nicht bewertet</div>'
         with ext_cols[j % 3]:
@@ -1980,13 +2052,36 @@ elif view == "blatttyp":
                     st.markdown(f'<div style="width:100%;height:120px;overflow:hidden;border-radius:3px 3px 0 0;background:#F5F3EE;border:1px solid #E8E5E0;border-bottom:none;"><img src="{_s}" style="width:100%;height:120px;object-fit:contain;padding:4px;" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>', unsafe_allow_html=True)
                 if st.button(f"{t} ({len(ws)})", key=f"bt_{t}", use_container_width=True):
                     st.session_state.selected_blatttyp = t; st.rerun()
+elif view == "ranking":
+    # ── Ranking: alle nach Trüffel-Score ──
+    _rk = sorted(artist_groups.keys(), key=lambda a: tplatz(artists_data.get(a, {})))
+    st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 0.8rem; letter-spacing: 0.03em;">{len(_rk)} Künstler·innen nach Trüffel-Score — Name antippen für Punkte und Belege</div>', unsafe_allow_html=True)
+    _maxp = max((tscore(artists_data.get(a, {})) for a in _rk), default=1) or 1
+    for _a in _rk:
+        _i = artists_data.get(_a, {}); _t = (_i.get("score") or {}).get("teile", {})
+        _top = sorted(((v, k) for k, v in _t.items() if v), reverse=True)[:3]
+        if tplatz(_i) == TRUEFFEL_TOP + 1 and len(_rk) > TRUEFFEL_TOP:
+            st.markdown('<div style="text-align:center;font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:#B8964E;border-top:1px solid #D9C27A;margin:0.6rem 0 0.7rem;padding-top:0.35rem;">oben: Trüffel · die besten 20</div>', unsafe_allow_html=True)
+        _c1, _c2 = st.columns([5, 4])
+        with _c1:
+            if st.button(f"{tplatz(_i)} \u00b7 {_a}", key=f"rk_{_a}", use_container_width=True):
+                st.session_state.selected_artist = _a; st.rerun()
+        with _c2:
+            _flags = (' <span style="background:#F8E3DD;color:#B5452F;border-radius:3px;padding:0 5px;font-size:0.62rem;">Momentum</span>' if has_momentum(_i) else '') + \
+                     (' <span style="background:#E1EFE6;color:#2F6B4F;border-radius:3px;padding:0 5px;font-size:0.62rem;">Next Truffle</span>' if is_frisch(_i) else '')
+            st.markdown(
+                '<div style="margin-top:0.25rem;">'
+                f'<div style="display:flex;align-items:center;gap:8px;"><span style="flex:1;height:7px;background:#EEE7D6;border-radius:4px;overflow:hidden;"><span style="display:block;height:100%;width:{round(100*tscore(_i)/_maxp)}%;background:#B8964E;"></span></span>'
+                f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;color:#1B3A2A;width:2.2rem;text-align:right;">{tscore(_i)}</span></div>'
+                f'<div style="font-size:0.62rem;color:#8A8277;margin-top:1px;">' + " · ".join(f"{SCORE_LABEL[k]} {v}" for v, k in _top) + f'{_flags}</div></div>',
+                unsafe_allow_html=True)
 else:
     # ── Künstler·innen-Galerie: Portrait-Tiles im Grid ──
     filter_hint = f" — {view_label}" if view_label else ""
-    _ranked = view in ("spitze", "momentum", "frisch", "liga1", "liga2", "liga3", "bluechip", "meisterschueler")
+    _ranked = view in ("trueffel", "momentum", "frisch", "bluechip", "meisterschueler")
     _sort_hint = ("nach Momentum · stärkster Anlass zuerst" if view == "momentum" else
                   "nach Potenzial und Momentum" if view == "frisch" else
-                  "nach Rang · Reputation zuerst · beste zuerst" if _ranked else "alphabetisch nach Nachname")
+                  "nach Trüffel-Score · beste zuerst" if _ranked else "alphabetisch nach Nachname")
     st.markdown(f'<div style="font-size: 0.8rem; color: #8A8A8A; margin-bottom: 1rem; letter-spacing: 0.03em;">{len(artist_groups)} Künstler·innen · {len(view_filtered)} Werke{filter_hint} — {_sort_hint}</div>', unsafe_allow_html=True)
 
     # Render grid — Streamlit columns with portrait tiles
@@ -1999,7 +2094,7 @@ else:
         elif view == "frisch":
             _k = lambda i: (i.get("rmtp", {}).get("P", 0), i.get("rmtp", {}).get("M", 0), i.get("rmtp", {}).get("R", 0))
         else:
-            _k = rang_sortkey
+            _k = score_sortkey
         artist_list.sort(key=lambda kv: _k(artists_data.get(kv[0], {})), reverse=True)
     for row_start in range(0, len(artist_list), COLS_PER_ROW):
         row_items = artist_list[row_start:row_start + COLS_PER_ROW]
@@ -2009,13 +2104,11 @@ else:
             info = artists_data.get(artist_name, {})
             liga = info.get("liga", "")
             liga_class = get_liga_class(liga)
-            rmtp = info.get("rmtp", {})
-            total = rmtp.get("total", 0)
             bc_dot = "● " if info.get("isBlueChip") else ""
             liga_badge_html = ""
             if liga:
                 liga_badge_html = f'<span class="liga-badge liga-badge-{liga_class}" style="margin-left:0;">{liga}</span>'
-            score_html = f'<span style="font-family:Cormorant Garamond,serif;font-weight:700;font-size:0.8rem;color:#1B3A2A;">{total}/15</span>' if total > 0 else ""
+            score_html = score_chip(info)
             works_label = "Werk" if len(works) == 1 else "Werke"
 
             # Portrait für Tile; Fallback: erstes Werkbild des Künstlers
